@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. Fejezet – Digitális Jóllét Eszköztár | IMELO Toolbox</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: #f7f7fb;
+      color: #2c2c54;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* ===== TOP NAV BAR ===== */
+    .topbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 16px rgba(75,45,139,0.10);
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #f0ecfa;
+      color: #4B2D8B;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+    .back-btn:hover { background: #4B2D8B; color: #fff; }
+    .back-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+    .topbar-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+    }
+    .topbar-logo img { height: 52px; width: auto; }
+    .topbar-logo span {
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: #4B2D8B;
+    }
+    .chapter-badge {
+      background: linear-gradient(135deg, #4B2D8B, #2196F3);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.75rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      margin-top: 64px;
+      background: linear-gradient(135deg, #4B2D8B 0%, #2196F3 50%, #E8622A 100%);
+      padding: 3.5rem 2rem 3rem;
+      text-align: center;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 220px; height: 220px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; left: -40px;
+      width: 160px; height: 160px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.3rem 1rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+    }
+    .hero h1 {
+      font-size: clamp(1.6rem, 4vw, 2.6rem);
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+    .hero .subtitle {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+    }
+    .hero-meta {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      font-size: 0.85rem;
+      opacity: 0.85;
+    }
+    .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    /* ===== TABLE OF CONTENTS ===== */
+    .toc-section {
+      background: #fff;
+      border-bottom: 1px solid #e8e4f0;
+      padding: 1.5rem 2rem;
+    }
+    .toc-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .toc-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.75rem;
+    }
+    .toc-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .toc-links a {
+      background: #f0ecfa;
+      color: #4B2D8B;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.35rem 0.85rem;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .toc-links a:hover { background: #4B2D8B; color: #fff; }
+
+    /* ===== MAIN CONTENT ===== */
+    .main-content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 4rem;
+    }
+
+    /* ===== SECTION STYLES ===== */
+    .content-section {
+      margin-bottom: 3.5rem;
+      scroll-margin-top: 80px;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 3px solid #4B2D8B;
+    }
+    .section-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .section-header h2 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #2c2c54;
+    }
+    .section-header .section-sub {
+      font-size: 0.85rem;
+      color: #666;
+      font-weight: 600;
+    }
+
+    /* ===== INTRO BOX ===== */
+    .intro-box {
+      background: linear-gradient(135deg, #f0ecfa, #e8f4ff);
+      border-left: 4px solid #4B2D8B;
+      border-radius: 0 12px 12px 0;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+    }
+
+    /* ===== STAT CARDS ===== */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .stat-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 1.25rem 1rem;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(75,45,139,0.08);
+      border-top: 3px solid;
+    }
+    .stat-card .stat-num {
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .stat-card .stat-label {
+      font-size: 0.82rem;
+      color: #666;
+      font-weight: 600;
+    }
+
+    /* ===== FEATURE GRID ===== */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin: 1.25rem 0;
+    }
+    .feature-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 1.25rem;
+      box-shadow: 0 2px 12px rgba(75,45,139,0.07);
+      border-top: 3px solid;
+    }
+    .feature-card h3 {
+      font-size: 1rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .feature-card ul {
+      list-style: none;
+      padding: 0;
+    }
+    .feature-card ul li {
+      padding: 0.3rem 0;
+      padding-left: 1.2rem;
+      position: relative;
+      font-size: 0.9rem;
+      color: #444;
+    }
+    .feature-card ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: #4B2D8B;
+      font-weight: 700;
+    }
+
+    /* ===== HIGHLIGHT BADGE ===== */
+    .highlight-badge {
+      display: inline-block;
+      background: #fff3cd;
+      color: #856404;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 10px;
+      margin-left: 0.4rem;
+      vertical-align: middle;
+    }
+
+    /* ===== TWO-COL LAYOUT ===== */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin: 1.25rem 0;
+    }
+    @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
+
+    /* ===== IMAGE BLOCK ===== */
+    .image-block {
+      text-align: center;
+      margin: 1.5rem 0;
+    }
+    .image-block img {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .image-block.icon-block img {
+      max-width: 160px;
+      box-shadow: none;
+    }
+    .image-caption {
+      font-size: 0.82rem;
+      color: #888;
+      margin-top: 0.5rem;
+      font-style: italic;
+    }
+
+    /* ===== STEP LIST ===== */
+    .step-list {
+      counter-reset: steps;
+      list-style: none;
+      padding: 0;
+      margin: 1.25rem 0;
+    }
+    .step-list li {
+      counter-increment: steps;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 0.85rem 1rem;
+      background: #fff;
+      border-radius: 12px;
+      margin-bottom: 0.75rem;
+      box-shadow: 0 2px 8px rgba(75,45,139,0.06);
+    }
+    .step-list li::before {
+      content: counter(steps);
+      background: #4B2D8B;
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.85rem;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+    .step-list li .step-text { font-size: 0.93rem; color: #333; }
+    .step-list li strong { color: #2c2c54; }
+
+    /* ===== CALLOUT BOX ===== */
+    .callout {
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.25rem 0;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .callout.tip { background: #e8f5e9; border-left: 4px solid #43a047; }
+    .callout.warning { background: #fff8e1; border-left: 4px solid #ffa000; }
+    .callout.info { background: #e3f2fd; border-left: 4px solid #1976d2; }
+    .callout-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .callout-text { font-size: 0.93rem; }
+    .callout-text strong { display: block; margin-bottom: 0.25rem; font-size: 0.95rem; }
+
+    /* ===== VIDEO PLACEHOLDER ===== */
+    .video-placeholder {
+      background: linear-gradient(135deg, #2c2c54, #4B2D8B);
+      border-radius: 14px;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      color: #fff;
+      margin: 1.5rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .video-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .video-play-icon {
+      width: 64px;
+      height: 64px;
+      background: rgba(255,255,255,0.15);
+      border: 2px solid rgba(255,255,255,0.4);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 1.6rem;
+    }
+    .video-placeholder h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin-bottom: 0.4rem;
+    }
+    .video-placeholder p {
+      font-size: 0.85rem;
+      opacity: 0.75;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .video-coming-soon {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.3rem 1rem;
+      margin-top: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* ===== INTERACTIVE SELF-REFLECTION ===== */
+    .reflection-section {
+      background: linear-gradient(135deg, #f8f4ff, #f0f8ff);
+      border-radius: 16px;
+      padding: 2rem;
+      margin: 1.5rem 0;
+      border: 1px solid #e0d8f5;
+    }
+    .reflection-section h3 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #4B2D8B;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .reflection-section .reflection-intro {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 1.5rem;
+    }
+    .question-block {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 8px rgba(75,45,139,0.06);
+    }
+    .question-block label {
+      display: block;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #2c2c54;
+      margin-bottom: 0.75rem;
+    }
+    .question-block label span.q-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      background: #4B2D8B;
+      color: #fff;
+      border-radius: 50%;
+      font-size: 0.75rem;
+      font-weight: 800;
+      margin-right: 0.5rem;
+      flex-shrink: 0;
+    }
+    .scale-options {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.5rem;
+    }
+    .scale-options input[type="radio"] { display: none; }
+    .scale-options label {
+      cursor: pointer;
+      background: #f0ecfa;
+      color: #4B2D8B;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 20px;
+      transition: background 0.2s, color 0.2s;
+      border: 2px solid transparent;
+      margin: 0;
+    }
+    .scale-options input[type="radio"]:checked + label {
+      background: #4B2D8B;
+      color: #fff;
+      border-color: #4B2D8B;
+    }
+    .scale-options label:hover { background: #d8cef5; }
+    .text-answer {
+      width: 100%;
+      border: 2px solid #e0d8f5;
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.9rem;
+      color: #2c2c54;
+      resize: vertical;
+      min-height: 80px;
+      transition: border-color 0.2s;
+      background: #fafafa;
+    }
+    .text-answer:focus {
+      outline: none;
+      border-color: #4B2D8B;
+      background: #fff;
+    }
+    .checkbox-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.5rem;
+    }
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+    }
+    .checkbox-item input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: #4B2D8B;
+      cursor: pointer;
+    }
+    .checkbox-item span {
+      font-size: 0.88rem;
+      color: #444;
+    }
+    .reflection-result {
+      background: linear-gradient(135deg, #4B2D8B, #2196F3);
+      color: #fff;
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-top: 1.25rem;
+      display: none;
+    }
+    .reflection-result.visible { display: block; }
+    .reflection-result h4 { font-size: 1rem; margin-bottom: 0.5rem; }
+    .reflection-result p { font-size: 0.88rem; opacity: 0.9; }
+    .submit-reflection {
+      background: #4B2D8B;
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      padding: 0.75rem 2rem;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 0.95rem;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .submit-reflection:hover { background: #3a2070; transform: translateY(-1px); }
+
+    /* ===== DIGITAL DIARY ===== */
+    .diary-section {
+      background: #fff;
+      border-radius: 14px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 12px rgba(75,45,139,0.07);
+      margin: 1.25rem 0;
+    }
+    .diary-section h4 {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #2c2c54;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .diary-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+    @media (max-width: 600px) { .diary-row { grid-template-columns: 1fr; } }
+    .diary-field label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.3rem;
+    }
+    .diary-field input, .diary-field select {
+      width: 100%;
+      border: 2px solid #e0d8f5;
+      border-radius: 8px;
+      padding: 0.5rem 0.75rem;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.88rem;
+      color: #2c2c54;
+      background: #fafafa;
+      transition: border-color 0.2s;
+    }
+    .diary-field input:focus, .diary-field select:focus {
+      outline: none;
+      border-color: #4B2D8B;
+      background: #fff;
+    }
+    .add-diary-btn {
+      background: #f0ecfa;
+      color: #4B2D8B;
+      border: 2px dashed #c5b8e8;
+      border-radius: 10px;
+      padding: 0.6rem 1.25rem;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 0.5rem;
+    }
+    .add-diary-btn:hover { background: #e0d8f5; }
+
+    /* ===== SUMMARY / PRINCIPLES ===== */
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1.25rem 0;
+    }
+    .principle-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 1.25rem;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(75,45,139,0.07);
+      border-bottom: 3px solid;
+    }
+    .principle-card .p-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+    .principle-card h4 { font-size: 0.95rem; font-weight: 800; margin-bottom: 0.4rem; }
+    .principle-card p { font-size: 0.82rem; color: #666; }
+
+    /* ===== NEXT STEPS ===== */
+    .next-steps {
+      background: linear-gradient(135deg, #e8f5e9, #e3f2fd);
+      border-radius: 14px;
+      padding: 1.5rem;
+      margin: 1.25rem 0;
+    }
+    .next-steps h3 {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #2c2c54;
+      margin-bottom: 1rem;
+    }
+    .next-step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .next-step-item:last-child { border-bottom: none; }
+    .next-step-item .ns-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #4B2D8B;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+    .next-step-item .ns-text strong { display: block; font-size: 0.9rem; }
+    .next-step-item .ns-text span { font-size: 0.82rem; color: #555; }
+
+    /* ===== DOWNLOAD FOOTER ===== */
+    .download-footer {
+      background: #fff;
+      border-top: 1px solid #e8e4f0;
+      padding: 2rem;
+      text-align: center;
+    }
+    .download-footer-inner {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .download-footer h3 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #2c2c54;
+      margin-bottom: 0.5rem;
+    }
+    .download-footer p {
+      font-size: 0.88rem;
+      color: #666;
+      margin-bottom: 1.25rem;
+    }
+    .download-btns {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .dl-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.5rem;
+      border-radius: 25px;
+      font-weight: 800;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .dl-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+    .dl-btn.hu { background: linear-gradient(135deg, #4B2D8B, #6a3fc4); color: #fff; }
+    .dl-btn.en { background: linear-gradient(135deg, #1565c0, #2196F3); color: #fff; }
+    .dl-btn.ro { background: linear-gradient(135deg, #b71c1c, #e53935); color: #fff; }
+    .dl-btn svg { width: 18px; height: 18px; }
+
+    /* ===== EU FOOTER ===== */
+    .eu-footer {
+      background: #2c2c54;
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 1.25rem 2rem;
+      font-size: 0.78rem;
+      line-height: 1.5;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .topbar { padding: 0 1rem; }
+      .main-content { padding: 2rem 1rem 3rem; }
+      .hero { padding: 2.5rem 1rem 2rem; }
+      .toc-section { padding: 1rem; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .chapter-badge { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== TOP NAV ===== -->
+<div class="topbar">
+  <div class="topbar-left">
+    <a href="../index.html" class="back-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Vissza az Eszköztárhoz
+    </a>
+    <a href="../index.html" class="topbar-logo">
+      <img src="imelo_logo.png" alt="Identity Mosaic" />
+    </a>
+  </div>
+  <div class="chapter-badge">1. Fejezet · Digitális Jóllét</div>
+</div>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <div class="hero-tag">IMELO ESZKÖZTÁR · 1. FEJEZET</div>
+  <h1>Digitális Jóllét Eszköztár</h1>
+  <p class="subtitle">Útmutató az egészséges digitális élethez ifjúságsegítők és fiatalok számára</p>
+  <div class="hero-meta">
+    <span>📱 Digitális egyensúly</span>
+    <span>🧠 Tudatos médiahasználat</span>
+    <span>🌿 Offline életmód</span>
+  </div>
+</div>
+
+<!-- ===== TABLE OF CONTENTS ===== -->
+<div class="toc-section">
+  <div class="toc-inner">
+    <div class="toc-title">Tartalomjegyzék</div>
+    <div class="toc-links">
+      <a href="#sec-why">Miért fontos?</a>
+      <a href="#sec-media">Tudatos médiahasználat</a>
+      <a href="#sec-boundaries">Digitális határok</a>
+      <a href="#sec-offline">Offline tevékenységek</a>
+      <a href="#sec-detox">Digitális detox</a>
+      <a href="#sec-screentime">Képernyőidő</a>
+      <a href="#sec-safety">Digitális biztonság</a>
+      <a href="#sec-community">Pozitív közösségek</a>
+      <a href="#sec-reflection">Önreflexió</a>
+      <a href="#sec-summary">Összefoglalás</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="main-content">
+
+  <!-- 1. MIÉRT FONTOS -->
+  <section class="content-section" id="sec-why">
+    <div class="section-header">
+      <div class="section-icon" style="background:#e8f4ff;">🌐</div>
+      <div>
+        <h2>Miért fontos a digitális jóllét?</h2>
+        <div class="section-sub">A digitális eszközök hatása mindennapi életünkre</div>
+      </div>
+    </div>
+
+    <div class="intro-box">
+      A digitális eszközök mára életünk elválaszthatatlan részévé váltak, befolyásolva munkánkat, kapcsolatainkat és szabadidőnket. A <strong>tudatos használat kulcsfontosságú</strong> a mentális egészség megőrzéséhez és a digitális függőség elkerüléséhez.
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-card" style="border-color:#4B2D8B;">
+        <div class="stat-num" style="color:#4B2D8B;">4–5 óra</div>
+        <div class="stat-label">Napi átlagos képernyőidő felnőtteknél</div>
+      </div>
+      <div class="stat-card" style="border-color:#2196F3;">
+        <div class="stat-num" style="color:#2196F3;">70%</div>
+        <div class="stat-label">Fiatalok, akik este is nyomják a telefont</div>
+      </div>
+      <div class="stat-card" style="border-color:#E8622A;">
+        <div class="stat-num" style="color:#E8622A;">3×</div>
+        <div class="stat-label">Nagyobb a szorongás kockázata túlzott használatnál</div>
+      </div>
+    </div>
+
+    <div class="image-block">
+      <img src="images/chart_screentime.png" alt="Napi átlagos képernyőidő eloszlása kategóriánként" />
+      <div class="image-caption">Napi átlagos képernyőidő eloszlása – Közösségi média, Videók/Streaming, Böngészés, Játékok, Munka/Tanulás</div>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-icon">💡</div>
+      <div class="callout-text">
+        <strong>Ez az eszköztár gyakorlati megoldásokat kínál</strong>
+        a digitális egyensúly megteremtéséhez és fenntartásához – konkrét technikákkal, önreflexiós feladatokkal és napi rutinokkal.
+      </div>
+    </div>
+
+    <!-- VIDEO PLACEHOLDER -->
+    <div class="video-placeholder">
+      <div class="video-play-icon">▶</div>
+      <h3>Bevezető videó: Miért fontos a digitális jóllét?</h3>
+      <p>Rövid oktatóvideó a digitális eszközök hatásairól és a tudatos használat alapjairól</p>
+      <span class="video-coming-soon">🎬 Videó hamarosan elérhető</span>
+    </div>
+  </section>
+
+  <!-- 2. TUDATOS MÉDIAHASZNÁLAT -->
+  <section class="content-section" id="sec-media">
+    <div class="section-header">
+      <div class="section-icon" style="background:#f0ecfa;">📱</div>
+      <div>
+        <h2>Tudatos Médiahasználat</h2>
+        <div class="section-sub">Minőség a mennyiség helyett</div>
+      </div>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-card" style="border-color:#4B2D8B;">
+        <h3>🎯 Minőség a mennyiség helyett</h3>
+        <ul>
+          <li>Válaszd ki tudatosan, mit követsz</li>
+          <li>Unfollow-old a negatív tartalmakat</li>
+          <li>Keress inspiráló tartalmakat</li>
+          <li>Értékeld a tartalmak hasznosságát</li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#2196F3;">
+        <h3>⏱️ Időkorlátok beállítása</h3>
+        <ul>
+          <li>Használj képernyőidő-korlátozást</li>
+          <li>Állíts be napi limitet az appokhoz</li>
+          <li>Tervezd meg előre a használatot</li>
+          <li>Tarts rendszeres digitális szüneteket</li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#43a047;">
+        <h3>🔍 Kritikus gondolkodás</h3>
+        <ul>
+          <li>Kérdőjelezd meg az információkat</li>
+          <li>Ellenőrizd a források hitelességét</li>
+          <li>Ne hidd el azonnal, amit látsz</li>
+          <li>Fejleszd a médiaműveltségedet</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <div class="callout-icon">✅</div>
+      <div class="callout-text">
+        <strong>Ifjúságsegítői tipp</strong>
+        Kérd meg a fiatalokat, hogy egy héten át vezessenek naplót arról, milyen tartalmakat fogyasztanak naponta. Ez az egyszerű gyakorlat önmagában is növeli a tudatosságot.
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. DIGITÁLIS HATÁROK -->
+  <section class="content-section" id="sec-boundaries">
+    <div class="section-header">
+      <div class="section-icon" style="background:#fff3e0;">🚧</div>
+      <div>
+        <h2>Digitális Határok Megvonása</h2>
+        <div class="section-sub">Eszköz-mentes zónák és időbeosztás</div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="feature-card" style="border-color:#E8622A;">
+        <h3>🏠 Eszköz-mentes zónák</h3>
+        <ul>
+          <li>Hálószoba = telefon-mentes terület</li>
+          <li>Étkezések alatt nincs képernyő</li>
+          <li>Családi idő alatt offline mód</li>
+          <li>Kijelölt tech-mentes terek otthon</li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#9c27b0;">
+        <h3>🔔 Értesítések kezelése</h3>
+        <ul>
+          <li>Kapcsold ki a nem fontos értesítéseket</li>
+          <li>Állíts be "Ne zavarj" időszakokat</li>
+          <li>Csak sürgős alkalmazások értesíthetnek</li>
+          <li>Csoportosítsd az értesítéseket</li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#00897b;">
+        <h3>🕐 Időbeosztás</h3>
+        <ul>
+          <li>Reggeli és esti "digitális csendes órák"</li>
+          <li>Munkaidő alatt csak munka-appok</li>
+          <li>Hétvégi digitális szünet</li>
+          <li>Időblokkok kijelölése közösségi médiára</li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#1565c0;">
+        <h3>💬 Határok kommunikálása</h3>
+        <ul>
+          <li>Mondd el a szabályaidat másoknak</li>
+          <li>Ne érezz kötelezettséget azonnali válaszra</li>
+          <li>Tanítsd meg másoknak a határok tiszteletét</li>
+          <li>Állíts be automatikus válaszokat szükség esetén</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. OFFLINE TEVÉKENYSÉGEK -->
+  <section class="content-section" id="sec-offline">
+    <div class="section-header">
+      <div class="section-icon" style="background:#e8f5e9;">🌿</div>
+      <div>
+        <h2>Offline Tevékenységek Ösztönzése</h2>
+        <div class="section-sub">Az egyensúly megteremtése az online és offline világ között</div>
+      </div>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-card" style="border-color:#43a047;">
+        <h3>🏃 Fizikai aktivitás</h3>
+        <ul>
+          <li>Napi séta a természetben</li>
+          <li>Sport vagy mozgás</li>
+          <li>Kertészkedés, háztartási munkák</li>
+          <li>Kerékpározás, túrázás</li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#f57c00;">
+        <h3>🎨 Kreatív tevékenységek</h3>
+        <ul>
+          <li>Olvasás (fizikai könyvek)</li>
+          <li>Kézműves foglalkozások</li>
+          <li>Zene, rajzolás, írás</li>
+          <li>Főzés, sütés, új receptek kipróbálása</li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#1565c0;">
+        <h3>👥 Társas kapcsolatok</h3>
+        <ul>
+          <li>Személyes találkozók barátokkal</li>
+          <li>Családi programok</li>
+          <li>Közösségi rendezvények</li>
+          <li>Társasjátékok, kártyajátékok</li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#7b1fa2;">
+        <h3>🧘 Mindfulness gyakorlatok</h3>
+        <ul>
+          <li>Meditáció</li>
+          <li>Légzőgyakorlatok</li>
+          <li>Jóga vagy stretching</li>
+          <li>Naplóírás, hálagyakorlatok</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="two-col" style="margin-top:1.5rem;">
+      <div class="image-block icon-block">
+        <img src="images/icon_reading.png" alt="Olvasás ikon" />
+        <div class="image-caption">Offline olvasás – a digitális detox egyik legjobb módja</div>
+      </div>
+      <div class="image-block icon-block">
+        <img src="images/icon_mindfulness.png" alt="Mindfulness ikon" />
+        <div class="image-caption">Meditáció és tudatos jelenlét</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. DIGITÁLIS DETOX -->
+  <section class="content-section" id="sec-detox">
+    <div class="section-header">
+      <div class="section-icon" style="background:#fce4ec;">🔋</div>
+      <div>
+        <h2>Digitális Detox Technikák</h2>
+        <div class="section-sub">Fokozatos leválás és feltöltődés</div>
+      </div>
+    </div>
+
+    <ol class="step-list">
+      <li><div class="step-text"><strong>Fokozatos csökkentés:</strong> Ne próbálj meg azonnal teljesen leállni – csökkentsd naponta 15-30 perccel a képernyőidőt.</div></li>
+      <li><div class="step-text"><strong>Digitális szombat:</strong> Hetente egy napot jelölj ki, amikor minimálisra csökkented az eszközhasználatot.</div></li>
+      <li><div class="step-text"><strong>Reggeli rutin:</strong> Az első 30 percben ne nyúlj a telefonodhoz – kezdd a napot tudatosan.</div></li>
+      <li><div class="step-text"><strong>Esti lekapcsolás:</strong> Lefekvés előtt 1 órával tedd le az eszközöket – a kék fény zavarja az alvást.</div></li>
+      <li><div class="step-text"><strong>Értesítések kikapcsolása:</strong> Kapcsold ki az összes nem sürgős értesítést – te döntsd el, mikor nézel rá a telefonra.</div></li>
+      <li><div class="step-text"><strong>Fizikai könyv:</strong> Cseréld le az esti görgetést egy fizikai könyv olvasására.</div></li>
+    </ol>
+
+    <div class="callout warning">
+      <div class="callout-icon">⚠️</div>
+      <div class="callout-text">
+        <strong>Fontos tudni</strong>
+        A digitális detox nem azt jelenti, hogy teljesen le kell mondani a technológiáról. A cél a <em>tudatos és kiegyensúlyozott</em> használat kialakítása.
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. KÉPERNYŐIDŐ MENEDZSMENT -->
+  <section class="content-section" id="sec-screentime">
+    <div class="section-header">
+      <div class="section-icon" style="background:#e3f2fd;">⏰</div>
+      <div>
+        <h2>Képernyőidő Menedzsment</h2>
+        <div class="section-sub">Eszközök és stratégiák a tudatos időgazdálkodáshoz</div>
+      </div>
+    </div>
+
+    <div class="image-block">
+      <img src="images/chart_daily.png" alt="Napi átlagos képernyőidő" />
+      <div class="image-caption">Napi átlagos képernyőidő (órában) – különböző tevékenységek szerint</div>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-card" style="border-color:#2196F3;">
+        <h3>📊 Mérés és nyomon követés</h3>
+        <ul>
+          <li>Telefonos képernyőidő funkció használata</li>
+          <li>Digitális jóllét alkalmazások telepítése</li>
+          <li>Heti adatok rendszeres áttekintése</li>
+          <li>Produktív vs. szórakoztató használat megkülönböztetése</li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#43a047;">
+        <h3>🎯 Célok és korlátok</h3>
+        <ul>
+          <li>Napi limit beállítása appokhoz</li>
+          <li>Értesítés, ha elérted a limitet</li>
+          <li>Grayscale mód bekapcsolása</li>
+          <li>Appok törlése, ha nem szükségesek</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- VIDEO PLACEHOLDER -->
+    <div class="video-placeholder">
+      <div class="video-play-icon">▶</div>
+      <h3>Képernyőidő kezelése – Praktikus tippek</h3>
+      <p>Videó a telefonos képernyőidő-kezelő funkciók használatáról és a tudatos időgazdálkodásról</p>
+      <span class="video-coming-soon">🎬 Videó hamarosan elérhető</span>
+    </div>
+  </section>
+
+  <!-- 7. DIGITÁLIS BIZTONSÁG -->
+  <section class="content-section" id="sec-safety">
+    <div class="section-header">
+      <div class="section-icon" style="background:#fce4ec;">🔒</div>
+      <div>
+        <h2>Digitális Biztonság és Adatvédelem</h2>
+        <div class="section-sub">Online biztonság és személyes adatok védelme</div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="feature-card" style="border-color:#c62828;">
+        <h3>🛡️ Adatvédelem <span class="highlight-badge">Fontos</span></h3>
+        <ul>
+          <li>Erős jelszavak használata</li>
+          <li>Kétfaktoros hitelesítés bekapcsolása</li>
+          <li>Magánélet beállítások rendszeres ellenőrzése</li>
+          <li>Jelszavak rendszeres frissítése</li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#e65100;">
+        <h3>📰 Fake news felismerése <span class="highlight-badge">Fontos</span></h3>
+        <ul>
+          <li>Források ellenőrzése</li>
+          <li>Kritikus gondolkodás fejlesztése</li>
+          <li>Megosztás előtt ellenőrzés</li>
+          <li>Több forrás összehasonlítása</li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#6a1b9a;">
+        <h3>👣 Digitális lábnyom</h3>
+        <ul>
+          <li>Gondold át, mit osztasz meg</li>
+          <li>Töröld a régi, nem kívánatos tartalmakat</li>
+          <li>Építsd tudatosan az online imázsodat</li>
+          <li>Süti- és nyomkövetés-beállítások kezelése</li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#1565c0;">
+        <h3>🚫 Cyberbullying elleni védelem <span class="highlight-badge">Fontos</span></h3>
+        <ul>
+          <li>Jelentsd a zaklatást</li>
+          <li>Blokkolj és távolítsd el a negatív kapcsolatokat</li>
+          <li>Kérj segítséget, ha szükséges</li>
+          <li>Ne válaszolj a provokációkra</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="image-block icon-block">
+      <img src="images/icon_cyberbullying.png" alt="Cyberbullying ikon" />
+      <div class="image-caption">A cyberbullying felismerése és kezelése – fontos téma fiatalok körében</div>
+    </div>
+  </section>
+
+  <!-- 8. POZITÍV DIGITÁLIS KÖZÖSSÉGEK -->
+  <section class="content-section" id="sec-community">
+    <div class="section-header">
+      <div class="section-icon" style="background:#e8f5e9;">🤝</div>
+      <div>
+        <h2>Pozitív Digitális Közösségek</h2>
+        <div class="section-sub">Egészséges online kapcsolatok építése</div>
+      </div>
+    </div>
+
+    <div class="intro-box">
+      A pozitív digitális közösségek kialakítása <strong>tudatos döntéseket és aktív részvételt</strong> igényel. Az online tér is lehet támogató, inspiráló és értékteremtő – ha tudatosan alakítjuk.
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-card" style="border-color:#43a047;">
+        <h3>💚 Autentikus kapcsolatok</h3>
+        <ul>
+          <li>Légy őszinte és valódi online is <span class="highlight-badge">Fontos</span></li>
+          <li>Kerüld a túlzott önreklámozást</li>
+          <li>Mutasd meg az igazi személyiségedet</li>
+          <li>Vállald a sebezhetőséget megfelelő mértékben</li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#2196F3;">
+        <h3>💬 Építő kommunikáció</h3>
+        <ul>
+          <li>Pozitív kommentek írása</li>
+          <li>Mások támogatása és bíztatása</li>
+          <li>Konstruktív visszajelzések adása</li>
+          <li>Aktív hallgatás és empátia <span class="highlight-badge">Fontos</span></li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#f57c00;">
+        <h3>📢 Értékes tartalom megosztása</h3>
+        <ul>
+          <li>Ossz meg hasznos információkat</li>
+          <li>Inspirálj másokat <span class="highlight-badge">Fontos</span></li>
+          <li>Kerüld a negatív vagy káros tartalmakat</li>
+          <li>Ellenőrizd a forrásokat megosztás előtt</li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#7b1fa2;">
+        <h3>🎯 Célzott közösségek</h3>
+        <ul>
+          <li>Csatlakozz a hobbijaidhoz kapcsolódó csoportokhoz</li>
+          <li>Keress szakmai networking lehetőségeket</li>
+          <li>Építs kapcsolatokat hasonló értékrendű emberekkel <span class="highlight-badge">Fontos</span></li>
+          <li>Vegyél részt aktívan a közösség életében</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. ÖNREFLEXIÓ ÉS MONITORING – INTERAKTÍV -->
+  <section class="content-section" id="sec-reflection">
+    <div class="section-header">
+      <div class="section-icon" style="background:#f3e5f5;">🪞</div>
+      <div>
+        <h2>Önreflexió és Monitoring</h2>
+        <div class="section-sub">Saját digitális szokások nyomon követése</div>
+      </div>
+    </div>
+
+    <div class="intro-box">
+      A digitális eszközhasználat tudatosításának első lépése a <strong>pontos mérés</strong>. Ismerd meg, mennyi időt töltesz különböző alkalmazásokban és platformokon – ez az önismeret alapja.
+    </div>
+
+    <!-- INTERAKTÍV ÖNÉRTÉKELŐ KÉRDÉSEK -->
+    <div class="reflection-section">
+      <h3>🧩 Önértékelő kérdések – Digitális szokásaim</h3>
+      <p class="reflection-intro">Töltsd ki az alábbi kérdőívet, hogy képet kapj jelenlegi digitális szokásaidról. A válaszok csak a te böngésződben maradnak – nem kerülnek sehova.</p>
+
+      <div class="question-block">
+        <label><span class="q-num">1</span> Naponta átlagosan mennyi időt töltesz közösségi médiával?</label>
+        <div class="scale-options">
+          <input type="radio" name="q1" id="q1a" value="1"><label for="q1a">Kevesebb mint 1 óra</label>
+          <input type="radio" name="q1" id="q1b" value="2"><label for="q1b">1–2 óra</label>
+          <input type="radio" name="q1" id="q1c" value="3"><label for="q1c">2–4 óra</label>
+          <input type="radio" name="q1" id="q1d" value="4"><label for="q1d">Több mint 4 óra</label>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <label><span class="q-num">2</span> Milyen érzéssel teszed le a telefont egy hosszabb görgetés után?</label>
+        <div class="scale-options">
+          <input type="radio" name="q2" id="q2a" value="1"><label for="q2a">Feltöltve, inspirálva</label>
+          <input type="radio" name="q2" id="q2b" value="2"><label for="q2b">Semleges</label>
+          <input type="radio" name="q2" id="q2c" value="3"><label for="q2c">Kissé fáradtan</label>
+          <input type="radio" name="q2" id="q2d" value="4"><label for="q2d">Kiürülve, szorongva</label>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <label><span class="q-num">3</span> Milyen offline tevékenységeket végzel rendszeresen? (Több is választható)</label>
+        <div class="checkbox-group">
+          <label class="checkbox-item"><input type="checkbox" name="q3" value="sport"><span>Sport, mozgás</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="q3" value="olvasas"><span>Olvasás (könyv)</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="q3" value="kreativ"><span>Kreatív alkotás</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="q3" value="tarsas"><span>Személyes találkozók</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="q3" value="termeszet"><span>Természetjárás</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="q3" value="meditacio"><span>Meditáció, jóga</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="q3" value="semmi"><span>Általában semmi</span></label>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <label><span class="q-num">4</span> Mi az, amin a legtöbbet szeretnél változtatni digitális szokásaidban?</label>
+        <textarea class="text-answer" name="q4" placeholder="Írd le gondolataidat... (pl. kevesebb TikTok, több alvás, reggeli telefon nélkül)"></textarea>
+      </div>
+
+      <div class="question-block">
+        <label><span class="q-num">5</span> Mennyire érzed magad kontrollban a digitális eszközhasználatod felett? (1 = egyáltalán nem, 5 = teljesen)</label>
+        <div class="scale-options">
+          <input type="radio" name="q5" id="q5a" value="1"><label for="q5a">1</label>
+          <input type="radio" name="q5" id="q5b" value="2"><label for="q5b">2</label>
+          <input type="radio" name="q5" id="q5c" value="3"><label for="q5c">3</label>
+          <input type="radio" name="q5" id="q5d" value="4"><label for="q5d">4</label>
+          <input type="radio" name="q5" id="q5e" value="5"><label for="q5e">5</label>
+        </div>
+      </div>
+
+      <button class="submit-reflection" onclick="showReflectionResult()">Visszajelzés kérése ›</button>
+
+      <div class="reflection-result" id="reflectionResult">
+        <h4>🌟 Köszönöm a válaszaidat!</h4>
+        <p>Az önreflexió első lépése a tudatosság. Nézd meg a válaszaidat, és gondold végig: melyik az a <strong>egy dolog</strong>, amin a legkönnyebben tudnál változtatni a következő héten? Kezdj kicsiben – egy kis változás is nagy különbséget hozhat!</p>
+      </div>
+    </div>
+
+    <!-- DIGITÁLIS NAPLÓ -->
+    <div class="diary-section">
+      <h4>📓 Digitális Napló – Heti nyomon követés</h4>
+      <p style="font-size:0.88rem;color:#666;margin-bottom:1rem;">Kövesd nyomon a napi képernyőidődet és az offline tevékenységeidet. A beírt adatok csak a te böngésződben maradnak.</p>
+
+      <div class="diary-row" id="diaryRows">
+        <div class="diary-field"><label>Nap</label><select><option>Hétfő</option><option>Kedd</option><option>Szerda</option><option>Csütörtök</option><option>Péntek</option><option>Szombat</option><option>Vasárnap</option></select></div>
+        <div class="diary-field"><label>Képernyőidő (óra)</label><input type="number" min="0" max="24" step="0.5" placeholder="pl. 3.5" /></div>
+        <div class="diary-field"><label>Offline tevékenység</label><input type="text" placeholder="pl. séta, olvasás" /></div>
+      </div>
+
+      <button class="add-diary-btn" onclick="addDiaryRow()">+ Új nap hozzáadása</button>
+    </div>
+
+    <div class="callout tip">
+      <div class="callout-icon">📱</div>
+      <div class="callout-text">
+        <strong>Beépített eszközök</strong>
+        Használd a telefonod képernyőidő funkcióját (iOS: Képernyőidő / Android: Digital Wellbeing), vagy telepíts digitális jóllét alkalmazásokat, amelyek részletesebb adatokat szolgáltatnak.
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. ÖSSZEFOGLALÁS -->
+  <section class="content-section" id="sec-summary">
+    <div class="section-header">
+      <div class="section-icon" style="background:#e8f5e9;">🎯</div>
+      <div>
+        <h2>Összefoglalás és Következő Lépések</h2>
+        <div class="section-sub">Az eszköztár fő üzenetei és az akcióterv</div>
+      </div>
+    </div>
+
+    <div class="intro-box">
+      A digitális jóllét egy <strong>folyamatos utazás, nem pedig végcél</strong>. Az alábbi kulcselemek segítenek az egészséges digitális életmód kialakításában.
+    </div>
+
+    <div class="principles-grid">
+      <div class="principle-card" style="border-color:#4B2D8B;">
+        <div class="p-icon">👁️</div>
+        <h4>Tudatosság</h4>
+        <p>Ismerd fel a digitális eszközök hatását az életedre</p>
+      </div>
+      <div class="principle-card" style="border-color:#2196F3;">
+        <div class="p-icon">⚖️</div>
+        <h4>Egyensúly</h4>
+        <p>Találd meg a megfelelő arányt az online és offline élet között</p>
+      </div>
+      <div class="principle-card" style="border-color:#43a047;">
+        <div class="p-icon">🎯</div>
+        <h4>Szándékosság</h4>
+        <p>Használd a technológiát céltudatosan, ne automatikusan</p>
+      </div>
+      <div class="principle-card" style="border-color:#E8622A;">
+        <div class="p-icon">🕹️</div>
+        <h4>Kontroll</h4>
+        <p>Te irányítsd az eszközeidet, ne fordítva</p>
+      </div>
+    </div>
+
+    <div class="next-steps">
+      <h3>🚀 Következő lépések – Akcióterv</h3>
+      <div class="next-step-item">
+        <div class="ns-icon">1</div>
+        <div class="ns-text"><strong>Mérés</strong><span>Kövesd nyomon a jelenlegi digitális szokásaidat egy héten át</span></div>
+      </div>
+      <div class="next-step-item">
+        <div class="ns-icon">2</div>
+        <div class="ns-text"><strong>Tervezés</strong><span>Készíts személyre szabott digitális jóllét tervet</span></div>
+      </div>
+      <div class="next-step-item">
+        <div class="ns-icon">3</div>
+        <div class="ns-text"><strong>Kísérletezés</strong><span>Próbálj ki különböző technikákat és módszereket</span></div>
+      </div>
+      <div class="next-step-item">
+        <div class="ns-icon">4</div>
+        <div class="ns-text"><strong>Értékelés</strong><span>Rendszeresen vizsgáld felül az eredményeket</span></div>
+      </div>
+      <div class="next-step-item">
+        <div class="ns-icon">5</div>
+        <div class="ns-text"><strong>Folyamatos fejlődés</strong><span>Alkalmazkodj a változó körülményekhez, maradj naprakész</span></div>
+      </div>
+    </div>
+
+    <!-- FINAL VIDEO PLACEHOLDER -->
+    <div class="video-placeholder">
+      <div class="video-play-icon">▶</div>
+      <h3>Összefoglaló videó: A digitális jóllét útiterve</h3>
+      <p>Az egész fejezet kulcsüzeneteit összefoglaló oktatóvideó – ifjúságsegítőknek és fiataloknak</p>
+      <span class="video-coming-soon">🎬 Videó hamarosan elérhető</span>
+    </div>
+  </section>
+
+</div><!-- end main-content -->
+
+<!-- ===== DOWNLOAD FOOTER ===== -->
+<div class="download-footer">
+  <div class="download-footer-inner">
+    <h3>📄 Fejezet letöltése PDF formátumban</h3>
+    <p>Töltsd le az 1. fejezet teljes tartalmát PDF formátumban – elérhető magyar, angol és román nyelven.</p>
+    <div class="download-btns">
+      <a href="chapter1_hu.pdf" class="dl-btn hu" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        🇭🇺 Magyar PDF
+      </a>
+      <a href="https://drive.google.com/file/d/1GZEgg02oUdT-YKS6DSga3KF5__zZ9Gzh/view" target="_blank" class="dl-btn en">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        🇬🇧 English PDF
+      </a>
+      <a href="https://drive.google.com/file/d/18EFl-11NUxpKrG-3TH_hu9H4p2vdg2qY/view" target="_blank" class="dl-btn ro">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        🇷🇴 PDF Română
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== EU FOOTER ===== -->
+<div class="eu-footer">
+  Az Európai Unió finanszírozásával. Az itt szereplő információk és állítások a szerző(k) álláspontját képviselik, és nem feltétlenül tükrözik az Európai Unió vagy a Tempus Közalapítvány hivatalos véleményét. · IMELO Projekt · Erasmus+ KA210-YOU
+</div>
+
+<script>
+  function showReflectionResult() {
+    const result = document.getElementById('reflectionResult');
+    result.classList.add('visible');
+    result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function addDiaryRow() {
+    const container = document.getElementById('diaryRows').parentElement;
+    const newRow = document.createElement('div');
+    newRow.className = 'diary-row';
+    newRow.innerHTML = `
+      <div class="diary-field"><label>Nap</label><select><option>Hétfő</option><option>Kedd</option><option>Szerda</option><option>Csütörtök</option><option>Péntek</option><option>Szombat</option><option>Vasárnap</option></select></div>
+      <div class="diary-field"><label>Képernyőidő (óra)</label><input type="number" min="0" max="24" step="0.5" placeholder="pl. 3.5" /></div>
+      <div class="diary-field"><label>Offline tevékenység</label><input type="text" placeholder="pl. séta, olvasás" /></div>
+    `;
+    const addBtn = container.querySelector('.add-diary-btn');
+    container.insertBefore(newRow, addBtn);
+  }
+</script>
+
+</body>
+</html>

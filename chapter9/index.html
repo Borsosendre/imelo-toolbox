@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>9. Fejezet – Reziliencia és Megküzdési Stratégiák | IMELO Toolbox</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Nunito', sans-serif; background: #f5f5f7; color: #1a1a2e; line-height: 1.7; }
+
+    /* TOPBAR */
+    .topbar { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.97); backdrop-filter: blur(10px); border-bottom: 1px solid #e0e0e0; display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 2rem; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+    .topbar-logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+    .topbar-logo img { height: 52px; width: auto; }
+    .topbar-logo span { font-size: 0.85rem; font-weight: 700; color: #555; }
+    .back-btn { display: inline-flex; align-items: center; gap: 0.4rem; background: linear-gradient(135deg, #880E4F 0%, #F48FB1 100%); color: white; padding: 0.45rem 1.1rem; border-radius: 20px; text-decoration: none; font-weight: 700; font-size: 0.85rem; transition: opacity 0.2s; }
+    .back-btn:hover { opacity: 0.85; }
+
+    /* HERO */
+    .chapter-hero { background: linear-gradient(135deg, #880E4F 0%, #F48FB1 100%); color: white; padding: 3rem 2rem 2.5rem; text-align: center; position: relative; overflow: hidden; }
+    .chapter-hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 60%); }
+    .chapter-num { display: inline-block; background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.5); border-radius: 50px; padding: 0.3rem 1.2rem; font-size: 0.85rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem; }
+    .chapter-hero h1 { font-size: clamp(1.6rem, 4vw, 2.6rem); font-weight: 900; margin-bottom: 0.5rem; text-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+    .chapter-hero .subtitle { font-size: 1.05rem; opacity: 0.9; margin-bottom: 1.2rem; }
+    .tags { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; }
+    .tag { background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); border-radius: 20px; padding: 0.25rem 0.8rem; font-size: 0.8rem; font-weight: 600; }
+
+    /* LAYOUT */
+    .page-layout { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; display: grid; grid-template-columns: 240px 1fr; gap: 2rem; align-items: start; }
+    @media (max-width: 768px) { .page-layout { grid-template-columns: 1fr; } .sidebar { display: none; } }
+
+    /* SIDEBAR TOC */
+    .sidebar { position: sticky; top: 80px; background: white; border-radius: 16px; padding: 1.2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
+    .sidebar h3 { font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: #888; margin-bottom: 0.8rem; padding-bottom: 0.5rem; border-bottom: 2px solid #fce4ec; }
+    .toc-item { display: block; padding: 0.45rem 0.7rem; border-radius: 8px; color: #444; text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: all 0.2s; margin-bottom: 0.2rem; border-left: 3px solid transparent; }
+    .toc-item:hover { background: #fce4ec; color: #880E4F; border-left-color: #880E4F; }
+
+    /* SECTIONS */
+    .chapter-section { background: white; border-radius: 20px; padding: 2rem; margin-bottom: 1.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+    .section-header { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
+    .section-icon { font-size: 2rem; flex-shrink: 0; }
+    .section-header h2 { font-size: 1.4rem; font-weight: 800; color: #1a1a2e; }
+    .section-subtitle { color: #777; font-size: 0.9rem; font-weight: 600; margin-top: 0.2rem; }
+    .section-divider { height: 3px; border-radius: 2px; margin-bottom: 1.2rem; width: 60px; }
+    .section-intro { font-size: 1rem; color: #444; line-height: 1.8; margin-bottom: 1.5rem; }
+
+    /* STATS */
+    .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+    .stat-card { background: #fce4ec; border-radius: 12px; padding: 1rem; text-align: center; }
+    .stat-value { font-size: 1.6rem; font-weight: 900; }
+    .stat-label { font-size: 0.75rem; color: #666; font-weight: 600; margin-top: 0.3rem; line-height: 1.4; }
+
+    /* CONTENT GRIDS */
+    .content-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+    .content-card { background: #f8f9fa; border-radius: 12px; padding: 1.2rem; border-left: 4px solid #880E4F; }
+    .content-card h4 { font-size: 0.95rem; font-weight: 800; color: #880E4F; margin-bottom: 0.5rem; }
+    .content-card p, .content-card ul { font-size: 0.88rem; color: #555; line-height: 1.6; }
+    .content-card ul { padding-left: 1.2rem; }
+    .content-card li { margin-bottom: 0.25rem; }
+
+    /* STEPS */
+    .steps-list { display: flex; flex-direction: column; gap: 1rem; }
+    .step { display: flex; gap: 1rem; align-items: flex-start; background: #f8f9fa; border-radius: 12px; padding: 1rem 1.2rem; }
+    .step-num { background: linear-gradient(135deg, #880E4F 0%, #F48FB1 100%); color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.9rem; flex-shrink: 0; }
+    .step strong { display: block; font-size: 0.95rem; color: #1a1a2e; margin-bottom: 0.3rem; }
+    .step p { font-size: 0.85rem; color: #555; line-height: 1.6; }
+
+    /* SUMMARY */
+    .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+    .summary-card { background: linear-gradient(135deg, #880E4F 0%, #F48FB1 100%); color: white; border-radius: 14px; padding: 1.2rem; }
+    .summary-card h4 { font-size: 0.95rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .summary-card p { font-size: 0.83rem; opacity: 0.92; line-height: 1.5; }
+
+    /* HIGHLIGHT BOX */
+    .highlight-box { background: #fce4ec; border-radius: 12px; padding: 1.2rem 1.5rem; margin-top: 1rem; border-left: 4px solid #880E4F; }
+    .highlight-box h4 { font-size: 0.95rem; font-weight: 800; color: #880E4F; margin-bottom: 0.6rem; }
+    .highlight-box ul { padding-left: 1.2rem; }
+    .highlight-box li { font-size: 0.88rem; color: #555; margin-bottom: 0.3rem; }
+
+    /* INTERACTIVE */
+    .interactive-box { border-radius: 16px; padding: 1.5rem; margin-top: 1rem; }
+    .interactive-box h3 { font-size: 1.1rem; font-weight: 800; color: #880E4F; margin-bottom: 0.5rem; }
+    .interactive-box > p { font-size: 0.88rem; color: #555; margin-bottom: 1.2rem; }
+    .reflection-question { margin-bottom: 1.2rem; }
+    .q-label { display: block; font-size: 0.9rem; font-weight: 700; color: #333; margin-bottom: 0.6rem; }
+    .scale-container { display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap; }
+    .scale-label { font-size: 0.75rem; color: #888; font-weight: 600; }
+    .scale-buttons { display: flex; gap: 0.4rem; }
+    .scale-btn { width: 38px; height: 38px; border-radius: 50%; border: 2px solid #ddd; background: white; cursor: pointer; font-weight: 800; font-size: 0.9rem; transition: all 0.2s; }
+    .scale-btn:hover { border-color: #880E4F; color: #880E4F; }
+    .scale-btn.selected { background: #880E4F; border-color: #880E4F; color: white; }
+    .reflection-textarea { width: 100%; border: 2px solid #e0e0e0; border-radius: 10px; padding: 0.7rem; font-family: 'Nunito', sans-serif; font-size: 0.88rem; resize: vertical; transition: border-color 0.2s; }
+    .reflection-textarea:focus { outline: none; border-color: #880E4F; }
+    .submit-btn { background: linear-gradient(135deg, #880E4F 0%, #F48FB1 100%); color: white; border: none; border-radius: 25px; padding: 0.7rem 2rem; font-family: 'Nunito', sans-serif; font-size: 0.95rem; font-weight: 800; cursor: pointer; margin-top: 0.5rem; transition: opacity 0.2s; }
+    .submit-btn:hover { opacity: 0.85; }
+    .feedback-box { margin-top: 1rem; background: white; border-radius: 12px; padding: 1.2rem; border-left: 4px solid #880E4F; }
+
+    /* VIDEO PLACEHOLDER */
+    .video-placeholder-box { display: flex; align-items: center; gap: 1.2rem; background: linear-gradient(135deg, #1a1a2e 0%, #2d2d5e 100%); border-radius: 14px; padding: 1.2rem 1.5rem; margin-top: 1.2rem; color: white; }
+    .video-icon { width: 50px; height: 50px; background: rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex-shrink: 0; }
+    .video-info h4 { font-size: 0.95rem; font-weight: 800; margin-bottom: 0.3rem; }
+    .video-info p { font-size: 0.8rem; opacity: 0.8; margin-bottom: 0.5rem; }
+    .video-badge { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; padding: 0.2rem 0.7rem; font-size: 0.75rem; font-weight: 700; }
+
+    /* PDF DOWNLOAD */
+    .pdf-section { background: white; border-radius: 20px; padding: 2rem; margin-bottom: 1.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.06); text-align: center; }
+    .pdf-section h3 { font-size: 1.1rem; font-weight: 800; color: #333; margin-bottom: 1rem; }
+    .pdf-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg, #880E4F 0%, #F48FB1 100%); color: white; padding: 0.7rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 800; font-size: 0.9rem; margin: 0.3rem; transition: opacity 0.2s; }
+    .pdf-btn:hover { opacity: 0.85; }
+    .pdf-btn.disabled { background: #ccc; cursor: not-allowed; }
+
+    /* FOOTER */
+    .chapter-footer { background: #1a1a2e; color: white; text-align: center; padding: 1.5rem; font-size: 0.8rem; opacity: 0.8; }
+  </style>
+</head>
+<body>
+
+<nav class="topbar">
+  <a href="../index.html" class="topbar-logo">
+    <img src="imelo_logo.png" alt="Identity Mosaic logó">
+  </a>
+  <a href="../index.html" class="back-btn">← Vissza az Eszköztárhoz</a>
+</nav>
+
+<div class="chapter-hero">
+  <div class="chapter-num">9. Fejezet</div>
+  <h1>Reziliencia és Megküzdési Stratégiák</h1>
+  <p class="subtitle">Rugalmasság egy változó világban</p>
+  <div class="tags"><span class="tag">💪 Reziliencia</span> <span class="tag">🌊 Megküzdés</span> <span class="tag">🎋 Rugalmasság</span></div>
+</div>
+
+<div class="page-layout">
+  <aside class="sidebar">
+    <h3>Tartalomjegyzék</h3>
+    <a href="#miert" class="toc-item">Miért fontos a reziliencia?</a><a href="#definicio" class="toc-item">Mi az a Reziliencia?</a><a href="#tipusok" class="toc-item">A Reziliencia Típusai</a><a href="#megkuzdes" class="toc-item">Megküzdési Stratégiák</a><a href="#epites" class="toc-item">Reziliencia Építése</a><a href="#onreflexio" class="toc-item">Önreflexió – Rezilienciám</a><a href="#osszefoglalas" class="toc-item">Összefoglalás</a>
+  </aside>
+
+  <main>
+
+    <section class="chapter-section" id="miert">
+      <div class="section-header">
+        <span class="section-icon">💪</span>
+        <div>
+          <h2>Miért fontos a reziliencia?</h2>
+          <p class="section-subtitle">A 21. század szuperképessége</p>
+        </div>
+      </div>
+      <div class="section-divider" style="background: linear-gradient(90deg, #880E4F, transparent);"></div>
+      <p class="section-intro">A Z generáció egyedülálló kihívásokkal néz szembe: gyors technológiai változások, információs túlterhelés, bizonytalanság a jövővel kapcsolatban. A reziliencia a 21. század szuperképessége – segít alkalmazkodni a folyamatos változásokhoz.</p>
+      <div class="stats-row">
+        <div class="stat-card"><div class="stat-value" style="color:#880E4F">32%</div><div class="stat-label">A fiatalok, akik magas szintű stresszt tapasztalnak (WHO, 2022)</div></div>
+        <div class="stat-card"><div class="stat-value" style="color:#F48FB1">75%</div><div class="stat-label">Hatékonyabb stresszkezelés reziliens személyeknél (APA)</div></div>
+        <div class="stat-card"><div class="stat-value" style="color:#1565C0">4 típus</div><div class="stat-label">A reziliencia megnyilvánulási formái (Masten & Wright)</div></div>
+      </div>
+      <div class="section-content">
+<div class="content-grid">
+  <div class="content-card"><h4>🎋 A bambusz metafora</h4><p><em>"A bambusz titka: hajlik, de nem törik el a viharban."</em> A reziliencia nem merevséget jelent, hanem rugalmas alkalmazkodást – a nehézségek ellenére is megőrzött belső erőt.</p></div>
+  <div class="content-card"><h4>🎯 Az eszköztár célja</h4><ul><li>Reziliencia fogalmának megértése</li><li>Saját megküzdési stratégiák azonosítása</li><li>Adaptív coping technikák elsajátítása</li><li>Belső erőforrások mozgósítása</li></ul></div>
+</div>
+      </div>
+
+      <div class="video-placeholder-box">
+        <div class="video-icon">▶</div>
+        <div class="video-info">
+          <h4>Bevezető: Mi a reziliencia?</h4>
+          <p>A reziliencia fogalma, típusai és jelentősége a mai fiatalok életében.</p>
+          <span class="video-badge">🎬 Videó hamarosan elérhető</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter-section" id="definicio">
+      <div class="section-header">
+        <span class="section-icon">🌱</span>
+        <div>
+          <h2>Mi az a Reziliencia?</h2>
+          <p class="section-subtitle">Fogalom és megközelítések</p>
+        </div>
+      </div>
+      <div class="section-divider" style="background: linear-gradient(90deg, #880E4F, transparent);"></div>
+      <p class="section-intro">A reziliencia a pszichés rugalmasság képessége, amely lehetővé teszi a sikeres alkalmazkodást kihívást jelentő vagy fenyegető körülmények esetén (Masten, 2001).</p>
+      <div class="section-content">
+<div class="content-grid">
+  <div class="content-card"><h4>✅ Reziliencia</h4><p>Rugalmas alkalmazkodás, hajlékonyság, visszapattanás. Nem az érzelmek elfojtása, hanem azok elfogadása és konstruktív kezelése.</p></div>
+  <div class="content-card"><h4>⚠️ Ellenállás</h4><p>Merevség, törés veszélye, energia pazarlás. Az ellenállás rövid távon véd, de hosszú távon kimerítő és törékeny.</p></div>
+  <div class="content-card"><h4>🔴 Kiégés</h4><p>Alkalmazkodóképesség elvesztése, összeomlás. A kiégés a reziliencia hiányának végső következménye.</p></div>
+</div>
+      </div>
+    </section>
+
+    <section class="chapter-section" id="tipusok">
+      <div class="section-header">
+        <span class="section-icon">🗺️</span>
+        <div>
+          <h2>A Reziliencia Típusai</h2>
+          <p class="section-subtitle">Hogyan reagálsz a kihívásokra?</p>
+        </div>
+      </div>
+      <div class="section-divider" style="background: linear-gradient(90deg, #880E4F, transparent);"></div>
+      <p class="section-intro">Masten és Wright modellje alapján a reziliencia négy különböző formában nyilvánulhat meg, attól függően, hogy milyen kihívással szembesülünk.</p>
+      <div class="section-content">
+<div class="steps-list">
+  <div class="step"><span class="step-num">1</span><div><strong>Ellenállás (Resistance)</strong><p>Észszerű, kiegyensúlyozott, adaptív viselkedés fenntartása a nehézségek ellenére. Például: hátrányos körülmények ellenére sikeres fejlődési feladatok megoldása.</p></div></div>
+  <div class="step"><span class="step-num">2</span><div><strong>Kilábalás (Recovery)</strong><p>Trauma után átmenetileg megszűnő adaptív viselkedés, majd visszatérés a megfelelő szintre. Például: hirtelen katasztrófák utáni regenerálódás.</p></div></div>
+  <div class="step"><span class="step-num">3</span><div><strong>Normalizáció (Normalization)</strong><p>Ártalmas környezetből jobb feltételek közé kerülés, fokozatos javulás. Például: támogató környezetbe kerülés utáni fejlődés.</p></div></div>
+  <div class="step"><span class="step-num">4</span><div><strong>Átalakulás (Transformation)</strong><p>Csapás után az adaptív funkciók javulása, poszttraumatikus növekedés. Például: új értékek, mélyebb kapcsolatok, nagyobb életbölcsesség.</p></div></div>
+</div>
+      </div>
+    </section>
+
+    <section class="chapter-section" id="megkuzdes">
+      <div class="section-header">
+        <span class="section-icon">🛡️</span>
+        <div>
+          <h2>Megküzdési Stratégiák</h2>
+          <p class="section-subtitle">Adaptív és maladaptív coping</p>
+        </div>
+      </div>
+      <div class="section-divider" style="background: linear-gradient(90deg, #880E4F, transparent);"></div>
+      <p class="section-intro">A megküzdési stratégiák (coping) olyan kognitív és viselkedéses erőfeszítések, amelyekkel az egyén kezeli a stresszt okozó külső vagy belső kihívásokat (Lazarus és Folkman, 1984).</p>
+      <div class="section-content">
+<div class="content-grid">
+  <div class="content-card"><h4>🎯 Problémafókuszú megküzdés</h4><p>A stresszforrás megváltoztatására irányul. Például: problémamegoldás, időgazdálkodás, segítségkérés, tervezés.</p></div>
+  <div class="content-card"><h4>💗 Érzelemfókuszú megküzdés</h4><p>A stresszre adott érzelmi reakciók szabályozására irányul. Például: relaxáció, ventilálás, átkeretezés, elfogadás.</p></div>
+  <div class="content-card"><h4>✅ Adaptív megküzdés</h4><p>Hosszú távon hatékony, fejlődést támogató stratégiák. Például: támogatás keresése, átkeretezés, aktív problémamegoldás.</p></div>
+  <div class="content-card"><h4>⚠️ Maladaptív megküzdés</h4><p>Rövid távú megkönnyebbülés, hosszú távon káros. Például: elkerülés, szerhasználat, érzelmi lekapcsolódás. A "gyors megoldások" csapdája!</p></div>
+</div>
+      </div>
+    </section>
+
+    <section class="chapter-section" id="epites">
+      <div class="section-header">
+        <span class="section-icon">🏗️</span>
+        <div>
+          <h2>Reziliencia Építése</h2>
+          <p class="section-subtitle">Az 5 pillér és mindfulness</p>
+        </div>
+      </div>
+      <div class="section-divider" style="background: linear-gradient(90deg, #880E4F, transparent);"></div>
+      <p class="section-intro">A reziliencia nem veleszületett adottság – fejleszthető készség. Az alábbi 5 pillér rendszeres gyakorlásával erősíthető a belső rugalmasság.</p>
+      <div class="section-content">
+<div class="content-grid">
+  <div class="content-card"><h4>🧘 1. Kapcsolat a jelen pillanattal</h4><p>A tudatos jelenlét gyakorlása, a figyelem irányítása, az "itt és most"-ban való létezés képessége (Kabat-Zinn, 2003).</p></div>
+  <div class="content-card"><h4>🤲 2. Elfogadó viszonyulás</h4><p>A nehéz élmények, gondolatok és érzések elfogadása ítélkezés nélkül, a küzdelem elengedése (Hayes et al., 2006).</p></div>
+  <div class="content-card"><h4>🎯 3. Értékek és célok</h4><p>Személyes értékek tisztázása és értékvezérelt viselkedés, hosszú távú célok meghatározása.</p></div>
+  <div class="content-card"><h4>🤝 4. Támogató kapcsolatok</h4><p>Pozitív kapcsolatok fenntartása, társas támogatás keresése és elfogadása, közösségi részvétel (Werner & Smith, 1992).</p></div>
+  <div class="content-card"><h4>🧩 5. Problémamegoldó készségek</h4><p>Strukturált problémamegoldás, kreatív megoldások keresése, rugalmas gondolkodás fejlesztése (Garmezy, 1993).</p></div>
+</div>
+      </div>
+    </section>
+
+    <section class="chapter-section" id="onreflexio">
+      <div class="section-header">
+        <span class="section-icon">🪞</span>
+        <div>
+          <h2>Önreflexió – Rezilienciám</h2>
+          <p class="section-subtitle">Saját megküzdési erőforrások feltérképezése</p>
+        </div>
+      </div>
+      <div class="section-divider" style="background: linear-gradient(90deg, #880E4F, transparent);"></div>
+      <p class="section-intro">Az alábbi kérdőív segít feltérképezni a rezilienciádat és azonosítani azokat a területeket, ahol erősítheted a belső rugalmasságodat.</p>
+
+      <div class="interactive-box" style="background:#fce4ec; border-left: 4px solid #880E4F;">
+        <h3>🧩 Önértékelő kérdőív – Rezilienciám</h3>
+        <p>Töltsd ki az alábbi kérdőívet, hogy képet kapj jelenlegi szokásaidról és fejlesztési lehetőségeidről!</p>
+        <div class="reflection-form" id="reflectionForm">
+
+    <div class="reflection-question" id="q1">
+      <label class="q-label">Mennyire rugalmasan alkalmazkodom a váratlan változásokhoz?</label>
+      <div class="scale-container">
+        <span class="scale-label">Egyáltalán nem</span>
+        <div class="scale-buttons">
+          <button class="scale-btn" onclick="selectScale(this, 1)">1</button><button class="scale-btn" onclick="selectScale(this, 1)">2</button><button class="scale-btn" onclick="selectScale(this, 1)">3</button><button class="scale-btn" onclick="selectScale(this, 1)">4</button><button class="scale-btn" onclick="selectScale(this, 1)">5</button>
+        </div>
+        <span class="scale-label">Teljes mértékben</span>
+      </div>
+    </div>
+    <div class="reflection-question" id="q2">
+      <label class="q-label">Mennyire hatékonyan kezelem a stresszt és a nehézségeket?</label>
+      <div class="scale-container">
+        <span class="scale-label">Egyáltalán nem</span>
+        <div class="scale-buttons">
+          <button class="scale-btn" onclick="selectScale(this, 2)">1</button><button class="scale-btn" onclick="selectScale(this, 2)">2</button><button class="scale-btn" onclick="selectScale(this, 2)">3</button><button class="scale-btn" onclick="selectScale(this, 2)">4</button><button class="scale-btn" onclick="selectScale(this, 2)">5</button>
+        </div>
+        <span class="scale-label">Teljes mértékben</span>
+      </div>
+    </div>
+    <div class="reflection-question" id="q3">
+      <label class="q-label">Mennyire tudok segítséget kérni, amikor szükségem van rá?</label>
+      <div class="scale-container">
+        <span class="scale-label">Egyáltalán nem</span>
+        <div class="scale-buttons">
+          <button class="scale-btn" onclick="selectScale(this, 3)">1</button><button class="scale-btn" onclick="selectScale(this, 3)">2</button><button class="scale-btn" onclick="selectScale(this, 3)">3</button><button class="scale-btn" onclick="selectScale(this, 3)">4</button><button class="scale-btn" onclick="selectScale(this, 3)">5</button>
+        </div>
+        <span class="scale-label">Teljes mértékben</span>
+      </div>
+    </div>
+    <div class="reflection-question" id="q4">
+      <label class="q-label">Mennyire tudatosan kerülöm a maladaptív megküzdési stratégiákat?</label>
+      <div class="scale-container">
+        <span class="scale-label">Egyáltalán nem</span>
+        <div class="scale-buttons">
+          <button class="scale-btn" onclick="selectScale(this, 4)">1</button><button class="scale-btn" onclick="selectScale(this, 4)">2</button><button class="scale-btn" onclick="selectScale(this, 4)">3</button><button class="scale-btn" onclick="selectScale(this, 4)">4</button><button class="scale-btn" onclick="selectScale(this, 4)">5</button>
+        </div>
+        <span class="scale-label">Teljes mértékben</span>
+      </div>
+    </div>
+    <div class="reflection-question" id="q5">
+      <label class="q-label">Írj le egy helyzetet, amelyben reziliens voltál – mit tettél jól?</label>
+      <textarea class="reflection-textarea" rows="3" placeholder="Írd ide a válaszodat..."></textarea>
+    </div>
+          <button class="submit-btn" onclick="submitReflection()">Visszajelzés megjelenítése</button>
+          <div class="feedback-box" id="feedbackBox" style="display:none;"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter-section" id="osszefoglalas">
+      <div class="section-header">
+        <span class="section-icon">📋</span>
+        <div>
+          <h2>Összefoglalás</h2>
+          <p class="section-subtitle">Reziliencia és megküzdési stratégiák eszköztára</p>
+        </div>
+      </div>
+      <div class="section-divider" style="background: linear-gradient(90deg, #880E4F, transparent);"></div>
+      <p class="section-intro">A reziliencia fejleszthető – minden nehézség, amellyel megküzdesz, erősebbé tesz.</p>
+      <div class="section-content">
+<div class="summary-grid">
+  <div class="summary-card"><h4>🎋 Rugalmasság</h4><p>A reziliencia nem merevség, hanem hajlékonyság. Hajlíts, ne törj – mint a bambusz a viharban.</p></div>
+  <div class="summary-card"><h4>🛡️ Adaptív coping</h4><p>Válassz hosszú távon hatékony megküzdési stratégiákat – kerüld a "gyors megoldások" csapdáját.</p></div>
+  <div class="summary-card"><h4>🏗️ 5 pillér</h4><p>Jelenlét – Elfogadás – Értékek – Kapcsolatok – Problémamegoldás. Mindegyik rendszeres gyakorlást igényel.</p></div>
+  <div class="summary-card"><h4>🌱 Növekedés</h4><p>A nehézségek poszttraumatikus növekedés forrásai lehetnek – új értékek, mélyebb kapcsolatok, nagyobb bölcsesség.</p></div>
+</div>
+      </div>
+    </section>
+
+
+    <div class="pdf-section">
+      <h3>📥 Fejezet letöltése PDF formátumban</h3>
+      <a href="https://drive.google.com/file/d/1Rvqzbihos4HZvTJc5dEI8DAT4k3m1GAI/view" target="_blank" class="pdf-btn">🇭🇺 Magyar PDF letöltése</a>
+      <a href="https://drive.google.com/file/d/1wRK8avzYQiuKN59Nm53clYMusiTzfmju/view" target="_blank" class="pdf-btn">🇬🇧 English PDF</a>
+      <a href="https://drive.google.com/file/d/1kz0_3GTjX5KT6OEzV0gtZoAij6GXNuNP/view" target="_blank" class="pdf-btn">🇷🇴 PDF în română</a>
+    </div>
+  </main>
+</div>
+
+<footer class="chapter-footer">
+  <p>IMELO – Identity Mosaic | Erasmus+ KA2 projekt | © 2024–2026</p>
+  <p>Az Európai Bizottság támogatásával készült. A tartalom kizárólag a szerzők álláspontját tükrözi.</p>
+</footer>
+
+<script>
+  function selectScale(btn, qid) {
+    const container = btn.closest('.scale-buttons');
+    container.querySelectorAll('.scale-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+  }
+
+  function submitReflection() {
+    const form = document.getElementById('reflectionForm');
+    const scaleAnswers = form.querySelectorAll('.scale-btn.selected');
+    const textAnswers = form.querySelectorAll('.reflection-textarea');
+    let totalScore = 0;
+    let scaleCount = 0;
+    scaleAnswers.forEach(btn => { totalScore += parseInt(btn.textContent); scaleCount++; });
+    const avgScore = scaleCount > 0 ? (totalScore / scaleCount).toFixed(1) : 0;
+    let feedback = '';
+    if (avgScore >= 4) {
+      feedback = '<strong>🌟 Kiváló!</strong> Az eredményeid azt mutatják, hogy ezen a területen már erős alapokkal rendelkezel. Fókuszálj a finomhangolásra és a mások támogatására!';
+    } else if (avgScore >= 3) {
+      feedback = '<strong>👍 Jó haladás!</strong> Szilárd alapokkal rendelkezel, de van még fejlődési lehetőség. Válassz ki 1-2 konkrét területet, amelyen tudatosan dolgozni szeretnél!';
+    } else {
+      feedback = '<strong>🌱 Fejlődési lehetőség!</strong> Ez a terület különös figyelmet érdemel. Ne csüggedj – minden fejlődés kis lépésekkel kezdődik. Válassz ki egy konkrét technikát és próbáld ki a következő héten!';
+    }
+    const feedbackBox = document.getElementById('feedbackBox');
+    feedbackBox.innerHTML = '<p>' + feedback + '</p><p style="margin-top:0.5rem;font-size:0.85rem;color:#666;">Átlagos pontszámod: <strong>' + avgScore + '/5</strong></p>';
+    feedbackBox.style.display = 'block';
+    feedbackBox.scrollIntoView({behavior: 'smooth', block: 'nearest'});
+  }
+
+  // Smooth scroll for TOC
+  document.querySelectorAll('.toc-item').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.getElementById(this.getAttribute('href').substring(1));
+      if (target) target.scrollIntoView({behavior: 'smooth', block: 'start'});
+    });
+  });
+</script>
+</body>
+</html>

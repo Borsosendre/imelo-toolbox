@@ -1,0 +1,3 @@
+# Exclude local PDF copies - these are served from Google Drive links
+*.pdf
+# Keep images and HTML

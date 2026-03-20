@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coaching 1 – Coaching Alapok és Kommunikációs Készségek | IMELO Toolbox</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Nunito', sans-serif; background: #f7f7fb; color: #2c2c54; font-size: 16px; line-height: 1.7; }
+
+    /* TOPBAR */
+    .topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.97); backdrop-filter: blur(8px); box-shadow: 0 2px 16px rgba(75,45,139,0.10); padding: 0 2rem; height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .topbar-left { display: flex; align-items: center; gap: 1rem; }
+    .back-btn { display: inline-flex; align-items: center; gap: 0.4rem; background: #f0ecfa; color: #4B2D8B; font-weight: 700; font-size: 0.85rem; padding: 0.4rem 1rem; border-radius: 20px; text-decoration: none; transition: background 0.2s, color 0.2s; white-space: nowrap; }
+    .back-btn:hover { background: #4B2D8B; color: #fff; }
+    .back-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+    .topbar-logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+    .topbar-logo img { height: 52px; width: auto; }
+    .chapter-badge { background: linear-gradient(135deg, #1a7a4a, #2ecc71); color: #fff; font-weight: 700; font-size: 0.75rem; padding: 0.3rem 0.8rem; border-radius: 20px; white-space: nowrap; }
+
+    /* HERO */
+    .hero { margin-top: 64px; background: linear-gradient(135deg, #1a7a4a 0%, #2ecc71 50%, #4B2D8B 100%); padding: 3.5rem 2rem 3rem; text-align: center; color: #fff; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -60px; right: -60px; width: 220px; height: 220px; background: rgba(255,255,255,0.06); border-radius: 50%; }
+    .hero-tag { display: inline-block; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.35); border-radius: 20px; font-size: 0.8rem; font-weight: 700; padding: 0.3rem 1rem; margin-bottom: 1rem; letter-spacing: 0.05em; }
+    .hero h1 { font-size: clamp(1.6rem, 4vw, 2.6rem); font-weight: 800; margin-bottom: 0.5rem; line-height: 1.2; }
+    .hero .subtitle { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto 1.5rem; }
+    .hero-meta { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; font-size: 0.85rem; opacity: 0.85; }
+    .hero-meta span { display: flex; align-items: center; gap: 0.3rem; }
+
+    /* TOC */
+    .toc-section { background: #fff; border-bottom: 1px solid #e8e4f0; padding: 1.5rem 2rem; }
+    .toc-inner { max-width: 900px; margin: 0 auto; }
+    .toc-title { font-size: 0.8rem; font-weight: 700; color: #888; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem; }
+    .toc-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .toc-links a { background: #e8f5e9; color: #1a7a4a; font-size: 0.8rem; font-weight: 700; padding: 0.35rem 0.85rem; border-radius: 20px; text-decoration: none; transition: background 0.2s, color 0.2s; }
+    .toc-links a:hover { background: #1a7a4a; color: #fff; }
+
+    /* MAIN */
+    .main-content { max-width: 900px; margin: 0 auto; padding: 2.5rem 2rem 4rem; }
+    .content-section { margin-bottom: 3.5rem; scroll-margin-top: 80px; }
+    .section-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 3px solid #1a7a4a; }
+    .section-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex-shrink: 0; }
+    .section-header h2 { font-size: 1.35rem; font-weight: 800; color: #2c2c54; }
+    .section-header .section-sub { font-size: 0.85rem; color: #666; font-weight: 600; }
+
+    /* INTRO BOX */
+    .intro-box { background: linear-gradient(135deg, #e8f5e9, #f0ecfa); border-left: 4px solid #1a7a4a; border-radius: 0 12px 12px 0; padding: 1.25rem 1.5rem; margin-bottom: 1.5rem; }
+
+    /* STAT CARDS */
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .stat-card { background: #fff; border-radius: 14px; padding: 1.25rem 1rem; text-align: center; box-shadow: 0 2px 12px rgba(26,122,74,0.1); border-top: 3px solid; }
+    .stat-card .stat-num { font-size: 2rem; font-weight: 800; line-height: 1; margin-bottom: 0.25rem; }
+    .stat-card .stat-label { font-size: 0.82rem; color: #666; font-weight: 600; }
+
+    /* FEATURE GRID */
+    .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin: 1.25rem 0; }
+    .feature-card { background: #fff; border-radius: 14px; padding: 1.25rem; box-shadow: 0 2px 12px rgba(26,122,74,0.07); border-top: 3px solid; }
+    .feature-card h3 { font-size: 1rem; font-weight: 800; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+    .feature-card ul { list-style: none; padding: 0; }
+    .feature-card ul li { padding: 0.3rem 0; padding-left: 1.2rem; position: relative; font-size: 0.9rem; color: #444; }
+    .feature-card ul li::before { content: '→'; position: absolute; left: 0; color: #1a7a4a; font-weight: 700; }
+
+    /* STEP LIST */
+    .step-list { counter-reset: steps; list-style: none; padding: 0; margin: 1.25rem 0; }
+    .step-list li { counter-increment: steps; display: flex; gap: 1rem; align-items: flex-start; padding: 0.85rem 1rem; background: #fff; border-radius: 12px; margin-bottom: 0.75rem; box-shadow: 0 2px 8px rgba(26,122,74,0.06); }
+    .step-list li::before { content: counter(steps); background: #1a7a4a; color: #fff; font-weight: 800; font-size: 0.85rem; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.1rem; }
+    .step-list li .step-text { font-size: 0.93rem; color: #333; }
+    .step-list li strong { color: #2c2c54; }
+
+    /* CALLOUT */
+    .callout { border-radius: 12px; padding: 1.25rem 1.5rem; margin: 1.25rem 0; display: flex; gap: 1rem; align-items: flex-start; }
+    .callout.tip { background: #e8f5e9; border-left: 4px solid #1a7a4a; }
+    .callout.warning { background: #fff8e1; border-left: 4px solid #ffa000; }
+    .callout.info { background: #e3f2fd; border-left: 4px solid #1976d2; }
+    .callout-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .callout-text strong { display: block; margin-bottom: 0.3rem; font-size: 0.95rem; }
+    .callout-text p { font-size: 0.9rem; color: #444; margin: 0; }
+
+    /* GROW MODEL */
+    .grow-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.25rem 0; }
+    .grow-card { background: #fff; border-radius: 14px; padding: 1.25rem; box-shadow: 0 2px 12px rgba(26,122,74,0.08); text-align: center; border-top: 4px solid; }
+    .grow-letter { font-size: 2.5rem; font-weight: 800; line-height: 1; margin-bottom: 0.25rem; }
+    .grow-word { font-size: 0.9rem; font-weight: 700; color: #555; margin-bottom: 0.5rem; }
+    .grow-desc { font-size: 0.82rem; color: #666; }
+
+    /* QUOTE */
+    .quote-box { background: linear-gradient(135deg, #1a7a4a, #2ecc71); color: #fff; border-radius: 16px; padding: 2rem; margin: 1.5rem 0; text-align: center; }
+    .quote-box blockquote { font-size: 1.15rem; font-style: italic; font-weight: 600; line-height: 1.6; margin-bottom: 0.75rem; }
+    .quote-box cite { font-size: 0.85rem; opacity: 0.85; }
+
+    /* VIDEO PLACEHOLDER */
+    .video-placeholder-box { background: #fff; border: 2px dashed #c8e6c9; border-radius: 14px; padding: 2rem; text-align: center; margin: 1.5rem 0; }
+    .video-placeholder-box .video-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .video-placeholder-box p { color: #888; font-size: 0.9rem; margin: 0; }
+    .video-placeholder-box strong { display: block; color: #1a7a4a; font-size: 1rem; margin-bottom: 0.25rem; }
+
+    /* INTERACTIVE REFLECTION */
+    .reflection-section { background: linear-gradient(135deg, #e8f5e9, #f0ecfa); border-radius: 16px; padding: 2rem; margin: 2rem 0; }
+    .reflection-section h3 { font-size: 1.2rem; font-weight: 800; color: #1a7a4a; margin-bottom: 1rem; }
+    .reflection-question { background: #fff; border-radius: 12px; padding: 1.25rem; margin-bottom: 1rem; box-shadow: 0 2px 8px rgba(26,122,74,0.06); }
+    .reflection-question label { display: block; font-weight: 700; font-size: 0.95rem; color: #2c2c54; margin-bottom: 0.75rem; }
+    .scale-options { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+    .scale-options input[type="radio"] { display: none; }
+    .scale-options label { cursor: pointer; background: #f0ecfa; color: #4B2D8B; font-weight: 700; font-size: 0.85rem; padding: 0.4rem 0.85rem; border-radius: 20px; transition: background 0.2s, color 0.2s; }
+    .scale-options input[type="radio"]:checked + label { background: #1a7a4a; color: #fff; }
+    .reflection-textarea { width: 100%; border: 2px solid #c8e6c9; border-radius: 10px; padding: 0.75rem 1rem; font-family: 'Nunito', sans-serif; font-size: 0.9rem; resize: vertical; min-height: 80px; transition: border-color 0.2s; }
+    .reflection-textarea:focus { outline: none; border-color: #1a7a4a; }
+    .reflection-btn { background: linear-gradient(135deg, #1a7a4a, #2ecc71); color: #fff; border: none; padding: 0.75rem 2rem; border-radius: 25px; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.95rem; cursor: pointer; margin-top: 1rem; transition: opacity 0.2s; }
+    .reflection-btn:hover { opacity: 0.85; }
+    .reflection-result { display: none; background: #e8f5e9; border-left: 4px solid #1a7a4a; border-radius: 0 10px 10px 0; padding: 1rem 1.25rem; margin-top: 1rem; font-size: 0.9rem; }
+
+    /* DOWNLOAD FOOTER */
+    .download-footer { background: linear-gradient(135deg, #1a7a4a, #2ecc71); padding: 2.5rem 2rem; margin-top: 3rem; }
+    .download-footer-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+    .download-footer h3 { color: #fff; font-size: 1.3rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .download-footer p { color: rgba(255,255,255,0.85); margin-bottom: 1.5rem; }
+    .download-btns { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .dl-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.4); color: #fff; font-weight: 700; font-size: 0.9rem; padding: 0.7rem 1.5rem; border-radius: 25px; text-decoration: none; transition: background 0.2s; }
+    .dl-btn:hover { background: rgba(255,255,255,0.3); }
+    .dl-btn svg { width: 18px; height: 18px; }
+
+    /* EU FOOTER */
+    .eu-footer { background: #2c2c54; color: rgba(255,255,255,0.7); text-align: center; padding: 1.5rem 2rem; font-size: 0.8rem; line-height: 1.6; }
+
+    @media (max-width: 640px) { .topbar { padding: 0 1rem; } .main-content { padding: 1.5rem 1rem 3rem; } .grow-grid { grid-template-columns: 1fr 1fr; } }
+  </style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<nav class="topbar">
+  <div class="topbar-left">
+    <a href="../index.html" class="back-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Vissza az Eszköztárhoz
+    </a>
+    <a href="../index.html" class="topbar-logo">
+      <img src="imelo_logo.png" alt="Identity Mosaic" />
+    </a>
+  </div>
+  <span class="chapter-badge">🎓 Coaching Modul – 1. rész</span>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">COACHING MODUL · 1. RÉSZ</div>
+  <h1>Coaching Alapok és Kommunikációs Készségek</h1>
+  <p class="subtitle">A hatékony coaching lényege, a GROW modell és az alapvető kommunikációs készségek ifjúságsegítők számára</p>
+  <div class="hero-meta">
+    <span>🎯 Célcsoport: Ifjúságsegítők</span>
+    <span>⏱️ Olvasási idő: ~15 perc</span>
+    <span>📚 Coaching Modul 1/3</span>
+  </div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc-section">
+  <div class="toc-inner">
+    <div class="toc-title">Tartalom</div>
+    <div class="toc-links">
+      <a href="#mi-a-coaching">Mi a coaching?</a>
+      <a href="#kulcskeszségek">Kulcskészségek</a>
+      <a href="#grow-modell">GROW Modell</a>
+      <a href="#ifjusagi-munka">Alkalmazás ifjúsági munkában</a>
+      <a href="#onreflexio">Önreflexió</a>
+      <a href="#osszefoglalas">Összefoglalás</a>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main-content">
+
+  <!-- STAT CARDS -->
+  <div class="stat-grid">
+    <div class="stat-card" style="border-color:#1a7a4a;">
+      <div class="stat-num" style="color:#1a7a4a;">3</div>
+      <div class="stat-label">Coaching modul összesen</div>
+    </div>
+    <div class="stat-card" style="border-color:#2ecc71;">
+      <div class="stat-num" style="color:#2ecc71;">GROW</div>
+      <div class="stat-label">Strukturált coaching keret</div>
+    </div>
+    <div class="stat-card" style="border-color:#4B2D8B;">
+      <div class="stat-num" style="color:#4B2D8B;">16–20</div>
+      <div class="stat-label">Célcsoport életkora (év)</div>
+    </div>
+    <div class="stat-card" style="border-color:#E8622A;">
+      <div class="stat-num" style="color:#E8622A;">5</div>
+      <div class="stat-label">Kulcskommunikációs készség</div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: MI A COACHING -->
+  <div class="content-section" id="mi-a-coaching">
+    <div class="section-header">
+      <div class="section-icon" style="background:#e8f5e9;">🎯</div>
+      <div>
+        <h2>Mi a coaching?</h2>
+        <div class="section-sub">A coaching lényege és alapelvei</div>
+      </div>
+    </div>
+    <div class="intro-box">
+      A coaching egy <strong>együttműködésen alapuló, nem-direktív folyamat</strong>, amelynek során a coach kérdésekkel segíti az ügyfelet saját megoldásai megtalálásában. Nem tanácsadás, nem terápia – hanem a belső erőforrások és potenciál feltárásának eszköze.
+    </div>
+    <div class="feature-grid">
+      <div class="feature-card" style="border-color:#1a7a4a;">
+        <h3>✅ A coaching jellemzői</h3>
+        <ul>
+          <li>Nem-direktív megközelítés</li>
+          <li>Kérdéseken alapuló párbeszéd</li>
+          <li>Az ügyfél saját megoldásait keresi</li>
+          <li>Jövőorientált, cselekvésre fókuszál</li>
+          <li>Egyenlő partnerségen alapul</li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#E8622A;">
+        <h3>❌ Mi NEM coaching?</h3>
+        <ul>
+          <li>Tanácsadás (megoldást adni)</li>
+          <li>Terápia (múlt feldolgozása)</li>
+          <li>Mentorálás (tapasztalat átadása)</li>
+          <li>Oktatás (tudás átadása)</li>
+          <li>Problémamegoldás a kliens helyett</li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#2196F3;">
+        <h3>🎯 A coaching célja</h3>
+        <ul>
+          <li>Önállóság és felelősségvállalás növelése</li>
+          <li>Belső erőforrások feltárása</li>
+          <li>Célok tisztázása és elérése</li>
+          <li>Döntéshozatali képesség fejlesztése</li>
+          <li>Önbizalom és kompetenciaérzés erősítése</li>
+        </ul>
+      </div>
+    </div>
+    <div class="video-placeholder-box">
+      <div class="video-icon">🎬</div>
+      <strong>Videó: Mi a coaching? – Bevezetés</strong>
+      <p>Hamarosan elérhető videó a coaching alapjairól és az ifjúsági munkában való alkalmazásáról.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 2: KULCSKÉSZSÉGEK -->
+  <div class="content-section" id="kulcskeszségek">
+    <div class="section-header">
+      <div class="section-icon" style="background:#e8f5e9;">💬</div>
+      <div>
+        <h2>Kulcskommunikációs Készségek</h2>
+        <div class="section-sub">A hatékony coaching alapjai</div>
+      </div>
+    </div>
+    <p style="margin-bottom:1.25rem;">A hatékony coaching öt alapvető kommunikációs készségen nyugszik. Ezek együttes alkalmazása teszi lehetővé a bizalmi kapcsolat kiépítését és a valódi változás elindítását.</p>
+    <ol class="step-list">
+      <li>
+        <div class="step-text">
+          <strong>Aktív hallgatás</strong><br>
+          Teljes figyelem, szemkontaktus, nyitott testtartás. Nem csak a szavakat hallgatjuk, hanem az érzelmeket és szándékokat is megértjük. A csend értékes eszköz – adj időt a gondolkodásra.
+        </div>
+      </li>
+      <li>
+        <div class="step-text">
+          <strong>Hatékony kérdezéstechnika</strong><br>
+          Nyitott kérdések alkalmazása, amelyek gondolkodásra ösztönöznek. Kerüljük a "miért" kérdéseket (védekezést válthatnak ki), helyette: "Hogyan?", "Mit?", "Mi segítene?"
+        </div>
+      </li>
+      <li>
+        <div class="step-text">
+          <strong>Empátia és bizalomépítés</strong><br>
+          Az ügyfél érzéseinek elismerése és validálása ítélkezés nélkül. A bizalmi kapcsolat az alapja minden hatékony coaching folyamatnak.
+        </div>
+      </li>
+      <li>
+        <div class="step-text">
+          <strong>Visszatükrözés és összefoglalás</strong><br>
+          Az elhangzottak saját szavainkkal való visszamondása a megértés ellenőrzésére. "Ha jól értem, azt mondod, hogy..." – ez megerősíti az ügyfelet és tisztázza a félreértéseket.
+        </div>
+      </li>
+      <li>
+        <div class="step-text">
+          <strong>Nem-direktív megközelítés</strong><br>
+          Tartózkodás a tanácsadástól és a megoldások kínálásától. Az ügyfél maga találja meg a saját megoldásait – a coach csak a folyamatot vezeti, nem a tartalmat.
+        </div>
+      </li>
+    </ol>
+    <div class="callout tip">
+      <span class="callout-icon">💡</span>
+      <div class="callout-text">
+        <strong>Tipp ifjúságsegítőknek</strong>
+        <p>A coaching beszélgetések során adj időt a fiataloknak a gondolkodásra. A csend nem üres idő, hanem értékes lehetőség a belső folyamatok elindulására. Ne siess kitölteni a szüneteket!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: GROW MODELL -->
+  <div class="content-section" id="grow-modell">
+    <div class="section-header">
+      <div class="section-icon" style="background:#e8f5e9;">🌱</div>
+      <div>
+        <h2>A GROW Modell</h2>
+        <div class="section-sub">Strukturált keret a coaching beszélgetésekhez</div>
+      </div>
+    </div>
+    <div class="intro-box">
+      A <strong>GROW modell</strong> a coaching egyik legelterjedtebb strukturált kerete. Négy fázisból áll, amelyek logikusan követik egymást, és segítik az ügyfelet a céltól a konkrét cselekvési tervig eljutni.
+    </div>
+    <div class="grow-grid">
+      <div class="grow-card" style="border-color:#1a7a4a;">
+        <div class="grow-letter" style="color:#1a7a4a;">G</div>
+        <div class="grow-word">Goal (Cél)</div>
+        <div class="grow-desc">Mit szeretnél elérni? Mi lenne számodra a legjobb kimenetel? Hogyan tudnád, hogy elérted a célodat?</div>
+      </div>
+      <div class="grow-card" style="border-color:#2196F3;">
+        <div class="grow-letter" style="color:#2196F3;">R</div>
+        <div class="grow-word">Reality (Valóság)</div>
+        <div class="grow-desc">Hol tartasz most? Mi történik jelenleg? Milyen tényezők befolyásolják a helyzetedet?</div>
+      </div>
+      <div class="grow-card" style="border-color:#E8622A;">
+        <div class="grow-letter" style="color:#E8622A;">O</div>
+        <div class="grow-word">Options (Lehetőségek)</div>
+        <div class="grow-desc">Milyen lehetőségeid vannak? Milyen alternatív utak vezethetnek a célhoz? Mit tehetnél még?</div>
+      </div>
+      <div class="grow-card" style="border-color:#9C27B0;">
+        <div class="grow-letter" style="color:#9C27B0;">W</div>
+        <div class="grow-word">Will (Szándék/Cselekvés)</div>
+        <div class="grow-desc">Mit fogsz tenni? Mikor? Hogyan fogod mérni a haladást? Ki vagy mi segíthet?</div>
+      </div>
+    </div>
+    <div class="callout info">
+      <span class="callout-icon">ℹ️</span>
+      <div class="callout-text">
+        <strong>A GROW modell rugalmas</strong>
+        <p>A fázisok nem feltétlenül lineárisan követik egymást. Egy-egy coaching beszélgetés során visszatérhetünk korábbi fázisokhoz, ha új információ kerül elő. A modell keret, nem merev séma.</p>
+      </div>
+    </div>
+    <div class="video-placeholder-box">
+      <div class="video-icon">🎬</div>
+      <strong>Videó: A GROW modell a gyakorlatban</strong>
+      <p>Hamarosan elérhető: egy valós coaching párbeszéd bemutatása a GROW modell alapján, ifjúságsegítői kontextusban.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 4: IFJÚSÁGI MUNKA -->
+  <div class="content-section" id="ifjusagi-munka">
+    <div class="section-header">
+      <div class="section-icon" style="background:#e8f5e9;">👥</div>
+      <div>
+        <h2>Alkalmazás az Ifjúsági Munkában</h2>
+        <div class="section-sub">Coaching a 16–20 éves fiatalokkal való munkában</div>
+      </div>
+    </div>
+    <p style="margin-bottom:1.25rem;">A coaching megközelítés különösen hatékony a 16–20 éves fiatalokkal való munkában, ahol az önállóság, a döntéshozatal és az identitáskeresés kulcsfontosságú témák.</p>
+    <div class="feature-grid">
+      <div class="feature-card" style="border-color:#1a7a4a;">
+        <h3>🌟 Önállóság támogatása</h3>
+        <ul>
+          <li>Saját megoldások megtalálása</li>
+          <li>Felelősségvállalás erősítése</li>
+          <li>Belső motiváció fejlesztése</li>
+          <li>Önbizalom növelése</li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#2196F3;">
+        <h3>🧠 Döntéshozatal fejlesztése</h3>
+        <ul>
+          <li>Következmények átgondolása</li>
+          <li>Tudatosabb döntések meghozatala</li>
+          <li>Értékek és prioritások tisztázása</li>
+          <li>Kockázatok mérlegelése</li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#E8622A;">
+        <h3>🎯 Célok tisztázása</h3>
+        <ul>
+          <li>Konkrét lépések megfogalmazása</li>
+          <li>Rövid és hosszú távú célok</li>
+          <li>Akadályok azonosítása</li>
+          <li>Erőforrások feltárása</li>
+        </ul>
+      </div>
+    </div>
+    <div class="quote-box">
+      <blockquote>"A coaching megközelítés segíti a fiatalokat abban, hogy saját megoldásaikat találják meg, növelve ezzel önállóságukat és felelősségvállalásukat."</blockquote>
+      <cite>— IMELO Projekt, Coaching Modul</cite>
+    </div>
+  </div>
+
+  <!-- SECTION 5: ÖNREFLEXIÓ -->
+  <div class="content-section" id="onreflexio">
+    <div class="section-header">
+      <div class="section-icon" style="background:#e8f5e9;">🔍</div>
+      <div>
+        <h2>Önreflexió és Gyakorlat</h2>
+        <div class="section-sub">Értékeld saját coaching készségeidet</div>
+      </div>
+    </div>
+    <div class="reflection-section">
+      <h3>🎯 Coaching Készségek Önértékelése</h3>
+
+      <div class="reflection-question">
+        <label>1. Mennyire érzed magad magabiztosnak az aktív hallgatás alkalmazásában?</label>
+        <div class="scale-options">
+          <input type="radio" name="q1" id="q1_1" value="1"><label for="q1_1">1 – Kezdő</label>
+          <input type="radio" name="q1" id="q1_2" value="2"><label for="q1_2">2</label>
+          <input type="radio" name="q1" id="q1_3" value="3"><label for="q1_3">3 – Közepes</label>
+          <input type="radio" name="q1" id="q1_4" value="4"><label for="q1_4">4</label>
+          <input type="radio" name="q1" id="q1_5" value="5"><label for="q1_5">5 – Magabiztos</label>
+        </div>
+      </div>
+
+      <div class="reflection-question">
+        <label>2. Milyen helyzetben volt már részed, ahol coaching megközelítést alkalmazhattál volna (akár tudatosan, akár nem)?</label>
+        <textarea class="reflection-textarea" placeholder="Írj egy konkrét helyzetet..."></textarea>
+      </div>
+
+      <div class="reflection-question">
+        <label>3. Mi a legnagyobb kihívás számodra a nem-direktív megközelítés alkalmazásában?</label>
+        <div class="scale-options">
+          <input type="radio" name="q3" id="q3_a" value="a"><label for="q3_a">Tanácsot nem adni</label>
+          <input type="radio" name="q3" id="q3_b" value="b"><label for="q3_b">Csendben maradni</label>
+          <input type="radio" name="q3" id="q3_c" value="c"><label for="q3_c">Nyitott kérdések</label>
+          <input type="radio" name="q3" id="q3_d" value="d"><label for="q3_d">Türelem</label>
+        </div>
+      </div>
+
+      <div class="reflection-question">
+        <label>4. Hogyan tervezed alkalmazni a GROW modellt a következő hónapban?</label>
+        <textarea class="reflection-textarea" placeholder="Konkrét terved..."></textarea>
+      </div>
+
+      <div class="reflection-question">
+        <label>5. Mennyire érzed, hogy a coaching szemlélet illeszkedik a saját munkastílusodhoz?</label>
+        <div class="scale-options">
+          <input type="radio" name="q5" id="q5_1" value="1"><label for="q5_1">1 – Nehéz</label>
+          <input type="radio" name="q5" id="q5_2" value="2"><label for="q5_2">2</label>
+          <input type="radio" name="q5" id="q5_3" value="3"><label for="q5_3">3 – Semleges</label>
+          <input type="radio" name="q5" id="q5_4" value="4"><label for="q5_4">4</label>
+          <input type="radio" name="q5" id="q5_5" value="5"><label for="q5_5">5 – Természetes</label>
+        </div>
+      </div>
+
+      <button class="reflection-btn" onclick="showReflectionResult()">Visszajelzés kérése</button>
+      <div class="reflection-result" id="reflectionResult">
+        <strong>🌟 Köszönöm a reflexiót!</strong><br>
+        A coaching készségek fejlesztése folyamatos gyakorlást igényel. Javasolt következő lépés: próbáld ki a GROW modellt egy valós helyzetben, és figyeld meg, hogyan reagál rá a fiatal. Folytasd a tanulást a 2. modullal: <em>Aktív Hallgatás és Kérdezési Technikák</em>.
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: ÖSSZEFOGLALÁS -->
+  <div class="content-section" id="osszefoglalas">
+    <div class="section-header">
+      <div class="section-icon" style="background:#e8f5e9;">📋</div>
+      <div>
+        <h2>Összefoglalás és Következő Lépések</h2>
+        <div class="section-sub">A legfontosabb tanulságok</div>
+      </div>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-card" style="border-color:#1a7a4a;">
+        <h3>✅ A coaching alapjai</h3>
+        <ul>
+          <li>Együttműködésen alapuló folyamat</li>
+          <li>Nem-direktív megközelítés</li>
+          <li>Az ügyfél saját megoldásait keresi</li>
+          <li>Kérdéseken alapuló párbeszéd</li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#2196F3;">
+        <h3>💬 Kulcskészségek</h3>
+        <ul>
+          <li>Aktív hallgatás</li>
+          <li>Hatékony kérdezéstechnika</li>
+          <li>Empátia és bizalomépítés</li>
+          <li>Visszatükrözés és összefoglalás</li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#E8622A;">
+        <h3>🌱 GROW Modell</h3>
+        <ul>
+          <li>Goal – Cél meghatározása</li>
+          <li>Reality – Jelenlegi helyzet</li>
+          <li>Options – Lehetőségek feltárása</li>
+          <li>Will – Cselekvési terv</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout tip">
+      <span class="callout-icon">➡️</span>
+      <div class="callout-text">
+        <strong>Következő lépések</strong>
+        <p>Gyakorold az aktív hallgatást és a hatékony kérdezéstechnikát mindennapi beszélgetéseidben. Alkalmazd a GROW modellt a fiatalokkal folytatott támogató beszélgetésekben. Folytasd a tanulást a 2. modullal: <strong>Aktív Hallgatás és Kérdezési Technikák</strong>.</p>
+      </div>
+    </div>
+    <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:1.5rem;">
+      <a href="../coaching2/index.html" style="display:inline-flex; align-items:center; gap:0.5rem; background:linear-gradient(135deg,#1a7a4a,#2ecc71); color:#fff; font-weight:800; padding:0.75rem 1.5rem; border-radius:25px; text-decoration:none;">
+        ➡️ 2. Coaching Modul: Aktív Hallgatás
+      </a>
+      <a href="../coaching3/index.html" style="display:inline-flex; align-items:center; gap:0.5rem; background:#f0ecfa; color:#4B2D8B; font-weight:800; padding:0.75rem 1.5rem; border-radius:25px; text-decoration:none;">
+        ➡️ 3. Coaching Modul: Célkitűzés
+      </a>
+    </div>
+  </div>
+
+</div><!-- /main-content -->
+
+<!-- DOWNLOAD FOOTER -->
+<div class="download-footer">
+  <div class="download-footer-inner">
+    <h3>📄 Modul letöltése PDF formátumban</h3>
+    <p>Töltsd le a Coaching Alapok modult PDF formátumban – elérhető magyar, angol és román nyelven.</p>
+    <div class="download-btns">
+      <a href="coach1_hu.pdf" class="dl-btn" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        🇭🇺 Magyar PDF
+      </a>
+      <a href="https://drive.google.com/file/d/1I3TxZoSUKdwr5o_elWPop5T0xhta0tHV/view" target="_blank" class="dl-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        🇬🇧 English PDF
+      </a>
+      <a href="https://drive.google.com/file/d/1oAA1SUgzV_6E_eHh-KeNniIL8HXlK1Vv/view" target="_blank" class="dl-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        🇷🇴 PDF Română
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- EU FOOTER -->
+<div class="eu-footer">
+  <p>Az Európai Unió finanszírozásával. Az itt szereplő információk és állítások a szerző(k) álláspontját képviselik, és nem feltétlenül tükrözik az Európai Unió vagy a Tempus Közalapítvány hivatalos véleményét.</p>
+  <p style="margin-top:0.5rem;">IMELO Projekt · 2024-3-HU01-KA210-YOU-000290582</p>
+</div>
+
+<script>
+function showReflectionResult() {
+  const result = document.getElementById('reflectionResult');
+  result.style.display = 'block';
+  result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>

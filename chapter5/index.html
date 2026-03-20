@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5. Fejezet – Konfliktuskezelés és Asszertív Kommunikáció | IMELO Toolbox</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Nunito', sans-serif; background: #f5f5f7; color: #1a1a2e; line-height: 1.7; }
+
+    /* TOPBAR */
+    .topbar { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.97); backdrop-filter: blur(10px); border-bottom: 1px solid #e0e0e0; display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 2rem; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+    .topbar-logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+    .topbar-logo img { height: 52px; width: auto; }
+    .topbar-logo span { font-size: 0.85rem; font-weight: 700; color: #555; }
+    .back-btn { display: inline-flex; align-items: center; gap: 0.4rem; background: linear-gradient(135deg, #B71C1C 0%, #EF9A9A 100%); color: white; padding: 0.45rem 1.1rem; border-radius: 20px; text-decoration: none; font-weight: 700; font-size: 0.85rem; transition: opacity 0.2s; }
+    .back-btn:hover { opacity: 0.85; }
+
+    /* HERO */
+    .chapter-hero { background: linear-gradient(135deg, #B71C1C 0%, #EF9A9A 100%); color: white; padding: 3rem 2rem 2.5rem; text-align: center; position: relative; overflow: hidden; }
+    .chapter-hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 60%); }
+    .chapter-num { display: inline-block; background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.5); border-radius: 50px; padding: 0.3rem 1.2rem; font-size: 0.85rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem; }
+    .chapter-hero h1 { font-size: clamp(1.6rem, 4vw, 2.6rem); font-weight: 900; margin-bottom: 0.5rem; text-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+    .chapter-hero .subtitle { font-size: 1.05rem; opacity: 0.9; margin-bottom: 1.2rem; }
+    .tags { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; }
+    .tag { background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); border-radius: 20px; padding: 0.25rem 0.8rem; font-size: 0.8rem; font-weight: 600; }
+
+    /* LAYOUT */
+    .page-layout { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; display: grid; grid-template-columns: 240px 1fr; gap: 2rem; align-items: start; }
+    @media (max-width: 768px) { .page-layout { grid-template-columns: 1fr; } .sidebar { display: none; } }
+
+    /* SIDEBAR TOC */
+    .sidebar { position: sticky; top: 80px; background: white; border-radius: 16px; padding: 1.2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
+    .sidebar h3 { font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: #888; margin-bottom: 0.8rem; padding-bottom: 0.5rem; border-bottom: 2px solid #fdeaea; }
+    .toc-item { display: block; padding: 0.45rem 0.7rem; border-radius: 8px; color: #444; text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: all 0.2s; margin-bottom: 0.2rem; border-left: 3px solid transparent; }
+    .toc-item:hover { background: #fdeaea; color: #B71C1C; border-left-color: #B71C1C; }
+
+    /* SECTIONS */
+    .chapter-section { background: white; border-radius: 20px; padding: 2rem; margin-bottom: 1.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+    .section-header { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
+    .section-icon { font-size: 2rem; flex-shrink: 0; }
+    .section-header h2 { font-size: 1.4rem; font-weight: 800; color: #1a1a2e; }
+    .section-subtitle { color: #777; font-size: 0.9rem; font-weight: 600; margin-top: 0.2rem; }
+    .section-divider { height: 3px; border-radius: 2px; margin-bottom: 1.2rem; width: 60px; }
+    .section-intro { font-size: 1rem; color: #444; line-height: 1.8; margin-bottom: 1.5rem; }
+
+    /* STATS */
+    .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+    .stat-card { background: #fdeaea; border-radius: 12px; padding: 1rem; text-align: center; }
+    .stat-value { font-size: 1.6rem; font-weight: 900; }
+    .stat-label { font-size: 0.75rem; color: #666; font-weight: 600; margin-top: 0.3rem; line-height: 1.4; }
+
+    /* CONTENT GRIDS */
+    .content-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+    .content-card { background: #f8f9fa; border-radius: 12px; padding: 1.2rem; border-left: 4px solid #B71C1C; }
+    .content-card h4 { font-size: 0.95rem; font-weight: 800; color: #B71C1C; margin-bottom: 0.5rem; }
+    .content-card p, .content-card ul { font-size: 0.88rem; color: #555; line-height: 1.6; }
+    .content-card ul { padding-left: 1.2rem; }
+    .content-card li { margin-bottom: 0.25rem; }
+
+    /* STEPS */
+    .steps-list { display: flex; flex-direction: column; gap: 1rem; }
+    .step { display: flex; gap: 1rem; align-items: flex-start; background: #f8f9fa; border-radius: 12px; padding: 1rem 1.2rem; }
+    .step-num { background: linear-gradient(135deg, #B71C1C 0%, #EF9A9A 100%); color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.9rem; flex-shrink: 0; }
+    .step strong { display: block; font-size: 0.95rem; color: #1a1a2e; margin-bottom: 0.3rem; }
+    .step p { font-size: 0.85rem; color: #555; line-height: 1.6; }
+
+    /* SUMMARY */
+    .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+    .summary-card { background: linear-gradient(135deg, #B71C1C 0%, #EF9A9A 100%); color: white; border-radius: 14px; padding: 1.2rem; }
+    .summary-card h4 { font-size: 0.95rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .summary-card p { font-size: 0.83rem; opacity: 0.92; line-height: 1.5; }
+
+    /* HIGHLIGHT BOX */
+    .highlight-box { background: #fdeaea; border-radius: 12px; padding: 1.2rem 1.5rem; margin-top: 1rem; border-left: 4px solid #B71C1C; }
+    .highlight-box h4 { font-size: 0.95rem; font-weight: 800; color: #B71C1C; margin-bottom: 0.6rem; }
+    .highlight-box ul { padding-left: 1.2rem; }
+    .highlight-box li { font-size: 0.88rem; color: #555; margin-bottom: 0.3rem; }
+
+    /* INTERACTIVE */
+    .interactive-box { border-radius: 16px; padding: 1.5rem; margin-top: 1rem; }
+    .interactive-box h3 { font-size: 1.1rem; font-weight: 800; color: #B71C1C; margin-bottom: 0.5rem; }
+    .interactive-box > p { font-size: 0.88rem; color: #555; margin-bottom: 1.2rem; }
+    .reflection-question { margin-bottom: 1.2rem; }
+    .q-label { display: block; font-size: 0.9rem; font-weight: 700; color: #333; margin-bottom: 0.6rem; }
+    .scale-container { display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap; }
+    .scale-label { font-size: 0.75rem; color: #888; font-weight: 600; }
+    .scale-buttons { display: flex; gap: 0.4rem; }
+    .scale-btn { width: 38px; height: 38px; border-radius: 50%; border: 2px solid #ddd; background: white; cursor: pointer; font-weight: 800; font-size: 0.9rem; transition: all 0.2s; }
+    .scale-btn:hover { border-color: #B71C1C; color: #B71C1C; }
+    .scale-btn.selected { background: #B71C1C; border-color: #B71C1C; color: white; }
+    .reflection-textarea { width: 100%; border: 2px solid #e0e0e0; border-radius: 10px; padding: 0.7rem; font-family: 'Nunito', sans-serif; font-size: 0.88rem; resize: vertical; transition: border-color 0.2s; }
+    .reflection-textarea:focus { outline: none; border-color: #B71C1C; }
+    .submit-btn { background: linear-gradient(135deg, #B71C1C 0%, #EF9A9A 100%); color: white; border: none; border-radius: 25px; padding: 0.7rem 2rem; font-family: 'Nunito', sans-serif; font-size: 0.95rem; font-weight: 800; cursor: pointer; margin-top: 0.5rem; transition: opacity 0.2s; }
+    .submit-btn:hover { opacity: 0.85; }
+    .feedback-box { margin-top: 1rem; background: white; border-radius: 12px; padding: 1.2rem; border-left: 4px solid #B71C1C; }
+
+    /* VIDEO PLACEHOLDER */
+    .video-placeholder-box { display: flex; align-items: center; gap: 1.2rem; background: linear-gradient(135deg, #1a1a2e 0%, #2d2d5e 100%); border-radius: 14px; padding: 1.2rem 1.5rem; margin-top: 1.2rem; color: white; }
+    .video-icon { width: 50px; height: 50px; background: rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex-shrink: 0; }
+    .video-info h4 { font-size: 0.95rem; font-weight: 800; margin-bottom: 0.3rem; }
+    .video-info p { font-size: 0.8rem; opacity: 0.8; margin-bottom: 0.5rem; }
+    .video-badge { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; padding: 0.2rem 0.7rem; font-size: 0.75rem; font-weight: 700; }
+
+    /* PDF DOWNLOAD */
+    .pdf-section { background: white; border-radius: 20px; padding: 2rem; margin-bottom: 1.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.06); text-align: center; }
+    .pdf-section h3 { font-size: 1.1rem; font-weight: 800; color: #333; margin-bottom: 1rem; }
+    .pdf-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg, #B71C1C 0%, #EF9A9A 100%); color: white; padding: 0.7rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 800; font-size: 0.9rem; margin: 0.3rem; transition: opacity 0.2s; }
+    .pdf-btn:hover { opacity: 0.85; }
+    .pdf-btn.disabled { background: #ccc; cursor: not-allowed; }
+
+    /* FOOTER */
+    .chapter-footer { background: #1a1a2e; color: white; text-align: center; padding: 1.5rem; font-size: 0.8rem; opacity: 0.8; }
+  </style>
+</head>
+<body>
+
+<nav class="topbar">
+  <a href="../index.html" class="topbar-logo">
+    <img src="imelo_logo.png" alt="Identity Mosaic logó">
+  </a>
+  <a href="../index.html" class="back-btn">← Vissza az Eszköztárhoz</a>
+</nav>
+
+<div class="chapter-hero">
+  <div class="chapter-num">5. Fejezet</div>
+  <h1>Konfliktuskezelés és Asszertív Kommunikáció</h1>
+  <p class="subtitle">Hatékony kommunikáció és konfliktusmegoldás</p>
+  <div class="tags"><span class="tag">⚡ Konfliktuskezelés</span> <span class="tag">💬 Asszertivitás</span> <span class="tag">🤝 Win-win megoldások</span></div>
+</div>
+
+<div class="page-layout">
+  <aside class="sidebar">
+    <h3>Tartalomjegyzék</h3>
+    <a href="#konfliktus" class="toc-item">A Konfliktus Nem Ellenség</a><a href="#asszertivitas" class="toc-item">Az Asszertivitás Alapjai</a><a href="#en-uzenetek" class="toc-item">Az Én-üzenetek Művészete</a><a href="#lepesek" class="toc-item">A Konfliktuskezelés 5 Lépése</a><a href="#onreflexio" class="toc-item">Önreflexió – Kommunikációs Stílusom</a><a href="#osszefoglalas" class="toc-item">Összefoglalás</a>
+  </aside>
+
+  <main>
+
+    <section class="chapter-section" id="konfliktus">
+      <div class="section-header">
+        <span class="section-icon">⚡</span>
+        <div>
+          <h2>A Konfliktus Nem Ellenség</h2>
+          <p class="section-subtitle">Új megközelítés a konfliktusokhoz</p>
+        </div>
+      </div>
+      <div class="section-divider" style="background: linear-gradient(90deg, #B71C1C, transparent);"></div>
+      <p class="section-intro">Tévhit, hogy a jó kapcsolatokban nincs vita. A konfliktus valójában lehetőség a fejlődésre és a kapcsolatok elmélyítésére – ha megfelelően kezeljük.</p>
+      <div class="stats-row">
+        <div class="stat-card"><div class="stat-value" style="color:#B71C1C">Win-win</div><div class="stat-label">A jól kezelt konfliktus mindkét fél számára előnyös</div></div>
+        <div class="stat-card"><div class="stat-value" style="color:#E65100">5 lépés</div><div class="stat-label">A hatékony konfliktuskezelés folyamata</div></div>
+        <div class="stat-card"><div class="stat-value" style="color:#1565C0">70%</div><div class="stat-label">A konfliktusok kommunikációs problémából erednek</div></div>
+      </div>
+      <div class="section-content">
+<div class="content-grid">
+  <div class="content-card"><h4>❌ Mit veszítesz, ha rosszul kezeled?</h4><ul><li>Kapcsolatok romlása</li><li>Önbecsülés csökkenése</li><li>Elszalasztott lehetőségek</li><li>Folyamatos stressz</li></ul></div>
+  <div class="content-card"><h4>✅ Mit nyerhetsz, ha jól kezeled?</h4><ul><li>Stabilabb kapcsolatok</li><li>Nagyobb önbizalom</li><li>Win-win megoldások</li><li>Személyes növekedés</li></ul></div>
+  <div class="content-card"><h4>🧊 A Jéghegy-modell</h4><p>A konfliktusok felszínén a vita és a harag látható. A mélyben azonban valódi szükségletek, félelmek és értékek húzódnak meg. A hatékony konfliktuskezelés ezeket tárja fel.</p></div>
+</div>
+      </div>
+
+      <div class="video-placeholder-box">
+        <div class="video-icon">▶</div>
+        <div class="video-info">
+          <h4>Bevezető: A konfliktus mint lehetőség</h4>
+          <p>Miért nem ellenség a konfliktus, és hogyan fordíthatjuk a fejlődés javára?</p>
+          <span class="video-badge">🎬 Videó hamarosan elérhető</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter-section" id="asszertivitas">
+      <div class="section-header">
+        <span class="section-icon">💪</span>
+        <div>
+          <h2>Az Asszertivitás Alapjai</h2>
+          <p class="section-subtitle">Saját jogok és mások tisztelete</p>
+        </div>
+      </div>
+      <div class="section-divider" style="background: linear-gradient(90deg, #B71C1C, transparent);"></div>
+      <p class="section-intro">Az asszertivitás a saját jogaink és szükségleteink határozott, de tiszteletteljes képviselete – anélkül, hogy mások jogait megsértenénk.</p>
+      <div class="section-content">
+<div class="content-grid">
+  <div class="content-card"><h4>😔 Passzív kommunikáció</h4><p>Saját igények feladása, mások igényeinek előtérbe helyezése, konfliktuskerülés. <em>"Nem baj, ha neked így jobb... Nekem mindegy."</em></p></div>
+  <div class="content-card"><h4>😠 Agresszív kommunikáció</h4><p>Saját igények erőltetése, mások jogainak figyelmen kívül hagyása, dominancia. <em>"Te mindig mindent elrontasz! Csináld úgy, ahogy mondom!"</em></p></div>
+  <div class="content-card"><h4>😊 Asszertív kommunikáció</h4><p>Saját jogok tiszteletben tartása, mások jogainak tisztelete, őszinte kommunikáció. <em>"Értem az álláspontodat, de nekem más a véleményem. Találjunk közös megoldást."</em></p></div>
+</div>
+<div class="highlight-box"><h4>📜 Asszertív Jogaid</h4><ul><li>Jogod van <strong>nemet mondani</strong></li><li>Jogod van <strong>meggondolni magad</strong></li><li>Jogod van <strong>hibázni</strong></li><li>Jogod van azt mondani: <strong>nem tudom / nem értem</strong></li><li>Jogod van <strong>segítséget kérni</strong></li><li>Jogod van <strong>kifejezni az érzéseidet</strong></li></ul></div>
+      </div>
+    </section>
+
+    <section class="chapter-section" id="en-uzenetek">
+      <div class="section-header">
+        <span class="section-icon">💬</span>
+        <div>
+          <h2>Az Én-üzenetek Művészete</h2>
+          <p class="section-subtitle">Felelősségteljes kommunikáció</p>
+        </div>
+      </div>
+      <div class="section-divider" style="background: linear-gradient(90deg, #B71C1C, transparent);"></div>
+      <p class="section-intro">Az Én-üzenetek a felelős, nem hibáztató kommunikáció eszközei. Ahelyett, hogy a másik viselkedését ítélnénk meg, saját érzéseinkről és szükségleteinkről beszélünk.</p>
+      <div class="section-content">
+<div class="content-grid">
+  <div class="content-card"><h4>❌ Te-üzenet</h4><p><em>"Te mindig elkésel! Soha nem lehet rád számítani, teljesen megbízhatatlan vagy!"</em></p><p>Hibáztat, ítélkezik, védekezést vált ki.</p></div>
+  <div class="content-card"><h4>✅ Én-üzenet</h4><p><em>"Aggódom, amikor késel, mert nem tudom, mi történt veled. Szeretném, ha legközelebb szólnál, ha késni fogsz."</em></p><p>Nem hibáztat, felelősséget vállal, megoldást javasol.</p></div>
+</div>
+<div class="steps-list">
+  <div class="step"><span class="step-num">1</span><div><strong>Probléma leírása</strong><p>Objektíven írd le a helyzetet vagy viselkedést ítélkezés nélkül. <em>"Amikor 30 percet késel a megbeszélt találkozóról..."</em></p></div></div>
+  <div class="step"><span class="step-num">2</span><div><strong>Hatás rám</strong><p>Mondd el, milyen érzéseket vagy következményeket okoz neked a helyzet. <em>"...aggódom, és bizonytalanná válok a terveinket illetően..."</em></p></div></div>
+  <div class="step"><span class="step-num">3</span><div><strong>Megoldási javaslat</strong><p>Javasolj egy konkrét, pozitív megoldást. <em>"...értékelném, ha legközelebb üzennél, ha késni fogsz."</em></p></div></div>
+</div>
+      </div>
+    </section>
+
+    <section class="chapter-section" id="lepesek">
+      <div class="section-header">
+        <span class="section-icon">🪜</span>
+        <div>
+          <h2>A Konfliktuskezelés 5 Lépése</h2>
+          <p class="section-subtitle">Strukturált megközelítés</p>
+        </div>
+      </div>
+      <div class="section-divider" style="background: linear-gradient(90deg, #B71C1C, transparent);"></div>
+      <p class="section-intro">A hatékony konfliktuskezelés nem improvizáció – egy tanulható, gyakorolható folyamat, amely mindkét fél számára előnyös megoldáshoz vezet.</p>
+      <div class="section-content">
+<div class="steps-list">
+  <div class="step"><span class="step-num">1</span><div><strong>Értelmezés és megértés</strong><p>Mi a valódi probléma? Hallgasd meg a másik felet aktívan, és próbáld megérteni az ő nézőpontját is. A jéghegy mélyén lévő szükségletek feltárása.</p></div></div>
+  <div class="step"><span class="step-num">2</span><div><strong>Kommunikáció</strong><p>Fejezd ki saját érzéseidet és szükségleteidet Én-üzenetekkel. Kerüld a hibáztatást és az általánosításokat ("mindig", "soha").</p></div></div>
+  <div class="step"><span class="step-num">3</span><div><strong>Megoldások keresése</strong><p>Közösen keressetek lehetséges megoldásokat. A brainstorming fázisban minden ötlet értékes – az értékelés csak utána következik.</p></div></div>
+  <div class="step"><span class="step-num">4</span><div><strong>Megállapodás</strong><p>Válasszátok ki a mindkét fél számára elfogadható megoldást. A win-win megoldás nem kompromisszum – hanem mindkét fél szükségleteinek kielégítése.</p></div></div>
+  <div class="step"><span class="step-num">5</span><div><strong>Értékelés</strong><p>Egy idő után értékeljétek a megállapodás működését. Ha szükséges, módosítsátok – a rugalmasság a hatékony konfliktuskezelés része.</p></div></div>
+</div>
+      </div>
+    </section>
+
+    <section class="chapter-section" id="onreflexio">
+      <div class="section-header">
+        <span class="section-icon">🪞</span>
+        <div>
+          <h2>Önreflexió – Kommunikációs Stílusom</h2>
+          <p class="section-subtitle">Saját kommunikációs minták feltérképezése</p>
+        </div>
+      </div>
+      <div class="section-divider" style="background: linear-gradient(90deg, #B71C1C, transparent);"></div>
+      <p class="section-intro">Az alábbi kérdőív segít azonosítani a kommunikációs stílusodat és a fejlesztendő területeket.</p>
+
+      <div class="interactive-box" style="background:#fdeaea; border-left: 4px solid #B71C1C;">
+        <h3>🧩 Önértékelő kérdőív – Kommunikációs stílusom</h3>
+        <p>Töltsd ki az alábbi kérdőívet, hogy képet kapj jelenlegi szokásaidról és fejlesztési lehetőségeidről!</p>
+        <div class="reflection-form" id="reflectionForm">
+
+    <div class="reflection-question" id="q1">
+      <label class="q-label">Mennyire tudok asszertívan kommunikálni konfliktushelyzetekben?</label>
+      <div class="scale-container">
+        <span class="scale-label">Egyáltalán nem</span>
+        <div class="scale-buttons">
+          <button class="scale-btn" onclick="selectScale(this, 1)">1</button><button class="scale-btn" onclick="selectScale(this, 1)">2</button><button class="scale-btn" onclick="selectScale(this, 1)">3</button><button class="scale-btn" onclick="selectScale(this, 1)">4</button><button class="scale-btn" onclick="selectScale(this, 1)">5</button>
+        </div>
+        <span class="scale-label">Teljes mértékben</span>
+      </div>
+    </div>
+    <div class="reflection-question" id="q2">
+      <label class="q-label">Mennyire könnyen mondok nemet, ha szükséges?</label>
+      <div class="scale-container">
+        <span class="scale-label">Egyáltalán nem</span>
+        <div class="scale-buttons">
+          <button class="scale-btn" onclick="selectScale(this, 2)">1</button><button class="scale-btn" onclick="selectScale(this, 2)">2</button><button class="scale-btn" onclick="selectScale(this, 2)">3</button><button class="scale-btn" onclick="selectScale(this, 2)">4</button><button class="scale-btn" onclick="selectScale(this, 2)">5</button>
+        </div>
+        <span class="scale-label">Teljes mértékben</span>
+      </div>
+    </div>
+    <div class="reflection-question" id="q3">
+      <label class="q-label">Mennyire használom az Én-üzeneteket a mindennapokban?</label>
+      <div class="scale-container">
+        <span class="scale-label">Egyáltalán nem</span>
+        <div class="scale-buttons">
+          <button class="scale-btn" onclick="selectScale(this, 3)">1</button><button class="scale-btn" onclick="selectScale(this, 3)">2</button><button class="scale-btn" onclick="selectScale(this, 3)">3</button><button class="scale-btn" onclick="selectScale(this, 3)">4</button><button class="scale-btn" onclick="selectScale(this, 3)">5</button>
+        </div>
+        <span class="scale-label">Teljes mértékben</span>
+      </div>
+    </div>
+    <div class="reflection-question" id="q4">
+      <label class="q-label">Mennyire keresek win-win megoldásokat a konfliktusokban?</label>
+      <div class="scale-container">
+        <span class="scale-label">Egyáltalán nem</span>
+        <div class="scale-buttons">
+          <button class="scale-btn" onclick="selectScale(this, 4)">1</button><button class="scale-btn" onclick="selectScale(this, 4)">2</button><button class="scale-btn" onclick="selectScale(this, 4)">3</button><button class="scale-btn" onclick="selectScale(this, 4)">4</button><button class="scale-btn" onclick="selectScale(this, 4)">5</button>
+        </div>
+        <span class="scale-label">Teljes mértékben</span>
+      </div>
+    </div>
+    <div class="reflection-question" id="q5">
+      <label class="q-label">Írj le egy helyzetet, amelyben asszertívabb kommunikációt szerettél volna alkalmazni!</label>
+      <textarea class="reflection-textarea" rows="3" placeholder="Írd ide a válaszodat..."></textarea>
+    </div>
+          <button class="submit-btn" onclick="submitReflection()">Visszajelzés megjelenítése</button>
+          <div class="feedback-box" id="feedbackBox" style="display:none;"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter-section" id="osszefoglalas">
+      <div class="section-header">
+        <span class="section-icon">📋</span>
+        <div>
+          <h2>Összefoglalás</h2>
+          <p class="section-subtitle">Konfliktuskezelés és asszertivitás eszköztára</p>
+        </div>
+      </div>
+      <div class="section-divider" style="background: linear-gradient(90deg, #B71C1C, transparent);"></div>
+      <p class="section-intro">A hatékony kommunikáció és konfliktuskezelés tanulható készségek. Minél többet gyakorlod, annál természetesebbé válnak.</p>
+      <div class="section-content">
+<div class="summary-grid">
+  <div class="summary-card"><h4>💪 Asszertivitás</h4><p>Saját jogaid képviselete mások tiszteletben tartása mellett. Sem passzív, sem agresszív – hanem egyenrangú.</p></div>
+  <div class="summary-card"><h4>💬 Én-üzenetek</h4><p>A felelős kommunikáció eszköze: probléma leírása – hatás rám – megoldási javaslat.</p></div>
+  <div class="summary-card"><h4>🪜 5 lépés</h4><p>Értelmezés – Kommunikáció – Megoldások keresése – Megállapodás – Értékelés.</p></div>
+  <div class="summary-card"><h4>🏆 Win-win</h4><p>A cél nem a győzelem, hanem mindkét fél szükségleteinek kielégítése. Ez erősíti a kapcsolatokat.</p></div>
+</div>
+      </div>
+    </section>
+
+
+    <div class="pdf-section">
+      <h3>📥 Fejezet letöltése PDF formátumban</h3>
+      <a href="https://drive.google.com/file/d/1cgAG-U8m31fpX9d9Zxu9CmnMIjdnYQs7/view" target="_blank" class="pdf-btn">🇭🇺 Magyar PDF letöltése</a>
+      <a href="https://drive.google.com/file/d/1z0oB61SOP7mhYVZHpm1hE6A3L9GkCgRd/view" target="_blank" class="pdf-btn">🇬🇧 English PDF</a>
+      <a href="https://drive.google.com/file/d/1m0FAyUvCv4AithtVgKIW9hNj9zx7PYwO/view" target="_blank" class="pdf-btn">🇷🇴 PDF în română</a>
+    </div>
+  </main>
+</div>
+
+<footer class="chapter-footer">
+  <p>IMELO – Identity Mosaic | Erasmus+ KA2 projekt | © 2024–2026</p>
+  <p>Az Európai Bizottság támogatásával készült. A tartalom kizárólag a szerzők álláspontját tükrözi.</p>
+</footer>
+
+<script>
+  function selectScale(btn, qid) {
+    const container = btn.closest('.scale-buttons');
+    container.querySelectorAll('.scale-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+  }
+
+  function submitReflection() {
+    const form = document.getElementById('reflectionForm');
+    const scaleAnswers = form.querySelectorAll('.scale-btn.selected');
+    const textAnswers = form.querySelectorAll('.reflection-textarea');
+    let totalScore = 0;
+    let scaleCount = 0;
+    scaleAnswers.forEach(btn => { totalScore += parseInt(btn.textContent); scaleCount++; });
+    const avgScore = scaleCount > 0 ? (totalScore / scaleCount).toFixed(1) : 0;
+    let feedback = '';
+    if (avgScore >= 4) {
+      feedback = '<strong>🌟 Kiváló!</strong> Az eredményeid azt mutatják, hogy ezen a területen már erős alapokkal rendelkezel. Fókuszálj a finomhangolásra és a mások támogatására!';
+    } else if (avgScore >= 3) {
+      feedback = '<strong>👍 Jó haladás!</strong> Szilárd alapokkal rendelkezel, de van még fejlődési lehetőség. Válassz ki 1-2 konkrét területet, amelyen tudatosan dolgozni szeretnél!';
+    } else {
+      feedback = '<strong>🌱 Fejlődési lehetőség!</strong> Ez a terület különös figyelmet érdemel. Ne csüggedj – minden fejlődés kis lépésekkel kezdődik. Válassz ki egy konkrét technikát és próbáld ki a következő héten!';
+    }
+    const feedbackBox = document.getElementById('feedbackBox');
+    feedbackBox.innerHTML = '<p>' + feedback + '</p><p style="margin-top:0.5rem;font-size:0.85rem;color:#666;">Átlagos pontszámod: <strong>' + avgScore + '/5</strong></p>';
+    feedbackBox.style.display = 'block';
+    feedbackBox.scrollIntoView({behavior: 'smooth', block: 'nearest'});
+  }
+
+  // Smooth scroll for TOC
+  document.querySelectorAll('.toc-item').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.getElementById(this.getAttribute('href').substring(1));
+      if (target) target.scrollIntoView({behavior: 'smooth', block: 'start'});
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coaching 2 – Aktív Hallgatás és Kérdezési Technikák | IMELO Toolbox</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Nunito', sans-serif; background: #f7f7fb; color: #2c2c54; font-size: 16px; line-height: 1.7; }
+    .topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.97); backdrop-filter: blur(8px); box-shadow: 0 2px 16px rgba(75,45,139,0.10); padding: 0 2rem; height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .topbar-left { display: flex; align-items: center; gap: 1rem; }
+    .back-btn { display: inline-flex; align-items: center; gap: 0.4rem; background: #f0ecfa; color: #4B2D8B; font-weight: 700; font-size: 0.85rem; padding: 0.4rem 1rem; border-radius: 20px; text-decoration: none; transition: background 0.2s, color 0.2s; white-space: nowrap; }
+    .back-btn:hover { background: #4B2D8B; color: #fff; }
+    .back-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+    .topbar-logo img { height: 52px; width: auto; }
+    .chapter-badge { background: linear-gradient(135deg, #1565C0, #42A5F5); color: #fff; font-weight: 700; font-size: 0.75rem; padding: 0.3rem 0.8rem; border-radius: 20px; white-space: nowrap; }
+    .hero { margin-top: 64px; background: linear-gradient(135deg, #1565C0 0%, #42A5F5 50%, #1a7a4a 100%); padding: 3.5rem 2rem 3rem; text-align: center; color: #fff; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -60px; right: -60px; width: 220px; height: 220px; background: rgba(255,255,255,0.06); border-radius: 50%; }
+    .hero-tag { display: inline-block; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.35); border-radius: 20px; font-size: 0.8rem; font-weight: 700; padding: 0.3rem 1rem; margin-bottom: 1rem; letter-spacing: 0.05em; }
+    .hero h1 { font-size: clamp(1.6rem, 4vw, 2.6rem); font-weight: 800; margin-bottom: 0.5rem; line-height: 1.2; }
+    .hero .subtitle { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto 1.5rem; }
+    .hero-meta { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; font-size: 0.85rem; opacity: 0.85; }
+    .toc-section { background: #fff; border-bottom: 1px solid #e8e4f0; padding: 1.5rem 2rem; }
+    .toc-inner { max-width: 900px; margin: 0 auto; }
+    .toc-title { font-size: 0.8rem; font-weight: 700; color: #888; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem; }
+    .toc-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .toc-links a { background: #e3f2fd; color: #1565C0; font-size: 0.8rem; font-weight: 700; padding: 0.35rem 0.85rem; border-radius: 20px; text-decoration: none; transition: background 0.2s, color 0.2s; }
+    .toc-links a:hover { background: #1565C0; color: #fff; }
+    .main-content { max-width: 900px; margin: 0 auto; padding: 2.5rem 2rem 4rem; }
+    .content-section { margin-bottom: 3.5rem; scroll-margin-top: 80px; }
+    .section-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 3px solid #1565C0; }
+    .section-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex-shrink: 0; }
+    .section-header h2 { font-size: 1.35rem; font-weight: 800; color: #2c2c54; }
+    .section-header .section-sub { font-size: 0.85rem; color: #666; font-weight: 600; }
+    .intro-box { background: linear-gradient(135deg, #e3f2fd, #e8f5e9); border-left: 4px solid #1565C0; border-radius: 0 12px 12px 0; padding: 1.25rem 1.5rem; margin-bottom: 1.5rem; }
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .stat-card { background: #fff; border-radius: 14px; padding: 1.25rem 1rem; text-align: center; box-shadow: 0 2px 12px rgba(21,101,192,0.1); border-top: 3px solid; }
+    .stat-card .stat-num { font-size: 2rem; font-weight: 800; line-height: 1; margin-bottom: 0.25rem; }
+    .stat-card .stat-label { font-size: 0.82rem; color: #666; font-weight: 600; }
+    .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin: 1.25rem 0; }
+    .feature-card { background: #fff; border-radius: 14px; padding: 1.25rem; box-shadow: 0 2px 12px rgba(21,101,192,0.07); border-top: 3px solid; }
+    .feature-card h3 { font-size: 1rem; font-weight: 800; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+    .feature-card ul { list-style: none; padding: 0; }
+    .feature-card ul li { padding: 0.3rem 0; padding-left: 1.2rem; position: relative; font-size: 0.9rem; color: #444; }
+    .feature-card ul li::before { content: '→'; position: absolute; left: 0; color: #1565C0; font-weight: 700; }
+    .technique-card { background: #fff; border-radius: 14px; padding: 1.5rem; box-shadow: 0 2px 12px rgba(21,101,192,0.08); border-left: 4px solid #1565C0; margin-bottom: 1rem; }
+    .technique-card h3 { font-size: 1.05rem; font-weight: 800; color: #1565C0; margin-bottom: 0.5rem; }
+    .technique-card .example { background: #e3f2fd; border-radius: 8px; padding: 0.6rem 1rem; font-size: 0.88rem; color: #1565C0; font-style: italic; margin-top: 0.5rem; }
+    .question-type-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 1.25rem 0; }
+    .question-card { background: #fff; border-radius: 14px; padding: 1.25rem; box-shadow: 0 2px 12px rgba(21,101,192,0.07); border-top: 3px solid; }
+    .question-card h4 { font-size: 0.95rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .question-card p { font-size: 0.85rem; color: #555; margin-bottom: 0.5rem; }
+    .question-card .q-example { font-size: 0.82rem; color: #1565C0; font-style: italic; background: #e3f2fd; padding: 0.4rem 0.75rem; border-radius: 8px; }
+    .obstacle-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.25rem 0; }
+    .obstacle-card { background: #fff; border-radius: 14px; padding: 1.25rem; box-shadow: 0 2px 8px rgba(21,101,192,0.06); border-top: 3px solid #ffb300; text-align: center; }
+    .obstacle-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+    .obstacle-card h4 { font-size: 0.9rem; font-weight: 800; color: #2c2c54; margin-bottom: 0.4rem; }
+    .obstacle-card p { font-size: 0.82rem; color: #666; }
+    .callout { border-radius: 12px; padding: 1.25rem 1.5rem; margin: 1.25rem 0; display: flex; gap: 1rem; align-items: flex-start; }
+    .callout.tip { background: #e8f5e9; border-left: 4px solid #1a7a4a; }
+    .callout.warning { background: #fff8e1; border-left: 4px solid #ffa000; }
+    .callout.info { background: #e3f2fd; border-left: 4px solid #1565C0; }
+    .callout-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .callout-text strong { display: block; margin-bottom: 0.3rem; font-size: 0.95rem; }
+    .callout-text p { font-size: 0.9rem; color: #444; margin: 0; }
+    .video-placeholder-box { background: #fff; border: 2px dashed #90CAF9; border-radius: 14px; padding: 2rem; text-align: center; margin: 1.5rem 0; }
+    .video-placeholder-box .video-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .video-placeholder-box p { color: #888; font-size: 0.9rem; margin: 0; }
+    .video-placeholder-box strong { display: block; color: #1565C0; font-size: 1rem; margin-bottom: 0.25rem; }
+    .reflection-section { background: linear-gradient(135deg, #e3f2fd, #e8f5e9); border-radius: 16px; padding: 2rem; margin: 2rem 0; }
+    .reflection-section h3 { font-size: 1.2rem; font-weight: 800; color: #1565C0; margin-bottom: 1rem; }
+    .reflection-question { background: #fff; border-radius: 12px; padding: 1.25rem; margin-bottom: 1rem; box-shadow: 0 2px 8px rgba(21,101,192,0.06); }
+    .reflection-question label { display: block; font-weight: 700; font-size: 0.95rem; color: #2c2c54; margin-bottom: 0.75rem; }
+    .scale-options { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+    .scale-options input[type="radio"] { display: none; }
+    .scale-options label { cursor: pointer; background: #f0ecfa; color: #4B2D8B; font-weight: 700; font-size: 0.85rem; padding: 0.4rem 0.85rem; border-radius: 20px; transition: background 0.2s, color 0.2s; }
+    .scale-options input[type="radio"]:checked + label { background: #1565C0; color: #fff; }
+    .reflection-textarea { width: 100%; border: 2px solid #90CAF9; border-radius: 10px; padding: 0.75rem 1rem; font-family: 'Nunito', sans-serif; font-size: 0.9rem; resize: vertical; min-height: 80px; transition: border-color 0.2s; }
+    .reflection-textarea:focus { outline: none; border-color: #1565C0; }
+    .reflection-btn { background: linear-gradient(135deg, #1565C0, #42A5F5); color: #fff; border: none; padding: 0.75rem 2rem; border-radius: 25px; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.95rem; cursor: pointer; margin-top: 1rem; transition: opacity 0.2s; }
+    .reflection-btn:hover { opacity: 0.85; }
+    .reflection-result { display: none; background: #e3f2fd; border-left: 4px solid #1565C0; border-radius: 0 10px 10px 0; padding: 1rem 1.25rem; margin-top: 1rem; font-size: 0.9rem; }
+    .download-footer { background: linear-gradient(135deg, #1565C0, #42A5F5); padding: 2.5rem 2rem; margin-top: 3rem; }
+    .download-footer-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+    .download-footer h3 { color: #fff; font-size: 1.3rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .download-footer p { color: rgba(255,255,255,0.85); margin-bottom: 1.5rem; }
+    .download-btns { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .dl-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.4); color: #fff; font-weight: 700; font-size: 0.9rem; padding: 0.7rem 1.5rem; border-radius: 25px; text-decoration: none; transition: background 0.2s; }
+    .dl-btn:hover { background: rgba(255,255,255,0.3); }
+    .dl-btn svg { width: 18px; height: 18px; }
+    .eu-footer { background: #2c2c54; color: rgba(255,255,255,0.7); text-align: center; padding: 1.5rem 2rem; font-size: 0.8rem; line-height: 1.6; }
+    @media (max-width: 640px) { .topbar { padding: 0 1rem; } .main-content { padding: 1.5rem 1rem 3rem; } }
+  </style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="topbar-left">
+    <a href="../index.html" class="back-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Vissza az Eszköztárhoz
+    </a>
+    <a href="../index.html" class="topbar-logo">
+      <img src="imelo_logo.png" alt="Identity Mosaic" />
+    </a>
+  </div>
+  <span class="chapter-badge">🎓 Coaching Modul – 2. rész</span>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag">COACHING MODUL · 2. RÉSZ</div>
+  <h1>Aktív Hallgatás és Kérdezési Technikák</h1>
+  <p class="subtitle">A hatékony coaching legfontosabb eszközei: hogyan hallgassunk igazán, és hogyan kérdezzünk úgy, hogy valódi változást indítsunk el</p>
+  <div class="hero-meta">
+    <span>🎯 Célcsoport: Ifjúságsegítők</span>
+    <span>⏱️ Olvasási idő: ~15 perc</span>
+    <span>📚 Coaching Modul 2/3</span>
+  </div>
+</div>
+
+<div class="toc-section">
+  <div class="toc-inner">
+    <div class="toc-title">Tartalom</div>
+    <div class="toc-links">
+      <a href="#aktiv-hallgatas">Mi az aktív hallgatás?</a>
+      <a href="#technikak">Aktív hallgatás technikái</a>
+      <a href="#akadalyok">A hallgatás akadályai</a>
+      <a href="#kerdezes">Kérdezési technikák</a>
+      <a href="#kerdestipusok">Kérdéstípusok</a>
+      <a href="#eroteljes">Erőteljes kérdések</a>
+      <a href="#onreflexio">Önreflexió</a>
+    </div>
+  </div>
+</div>
+
+<div class="main-content">
+
+  <div class="stat-grid">
+    <div class="stat-card" style="border-color:#1565C0;">
+      <div class="stat-num" style="color:#1565C0;">4</div>
+      <div class="stat-label">Aktív hallgatás technika</div>
+    </div>
+    <div class="stat-card" style="border-color:#42A5F5;">
+      <div class="stat-num" style="color:#42A5F5;">5</div>
+      <div class="stat-label">Hallgatási akadály</div>
+    </div>
+    <div class="stat-card" style="border-color:#1a7a4a;">
+      <div class="stat-num" style="color:#1a7a4a;">4</div>
+      <div class="stat-label">Kérdéstípus</div>
+    </div>
+    <div class="stat-card" style="border-color:#E8622A;">
+      <div class="stat-num" style="color:#E8622A;">∞</div>
+      <div class="stat-label">Erőteljes kérdés lehetőség</div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: MI AZ AKTÍV HALLGATÁS -->
+  <div class="content-section" id="aktiv-hallgatas">
+    <div class="section-header">
+      <div class="section-icon" style="background:#e3f2fd;">👂</div>
+      <div>
+        <h2>Mi az aktív hallgatás?</h2>
+        <div class="section-sub">Több mint egyszerű hallás</div>
+      </div>
+    </div>
+    <div class="intro-box">
+      Az aktív hallgatás egy <strong>tudatos kommunikációs technika</strong>, amelyben a hallgató teljes figyelmével, empátiával és megértéssel fordul a beszélő felé, és visszajelzésekkel segíti a kommunikációt. Nem csupán a szavak meghallása, hanem a mögöttes érzelmek, szándékok és jelentések megértése is.
+    </div>
+    <div class="feature-grid">
+      <div class="feature-card" style="border-color:#1565C0;">
+        <h3>👂 Több mint hallás</h3>
+        <ul>
+          <li>Mögöttes érzelmek megértése</li>
+          <li>Szándékok és jelentések feltárása</li>
+          <li>Nem verbális jelzések figyelése</li>
+          <li>Teljes figyelem és jelenlét</li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#42A5F5;">
+        <h3>🧠 Teljes jelenlét</h3>
+        <ul>
+          <li>Saját gondolatok félretétele</li>
+          <li>Ítéletek felfüggesztése</li>
+          <li>Mentális és érzelmi jelenlét</li>
+          <li>Zavaró tényezők kiiktatása</li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#1a7a4a;">
+        <h3>❤️ Bizalom alapja</h3>
+        <ul>
+          <li>Bizalmi kapcsolat kiépítése</li>
+          <li>Mélyebb megértés lehetővé tétele</li>
+          <li>Rejtett problémák feltárása</li>
+          <li>Motivációk megismerése</li>
+        </ul>
+      </div>
+    </div>
+    <div class="video-placeholder-box">
+      <div class="video-icon">🎬</div>
+      <strong>Videó: Aktív hallgatás a gyakorlatban</strong>
+      <p>Ez a modul már rendelkezik videós támogatással! Hamarosan elérhető lesz a videó linkje.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 2: TECHNIKÁK -->
+  <div class="content-section" id="technikak">
+    <div class="section-header">
+      <div class="section-icon" style="background:#e3f2fd;">🛠️</div>
+      <div>
+        <h2>Az Aktív Hallgatás Technikái</h2>
+        <div class="section-sub">Konkrét eszközök és példák</div>
+      </div>
+    </div>
+    <div class="technique-card">
+      <h3>👁️ 1. Teljes figyelem</h3>
+      <p>Szemkontaktus tartása, nyitott testtartás, zavaró tényezők kiiktatása (telefon, egyéb gondolatok). A testbeszéd jelzi a figyelmet.</p>
+      <div class="example">💬 Példa: "Látom, hogy ez fontos számodra."</div>
+    </div>
+    <div class="technique-card">
+      <h3>🔄 2. Visszatükrözés</h3>
+      <p>Az elhangzottak saját szavainkkal történő visszamondása a megértés ellenőrzésére. Ez megerősíti az ügyfelet és tisztázza a félreértéseket.</p>
+      <div class="example">💬 Példa: "Ha jól értem, azt mondod, hogy..."</div>
+    </div>
+    <div class="technique-card">
+      <h3>❤️ 3. Érzelmek validálása</h3>
+      <p>Az ügyfél érzéseinek elismerése és normalizálása, ítélkezés nélkül. Az érzelmek validálása nem jelenti az egyetértést – csupán az elismerést.</p>
+      <div class="example">💬 Példa: "Érthető, hogy frusztrált vagy ebben a helyzetben."</div>
+    </div>
+    <div class="technique-card">
+      <h3>🔇 4. Csend és összefoglalás</h3>
+      <p>Tudatos szünetek tartása és a beszélgetés főbb pontjainak összegzése. A csend értékes eszköz – adj időt a gondolkodásra!</p>
+      <div class="example">💬 Példa: "Tehát a fő kihívások, amelyekkel szembesülsz..."</div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: AKADÁLYOK -->
+  <div class="content-section" id="akadalyok">
+    <div class="section-header">
+      <div class="section-icon" style="background:#fff8e1;">⚠️</div>
+      <div>
+        <h2>A Hallgatás Akadályai</h2>
+        <div class="section-sub">Mik akadályozzák a hatékony hallgatást?</div>
+      </div>
+    </div>
+    <div class="obstacle-grid">
+      <div class="obstacle-card">
+        <div class="obstacle-icon">💭</div>
+        <h4>Belső párbeszéd</h4>
+        <p>Saját gondolatainkkal való foglalkozás ahelyett, hogy a másikra figyelnénk.</p>
+      </div>
+      <div class="obstacle-card">
+        <div class="obstacle-icon">🏷️</div>
+        <h4>Előítéletek</h4>
+        <p>A beszélő vagy a téma előzetes megítélése, ami torzítja a hallottakat.</p>
+      </div>
+      <div class="obstacle-card">
+        <div class="obstacle-icon">⏰</div>
+        <h4>Türelmetlenség</h4>
+        <p>Siettetés, a beszélő félbeszakítása vagy a válasz előre megfogalmazása.</p>
+      </div>
+      <div class="obstacle-card">
+        <div class="obstacle-icon">📱</div>
+        <h4>Figyelemelterelők</h4>
+        <p>Külső zavaró tényezők (telefon, zaj) vagy belső elterelő gondolatok.</p>
+      </div>
+      <div class="obstacle-card">
+        <div class="obstacle-icon">🪞</div>
+        <h4>Énközpontúság</h4>
+        <p>A beszélgetés visszaterelése saját tapasztalatainkra, problémáinkra.</p>
+      </div>
+    </div>
+    <div class="callout tip">
+      <span class="callout-icon">💡</span>
+      <div class="callout-text">
+        <strong>Tipp a tudatossághoz</strong>
+        <p>Gyakorold a tudatosságot! Figyeld meg, mikor kalandozik el a figyelmed, és gyengéden tereld vissza a beszélőre. Ez nem gyengeség – hanem a hallgatás mestersége.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: KÉRDEZÉSI TECHNIKÁK -->
+  <div class="content-section" id="kerdezes">
+    <div class="section-header">
+      <div class="section-icon" style="background:#e3f2fd;">❓</div>
+      <div>
+        <h2>Kérdezési Technikák Alapjai</h2>
+        <div class="section-sub">A hatékony kérdezés elvei</div>
+      </div>
+    </div>
+    <div class="intro-box">
+      A hatékony kérdezés a coaching egyik legfontosabb eszköze, amely segíti az ügyfelet a mélyebb önreflexióban és új felismerések megszületésében.
+    </div>
+    <div class="feature-grid">
+      <div class="feature-card" style="border-color:#1565C0;">
+        <h3>🎯 Célirányosság</h3>
+        <ul>
+          <li>Konkrét célt szolgálnak</li>
+          <li>Tisztázás vagy mélyebb megértés</li>
+          <li>Új perspektívák feltárása</li>
+          <li>Cselekvésre ösztönzés</li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#42A5F5;">
+        <h3>🔓 Nyitottság</h3>
+        <ul>
+          <li>Teret adnak a gondolkodásnak</li>
+          <li>Önkifejezést lehetővé teszik</li>
+          <li>Nem sugallnak megoldást</li>
+          <li>Nem igen/nem válaszok</li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#1a7a4a;">
+        <h3>⏱️ Időzítés és egyszerűség</h3>
+        <ul>
+          <li>Megfelelő kérdés a megfelelő időben</li>
+          <li>Egyszerű, érthető megfogalmazás</li>
+          <li>Kerüljük a szakzsargont</li>
+          <li>Egy kérdés egyszerre</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: KÉRDÉSTÍPUSOK -->
+  <div class="content-section" id="kerdestipusok">
+    <div class="section-header">
+      <div class="section-icon" style="background:#e3f2fd;">📋</div>
+      <div>
+        <h2>Kérdéstípusok</h2>
+        <div class="section-sub">A négy fő kérdéstípus és alkalmazásuk</div>
+      </div>
+    </div>
+    <div class="question-type-grid">
+      <div class="question-card" style="border-color:#1565C0;">
+        <h4>🔓 Nyitott kérdések</h4>
+        <p>Bővebb kifejtést igényelnek, nem válaszolhatók meg egyszerű igennel vagy nemmel. Segítenek feltárni a gondolatokat és érzéseket.</p>
+        <div class="q-example">"Mit gondolsz erről a helyzetről?"<br>"Hogyan érzed magad ezzel kapcsolatban?"</div>
+      </div>
+      <div class="question-card" style="border-color:#42A5F5;">
+        <h4>🔒 Zárt kérdések</h4>
+        <p>Konkrét, rövid válaszokat igényelnek. Tények tisztázására hasznos, de korlátozhatja a beszélgetést.</p>
+        <div class="q-example">"Beszéltél már erről valakivel?"<br>"Elkezdted már a feladatot?"</div>
+      </div>
+      <div class="question-card" style="border-color:#1a7a4a;">
+        <h4>🔍 Feltáró kérdések</h4>
+        <p>Mélyebb gondolkodásra ösztönöznek, segítenek a részletek és összefüggések feltárásában.</p>
+        <div class="q-example">"Mi lehet ennek az oka?"<br>"Hogyan kapcsolódik ez a korábbi tapasztalataidhoz?"</div>
+      </div>
+      <div class="question-card" style="border-color:#9C27B0;">
+        <h4>💭 Hipotetikus kérdések</h4>
+        <p>Új perspektívákat nyitnak, segítenek elképzelni különböző lehetőségeket és következményeket.</p>
+        <div class="q-example">"Mi történne, ha...?"<br>"Hogyan alakulna a helyzet, ha másképp közelítenéd meg?"</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: ERŐTELJES KÉRDÉSEK -->
+  <div class="content-section" id="eroteljes">
+    <div class="section-header">
+      <div class="section-icon" style="background:#e3f2fd;">⚡</div>
+      <div>
+        <h2>Erőteljes Kérdések</h2>
+        <div class="section-sub">A coaching eszköztár leghatékonyabb elemei</div>
+      </div>
+    </div>
+    <div class="intro-box">
+      Az erőteljes kérdések a coaching eszköztár leghatékonyabb elemei, amelyek <strong>új felismerésekhez, mélyebb megértéshez és valódi változáshoz</strong> vezetnek.
+    </div>
+    <div class="feature-grid">
+      <div class="feature-card" style="border-color:#1565C0;">
+        <h3>✅ Jellemzőik</h3>
+        <ul>
+          <li>Nyitottak, nem igen/nem válasz</li>
+          <li>Gondolkodásra ösztönöznek</li>
+          <li>Nem sugallnak megoldást</li>
+          <li>Új perspektívákat nyitnak</li>
+          <li>Egyszerűek és világosak</li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#E8622A;">
+        <h3>⚡ Példák erőteljes kérdésekre</h3>
+        <ul>
+          <li>"Mi lenne számodra a legjobb kimenetel?"</li>
+          <li>"Mit tanultál ebből a tapasztalatból?"</li>
+          <li>"Ha minden lehetőséged megvolna, mit tennél?"</li>
+          <li>"Mi tartja vissza a változástól?"</li>
+          <li>"Milyen erőforrásaid vannak már most?"</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout warning">
+      <span class="callout-icon">⚠️</span>
+      <div class="callout-text">
+        <strong>Kerülendő: "Miért?" kérdések</strong>
+        <p>A "Miért?" kérdések védekezést válthatnak ki, különösen fiataloknál. Helyette használj: "Mi az oka annak, hogy...?", "Hogyan jutottál erre a döntésre?", "Mi motivált ebben?"</p>
+      </div>
+    </div>
+    <div class="video-placeholder-box">
+      <div class="video-icon">🎬</div>
+      <strong>Videó: Kérdezési technikák ifjúságsegítőknek</strong>
+      <p>Hamarosan elérhető: erőteljes kérdések bemutatása valós coaching helyzetekben.</p>
+    </div>
+  </div>
+
+  <!-- ÖNREFLEXIÓ -->
+  <div class="content-section" id="onreflexio">
+    <div class="section-header">
+      <div class="section-icon" style="background:#e3f2fd;">🔍</div>
+      <div>
+        <h2>Önreflexió és Gyakorlat</h2>
+        <div class="section-sub">Értékeld saját hallgatási és kérdezési készségeidet</div>
+      </div>
+    </div>
+    <div class="reflection-section">
+      <h3>👂 Aktív Hallgatás Önértékelése</h3>
+
+      <div class="reflection-question">
+        <label>1. Mennyire tudod félretenni saját gondolataidat, amikor másokat hallgatsz?</label>
+        <div class="scale-options">
+          <input type="radio" name="q1" id="q1_1" value="1"><label for="q1_1">1 – Nehéz</label>
+          <input type="radio" name="q1" id="q1_2" value="2"><label for="q1_2">2</label>
+          <input type="radio" name="q1" id="q1_3" value="3"><label for="q1_3">3 – Közepes</label>
+          <input type="radio" name="q1" id="q1_4" value="4"><label for="q1_4">4</label>
+          <input type="radio" name="q1" id="q1_5" value="5"><label for="q1_5">5 – Könnyű</label>
+        </div>
+      </div>
+
+      <div class="reflection-question">
+        <label>2. Melyik hallgatási akadályt tapasztalod leggyakrabban saját magadnál?</label>
+        <div class="scale-options">
+          <input type="radio" name="q2" id="q2_a" value="a"><label for="q2_a">Belső párbeszéd</label>
+          <input type="radio" name="q2" id="q2_b" value="b"><label for="q2_b">Előítéletek</label>
+          <input type="radio" name="q2" id="q2_c" value="c"><label for="q2_c">Türelmetlenség</label>
+          <input type="radio" name="q2" id="q2_d" value="d"><label for="q2_d">Figyelemelterelők</label>
+          <input type="radio" name="q2" id="q2_e" value="e"><label for="q2_e">Énközpontúság</label>
+        </div>
+      </div>
+
+      <div class="reflection-question">
+        <label>3. Írj le egy erőteljes kérdést, amelyet egy fiatal segítésénél alkalmaznál:</label>
+        <textarea class="reflection-textarea" placeholder="Pl.: 'Mi lenne számodra a legjobb kimenetel ebben a helyzetben?'"></textarea>
+      </div>
+
+      <div class="reflection-question">
+        <label>4. Milyen konkrét helyzetben tervezed alkalmazni az aktív hallgatás technikáit?</label>
+        <textarea class="reflection-textarea" placeholder="Írj egy konkrét helyzetet..."></textarea>
+      </div>
+
+      <button class="reflection-btn" onclick="showResult()">Visszajelzés kérése</button>
+      <div class="reflection-result" id="reflResult">
+        <strong>🌟 Kiváló önreflexió!</strong><br>
+        Az aktív hallgatás és a hatékony kérdezés a coaching legfontosabb készségei. Javasolt következő lépés: válassz ki egy hallgatási akadályt, amelyen dolgozni szeretnél, és tudatosan figyelj rá a következő héten. Folytasd a tanulást a 3. modullal: <em>Célkitűzés és Motiváció Támogatása</em>.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="download-footer">
+  <div class="download-footer-inner">
+    <h3>📄 Modul letöltése PDF formátumban</h3>
+    <p>Töltsd le az Aktív Hallgatás és Kérdezési Technikák modult PDF formátumban.</p>
+    <div class="download-btns">
+      <a href="coach2_hu.pdf" class="dl-btn" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        🇭🇺 Magyar PDF
+      </a>
+      <a href="https://drive.google.com/file/d/1B0pDQmzH7t2cQpLp7xVXGSxL7XrVGzo-/view" target="_blank" class="dl-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        🇬🇧 English PDF
+      </a>
+      <a href="https://drive.google.com/file/d/1TPSeYzIzaEw6Xbu_64HVCeSd3AKhnPtq/view" target="_blank" class="dl-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        🇷🇴 PDF Română
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="eu-footer">
+  <p>Az Európai Unió finanszírozásával. Az itt szereplő információk és állítások a szerző(k) álláspontját képviselik, és nem feltétlenül tükrözik az Európai Unió vagy a Tempus Közalapítvány hivatalos véleményét.</p>
+  <p style="margin-top:0.5rem;">IMELO Projekt · 2024-3-HU01-KA210-YOU-000290582</p>
+</div>
+
+<script>
+function showResult() {
+  const r = document.getElementById('reflResult');
+  r.style.display = 'block';
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IMELO Toolbox – Identity Mosaic</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: #f7f7fb;
+      color: #2c2c54;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* ===== LANGUAGE HIDDEN ===== */
+    [data-lang] { display: none; }
+    body[data-active-lang="hu"] [data-lang="hu"] { display: block; }
+    body[data-active-lang="en"] [data-lang="en"] { display: block; }
+    body[data-active-lang="ro"] [data-lang="ro"] { display: block; }
+    /* Inline spans */
+    span[data-lang] { display: none; }
+    body[data-active-lang="hu"] span[data-lang="hu"] { display: inline; }
+    body[data-active-lang="en"] span[data-lang="en"] { display: inline; }
+    body[data-active-lang="ro"] span[data-lang="ro"] { display: inline; }
+
+    /* ===== HEADER / NAV ===== */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 16px rgba(75,45,139,0.10);
+      padding: 0 2rem;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+    .header-logo img {
+      height: 56px;
+      width: auto;
+      object-fit: contain;
+    }
+    .header-logo .logo-text {
+      font-weight: 800;
+      font-size: 1.0rem;
+      color: #4B2D8B;
+      line-height: 1.2;
+    }
+    .header-logo .logo-sub {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #E8622A;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: #2c2c54;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 0.4rem 0.75rem;
+      border-radius: 20px;
+      transition: background 0.2s, color 0.2s;
+    }
+    nav a:hover {
+      background: #f0eaff;
+      color: #4B2D8B;
+    }
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-left: 1rem;
+    }
+    .lang-btn {
+      background: none;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      cursor: pointer;
+      padding: 2px 6px;
+      font-size: 1.4rem;
+      line-height: 1;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .lang-btn:hover { transform: scale(1.15); }
+    .lang-btn.active { border-color: #4B2D8B; background: #f0eaff; }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+      border: none;
+      background: none;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 3px;
+      background: #4B2D8B;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      margin-top: 70px;
+      background: linear-gradient(135deg, #4B2D8B 0%, #7B3FA0 40%, #E8622A 100%);
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 300px; height: 300px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -40px;
+      width: 250px; height: 250px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 50%;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 20px;
+      padding: 0.3rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    .hero p {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      max-width: 680px;
+      margin: 0 auto 2rem;
+      opacity: 0.92;
+    }
+    .hero-cta {
+      display: inline-flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn-primary {
+      background: #E91E8C;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 0.75rem 2rem;
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: 'Nunito', sans-serif;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: #c0166f; transform: translateY(-2px); }
+    .btn-secondary {
+      background: rgba(255,255,255,0.15);
+      color: white;
+      border: 2px solid rgba(255,255,255,0.6);
+      border-radius: 30px;
+      padding: 0.75rem 2rem;
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: 'Nunito', sans-serif;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.25); transform: translateY(-2px); }
+
+    /* ===== MAIN CONTENT ===== */
+    main { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* ===== INTRO SECTION ===== */
+    .intro-section {
+      padding: 4rem 0 2rem;
+      text-align: center;
+    }
+    .intro-section h2 {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 800;
+      color: #2c2c54;
+      margin-bottom: 1rem;
+    }
+    .intro-section p {
+      max-width: 760px;
+      margin: 0 auto;
+      color: #555;
+      font-size: 1.05rem;
+    }
+    .section-divider {
+      height: 4px;
+      width: 80px;
+      background: linear-gradient(90deg, #4B2D8B, #E8622A);
+      border-radius: 2px;
+      margin: 1rem auto 1.5rem;
+    }
+
+    /* ===== MODULE SECTION ===== */
+    .module-section {
+      padding: 3rem 0 1rem;
+    }
+    .module-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .module-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      flex-shrink: 0;
+    }
+    .module-icon.purple { background: #ede9ff; }
+    .module-icon.orange { background: #fff3e8; }
+    .module-title h2 {
+      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+      font-weight: 800;
+      color: #2c2c54;
+      margin-bottom: 0.15rem;
+    }
+    .module-title p {
+      color: #777;
+      font-size: 0.95rem;
+    }
+    .module-desc {
+      background: white;
+      border-radius: 16px;
+      padding: 1.5rem 2rem;
+      margin: 1.5rem 0 2rem;
+      box-shadow: 0 2px 12px rgba(75,45,139,0.07);
+      color: #444;
+      font-size: 1rem;
+      border-left: 4px solid #4B2D8B;
+    }
+
+    /* ===== CHAPTER GRID ===== */
+    .chapter-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .chapter-card {
+      background: white;
+      border-radius: 18px;
+      padding: 1.75rem;
+      box-shadow: 0 3px 16px rgba(75,45,139,0.08);
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .chapter-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+    }
+    .chapter-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 28px rgba(75,45,139,0.14);
+    }
+    /* Card accent colors */
+    .card-blue::before { background: linear-gradient(90deg, #3B82F6, #60A5FA); }
+    .card-green::before { background: linear-gradient(90deg, #10B981, #34D399); }
+    .card-orange::before { background: linear-gradient(90deg, #F97316, #FB923C); }
+    .card-pink::before { background: linear-gradient(90deg, #E91E8C, #F472B6); }
+    .card-purple::before { background: linear-gradient(90deg, #8B5CF6, #A78BFA); }
+    .card-teal::before { background: linear-gradient(90deg, #14B8A6, #2DD4BF); }
+    .card-red::before { background: linear-gradient(90deg, #EF4444, #F87171); }
+    .card-indigo::before { background: linear-gradient(90deg, #6366F1, #818CF8); }
+    .card-amber::before { background: linear-gradient(90deg, #F59E0B, #FCD34D); }
+    .card-cyan::before { background: linear-gradient(90deg, #06B6D4, #22D3EE); }
+    .card-violet::before { background: linear-gradient(90deg, #7C3AED, #9F67FA); }
+    .card-lime::before { background: linear-gradient(90deg, #84CC16, #A3E635); }
+    .card-rose::before { background: linear-gradient(90deg, #F43F5E, #FB7185); }
+
+    .chapter-number {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #aaa;
+    }
+    .chapter-card h3 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #2c2c54;
+      line-height: 1.3;
+    }
+    .chapter-card .chapter-subtitle {
+      font-size: 0.88rem;
+      color: #888;
+      font-style: italic;
+    }
+    .chapter-card .chapter-desc {
+      font-size: 0.92rem;
+      color: #555;
+      flex: 1;
+    }
+    .chapter-actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: auto;
+    }
+    .btn-pdf {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #f0eaff;
+      color: #4B2D8B;
+      border: none;
+      border-radius: 20px;
+      padding: 0.45rem 1rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      font-family: 'Nunito', sans-serif;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-pdf:hover { background: #ddd5ff; }
+    .btn-video {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #fff3e8;
+      color: #E8622A;
+      border: none;
+      border-radius: 20px;
+      padding: 0.45rem 1rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      font-family: 'Nunito', sans-serif;
+      cursor: default;
+      text-decoration: none;
+      opacity: 0.7;
+    }
+    .btn-video.available {
+      cursor: pointer;
+      opacity: 1;
+      transition: background 0.2s;
+    }
+    .btn-video.available:hover { background: #ffe0cc; }
+    .video-placeholder {
+      font-size: 0.78rem;
+      color: #bbb;
+      font-style: italic;
+    }
+
+    /* ===== COACHING SUBCHAPTER CARDS ===== */
+    .coaching-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    /* ===== EU FUNDING FOOTER ===== */
+    .eu-banner {
+      background: white;
+      border-top: 1px solid #e8e0f5;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 4rem;
+    }
+    .eu-banner-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .eu-banner img { height: 50px; }
+    .eu-banner p {
+      font-size: 0.8rem;
+      color: #888;
+      max-width: 600px;
+      text-align: left;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: linear-gradient(135deg, #2c2c54, #4B2D8B);
+      color: white;
+      padding: 3rem 2rem 2rem;
+      text-align: center;
+    }
+    footer .footer-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    footer .footer-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    footer .footer-logo img { height: 44px; }
+    footer .footer-logo span {
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+    footer .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    footer .footer-links a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    footer .footer-links a:hover { color: white; }
+    footer .footer-copy {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ===== MOBILE NAV ===== */
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+      nav {
+        display: none;
+        position: fixed;
+        top: 70px; left: 0; right: 0;
+        background: white;
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        gap: 0.25rem;
+        z-index: 999;
+      }
+      nav.open { display: flex; }
+      nav a { padding: 0.75rem 1rem; border-radius: 10px; font-size: 1rem; }
+      .lang-switcher { margin-left: 0; margin-top: 0.5rem; justify-content: center; }
+      .header-logo .logo-text { font-size: 0.95rem; }
+    }
+    @media (max-width: 480px) {
+      .chapter-grid { grid-template-columns: 1fr; }
+      .coaching-grid { grid-template-columns: 1fr; }
+      .hero { padding: 3.5rem 1.25rem 3rem; }
+    }
+
+    /* ===== SCROLL ANCHOR OFFSET ===== */
+    .anchor-target { scroll-margin-top: 80px; }
+
+    /* ===== SECTION SEPARATOR ===== */
+    .section-sep {
+      border: none;
+      border-top: 1px solid #ece6f8;
+      margin: 1rem 0 2rem;
+    }
+  </style>
+</head>
+<body data-active-lang="hu">
+
+<!-- ===== HEADER ===== -->
+<header>
+  <a href="#top" class="header-logo">
+    <img src="imelo_logo.png" alt="Identity Mosaic logo" />
+    <div>
+      <div class="logo-text">IMELO</div>
+      <div class="logo-sub">
+        <span data-lang="hu">Eszköztár</span>
+        <span data-lang="en">Toolbox</span>
+        <span data-lang="ro">Cutie de instrumente</span>
+      </div>
+    </div>
+  </a>
+
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <nav id="main-nav">
+    <a href="#imelo-toolbox">
+      <span data-lang="hu">IMELO Eszköztár</span>
+      <span data-lang="en">IMELO Toolbox</span>
+      <span data-lang="ro">Toolbox IMELO</span>
+    </a>
+    <a href="#coaching-module">
+      <span data-lang="hu">Coaching Modul</span>
+      <span data-lang="en">Coaching Module</span>
+      <span data-lang="ro">Modul Coaching</span>
+    </a>
+    <a href="https://imelo.hu" target="_blank" rel="noopener">
+      <span data-lang="hu">Projekt honlap</span>
+      <span data-lang="en">Project website</span>
+      <span data-lang="ro">Site proiect</span>
+    </a>
+    <div class="lang-switcher">
+      <button class="lang-btn active" data-lang-switch="hu" title="Magyar" onclick="switchLang('hu')">🇭🇺</button>
+      <button class="lang-btn" data-lang-switch="en" title="English" onclick="switchLang('en')">🇬🇧</button>
+      <button class="lang-btn" data-lang-switch="ro" title="Română" onclick="switchLang('ro')">🇷🇴</button>
+    </div>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="top">
+  <div class="hero-badge">
+    <span data-lang="hu">IMELO Projekt · Erasmus+</span>
+    <span data-lang="en">IMELO Project · Erasmus+</span>
+    <span data-lang="ro">Proiect IMELO · Erasmus+</span>
+  </div>
+
+  <div data-lang="hu">
+    <h1>Identity Mosaic Eszköztár</h1>
+    <p>Gyakorlati módszerek és eszközök ifjúságsegítők számára – fiatalok személyes fejlődésének, mentális egészségének és önállóságának támogatásához.</p>
+  </div>
+  <div data-lang="en">
+    <h1>Identity Mosaic Toolbox</h1>
+    <p>Practical methods and tools for youth workers – supporting young people's personal development, mental health, and independence.</p>
+  </div>
+  <div data-lang="ro">
+    <h1>Cutia de instrumente Identity Mosaic</h1>
+    <p>Metode și instrumente practice pentru lucrătorii de tineret – sprijinind dezvoltarea personală, sănătatea mintală și independența tinerilor.</p>
+  </div>
+
+  <div class="hero-cta">
+    <a href="#imelo-toolbox" class="btn-primary">
+      <span data-lang="hu">Eszköztár megtekintése</span>
+      <span data-lang="en">Explore the Toolbox</span>
+      <span data-lang="ro">Explorează Toolbox-ul</span>
+    </a>
+    <a href="https://imelo.hu" target="_blank" rel="noopener" class="btn-secondary">
+      <span data-lang="hu">Projekt honlap</span>
+      <span data-lang="en">Project website</span>
+      <span data-lang="ro">Site proiect</span>
+    </a>
+  </div>
+</section>
+
+<!-- ===== MAIN ===== -->
+<main>
+
+  <!-- INTRO -->
+  <section class="intro-section">
+    <div data-lang="hu">
+      <h2>Az IMELO Eszköztárról</h2>
+      <div class="section-divider"></div>
+      <p>Az IMELO Eszköztár az ifjúságsegítőket támogatja a fiatalok fejlesztésében és mentális egészségük erősítésében – gyakorlati módszerekkel, esetpéldákkal és oktatóvideókkal. Az eszköztár két részből áll: az IMELO-specifikus tematikus fejezetekből és egy általános Coaching modulból.</p>
+    </div>
+    <div data-lang="en">
+      <h2>About the IMELO Toolbox</h2>
+      <div class="section-divider"></div>
+      <p>The IMELO Toolbox supports youth workers in developing young people and strengthening their mental health – with practical methods, case studies, and instructional videos. The toolbox consists of two parts: IMELO-specific thematic chapters and a general Coaching module.</p>
+    </div>
+    <div data-lang="ro">
+      <h2>Despre Toolbox-ul IMELO</h2>
+      <div class="section-divider"></div>
+      <p>Toolbox-ul IMELO sprijină lucrătorii de tineret în dezvoltarea tinerilor și întărirea sănătății lor mintale – cu metode practice, studii de caz și videoclipuri educaționale. Toolbox-ul este format din două părți: capitole tematice specifice IMELO și un modul general de Coaching.</p>
+    </div>
+  </section>
+
+  <!-- ===== IMELO TOOLBOX SECTION ===== -->
+  <section class="module-section anchor-target" id="imelo-toolbox">
+    <div class="module-header">
+      <div class="module-icon purple">🧩</div>
+      <div class="module-title">
+        <div data-lang="hu"><h2>IMELO Eszköztár</h2><p>10 tematikus fejezet ifjúságsegítők számára</p></div>
+        <div data-lang="en"><h2>IMELO Toolbox</h2><p>10 thematic chapters for youth workers</p></div>
+        <div data-lang="ro"><h2>Toolbox IMELO</h2><p>10 capitole tematice pentru lucrătorii de tineret</p></div>
+      </div>
+    </div>
+
+    <div class="module-desc">
+      <div data-lang="hu">Az eszköztár 10 egymásra épülő fejezete átfogó támogatást nyújt az ifjúságsegítők számára. Minden fejezet letölthető PDF formátumban érhető el, és a jövőben oktatóvideókkal is kiegészül.</div>
+      <div data-lang="en">The 10 interconnected chapters of the toolbox provide comprehensive support for youth workers. Each chapter is available as a downloadable PDF and will be supplemented with instructional videos in the future.</div>
+      <div data-lang="ro">Cele 10 capitole interconectate ale toolbox-ului oferă sprijin cuprinzător lucrătorilor de tineret. Fiecare capitol este disponibil ca PDF descărcabil și va fi completat cu videoclipuri educaționale în viitor.</div>
+    </div>
+
+    <div class="chapter-grid">
+
+      <!-- Chapter 1 -->
+      <div class="chapter-card card-blue" id="ch1">
+        <div class="chapter-number">
+          <span data-lang="hu">1. fejezet</span>
+          <span data-lang="en">Chapter 1</span>
+          <span data-lang="ro">Capitolul 1</span>
+        </div>
+        <h3>
+          <span data-lang="hu">Digitális Jóllét Eszköztár</span>
+          <span data-lang="en">Digital Wellbeing Toolkit</span>
+          <span data-lang="ro">Instrumentar pentru Bunăstare Digitală</span>
+        </h3>
+        <div class="chapter-subtitle">
+          <span data-lang="hu">Útmutató az egészséges digitális élethez</span>
+          <span data-lang="en">A guide to a healthy digital life</span>
+          <span data-lang="ro">Un ghid pentru o viață digitală sănătoasă</span>
+        </div>
+        <div class="chapter-desc">
+          <span data-lang="hu">Tudatos médiahasználat, digitális határok, offline tevékenységek és detox technikák – eszközök a digitális egyensúly megteremtéséhez.</span>
+          <span data-lang="en">Conscious media use, digital boundaries, offline activities and detox techniques – tools for achieving digital balance.</span>
+          <span data-lang="ro">Utilizarea conștientă a mediei, granițe digitale, activități offline și tehnici de detox – instrumente pentru atingerea echilibrului digital.</span>
+        </div>
+        <div class="chapter-actions">
+          <a href="chapter1/index.html" class="btn-open" style="display:inline-flex;align-items:center;gap:0.4rem;background:linear-gradient(135deg,#4B2D8B,#2196F3);color:#fff;font-weight:800;font-size:0.82rem;padding:0.45rem 1rem;border-radius:20px;text-decoration:none;margin-bottom:0.5rem;">
+            🌐 <span data-lang="hu">Fejezet megnyitása</span><span data-lang="en">Open Chapter</span><span data-lang="ro">Deschide capitolul</span>
+          </a>
+          <a href="https://drive.google.com/file/d/1Yz0XwTy1bobdl6B81DLR8A_mhUPwKAVb/view" target="_blank" rel="noopener" class="btn-pdf">
+            📄 <span data-lang="hu">PDF letöltés</span><span data-lang="en">Download PDF</span><span data-lang="ro">Descarcă PDF</span>
+          </a>
+          <span class="btn-video">
+            🎬 <span class="video-placeholder"><span data-lang="hu">Videó hamarosan</span><span data-lang="en">Video coming soon</span><span data-lang="ro">Video în curând</span></span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Chapter 2 -->
+      <div class="chapter-card card-green" id="ch2">
+        <div class="chapter-number">
+          <span data-lang="hu">2. fejezet</span>
+          <span data-lang="en">Chapter 2</span>
+          <span data-lang="ro">Capitolul 2</span>
+        </div>
+        <h3>
+          <span data-lang="hu">Kapcsolati Eszközök</span>
+          <span data-lang="en">Relationship Tools</span>
+          <span data-lang="ro">Instrumente pentru Relații</span>
+        </h3>
+        <div class="chapter-subtitle">
+          <span data-lang="hu">Egészséges kapcsolatok építése és fenntartása</span>
+          <span data-lang="en">Building and maintaining healthy relationships</span>
+          <span data-lang="ro">Construirea și menținerea relațiilor sănătoase</span>
+        </div>
+        <div class="chapter-desc">
+          <span data-lang="hu">Kommunikációs készségek, határok a kapcsolatokban, empátia fejlesztése és közösségi kapcsolódás erősítése.</span>
+          <span data-lang="en">Communication skills, boundaries in relationships, developing empathy and strengthening community connections.</span>
+          <span data-lang="ro">Abilități de comunicare, limite în relații, dezvoltarea empatiei și întărirea conexiunilor comunitare.</span>
+        </div>
+        <div class="chapter-actions">
+          <a href="chapter2/index.html" class="btn-open" style="display:inline-flex;align-items:center;gap:0.4rem;background:linear-gradient(135deg,#4B2D8B,#2196F3);color:#fff;font-weight:800;font-size:0.82rem;padding:0.45rem 1rem;border-radius:20px;text-decoration:none;margin-bottom:0.5rem;">
+            🌐 <span data-lang="hu">Fejezet megnyitása</span><span data-lang="en">Open Chapter</span><span data-lang="ro">Deschide capitolul</span>
+          </a>
+                    <a href="https://drive.google.com/file/d/1oVUE21IHOFWUjvdVW4x6Z-QklQO3ZZ4G/view" target="_blank" rel="noopener" class="btn-pdf">
+            📄 <span data-lang="hu">PDF letöltés</span><span data-lang="en">Download PDF</span><span data-lang="ro">Descarcă PDF</span>
+          </a>
+          <span class="btn-video">
+            🎬 <span class="video-placeholder"><span data-lang="hu">Videó hamarosan</span><span data-lang="en">Video coming soon</span><span data-lang="ro">Video în curând</span></span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Chapter 3 -->
+      <div class="chapter-card card-teal" id="ch3">
+        <div class="chapter-number">
+          <span data-lang="hu">3. fejezet</span>
+          <span data-lang="en">Chapter 3</span>
+          <span data-lang="ro">Capitolul 3</span>
+        </div>
+        <h3>
+          <span data-lang="hu">Mentális Egészség Eszközök</span>
+          <span data-lang="en">Mental Health Tools</span>
+          <span data-lang="ro">Instrumente pentru Sănătate Mintală</span>
+        </h3>
+        <div class="chapter-subtitle">
+          <span data-lang="hu">Lelki egyensúly és öngondoskodás</span>
+          <span data-lang="en">Psychological balance and self-care</span>
+          <span data-lang="ro">Echilibru psihologic și autoîngrijire</span>
+        </div>
+        <div class="chapter-desc">
+          <span data-lang="hu">Stresszkezelés, önismeret, érzelmi intelligencia és mentális egészség megőrzésének eszközei fiatalok számára.</span>
+          <span data-lang="en">Stress management, self-awareness, emotional intelligence and tools for maintaining mental health for young people.</span>
+          <span data-lang="ro">Gestionarea stresului, autocunoaștere, inteligență emoțională și instrumente pentru menținerea sănătății mintale pentru tineri.</span>
+        </div>
+        <div class="chapter-actions">
+          <a href="chapter3/index.html" class="btn-open" style="display:inline-flex;align-items:center;gap:0.4rem;background:linear-gradient(135deg,#4B2D8B,#2196F3);color:#fff;font-weight:800;font-size:0.82rem;padding:0.45rem 1rem;border-radius:20px;text-decoration:none;margin-bottom:0.5rem;">
+            🌐 <span data-lang="hu">Fejezet megnyitása</span><span data-lang="en">Open Chapter</span><span data-lang="ro">Deschide capitolul</span>
+          </a>
+                    <a href="https://drive.google.com/file/d/138rrUBTPkyfh3ufgjkfSqsEgYJDIV2id/view" target="_blank" rel="noopener" class="btn-pdf">
+            📄 <span data-lang="hu">PDF letöltés</span><span data-lang="en">Download PDF</span><span data-lang="ro">Descarcă PDF</span>
+          </a>
+          <span class="btn-video">
+            🎬 <span class="video-placeholder"><span data-lang="hu">Videó hamarosan</span><span data-lang="en">Video coming soon</span><span data-lang="ro">Video în curând</span></span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Chapter 4 -->
+      <div class="chapter-card card-orange" id="ch4">
+        <div class="chapter-number">
+          <span data-lang="hu">4. fejezet</span>
+          <span data-lang="en">Chapter 4</span>
+          <span data-lang="ro">Capitolul 4</span>
+        </div>
+        <h3>
+          <span data-lang="hu">Kulturális Identitás Eszközök</span>
+          <span data-lang="en">Cultural Identity Tools</span>
+          <span data-lang="ro">Instrumente pentru Identitate Culturală</span>
+        </h3>
+        <div class="chapter-subtitle">
+          <span data-lang="hu">Identitásfeltárás és kulturális sokszínűség</span>
+          <span data-lang="en">Identity exploration and cultural diversity</span>
+          <span data-lang="ro">Explorarea identității și diversitatea culturală</span>
+        </div>
+        <div class="chapter-desc">
+          <span data-lang="hu">Kulturális identitás megértése, sokszínűség elfogadása és az identitásmozaik felépítése – eszközök az önismeret és a közösségi befogadás erősítéséhez.</span>
+          <span data-lang="en">Understanding cultural identity, embracing diversity and building the identity mosaic – tools for strengthening self-awareness and community inclusion.</span>
+          <span data-lang="ro">Înțelegerea identității culturale, îmbrățișarea diversității și construirea mozaicului identitar – instrumente pentru întărirea autocunoașterii și incluziunii comunitare.</span>
+        </div>
+        <div class="chapter-actions">
+          <a href="chapter4/index.html" class="btn-open" style="display:inline-flex;align-items:center;gap:0.4rem;background:linear-gradient(135deg,#4B2D8B,#2196F3);color:#fff;font-weight:800;font-size:0.82rem;padding:0.45rem 1rem;border-radius:20px;text-decoration:none;margin-bottom:0.5rem;">
+            🌐 <span data-lang="hu">Fejezet megnyitása</span><span data-lang="en">Open Chapter</span><span data-lang="ro">Deschide capitolul</span>
+          </a>
+                    <a href="https://drive.google.com/file/d/1FuFM4eIGDn3B4CNTATnKQ8Eb1YV__SZR/view" target="_blank" rel="noopener" class="btn-pdf">
+            📄 <span data-lang="hu">PDF letöltés</span><span data-lang="en">Download PDF</span><span data-lang="ro">Descarcă PDF</span>
+          </a>
+          <span class="btn-video">
+            🎬 <span class="video-placeholder"><span data-lang="hu">Videó hamarosan</span><span data-lang="en">Video coming soon</span><span data-lang="ro">Video în curând</span></span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Chapter 5 -->
+      <div class="chapter-card card-pink" id="ch5">
+        <div class="chapter-number">
+          <span data-lang="hu">5. fejezet</span>
+          <span data-lang="en">Chapter 5</span>
+          <span data-lang="ro">Capitolul 5</span>
+        </div>
+        <h3>
+          <span data-lang="hu">Konfliktuskezelés és Asszertív Kommunikáció</span>
+          <span data-lang="en">Conflict Management &amp; Assertive Communication</span>
+          <span data-lang="ro">Gestionarea Conflictelor și Comunicare Asertivă</span>
+        </h3>
+        <div class="chapter-subtitle">
+          <span data-lang="hu">Hatékony kommunikáció és konfliktusmegoldás</span>
+          <span data-lang="en">Effective communication and conflict resolution</span>
+          <span data-lang="ro">Comunicare eficientă și rezolvarea conflictelor</span>
+        </div>
+        <div class="chapter-desc">
+          <span data-lang="hu">Asszertív kommunikáció technikái, konfliktuskezelési stratégiák, határok megfogalmazása és konstruktív visszajelzés adása.</span>
+          <span data-lang="en">Assertive communication techniques, conflict management strategies, setting boundaries and giving constructive feedback.</span>
+          <span data-lang="ro">Tehnici de comunicare asertivă, strategii de gestionare a conflictelor, stabilirea limitelor și oferirea de feedback constructiv.</span>
+        </div>
+        <div class="chapter-actions">
+          <a href="chapter5/index.html" class="btn-open" style="display:inline-flex;align-items:center;gap:0.4rem;background:linear-gradient(135deg,#4B2D8B,#2196F3);color:#fff;font-weight:800;font-size:0.82rem;padding:0.45rem 1rem;border-radius:20px;text-decoration:none;margin-bottom:0.5rem;">
+            🌐 <span data-lang="hu">Fejezet megnyitása</span><span data-lang="en">Open Chapter</span><span data-lang="ro">Deschide capitolul</span>
+          </a>
+                    <a href="https://drive.google.com/file/d/1cgAG-U8m31fpX9d9Zxu9CmnMIjdnYQs7/view" target="_blank" rel="noopener" class="btn-pdf">
+            📄 <span data-lang="hu">PDF letöltés</span><span data-lang="en">Download PDF</span><span data-lang="ro">Descarcă PDF</span>
+          </a>
+          <span class="btn-video btn-video available" title="Video available">
+            🎬 <span data-lang="hu">Videó elérhető</span><span data-lang="en">Video available</span><span data-lang="ro">Video disponibil</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Chapter 6 -->
+      <div class="chapter-card card-indigo" id="ch6">
+        <div class="chapter-number">
+          <span data-lang="hu">6. fejezet</span>
+          <span data-lang="en">Chapter 6</span>
+          <span data-lang="ro">Capitolul 6</span>
+        </div>
+        <h3>
+          <span data-lang="hu">Problémamegoldás és Döntéshozatal</span>
+          <span data-lang="en">Problem Solving &amp; Decision Making</span>
+          <span data-lang="ro">Rezolvarea Problemelor și Luarea Deciziilor</span>
+        </h3>
+        <div class="chapter-subtitle">
+          <span data-lang="hu">Strukturált gondolkodás és döntési stratégiák</span>
+          <span data-lang="en">Structured thinking and decision strategies</span>
+          <span data-lang="ro">Gândire structurată și strategii de decizie</span>
+        </div>
+        <div class="chapter-desc">
+          <span data-lang="hu">Problémaelemzési módszerek, döntési modellek, kreatív gondolkodás és az akadályok leküzdésének stratégiái.</span>
+          <span data-lang="en">Problem analysis methods, decision models, creative thinking and strategies for overcoming obstacles.</span>
+          <span data-lang="ro">Metode de analiză a problemelor, modele de decizie, gândire creativă și strategii pentru depășirea obstacolelor.</span>
+        </div>
+        <div class="chapter-actions">
+          <a href="chapter6/index.html" class="btn-open" style="display:inline-flex;align-items:center;gap:0.4rem;background:linear-gradient(135deg,#4B2D8B,#2196F3);color:#fff;font-weight:800;font-size:0.82rem;padding:0.45rem 1rem;border-radius:20px;text-decoration:none;margin-bottom:0.5rem;">
+            🌐 <span data-lang="hu">Fejezet megnyitása</span><span data-lang="en">Open Chapter</span><span data-lang="ro">Deschide capitolul</span>
+          </a>
+                    <a href="https://drive.google.com/file/d/1W07Rh0rLaNViw4vfRNG2xy9vEBVXwehP/view" target="_blank" rel="noopener" class="btn-pdf">
+            📄 <span data-lang="hu">PDF letöltés</span><span data-lang="en">Download PDF</span><span data-lang="ro">Descarcă PDF</span>
+          </a>
+          <span class="btn-video">
+            🎬 <span class="video-placeholder"><span data-lang="hu">Videó hamarosan</span><span data-lang="en">Video coming soon</span><span data-lang="ro">Video în curând</span></span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Chapter 7 -->
+      <div class="chapter-card card-amber" id="ch7">
+        <div class="chapter-number">
+          <span data-lang="hu">7. fejezet</span>
+          <span data-lang="en">Chapter 7</span>
+          <span data-lang="ro">Capitolul 7</span>
+        </div>
+        <h3>
+          <span data-lang="hu">Tudatos Pályaorientáció és Karrierépítés</span>
+          <span data-lang="en">Conscious Career Orientation &amp; Career Building</span>
+          <span data-lang="ro">Orientare în Carieră și Construirea Carierei</span>
+        </h3>
+        <div class="chapter-subtitle">
+          <span data-lang="hu">Célok, erősségek és karrierlehetőségek feltérképezése</span>
+          <span data-lang="en">Mapping goals, strengths and career opportunities</span>
+          <span data-lang="ro">Cartografierea obiectivelor, punctelor forte și oportunităților de carieră</span>
+        </div>
+        <div class="chapter-desc">
+          <span data-lang="hu">Erősségek azonosítása, karriercélok kitűzése, munkaerőpiaci tájékozódás és a tudatos pályaválasztás eszközei.</span>
+          <span data-lang="en">Identifying strengths, setting career goals, navigating the labour market and tools for conscious career choice.</span>
+          <span data-lang="ro">Identificarea punctelor forte, stabilirea obiectivelor de carieră, navigarea pe piața muncii și instrumente pentru alegerea conștientă a carierei.</span>
+        </div>
+        <div class="chapter-actions">
+          <a href="chapter7/index.html" class="btn-open" style="display:inline-flex;align-items:center;gap:0.4rem;background:linear-gradient(135deg,#4B2D8B,#2196F3);color:#fff;font-weight:800;font-size:0.82rem;padding:0.45rem 1rem;border-radius:20px;text-decoration:none;margin-bottom:0.5rem;">
+            🌐 <span data-lang="hu">Fejezet megnyitása</span><span data-lang="en">Open Chapter</span><span data-lang="ro">Deschide capitolul</span>
+          </a>
+                    <a href="https://drive.google.com/file/d/1Xf0NWoYaS1QV5Q4LSBnULb5kDzf0rWmN/view" target="_blank" rel="noopener" class="btn-pdf">
+            📄 <span data-lang="hu">PDF letöltés</span><span data-lang="en">Download PDF</span><span data-lang="ro">Descarcă PDF</span>
+          </a>
+          <span class="btn-video">
+            🎬 <span class="video-placeholder"><span data-lang="hu">Videó hamarosan</span><span data-lang="en">Video coming soon</span><span data-lang="ro">Video în curând</span></span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Chapter 8 -->
+      <div class="chapter-card card-purple" id="ch8">
+        <div class="chapter-number">
+          <span data-lang="hu">8. fejezet</span>
+          <span data-lang="en">Chapter 8</span>
+          <span data-lang="ro">Capitolul 8</span>
+        </div>
+        <h3>
+          <span data-lang="hu">Önismeret és Személyes Hatékonyság Fejlesztése</span>
+          <span data-lang="en">Self-Awareness &amp; Personal Effectiveness</span>
+          <span data-lang="ro">Autocunoaștere și Eficacitate Personală</span>
+        </h3>
+        <div class="chapter-subtitle">
+          <span data-lang="hu">Belső erőforrások és személyes potenciál</span>
+          <span data-lang="en">Inner resources and personal potential</span>
+          <span data-lang="ro">Resurse interioare și potențial personal</span>
+        </div>
+        <div class="chapter-desc">
+          <span data-lang="hu">Önismeret mélyítése, személyes értékek azonosítása, időgazdálkodás és a személyes hatékonyság növelésének módszerei.</span>
+          <span data-lang="en">Deepening self-awareness, identifying personal values, time management and methods for increasing personal effectiveness.</span>
+          <span data-lang="ro">Aprofundarea autocunoașterii, identificarea valorilor personale, gestionarea timpului și metode de creștere a eficacității personale.</span>
+        </div>
+        <div class="chapter-actions">
+          <a href="chapter8/index.html" class="btn-open" style="display:inline-flex;align-items:center;gap:0.4rem;background:linear-gradient(135deg,#4B2D8B,#2196F3);color:#fff;font-weight:800;font-size:0.82rem;padding:0.45rem 1rem;border-radius:20px;text-decoration:none;margin-bottom:0.5rem;">
+            🌐 <span data-lang="hu">Fejezet megnyitása</span><span data-lang="en">Open Chapter</span><span data-lang="ro">Deschide capitolul</span>
+          </a>
+                    <a href="https://drive.google.com/file/d/1qM1CWZvPyX21UhhMTXc-vv4uQJ5kh-ey/view" target="_blank" rel="noopener" class="btn-pdf">
+            📄 <span data-lang="hu">PDF letöltés</span><span data-lang="en">Download PDF</span><span data-lang="ro">Descarcă PDF</span>
+          </a>
+          <span class="btn-video">
+            🎬 <span class="video-placeholder"><span data-lang="hu">Videó hamarosan</span><span data-lang="en">Video coming soon</span><span data-lang="ro">Video în curând</span></span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Chapter 9 -->
+      <div class="chapter-card card-red" id="ch9">
+        <div class="chapter-number">
+          <span data-lang="hu">9. fejezet</span>
+          <span data-lang="en">Chapter 9</span>
+          <span data-lang="ro">Capitolul 9</span>
+        </div>
+        <h3>
+          <span data-lang="hu">Reziliencia és Megküzdési Stratégiák</span>
+          <span data-lang="en">Resilience &amp; Coping Strategies</span>
+          <span data-lang="ro">Reziliență și Strategii de Adaptare</span>
+        </h3>
+        <div class="chapter-subtitle">
+          <span data-lang="hu">Rugalmasság egy változó világban</span>
+          <span data-lang="en">Flexibility in a changing world</span>
+          <span data-lang="ro">Flexibilitate într-o lume în schimbare</span>
+        </div>
+        <div class="chapter-desc">
+          <span data-lang="hu">Reziliencia fejlesztése, megküzdési stratégiák, a változásokhoz való alkalmazkodás és a belső erőforrások mozgósítása nehéz helyzetekben.</span>
+          <span data-lang="en">Developing resilience, coping strategies, adapting to change and mobilising inner resources in difficult situations.</span>
+          <span data-lang="ro">Dezvoltarea rezilienței, strategii de adaptare, adaptarea la schimbare și mobilizarea resurselor interioare în situații dificile.</span>
+        </div>
+        <div class="chapter-actions">
+          <a href="chapter9/index.html" class="btn-open" style="display:inline-flex;align-items:center;gap:0.4rem;background:linear-gradient(135deg,#4B2D8B,#2196F3);color:#fff;font-weight:800;font-size:0.82rem;padding:0.45rem 1rem;border-radius:20px;text-decoration:none;margin-bottom:0.5rem;">
+            🌐 <span data-lang="hu">Fejezet megnyitása</span><span data-lang="en">Open Chapter</span><span data-lang="ro">Deschide capitolul</span>
+          </a>
+                    <a href="https://drive.google.com/file/d/1Rvqzbihos4HZvTJc5dEI8DAT4k3m1GAI/view" target="_blank" rel="noopener" class="btn-pdf">
+            📄 <span data-lang="hu">PDF letöltés</span><span data-lang="en">Download PDF</span><span data-lang="ro">Descarcă PDF</span>
+          </a>
+          <span class="btn-video btn-video available">
+            🎬 <span data-lang="hu">Videó elérhető</span><span data-lang="en">Video available</span><span data-lang="ro">Video disponibil</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Chapter 10 -->
+      <div class="chapter-card card-cyan" id="ch10">
+        <div class="chapter-number">
+          <span data-lang="hu">10. fejezet</span>
+          <span data-lang="en">Chapter 10</span>
+          <span data-lang="ro">Capitolul 10</span>
+        </div>
+        <h3>
+          <span data-lang="hu">Önálló Életkezdés és Felnőtté Válás Támogatása</span>
+          <span data-lang="en">Support for Independent Living &amp; Becoming an Adult</span>
+          <span data-lang="ro">Sprijin pentru Viață Independentă și Maturizare</span>
+        </h3>
+        <div class="chapter-subtitle">
+          <span data-lang="hu">Az önállóság felé vezető út</span>
+          <span data-lang="en">The path towards independence</span>
+          <span data-lang="ro">Calea spre independență</span>
+        </div>
+        <div class="chapter-desc">
+          <span data-lang="hu">Önálló életvezetés, felelősségvállalás, pénzügyi alapismeretek és a felnőtté válás kihívásainak kezelése.</span>
+          <span data-lang="en">Independent living, taking responsibility, financial basics and managing the challenges of becoming an adult.</span>
+          <span data-lang="ro">Viață independentă, asumarea responsabilității, noțiuni financiare de bază și gestionarea provocărilor maturizării.</span>
+        </div>
+        <div class="chapter-actions">
+          <a href="chapter10/index.html" class="btn-open" style="display:inline-flex;align-items:center;gap:0.4rem;background:linear-gradient(135deg,#4B2D8B,#2196F3);color:#fff;font-weight:800;font-size:0.82rem;padding:0.45rem 1rem;border-radius:20px;text-decoration:none;margin-bottom:0.5rem;">
+            🌐 <span data-lang="hu">Fejezet megnyitása</span><span data-lang="en">Open Chapter</span><span data-lang="ro">Deschide capitolul</span>
+          </a>
+                    <a href="https://drive.google.com/file/d/1xb4n2ZYYVV-D5xJXKcgGxrJeOyGcyhuG/view" target="_blank" rel="noopener" class="btn-pdf">
+            📄 <span data-lang="hu">PDF letöltés</span><span data-lang="en">Download PDF</span><span data-lang="ro">Descarcă PDF</span>
+          </a>
+          <span class="btn-video">
+            🎬 <span class="video-placeholder"><span data-lang="hu">Videó hamarosan</span><span data-lang="en">Video coming soon</span><span data-lang="ro">Video în curând</span></span>
+          </span>
+        </div>
+      </div>
+
+    </div><!-- /chapter-grid -->
+  </section>
+
+  <hr class="section-sep" />
+
+  <!-- ===== COACHING MODULE SECTION ===== -->
+  <section class="module-section anchor-target" id="coaching-module">
+    <div class="module-header">
+      <div class="module-icon orange">🎯</div>
+      <div class="module-title">
+        <div data-lang="hu"><h2>Coaching Modul</h2><p>Általános coaching készségek ifjúságsegítők számára</p></div>
+        <div data-lang="en"><h2>Coaching Module</h2><p>General coaching skills for youth workers</p></div>
+        <div data-lang="ro"><h2>Modul Coaching</h2><p>Abilități generale de coaching pentru lucrătorii de tineret</p></div>
+      </div>
+    </div>
+
+    <div class="module-desc">
+      <div data-lang="hu">A Coaching Készségek képzési modul célja az ifjúságsegítők támogató attitűdjének és kommunikációs készségeinek fejlesztése, miközben segíti őket abban, hogy tudatosabban és hatékonyabban támogassák a fiatalok fejlődését. A modul coaching szemléleten alapul, amely a fiatalok saját erőforrásaira és megoldásaira fókuszál a tanácsadás helyett.</div>
+      <div data-lang="en">The aim of the Coaching Skills training module is to develop the supportive attitude and communication skills of youth workers, while helping them to assist young people's development in a more conscious and effective way. The module is based on a coaching approach that focuses on young people's own resources and solutions rather than on counselling.</div>
+      <div data-lang="ro">Scopul modulului de formare Abilități de Coaching este de a dezvolta atitudinea de sprijin și abilitățile de comunicare ale lucrătorilor de tineret, ajutându-i să sprijine dezvoltarea tinerilor într-un mod mai conștient și mai eficient. Modulul se bazează pe o abordare de coaching care se concentrează pe resursele și soluțiile proprii ale tinerilor, mai degrabă decât pe consiliere.</div>
+    </div>
+
+    <div class="coaching-grid">
+
+      <!-- Coaching 1 -->
+      <div class="chapter-card card-violet" id="coaching1">
+        <div class="chapter-number">
+          <span data-lang="hu">Coaching modul · 1. rész</span>
+          <span data-lang="en">Coaching module · Part 1</span>
+          <span data-lang="ro">Modul Coaching · Partea 1</span>
+        </div>
+        <h3>
+          <span data-lang="hu">Coaching Alapok és Kommunikációs Készségek</span>
+          <span data-lang="en">Coaching Basics &amp; Communication Skills</span>
+          <span data-lang="ro">Bazele Coachingului și Abilități de Comunicare</span>
+        </h3>
+        <div class="chapter-desc">
+          <span data-lang="hu">A coaching szemlélet alapjai, a bizalmi kapcsolat kiépítése és a célorientált kommunikáció eszközei.</span>
+          <span data-lang="en">The basics of the coaching approach, building a trusting relationship and tools for goal-oriented communication.</span>
+          <span data-lang="ro">Bazele abordării de coaching, construirea unei relații de încredere și instrumente pentru comunicarea orientată spre obiective.</span>
+        </div>
+        <div class="chapter-actions">
+          <a href="https://drive.google.com/file/d/17M0B-2eMS6gkDwz97Z0_oLaNm_d5HRzM/view" target="_blank" rel="noopener" class="btn-pdf">
+            📄 <span data-lang="hu">PDF letöltés</span><span data-lang="en">Download PDF</span><span data-lang="ro">Descarcă PDF</span>
+          </a>
+          <a href="coaching1/index.html" class="btn-open">
+            📖 <span data-lang="hu">Modul megnyitása</span><span data-lang="en">Open Module</span><span data-lang="ro">Deschide Modulul</span>
+          </a>
+          <span class="btn-video">
+            🎬 <span class="video-placeholder"><span data-lang="hu">Videó hamarosan</span><span data-lang="en">Video coming soon</span><span data-lang="ro">Video în curând</span></span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Coaching 2 -->
+      <div class="chapter-card card-lime" id="coaching2">
+        <div class="chapter-number">
+          <span data-lang="hu">Coaching modul · 2. rész</span>
+          <span data-lang="en">Coaching module · Part 2</span>
+          <span data-lang="ro">Modul Coaching · Partea 2</span>
+        </div>
+        <h3>
+          <span data-lang="hu">Aktív Hallgatás és Kérdezési Technikák</span>
+          <span data-lang="en">Active Listening &amp; Questioning Techniques</span>
+          <span data-lang="ro">Ascultare Activă și Tehnici de Interogare</span>
+        </h3>
+        <div class="chapter-desc">
+          <span data-lang="hu">Mélyített hallgatás, erőteljes kérdések és a reflektív visszajelzés technikái a hatékony ifjúságsegítő munkában.</span>
+          <span data-lang="en">Deep listening, powerful questions and reflective feedback techniques in effective youth work.</span>
+          <span data-lang="ro">Ascultare profundă, întrebări puternice și tehnici de feedback reflectiv în munca eficientă cu tinerii.</span>
+        </div>
+        <div class="chapter-actions">
+          <a href="https://drive.google.com/file/d/11Blyzh9BWTXMCpTZlIpBB9vlixSG0Ceu/view" target="_blank" rel="noopener" class="btn-pdf">
+            📄 <span data-lang="hu">PDF letöltés</span><span data-lang="en">Download PDF</span><span data-lang="ro">Descarcă PDF</span>
+          </a>
+          <a href="coaching2/index.html" class="btn-open">
+            📖 <span data-lang="hu">Modul megnyitása</span><span data-lang="en">Open Module</span><span data-lang="ro">Deschide Modulul</span>
+          </a>
+          <span class="btn-video btn-video available">
+            🎬 <span data-lang="hu">Videó elérhető</span><span data-lang="en">Video available</span><span data-lang="ro">Video disponibil</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Coaching 3 -->
+      <div class="chapter-card card-rose" id="coaching3">
+        <div class="chapter-number">
+          <span data-lang="hu">Coaching modul · 3. rész</span>
+          <span data-lang="en">Coaching module · Part 3</span>
+          <span data-lang="ro">Modul Coaching · Partea 3</span>
+        </div>
+        <h3>
+          <span data-lang="hu">Célkitűzés és Motiváció Támogatása</span>
+          <span data-lang="en">Goal Setting &amp; Motivation Support</span>
+          <span data-lang="ro">Stabilirea Obiectivelor și Sprijinul Motivației</span>
+        </h3>
+        <div class="chapter-desc">
+          <span data-lang="hu">Célkitűzési módszerek (SMART, GROW), belső motiváció erősítése és a fiatalok önálló döntéshozatalának támogatása.</span>
+          <span data-lang="en">Goal-setting methods (SMART, GROW), strengthening intrinsic motivation and supporting young people's independent decision-making.</span>
+          <span data-lang="ro">Metode de stabilire a obiectivelor (SMART, GROW), întărirea motivației intrinseci și sprijinirea luării deciziilor independente ale tinerilor.</span>
+        </div>
+        <div class="chapter-actions">
+          <a href="https://drive.google.com/file/d/1fa0aF_JwTvHeRrroHGKhRSIwBRBxK0gp/view" target="_blank" rel="noopener" class="btn-pdf">
+            📄 <span data-lang="hu">PDF letöltés</span><span data-lang="en">Download PDF</span><span data-lang="ro">Descarcă PDF</span>
+          </a>
+          <a href="coaching3/index.html" class="btn-open">
+            📖 <span data-lang="hu">Modul megnyitása</span><span data-lang="en">Open Module</span><span data-lang="ro">Deschide Modulul</span>
+          </a>
+          <span class="btn-video">
+            🎬 <span class="video-placeholder"><span data-lang="hu">Videó hamarosan</span><span data-lang="en">Video coming soon</span><span data-lang="ro">Video în curând</span></span>
+          </span>
+        </div>
+      </div>
+
+    </div><!-- /coaching-grid -->
+  </section>
+
+</main>
+
+<!-- ===== EU FUNDING BANNER ===== -->
+<div class="eu-banner">
+  <div class="eu-banner-inner">
+    <img src="https://imelo.hu/wp-content/uploads/2024/10/co-funded-by-the-eu.png" alt="Co-funded by the European Union" onerror="this.style.display='none'" />
+    <p>
+      <span data-lang="hu">Az Európai Unió finanszírozásával. Az itt szereplő információk és állítások a szerző(k) álláspontját képviselik, és nem feltétlenül tükrözik az Európai Unió vagy a Tempus Közalapítvány hivatalos véleményét. Sem az Európai Unió, sem a támogatást nyújtó hatóság nem vonható felelősségre miattuk. · Projekt azonosító: 2024-3-HU01-KA210-YOU-000290582</span>
+      <span data-lang="en">Funded by the European Union. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or the Tempus Public Foundation. Neither the European Union nor the granting authority can be held responsible for them. · Project ID: 2024-3-HU01-KA210-YOU-000290582</span>
+      <span data-lang="ro">Finanțat de Uniunea Europeană. Opiniile și punctele de vedere exprimate aparțin exclusiv autorului (autorilor) și nu reflectă neapărat cele ale Uniunii Europene sau ale Fundației Publice Tempus. Nici Uniunea Europeană, nici autoritatea finanțatoare nu pot fi considerate responsabile pentru acestea. · ID proiect: 2024-3-HU01-KA210-YOU-000290582</span>
+    </p>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="imelo_logo.png" alt="Identity Mosaic" />
+      <span>IMELO Project</span>
+    </div>
+    <div class="footer-links">
+      <a href="https://imelo.hu" target="_blank" rel="noopener">imelo.hu</a>
+      <a href="https://imelo.hu/#contact">
+        <span data-lang="hu">Kapcsolat</span>
+        <span data-lang="en">Contact</span>
+        <span data-lang="ro">Contact</span>
+      </a>
+      <a href="#imelo-toolbox">
+        <span data-lang="hu">Eszköztár</span>
+        <span data-lang="en">Toolbox</span>
+        <span data-lang="ro">Toolbox</span>
+      </a>
+      <a href="#coaching-module">
+        <span data-lang="hu">Coaching Modul</span>
+        <span data-lang="en">Coaching Module</span>
+        <span data-lang="ro">Modul Coaching</span>
+      </a>
+    </div>
+    <p class="footer-copy">
+      <span data-lang="hu">© 2025 IMELO Projekt – Men for All (Magyarország) &amp; Asociatia Mergem Inainte (Románia) · Erasmus+ KA210-YOU</span>
+      <span data-lang="en">© 2025 IMELO Project – Men for All (Hungary) &amp; Asociatia Mergem Inainte (Romania) · Erasmus+ KA210-YOU</span>
+      <span data-lang="ro">© 2025 Proiect IMELO – Men for All (Ungaria) &amp; Asociatia Mergem Inainte (România) · Erasmus+ KA210-YOU</span>
+    </p>
+  </div>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+  // Language switcher
+  function switchLang(lang) {
+    document.body.setAttribute('data-active-lang', lang);
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-lang-switch') === lang);
+    });
+    document.documentElement.lang = lang;
+    // Close mobile nav if open
+    document.getElementById('main-nav').classList.remove('open');
+  }
+
+  // Mobile hamburger
+  document.getElementById('hamburger').addEventListener('click', function() {
+    document.getElementById('main-nav').classList.toggle('open');
+  });
+
+  // Close nav on link click (mobile)
+  document.querySelectorAll('#main-nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('main-nav').classList.remove('open');
+    });
+  });
+
+  // Active nav highlight on scroll
+  const sections = document.querySelectorAll('.anchor-target');
+  const navLinks = document.querySelectorAll('nav a[href^="#"]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      if (window.scrollY >= section.offsetTop - 100) {
+        current = section.getAttribute('id');
+      }
+    });
+    navLinks.forEach(link => {
+      link.style.background = link.getAttribute('href') === '#' + current ? '#f0eaff' : '';
+      link.style.color = link.getAttribute('href') === '#' + current ? '#4B2D8B' : '';
+    });
+  });
+</script>
+
+</body>
+</html>
