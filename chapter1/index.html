@@ -388,6 +388,27 @@
     .callout-text { font-size: 0.93rem; }
     .callout-text strong { display: block; margin-bottom: 0.25rem; font-size: 0.95rem; }
 
+    /* ===== VIDEO CONTAINER ===== */
+    .video-container {
+      position: relative;
+      width: 100%;
+      margin: 1.5rem 0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    }
+    .video-container iframe {
+      display: block;
+      width: 100%;
+    }
+    .video-caption {
+      font-size: 0.85rem;
+      color: #555;
+      margin-top: 0.5rem;
+      text-align: center;
+      font-style: italic;
+    }
+
     /* ===== VIDEO PLACEHOLDER ===== */
     .video-placeholder {
       background: linear-gradient(135deg, #2c2c54, #4B2D8B);
@@ -857,13 +878,18 @@
       </div>
     </div>
 
-    <!-- VIDEO PLACEHOLDER -->
-    <div class="video-placeholder">
-      <div class="video-play-icon">▶</div>
-      <h3>Bevezető videó: Miért fontos a digitális jóllét?</h3>
-      <p>Rövid oktatóvideó a digitális eszközök hatásairól és a tudatos használat alapjairól</p>
-      <span class="video-coming-soon">🎬 Videó hamarosan elérhető</span>
+    <div class="video-container">
+      <iframe
+        width="100%"
+        height="400"
+        src="https://www.youtube.com/embed/rLPZNaL6yKs"
+        title="A nagy áthuzalozás – Miért fontos a digitális jóllét?"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
     </div>
+    <p class="video-caption">A digitális jóllét kulcsfontosságú szerepét bemutató videó, amely az ifjúságsegítők, oktatók és szülők együttműködésének fontosságát hangsúlyozza a digitális világ kihívásaival szembenéző fiatalok támogatásában.</p>
   </section>
 
   <!-- 2. TUDATOS MÉDIAHASZNÁLAT -->
@@ -1090,13 +1116,18 @@
       </div>
     </div>
 
-    <!-- VIDEO PLACEHOLDER -->
-    <div class="video-placeholder">
-      <div class="video-play-icon">▶</div>
-      <h3>Képernyőidő kezelése – Praktikus tippek</h3>
-      <p>Videó a telefonos képernyőidő-kezelő funkciók használatáról és a tudatos időgazdálkodásról</p>
-      <span class="video-coming-soon">🎬 Videó hamarosan elérhető</span>
+    <div class="video-container">
+      <iframe
+        width="100%"
+        height="400"
+        src="https://www.youtube.com/embed/hdrcGdVwXsY"
+        title="Kiút a digitális világból – Inaktív csoport kezelése"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
     </div>
+    <p class="video-caption">A videó bemutatja, hogyan aktivizálhatja az ifjúságsegítő a passzív, telefonba merülő csoportot öt konkrét, könnyen alkalmazható módszer segítségével.</p>
   </section>
 
   <!-- 7. DIGITÁLIS BIZTONSÁG -->
@@ -1368,13 +1399,18 @@
       </div>
     </div>
 
-    <!-- FINAL VIDEO PLACEHOLDER -->
-    <div class="video-placeholder">
-      <div class="video-play-icon">▶</div>
-      <h3>Összefoglaló videó: A digitális jóllét útiterve</h3>
-      <p>Az egész fejezet kulcsüzeneteit összefoglaló oktatóvideó – ifjúságsegítőknek és fiataloknak</p>
-      <span class="video-coming-soon">🎬 Videó hamarosan elérhető</span>
+    <div class="video-container">
+      <iframe
+        width="100%"
+        height="400"
+        src="https://www.youtube.com/embed/D5k5Sxb4w6E"
+        title="Digitális jóllét és egészséges online egyensúly"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
     </div>
+    <p class="video-caption">A videó összefoglalja a digitális jóllét alapfogalmait, és áttekintést nyújt az egészséges online-offline egyensúly megteremtésének eszközeiről ifjúságsegítők és fiatalok számára.</p>
   </section>
 
 </div><!-- end main-content -->

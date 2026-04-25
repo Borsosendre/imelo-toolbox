@@ -96,6 +96,11 @@
     .submit-btn:hover { opacity: 0.85; }
     .feedback-box { margin-top: 1rem; background: white; border-radius: 12px; padding: 1.2rem; border-left: 4px solid #E65100; }
 
+    /* VIDEO CONTAINER */
+    .video-container { position: relative; width: 100%; margin: 1.5rem 0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.15); }
+    .video-container iframe { display: block; width: 100%; }
+    .video-caption { font-size: 0.85rem; color: #555; margin-top: 0.5rem; text-align: center; font-style: italic; }
+
     /* VIDEO PLACEHOLDER */
     .video-placeholder-box { display: flex; align-items: center; gap: 1.2rem; background: linear-gradient(135deg, #1a1a2e 0%, #2d2d5e 100%); border-radius: 14px; padding: 1.2rem 1.5rem; margin-top: 1.2rem; color: white; }
     .video-icon { width: 50px; height: 50px; background: rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex-shrink: 0; }
@@ -160,14 +165,18 @@
 </div>
       </div>
 
-      <div class="video-placeholder-box">
-        <div class="video-icon">▶</div>
-        <div class="video-info">
-          <h4>Bevezető: Hogyan oldjunk meg problémákat?</h4>
-          <p>A problémamegoldó gondolkodás alapjai és a strukturált megközelítés előnyei.</p>
-          <span class="video-badge">🎬 Videó hamarosan elérhető</span>
-        </div>
+      <div class="video-container">
+        <iframe
+          width="100%"
+          height="400"
+          src="https://www.youtube.com/embed/fMJ7wa-BpfA"
+          title="Struktúrált problémamegoldás és döntéshozatal"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
       </div>
+      <p class="video-caption">A videó tudományosan megalapozott problémaelemzési és döntéshozatali módszereket mutat be, amelyek segítségével az ifjúságsegítők hatékonyabban tudják támogatni a fiatalokat a kihívások leküzdésében.</p>
     </section>
 
     <section class="chapter-section" id="polya">

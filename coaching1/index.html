@@ -93,6 +93,11 @@
     .quote-box cite { font-size: 0.85rem; opacity: 0.85; }
 
     /* VIDEO PLACEHOLDER */
+    /* VIDEO CONTAINER */
+    .video-container { position: relative; width: 100%; margin: 1.5rem 0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.15); }
+    .video-container iframe { display: block; width: 100%; }
+    .video-caption { font-size: 0.85rem; color: #555; margin-top: 0.5rem; text-align: center; font-style: italic; }
+
     .video-placeholder-box { background: #fff; border: 2px dashed #c8e6c9; border-radius: 14px; padding: 2rem; text-align: center; margin: 1.5rem 0; }
     .video-placeholder-box .video-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
     .video-placeholder-box p { color: #888; font-size: 0.9rem; margin: 0; }
@@ -239,11 +244,18 @@
         </ul>
       </div>
     </div>
-    <div class="video-placeholder-box">
-      <div class="video-icon">🎬</div>
-      <strong>Videó: Mi a coaching? – Bevezetés</strong>
-      <p>Hamarosan elérhető videó a coaching alapjairól és az ifjúsági munkában való alkalmazásáról.</p>
+    <div class="video-container">
+      <iframe
+        width="100%"
+        height="400"
+        src="https://www.youtube.com/embed/pBnFkMnQ6Oo"
+        title="Coaching alapok és kommunikációs készségek – Bevezetés"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
     </div>
+    <p class="video-caption">A videó bemutatja a coaching lényegét és a hatékony kommunikáció alapjait, amelyek elengedhetetlenek az ifjúságsegítők munkájában a fiatalok fejlődésének támogatásához.</p>
   </div>
 
   <!-- SECTION 2: KULCSKÉSZSÉGEK -->
@@ -338,11 +350,18 @@
         <p>A fázisok nem feltétlenül lineárisan követik egymást. Egy-egy coaching beszélgetés során visszatérhetünk korábbi fázisokhoz, ha új információ kerül elő. A modell keret, nem merev séma.</p>
       </div>
     </div>
-    <div class="video-placeholder-box">
-      <div class="video-icon">🎬</div>
-      <strong>Videó: A GROW modell a gyakorlatban</strong>
-      <p>Hamarosan elérhető: egy valós coaching párbeszéd bemutatása a GROW modell alapján, ifjúságsegítői kontextusban.</p>
+    <div class="video-container">
+      <iframe
+        width="100%"
+        height="400"
+        src="https://www.youtube.com/embed/JYX3bqzHMmk"
+        title="A GROW modell a gyakorlatban – Ifjúsági coaching"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
     </div>
+    <p class="video-caption">A videó egy valós coaching párbeszédet mutat be a GROW modell alapján, ifjúságsegítői kontextusban, illusztrálva, hogyan alkalmazható a modell a fiatalok célkitűzéseinek és fejlődésének támogatásában.</p>
   </div>
 
   <!-- SECTION 4: IFJÚSÁGI MUNKA -->
