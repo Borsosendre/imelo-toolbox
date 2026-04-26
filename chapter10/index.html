@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>10. Fejezet – Önálló Életkezdés és Felnőtté Válás Támogatása | IMELO Toolbox</title>
+  <title><span data-lang="hu">10. Fejezet – Önálló Életkezdés és Felnőtté Válás Támogatása | IMELO Toolbox</span><span data-lang="en">Chapter 10 – Supporting Independent Living and Transition to Adulthood | IMELO Toolbox</span><span data-lang="ro">Capitolul 10 – Sprijinirea Începerii Vieții Independente și a Tranziției către Adulthood | IMELO Toolbox</span></title>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -117,28 +117,106 @@
 
     /* FOOTER */
     .chapter-footer { background: #1a1a2e; color: white; text-align: center; padding: 1.5rem; font-size: 0.8rem; opacity: 0.8; }
+  
+    /* Chapter navigation */
+    .chapter-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 1.5rem;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      margin: 1.5rem 0;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .chapter-nav a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: linear-gradient(135deg, #1a7a4a 0%, #2ecc71 100%);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+      transition: opacity 0.2s;
+    }
+    .chapter-nav a:hover { opacity: 0.85; }
+    .chapter-nav .nav-home {
+      background: linear-gradient(135deg, #E8622A 0%, #f39c12 100%);
+    }
+    .chapter-nav .nav-center {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #888;
+      flex: 1;
+    }
+    @media (max-width: 600px) {
+      .chapter-nav { flex-direction: column; align-items: stretch; text-align: center; }
+      .chapter-nav a { justify-content: center; }
+    }
+
+  
+    [data-lang] { display: none; }
+    body[data-active-lang="hu"] [data-lang="hu"] { display: inline; }
+    body[data-active-lang="en"] [data-lang="en"] { display: inline; }
+    body[data-active-lang="ro"] [data-lang="ro"] { display: inline; }
+
+  
+    /* Language switching */
+    [data-lang] { display: none; }
+    body[data-active-lang="hu"] [data-lang="hu"],
+    body[data-active-lang="hu"] span[data-lang="hu"] { display: inline; }
+    body[data-active-lang="en"] [data-lang="en"],
+    body[data-active-lang="en"] span[data-lang="en"] { display: inline; }
+    body[data-active-lang="ro"] [data-lang="ro"],
+    body[data-active-lang="ro"] span[data-lang="ro"] { display: inline; }
+    body[data-active-lang="hu"] div[data-lang="hu"],
+    body[data-active-lang="en"] div[data-lang="en"],
+    body[data-active-lang="ro"] div[data-lang="ro"] { display: block; }
+    .lang-switcher-sub {
+      position: fixed; top: 12px; right: 16px; z-index: 9999;
+      display: flex; gap: 6px; background: rgba(255,255,255,0.95);
+      padding: 4px 8px; border-radius: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .lang-btn-sub {
+      background: none; border: none; cursor: pointer;
+      font-size: 1.2rem; padding: 2px 4px; border-radius: 6px;
+      opacity: 0.6; transition: opacity 0.2s;
+    }
+    .lang-btn-sub:hover, .lang-btn-sub.active { opacity: 1; }
+
   </style>
 </head>
-<body>
+<body data-active-lang="hu">
+<div class="lang-switcher-sub">
+  <button class="lang-btn-sub" data-lang-switch="hu" onclick="switchLangSub('hu')" title="Magyar">🇭🇺</button>
+  <button class="lang-btn-sub" data-lang-switch="en" onclick="switchLangSub('en')" title="English">🇬🇧</button>
+  <button class="lang-btn-sub" data-lang-switch="ro" onclick="switchLangSub('ro')" title="Română">🇷🇴</button>
+</div>
 
 <nav class="topbar">
   <a href="../index.html" class="topbar-logo">
     <img src="imelo_logo.png" alt="Identity Mosaic logó">
   </a>
-  <a href="../index.html" class="back-btn">← Vissza az Eszköztárhoz</a>
+  <a href="../index.html" class="back-btn"><span data-lang="hu">← Vissza az Eszköztárhoz</span><span data-lang="en">← Back to Toolbox</span><span data-lang="ro">← Înapoi la Toolbox</span></a>
 </nav>
 
 <div class="chapter-hero">
-  <div class="chapter-num">10. Fejezet</div>
-  <h1>Önálló Életkezdés és Felnőtté Válás Támogatása</h1>
-  <p class="subtitle">Az önállóság felé vezető út</p>
-  <div class="tags"><span class="tag">🚀 Önállóság</span> <span class="tag">🧭 Felnőtté válás</span> <span class="tag">💡 Életkészségek</span></div>
+  <div class="chapter-num"><span data-lang="hu">10. Fejezet</span><span data-lang="en">Chapter 10</span><span data-lang="ro">Capitolul 10</span></div>
+  <h1><span data-lang="hu">Önálló Életkezdés és Felnőtté Válás Támogatása</span><span data-lang="en">Supporting Independent Living and Transition to Adulthood</span><span data-lang="ro">Sprijinirea Începerii Vieții Independente și a Tranziției către Adulthood</span></h1>
+  <p class="subtitle"><span data-lang="hu">Az önállóság felé vezető út</span><span data-lang="en">The Path Towards Independence</span><span data-lang="ro">Drumul către independență</span></p>
+  <div class="tags"><span class="tag"><span data-lang="hu">🚀 Önállóság</span><span data-lang="en">🚀 Independence</span><span data-lang="ro">🚀 Independență</span></span> <span class="tag"><span data-lang="hu">🧭 Felnőtté válás</span><span data-lang="en">🧭 Transition to Adulthood</span><span data-lang="ro">🧭 Tranziția către adulthood</span></span> <span class="tag"><span data-lang="hu">💡 Életkészségek</span><span data-lang="en">💡 Life Skills</span><span data-lang="ro">💡 Abilități de viață</span></span></div>
 </div>
 
 <div class="page-layout">
   <aside class="sidebar">
-    <h3>Tartalomjegyzék</h3>
-    <a href="#miert" class="toc-item">Miért fontos az önálló életkezdés támogatása?</a><a href="#keszulodo" class="toc-item">A 'Készülődő Felnőttség' Fogalma</a><a href="#negy-pillar" class="toc-item">Az Önállóság 4 Pillére</a><a href="#eletkeszsegek" class="toc-item">Életkészségek Fejlesztése – A WÉK Módszer</a><a href="#penzugyi" class="toc-item">Pénzügyi Alapismeretek</a><a href="#onreflexio" class="toc-item">Önreflexió – Önállóságom</a><a href="#osszefoglalas" class="toc-item">Összefoglalás</a>
+    <h3><span data-lang="hu">Tartalomjegyzék</span><span data-lang="en">Table of Contents</span><span data-lang="ro">Cuprins</span></h3>
+    <a href="#miert" class="toc-item"><span data-lang="hu">Miért fontos az önálló életkezdés támogatása?</span><span data-lang="en">Why is supporting independent living important?</span><span data-lang="ro">De ce este important să sprijinim începutul vieții independente?</span></a><a href="#keszulodo" class="toc-item"><span data-lang="hu">A 'Készülődő Felnőttség' Fogalma</span><span data-lang="en">The Concept of 'Emerging Adulthood'</span><span data-lang="ro">Conceptul de „Adulthood în pregătire”</span></a><a href="#negy-pillar" class="toc-item"><span data-lang="hu">Az Önállóság 4 Pillére</span><span data-lang="en">The 4 Pillars of Independence</span><span data-lang="ro">Cele 4 piloni ai independenței</span></a><a href="#eletkeszsegek" class="toc-item"><span data-lang="hu">Életkészségek Fejlesztése – A WÉK Módszer</span><span data-lang="en">Developing Life Skills – The WÉK Method</span><span data-lang="ro">Dezvoltarea abilităților de viață – Metoda WÉK</span></a><a href="#penzugyi" class="toc-item"><span data-lang="hu">Pénzügyi Alapismeretek</span><span data-lang="en">Basic Financial Knowledge</span><span data-lang="ro">Noțiuni financiare de bază</span></a><a href="#onreflexio" class="toc-item"><span data-lang="hu">Önreflexió – Önállóságom</span><span data-lang="en">Self-Reflection – My Independence</span><span data-lang="ro">Auto-reflecție – Independența mea</span></a><a href="#osszefoglalas" class="toc-item"><span data-lang="hu">Összefoglalás</span><span data-lang="en">Summary</span><span data-lang="ro">Rezumat</span></a>
   </aside>
 
   <main>
@@ -147,21 +225,21 @@
       <div class="section-header">
         <span class="section-icon">🚀</span>
         <div>
-          <h2>Miért fontos az önálló életkezdés támogatása?</h2>
-          <p class="section-subtitle">A felnőtté válás kihívásai</p>
+          <h2><span data-lang="hu">Miért fontos az önálló életkezdés támogatása?</span><span data-lang="en">Why is supporting independent living important?</span><span data-lang="ro">De ce este important să sprijinim începutul vieții independente?</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">A felnőtté válás kihívásai</span><span data-lang="en">The challenges of becoming an adult</span><span data-lang="ro">Provocările tranziției către adulthood</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #1A237E, transparent);"></div>
-      <p class="section-intro">A mai fiatalok egyedülálló kihívásokkal néznek szembe: gyors technológiai változások, információs túlterhelés, bizonytalanság a jövővel kapcsolatban, változó munkaerőpiac. Az önálló életkezdés tudatos támogatása elengedhetetlen.</p>
+      <p class="section-intro"><span data-lang="hu">A mai fiatalok egyedülálló kihívásokkal néznek szembe: gyors technológiai változások, információs túlterhelés, bizonytalanság a jövővel kapcsolatban, változó munkaerőpiac. Az önálló életkezdés tudatos támogatása elengedhetetlen.</span><span data-lang="en">Today's young people face unique challenges: rapid technological changes, information overload, uncertainty about the future, and a changing labor market. Conscious support for independent living is essential.</span><span data-lang="ro">Tinerii de astăzi se confruntă cu provocări unice: schimbări tehnologice rapide, supraîncărcare informațională, incertitudine legată de viitor, piață a muncii în continuă schimbare. Sprijinul conștient pentru începutul vieții independente este esențial.</span></p>
       <div class="stats-row">
-        <div class="stat-card"><div class="stat-value" style="color:#1A237E">18-29</div><div class="stat-label">A 'készülődő felnőttség' életkori szakasza (Arnett)</div></div>
-        <div class="stat-card"><div class="stat-value" style="color:#7986CB">32%</div><div class="stat-label">A fiatalok, akik magas szintű stresszt tapasztalnak (WHO)</div></div>
-        <div class="stat-card"><div class="stat-value" style="color:#E65100">4 pillér</div><div class="stat-label">Az önállóság alapjai: érzelmi, gyakorlati, szociális, szellemi</div></div>
+        <div class="stat-card"><div class="stat-value" style="color:#1A237E">18-29</div><div class="stat-label"><span data-lang="hu">A 'készülődő felnőttség' életkori szakasza (Arnett)</span><span data-lang="en">The age phase of 'emerging adulthood' (Arnett)</span><span data-lang="ro">Etapa de vârstă a „adulthood-ului în pregătire” (Arnett)</span></div></div>
+        <div class="stat-card"><div class="stat-value" style="color:#7986CB">32%</div><div class="stat-label"><span data-lang="hu">A fiatalok, akik magas szintű stresszt tapasztalnak (WHO)</span><span data-lang="en">Young people experiencing high levels of stress (WHO)</span><span data-lang="ro">Tinerii care experimentează niveluri ridicate de stres (OMS)</span></div></div>
+        <div class="stat-card"><div class="stat-value" style="color:#E65100"><span data-lang="hu">4 pillér</span><span data-lang="en">4 pillars</span><span data-lang="ro">4 piloni</span></div><div class="stat-label"><span data-lang="hu">Az önállóság alapjai: érzelmi, gyakorlati, szociális, szellemi</span><span data-lang="en">The foundations of independence: emotional, practical, social, intellectual</span><span data-lang="ro">Bazele independenței: emoțională, practică, socială, intelectuală</span></div></div>
       </div>
       <div class="section-content">
 <div class="content-grid">
-  <div class="content-card"><h4>🎯 Mit nyerhetsz?</h4><ul><li>Magabiztosabb döntéshozatal</li><li>Hatékonyabb stresszkezelés</li><li>Erősebb kapcsolatok</li><li>Tudatosabb karriertervezés</li></ul></div>
-  <div class="content-card"><h4>🎯 Az eszköztár célja</h4><ul><li>A felnőtté válás folyamatának megértése</li><li>Életkészségek fejlesztése</li><li>Önálló életvezetési kompetenciák erősítése</li><li>Felelősségvállalás és döntéshozatal támogatása</li></ul></div>
+  <div class="content-card"><h4>🎯 Mit nyerhetsz?</h4><ul><li><span data-lang="hu">Magabiztosabb döntéshozatal</span><span data-lang="en">More confident decision-making</span><span data-lang="ro">Luare a deciziilor mai încrezătoare</span></li><li><span data-lang="hu">Hatékonyabb stresszkezelés</span><span data-lang="en">More effective stress management</span><span data-lang="ro">Gestionarea mai eficientă a stresului</span></li><li><span data-lang="hu">Erősebb kapcsolatok</span><span data-lang="en">Stronger relationships</span><span data-lang="ro">Relații mai puternice</span></li><li><span data-lang="hu">Tudatosabb karriertervezés</span><span data-lang="en">More conscious career planning</span><span data-lang="ro">Planificare conștientă a carierei</span></li></ul></div>
+  <div class="content-card"><h4><span data-lang="hu">🎯 Az eszköztár célja</span><span data-lang="en">🎯 The goal of the toolbox</span><span data-lang="ro">🎯 Scopul toolbox-ului</span></h4><ul><li><span data-lang="hu">A felnőtté válás folyamatának megértése</span><span data-lang="en">Understanding the process of becoming an adult</span><span data-lang="ro">Înțelegerea procesului de tranziție către adulthood</span></li><li><span data-lang="hu">Életkészségek fejlesztése</span><span data-lang="en">Developing life skills</span><span data-lang="ro">Dezvoltarea abilităților de viață</span></li><li><span data-lang="hu">Önálló életvezetési kompetenciák erősítése</span><span data-lang="en">Strengthening independent living competencies</span><span data-lang="ro">Consolidarea competențelor pentru gestionarea vieții independente</span></li><li><span data-lang="hu">Felelősségvállalás és döntéshozatal támogatása</span><span data-lang="en">Supporting responsibility and decision-making</span><span data-lang="ro">Sprijinirea asumării responsabilității și a luării deciziilor</span></li></ul></div>
 </div>
       </div>
 
@@ -177,7 +255,7 @@
           allowfullscreen>
         </iframe>
       </div>
-      <p class="video-caption">A videó azt mutatja be, hogyan támogathatják az ifjúságsegítők a Z generáció tagjait a felnőtté válás összetett folyamatában, a függetlenség és az önálló életvezetés kialakításában.</p>
+      <p class="video-caption"><span data-lang="hu">A videó azt mutatja be, hogyan támogathatják az ifjúságsegítők a Z generáció tagjait a felnőtté válás összetett folyamatában, a függetlenség és az önálló életvezetés kialakításában.</span><span data-lang="en">The video demonstrates how youth workers can support Generation Z members in the complex process of becoming adults, fostering independence and self-directed living.</span><span data-lang="ro">Videoclipul arată cum pot sprijini lucrătorii de tineret membrii generației Z în procesul complex al tranziției către adulthood, dezvoltând independența și gestionarea autonomă a vieții.</span></p>
       </div>
     </section>
 
@@ -185,18 +263,18 @@
       <div class="section-header">
         <span class="section-icon">🌱</span>
         <div>
-          <h2>A 'Készülődő Felnőttség' Fogalma</h2>
-          <p class="section-subtitle">Arnett-féle Emerging Adulthood elmélet</p>
+          <h2><span data-lang="hu">A 'Készülődő Felnőttség' Fogalma</span><span data-lang="en">The Concept of 'Emerging Adulthood'</span><span data-lang="ro">Conceptul de „Adulthood în pregătire”</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Arnett-féle Emerging Adulthood elmélet</span><span data-lang="en">Arnett's Emerging Adulthood theory</span><span data-lang="ro">Teoria lui Arnett despre Emerging Adulthood</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #1A237E, transparent);"></div>
-      <p class="section-intro">Jeffrey Arnett 2000-ben alkotta meg a 'készülődő felnőttség' (emerging adulthood) fogalmát, amely a 18-29 éves kor közötti fejlődési szakaszt írja le – sem serdülőkor, sem teljes felnőttség.</p>
+      <p class="section-intro"><span data-lang="hu">Jeffrey Arnett 2000-ben alkotta meg a 'készülődő felnőttség' (emerging adulthood) fogalmát, amely a 18-29 éves kor közötti fejlődési szakaszt írja le – sem serdülőkor, sem teljes felnőttség.</span><span data-lang="en">Jeffrey Arnett coined the term 'emerging adulthood' in 2000, describing the developmental phase between ages 18-29 – neither adolescence nor full adulthood.</span><span data-lang="ro">Jeffrey Arnett a creat în 2000 conceptul de „adulthood în pregătire” (emerging adulthood), care descrie etapa de dezvoltare între 18 și 29 de ani – nici adolescență, nici adulthood deplină.</span></p>
       <div class="section-content">
 <div class="content-grid">
-  <div class="content-card"><h4>🔍 Identitás-explorálás</h4><p>Különböző lehetőségek kipróbálása a szerelem, munka és világnézet területén. Ez az időszak a kísérletezés és felfedezés kora.</p></div>
-  <div class="content-card"><h4>🌊 Instabilitás</h4><p>Gyakori változások a lakóhelyben, kapcsolatokban, munkában és tanulmányokban. Az instabilitás nem hiba – hanem a fejlődés természetes velejárója.</p></div>
-  <div class="content-card"><h4>🎯 Önközpontúság</h4><p>Kevesebb társadalmi kötelezettség, nagyobb szabadság az önálló döntésekben. Ez az önfejlesztés és önmegvalósítás legintenzívebb időszaka.</p></div>
-  <div class="content-card"><h4>🚀 Lehetőségek kora</h4><p>Optimizmus a jövővel kapcsolatban, nyitottság a különböző életutakra. A lehetőségek soha nem lesznek ennyire nyitottak – érdemes tudatosan élni velük.</p></div>
+  <div class="content-card"><h4><span data-lang="hu">🔍 Identitás-explorálás</span><span data-lang="en">🔍 Identity Exploration</span><span data-lang="ro">🔍 Explorarea identității</span></h4><p><span data-lang="hu">Különböző lehetőségek kipróbálása a szerelem, munka és világnézet területén. Ez az időszak a kísérletezés és felfedezés kora.</span><span data-lang="en">Trying out different possibilities in love, work, and worldview. This period is one of experimentation and discovery.</span><span data-lang="ro">Experimentarea diferitelor posibilități în domeniul dragostei, muncii și viziunii asupra lumii. Aceasta este o perioadă a experimentării și descoperirii.</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">🌊 Instabilitás</span><span data-lang="en">🌊 Instability</span><span data-lang="ro">🌊 Instabilitate</span></h4><p><span data-lang="hu">Gyakori változások a lakóhelyben, kapcsolatokban, munkában és tanulmányokban. Az instabilitás nem hiba – hanem a fejlődés természetes velejárója.</span><span data-lang="en">Frequent changes in residence, relationships, work, and studies. Instability is not a flaw – it is a natural part of development.</span><span data-lang="ro">Schimbări frecvente în locuință, relații, muncă și studii. Instabilitatea nu este o problemă – ci o parte naturală a dezvoltării.</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">🎯 Önközpontúság</span><span data-lang="en">🎯 Self-Focus</span><span data-lang="ro">🎯 Egocentrism</span></h4><p><span data-lang="hu">Kevesebb társadalmi kötelezettség, nagyobb szabadság az önálló döntésekben. Ez az önfejlesztés és önmegvalósítás legintenzívebb időszaka.</span><span data-lang="en">Fewer social obligations, greater freedom in independent decisions. This is the most intense period for self-development and self-realization.</span><span data-lang="ro">Mai puține obligații sociale, mai multă libertate în luarea deciziilor independente. Aceasta este cea mai intensă perioadă de auto-dezvoltare și auto-realizare.</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">🚀 Lehetőségek kora</span><span data-lang="en">🚀 The Age of Possibilities</span><span data-lang="ro">🚀 Epoca oportunităților</span></h4><p><span data-lang="hu">Optimizmus a jövővel kapcsolatban, nyitottság a különböző életutakra. A lehetőségek soha nem lesznek ennyire nyitottak – érdemes tudatosan élni velük.</span><span data-lang="en">Optimism about the future, openness to different life paths. Opportunities will never be this open again – it’s worth living consciously.</span><span data-lang="ro">Optimism față de viitor, deschidere către diferite trasee de viață. Oportunitățile nu vor mai fi niciodată atât de deschise – merită să le trăim conștient.</span></p></div>
 </div>
       </div>
     </section>
@@ -205,18 +283,18 @@
       <div class="section-header">
         <span class="section-icon">🏛️</span>
         <div>
-          <h2>Az Önállóság 4 Pillére</h2>
-          <p class="section-subtitle">Az önálló élet alapjai</p>
+          <h2><span data-lang="hu">Az Önállóság 4 Pillére</span><span data-lang="en">The 4 Pillars of Independence</span><span data-lang="ro">Cele 4 piloni ai independenței</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Az önálló élet alapjai</span><span data-lang="en">The foundations of independent living</span><span data-lang="ro">Bazele vieții independente</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #1A237E, transparent);"></div>
-      <p class="section-intro">Az önálló életkezdés négy alapvető kompetenciaterületen nyugszik. Mindegyik fejleszthető és erősíthető tudatos munkával.</p>
+      <p class="section-intro"><span data-lang="hu">Az önálló életkezdés négy alapvető kompetenciaterületen nyugszik. Mindegyik fejleszthető és erősíthető tudatos munkával.</span><span data-lang="en">Independent living rests on four fundamental competency areas. Each can be developed and strengthened through conscious effort.</span><span data-lang="ro">Începutul vieții independente se sprijină pe patru domenii fundamentale de competență. Fiecare poate fi dezvoltat și consolidat prin muncă conștientă.</span></p>
       <div class="section-content">
 <div class="content-grid">
-  <div class="content-card"><h4>💗 Érzelmi önállóság</h4><p>Saját érzelmek felismerése és kezelése, érzelmi stabilitás kialakítása.</p><p><em>Érzelemszabályozás · Stresszkezelés · Reziliencia</em></p></div>
-  <div class="content-card"><h4>🔧 Gyakorlati önállóság</h4><p>Mindennapi életvezetési készségek az önálló élethez.</p><p><em>Pénzügyi tervezés · Háztartásvezetés · Időmenedzsment</em></p></div>
-  <div class="content-card"><h4>🤝 Szociális önállóság</h4><p>Kapcsolatok építése és fenntartása, társas helyzetekben való eligazodás.</p><p><em>Kommunikáció · Konfliktuskezelés · Határok kijelölése</em></p></div>
-  <div class="content-card"><h4>🧠 Szellemi önállóság</h4><p>Kritikus gondolkodás, értékek kialakítása, tudatos döntéshozatal.</p><p><em>Problémamegoldás · Információszűrés · Célkitűzés</em></p></div>
+  <div class="content-card"><h4><span data-lang="hu">💗 Érzelmi önállóság</span><span data-lang="en">💗 Emotional Independence</span><span data-lang="ro">💗 Independență emoțională</span></h4><p><span data-lang="hu">Saját érzelmek felismerése és kezelése, érzelmi stabilitás kialakítása.</span><span data-lang="en">Recognizing and managing one’s own emotions, establishing emotional stability.</span><span data-lang="ro">Recunoașterea și gestionarea propriilor emoții, dezvoltarea stabilității emoționale.</span></p><p><em><span data-lang="hu">Érzelemszabályozás · Stresszkezelés · Reziliencia</span><span data-lang="en">Emotion regulation · Stress management · Resilience</span><span data-lang="ro">Reglarea emoțiilor · Gestionarea stresului · Reziliență</span></em></p></div>
+  <div class="content-card"><h4><span data-lang="hu">🔧 Gyakorlati önállóság</span><span data-lang="en">🔧 Practical Independence</span><span data-lang="ro">🔧 Independență practică</span></h4><p><span data-lang="hu">Mindennapi életvezetési készségek az önálló élethez.</span><span data-lang="en">Everyday life management skills for independent living.</span><span data-lang="ro">Abilități de viață de zi cu zi pentru o viață independentă.</span></p><p><em><span data-lang="hu">Pénzügyi tervezés · Háztartásvezetés · Időmenedzsment</span><span data-lang="en">Financial Planning · Household Management · Time Management</span><span data-lang="ro">Planificare financiară · Gospodărie · Managementul timpului</span></em></p></div>
+  <div class="content-card"><h4><span data-lang="hu">🤝 Szociális önállóság</span><span data-lang="en">🤝 Social Independence</span><span data-lang="ro">🤝 Independență socială</span></h4><p><span data-lang="hu">Kapcsolatok építése és fenntartása, társas helyzetekben való eligazodás.</span><span data-lang="en">Building and maintaining relationships, navigating social situations.</span><span data-lang="ro">Construirea și menținerea relațiilor, orientarea în situații sociale.</span></p><p><em><span data-lang="hu">Kommunikáció · Konfliktuskezelés · Határok kijelölése</span><span data-lang="en">Communication · Conflict Resolution · Setting Boundaries</span><span data-lang="ro">Comunicare · Gestionarea conflictelor · Stabilirea limitelor</span></em></p></div>
+  <div class="content-card"><h4><span data-lang="hu">🧠 Szellemi önállóság</span><span data-lang="en">🧠 Intellectual Independence</span><span data-lang="ro">🧠 Independență intelectuală</span></h4><p><span data-lang="hu">Kritikus gondolkodás, értékek kialakítása, tudatos döntéshozatal.</span><span data-lang="en">Critical thinking, value formation, conscious decision-making.</span><span data-lang="ro">Gândire critică, formarea valorilor, luarea deciziilor conștiente.</span></p><p><em><span data-lang="hu">Problémamegoldás · Információszűrés · Célkitűzés</span><span data-lang="en">Problem Solving · Information Filtering · Goal Setting</span><span data-lang="ro">Rezolvarea problemelor · Filtrarea informațiilor · Stabilirea obiectivelor</span></em></p></div>
 </div>
       </div>
     </section>
@@ -225,18 +303,18 @@
       <div class="section-header">
         <span class="section-icon">🛠️</span>
         <div>
-          <h2>Életkészségek Fejlesztése – A WÉK Módszer</h2>
-          <p class="section-subtitle">Williams Életkészségek® program</p>
+          <h2><span data-lang="hu">Életkészségek Fejlesztése – A WÉK Módszer</span><span data-lang="en">Life Skills Development – The WÉK Method</span><span data-lang="ro">Dezvoltarea abilităților de viață – Metoda WÉK</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Williams Életkészségek® program</span><span data-lang="en">Williams Life Skills® program</span><span data-lang="ro">Programul Williams Abilități de Viață®</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #1A237E, transparent);"></div>
-      <p class="section-intro">A Williams Életkészségek® (WÉK) egy komplex, standardizált, bizonyítottan hatékony készségfejlesztő program, amelyet Magyarországon Dr. Stauder Adrienne és munkatársai adaptáltak.</p>
+      <p class="section-intro"><span data-lang="hu">A Williams Életkészségek® (WÉK) egy komplex, standardizált, bizonyítottan hatékony készségfejlesztő program, amelyet Magyarországon Dr. Stauder Adrienne és munkatársai adaptáltak.</span><span data-lang="en">The Williams Life Skills® (WÉK) is a complex, standardized, proven effective skills development program adapted in Hungary by Dr. Adrienne Stauder and colleagues.</span><span data-lang="ro">Williams Abilități de Viață® (WÉK) este un program complex, standardizat și dovedit eficient de dezvoltare a abilităților, adaptat în Ungaria de Dr. Stauder Adrienne și colaboratorii săi.</span></p>
       <div class="section-content">
 <div class="content-grid">
-  <div class="content-card"><h4>💬 Kommunikációs készségek</h4><p>Asszertív kommunikáció, aktív hallgatás, én-üzenetek megfogalmazása. A hatékony kommunikáció minden életterületen kulcsfontosságú.</p></div>
-  <div class="content-card"><h4>🧠 Problémamegoldás</h4><p>Strukturált problémamegoldás, kreatív megoldások keresése. A problémák nem akadályok – hanem fejlődési lehetőségek.</p></div>
-  <div class="content-card"><h4>😌 Stresszkezelés</h4><p>Relaxációs technikák, figyelemelterelés, kognitív átkeretezés. A stressz kezelhetővé válik a megfelelő eszközökkel.</p></div>
-  <div class="content-card"><h4>🎯 Célkitűzés és tervezés</h4><p>SMART célok megfogalmazása, prioritások felállítása. A tudatos tervezés csökkenti a bizonytalanságot és növeli az önbizalmat.</p></div>
+  <div class="content-card"><h4><span data-lang="hu">💬 Kommunikációs készségek</span><span data-lang="en">💬 Communication Skills</span><span data-lang="ro">💬 Abilități de comunicare</span></h4><p><span data-lang="hu">Asszertív kommunikáció, aktív hallgatás, én-üzenetek megfogalmazása. A hatékony kommunikáció minden életterületen kulcsfontosságú.</span><span data-lang="en">Assertive communication, active listening, expressing I-messages. Effective communication is key in all areas of life.</span><span data-lang="ro">Comunicare asertivă, ascultare activă, formularea mesajelor „eu”. Comunicarea eficientă este esențială în toate domeniile vieții.</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">🧠 Problémamegoldás</span><span data-lang="en">🧠 Problem Solving</span><span data-lang="ro">🧠 Rezolvarea problemelor</span></h4><p><span data-lang="hu">Strukturált problémamegoldás, kreatív megoldások keresése. A problémák nem akadályok – hanem fejlődési lehetőségek.</span><span data-lang="en">Structured problem solving, seeking creative solutions. Problems are not obstacles – they are opportunities for growth.</span><span data-lang="ro">Rezolvarea structurată a problemelor, căutarea soluțiilor creative. Problemele nu sunt obstacole – ci oportunități de dezvoltare.</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">😌 Stresszkezelés</span><span data-lang="en">😌 Stress Management</span><span data-lang="ro">😌 Gestionarea stresului</span></h4><p><span data-lang="hu">Relaxációs technikák, figyelemelterelés, kognitív átkeretezés. A stressz kezelhetővé válik a megfelelő eszközökkel.</span><span data-lang="en">Relaxation techniques, distraction, cognitive reframing. Stress becomes manageable with the right tools.</span><span data-lang="ro">Tehnici de relaxare, distragerea atenției, reîncadrare cognitivă. Stresul devine gestionabil cu instrumentele potrivite.</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">🎯 Célkitűzés és tervezés</span><span data-lang="en">🎯 Goal Setting and Planning</span><span data-lang="ro">🎯 Stabilirea obiectivelor și planificare</span></h4><p><span data-lang="hu">SMART célok megfogalmazása, prioritások felállítása. A tudatos tervezés csökkenti a bizonytalanságot és növeli az önbizalmat.</span><span data-lang="en">Formulating SMART goals, setting priorities. Conscious planning reduces uncertainty and boosts confidence.</span><span data-lang="ro">Formularea obiectivelor SMART, stabilirea priorităților. Planificarea conștientă reduce incertitudinea și crește încrederea în sine.</span></p></div>
 </div>
       </div>
     </section>
@@ -245,18 +323,18 @@
       <div class="section-header">
         <span class="section-icon">💰</span>
         <div>
-          <h2>Pénzügyi Alapismeretek</h2>
-          <p class="section-subtitle">Az anyagi önállóság alapjai</p>
+          <h2><span data-lang="hu">Pénzügyi Alapismeretek</span><span data-lang="en">Financial Basics</span><span data-lang="ro">Cunoștințe financiare de bază</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Az anyagi önállóság alapjai</span><span data-lang="en">The foundations of financial independence</span><span data-lang="ro">Bazele independenței financiare</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #1A237E, transparent);"></div>
-      <p class="section-intro">A pénzügyi tudatosság az önálló életkezdés egyik legfontosabb, mégis legkevésbé tanított területe. Az alapok elsajátítása megkönnyíti az önálló életkezdést.</p>
+      <p class="section-intro"><span data-lang="hu">A pénzügyi tudatosság az önálló életkezdés egyik legfontosabb, mégis legkevésbé tanított területe. Az alapok elsajátítása megkönnyíti az önálló életkezdést.</span><span data-lang="en">Financial awareness is one of the most important yet least taught areas for starting independent living. Mastering the basics makes starting out easier.</span><span data-lang="ro">Conștientizarea financiară este unul dintre cele mai importante, dar și mai puțin predate domenii pentru începerea unei vieți independente. Stăpânirea elementelor de bază facilitează începutul vieții pe cont propriu.</span></p>
       <div class="section-content">
 <div class="steps-list">
-  <div class="step"><span class="step-num">1</span><div><strong>Büdzsé készítése</strong><p>Bevételek és kiadások nyomon követése. Az 50-30-20 szabály: bevétel 50%-a szükségletekre, 30%-a vágyakra, 20%-a megtakarításra.</p></div></div>
-  <div class="step"><span class="step-num">2</span><div><strong>Vészalap</strong><p>Legalább 3-6 havi megélhetési költség megtakarítása váratlan kiadásokra. Ez az anyagi biztonság alapja.</p></div></div>
-  <div class="step"><span class="step-num">3</span><div><strong>Tudatos fogyasztás</strong><p>Szükséglet vs. vágy megkülönböztetése. Impulzusvásárlás kerülése – 24 órás szabály: várj egy napot, mielőtt megveszel valamit.</p></div></div>
-  <div class="step"><span class="step-num">4</span><div><strong>Hosszú távú tervezés</strong><p>Célok kitűzése (lakás, utazás, képzés) és rendszeres megtakarítás. A kis összegek rendszeres félretétele hosszú távon nagy eredményt hoz.</p></div></div>
+  <div class="step"><span class="step-num">1</span><div><strong><span data-lang="hu">Büdzsé készítése</span><span data-lang="en">Budgeting</span><span data-lang="ro">Realizarea unui buget</span></strong><p><span data-lang="hu">Bevételek és kiadások nyomon követése. Az 50-30-20 szabály: bevétel 50%-a szükségletekre, 30%-a vágyakra, 20%-a megtakarításra.</span><span data-lang="en">Tracking income and expenses. The 50-30-20 rule: 50% of income for needs, 30% for wants, 20% for savings.</span><span data-lang="ro">Urmărirea veniturilor și cheltuielilor. Regula 50-30-20: 50% din venit pentru necesități, 30% pentru dorințe, 20% pentru economii.</span></p></div></div>
+  <div class="step"><span class="step-num">2</span><div><strong><span data-lang="hu">Vészalap</span><span data-lang="en">Emergency Fund</span><span data-lang="ro">Fond de urgență</span></strong><p><span data-lang="hu">Legalább 3-6 havi megélhetési költség megtakarítása váratlan kiadásokra. Ez az anyagi biztonság alapja.</span><span data-lang="en">Saving at least 3-6 months’ living expenses for unexpected costs. This is the basis of financial security.</span><span data-lang="ro">Economisirea a cel puțin 3-6 luni de cheltuieli de trai pentru cheltuieli neprevăzute. Aceasta este baza siguranței financiare.</span></p></div></div>
+  <div class="step"><span class="step-num">3</span><div><strong><span data-lang="hu">Tudatos fogyasztás</span><span data-lang="en">Conscious Consumption</span><span data-lang="ro">Consum conștient</span></strong><p><span data-lang="hu">Szükséglet vs. vágy megkülönböztetése. Impulzusvásárlás kerülése – 24 órás szabály: várj egy napot, mielőtt megveszel valamit.</span><span data-lang="en">Distinguishing needs vs. wants. Avoiding impulse purchases – the 24-hour rule: wait a day before buying something.</span><span data-lang="ro">Distincția între necesitate și dorință. Evitarea cumpărăturilor impulsive – regula celor 24 de ore: așteaptă o zi înainte să cumperi ceva.</span></p></div></div>
+  <div class="step"><span class="step-num">4</span><div><strong><span data-lang="hu">Hosszú távú tervezés</span><span data-lang="en">Long-term Planning</span><span data-lang="ro">Planificare pe termen lung</span></strong><p><span data-lang="hu">Célok kitűzése (lakás, utazás, képzés) és rendszeres megtakarítás. A kis összegek rendszeres félretétele hosszú távon nagy eredményt hoz.</span><span data-lang="en">Setting goals (housing, travel, education) and regular saving. Small amounts saved regularly lead to big results over time.</span><span data-lang="ro">Stabilirea obiectivelor (locuință, călătorii, educație) și economisirea regulată. Sumele mici puse deoparte constant aduc rezultate mari pe termen lung.</span></p></div></div>
 </div>
       </div>
     </section>
@@ -265,63 +343,63 @@
       <div class="section-header">
         <span class="section-icon">🪞</span>
         <div>
-          <h2>Önreflexió – Önállóságom</h2>
-          <p class="section-subtitle">Saját önállósági szint feltérképezése</p>
+          <h2><span data-lang="hu">Önreflexió – Önállóságom</span><span data-lang="en">Self-reflection – My Independence</span><span data-lang="ro">Auto-reflecție – Independența mea</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Saját önállósági szint feltérképezése</span><span data-lang="en">Mapping your own level of independence</span><span data-lang="ro">Cartografierea nivelului propriu de independență</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #1A237E, transparent);"></div>
-      <p class="section-intro">Az alábbi kérdőív segít feltérképezni az önállóságod szintjét és azonosítani azokat a területeket, ahol fejlődni szeretnél.</p>
+      <p class="section-intro"><span data-lang="hu">Az alábbi kérdőív segít feltérképezni az önállóságod szintjét és azonosítani azokat a területeket, ahol fejlődni szeretnél.</span><span data-lang="en">The questionnaire below helps you map your level of independence and identify areas where you want to improve.</span><span data-lang="ro">Chestionarul de mai jos te ajută să îți cartografiezi nivelul de independență și să identifici domeniile în care dorești să te dezvolți.</span></p>
 
       <div class="interactive-box" style="background:#e8eaf6; border-left: 4px solid #1A237E;">
-        <h3>🧩 Önértékelő kérdőív – Önállóságom</h3>
-        <p>Töltsd ki az alábbi kérdőívet, hogy képet kapj jelenlegi szokásaidról és fejlesztési lehetőségeidről!</p>
+        <h3><span data-lang="hu">🧩 Önértékelő kérdőív – Önállóságom</span><span data-lang="en">🧩 Self-assessment Questionnaire – My Independence</span><span data-lang="ro">🧩 Chestionar de autoevaluare – Independența mea</span></h3>
+        <p><span data-lang="hu">Töltsd ki az alábbi kérdőívet, hogy képet kapj jelenlegi szokásaidról és fejlesztési lehetőségeidről!</span><span data-lang="en">Fill out the questionnaire below to get an overview of your current habits and development opportunities!</span><span data-lang="ro">Completează chestionarul de mai jos pentru a obține o imagine asupra obiceiurilor tale actuale și a posibilităților de dezvoltare!</span></p>
         <div class="reflection-form" id="reflectionForm">
 
     <div class="reflection-question" id="q1">
-      <label class="q-label">Mennyire érzem magam felkészültnek az önálló életre?</label>
+      <label class="q-label"><span data-lang="hu">Mennyire érzem magam felkészültnek az önálló életre?</span><span data-lang="en">How prepared do I feel for independent living?</span><span data-lang="ro">Cât de pregătit(ă) mă simt pentru viața independentă?</span></label>
       <div class="scale-container">
-        <span class="scale-label">Egyáltalán nem</span>
+        <span class="scale-label"><span data-lang="hu">Egyáltalán nem</span><span data-lang="en">Not at all</span><span data-lang="ro">Deloc</span></span>
         <div class="scale-buttons">
           <button class="scale-btn" onclick="selectScale(this, 1)">1</button><button class="scale-btn" onclick="selectScale(this, 1)">2</button><button class="scale-btn" onclick="selectScale(this, 1)">3</button><button class="scale-btn" onclick="selectScale(this, 1)">4</button><button class="scale-btn" onclick="selectScale(this, 1)">5</button>
         </div>
-        <span class="scale-label">Teljes mértékben</span>
+        <span class="scale-label"><span data-lang="hu">Teljes mértékben</span><span data-lang="en">Completely</span><span data-lang="ro">Complet</span></span>
       </div>
     </div>
     <div class="reflection-question" id="q2">
-      <label class="q-label">Mennyire tudatosan kezelem a pénzügyeimet?</label>
+      <label class="q-label"><span data-lang="hu">Mennyire tudatosan kezelem a pénzügyeimet?</span><span data-lang="en">How consciously do I manage my finances?</span><span data-lang="ro">Cât de conștient îmi gestionez finanțele?</span></label>
       <div class="scale-container">
-        <span class="scale-label">Egyáltalán nem</span>
+        <span class="scale-label"><span data-lang="hu">Egyáltalán nem</span><span data-lang="en">Not at all</span><span data-lang="ro">Deloc</span></span>
         <div class="scale-buttons">
           <button class="scale-btn" onclick="selectScale(this, 2)">1</button><button class="scale-btn" onclick="selectScale(this, 2)">2</button><button class="scale-btn" onclick="selectScale(this, 2)">3</button><button class="scale-btn" onclick="selectScale(this, 2)">4</button><button class="scale-btn" onclick="selectScale(this, 2)">5</button>
         </div>
-        <span class="scale-label">Teljes mértékben</span>
+        <span class="scale-label"><span data-lang="hu">Teljes mértékben</span><span data-lang="en">Completely</span><span data-lang="ro">Complet</span></span>
       </div>
     </div>
     <div class="reflection-question" id="q3">
-      <label class="q-label">Mennyire hatékonyan kezelem az önálló életkezdés kihívásait?</label>
+      <label class="q-label"><span data-lang="hu">Mennyire hatékonyan kezelem az önálló életkezdés kihívásait?</span><span data-lang="en">How effectively do I handle the challenges of starting independent living?</span><span data-lang="ro">Cât de eficient gestionez provocările începutului vieții independente?</span></label>
       <div class="scale-container">
-        <span class="scale-label">Egyáltalán nem</span>
+        <span class="scale-label"><span data-lang="hu">Egyáltalán nem</span><span data-lang="en">Not at all</span><span data-lang="ro">Deloc</span></span>
         <div class="scale-buttons">
           <button class="scale-btn" onclick="selectScale(this, 3)">1</button><button class="scale-btn" onclick="selectScale(this, 3)">2</button><button class="scale-btn" onclick="selectScale(this, 3)">3</button><button class="scale-btn" onclick="selectScale(this, 3)">4</button><button class="scale-btn" onclick="selectScale(this, 3)">5</button>
         </div>
-        <span class="scale-label">Teljes mértékben</span>
+        <span class="scale-label"><span data-lang="hu">Teljes mértékben</span><span data-lang="en">Completely</span><span data-lang="ro">Complet</span></span>
       </div>
     </div>
     <div class="reflection-question" id="q4">
-      <label class="q-label">Mennyire tudok segítséget kérni, amikor szükségem van rá?</label>
+      <label class="q-label"><span data-lang="hu">Mennyire tudok segítséget kérni, amikor szükségem van rá?</span><span data-lang="en">How well can I ask for help when I need it?</span><span data-lang="ro">Cât de bine pot cere ajutor atunci când am nevoie?</span></label>
       <div class="scale-container">
-        <span class="scale-label">Egyáltalán nem</span>
+        <span class="scale-label"><span data-lang="hu">Egyáltalán nem</span><span data-lang="en">Not at all</span><span data-lang="ro">Deloc</span></span>
         <div class="scale-buttons">
           <button class="scale-btn" onclick="selectScale(this, 4)">1</button><button class="scale-btn" onclick="selectScale(this, 4)">2</button><button class="scale-btn" onclick="selectScale(this, 4)">3</button><button class="scale-btn" onclick="selectScale(this, 4)">4</button><button class="scale-btn" onclick="selectScale(this, 4)">5</button>
         </div>
-        <span class="scale-label">Teljes mértékben</span>
+        <span class="scale-label"><span data-lang="hu">Teljes mértékben</span><span data-lang="en">Completely</span><span data-lang="ro">Complet</span></span>
       </div>
     </div>
     <div class="reflection-question" id="q5">
-      <label class="q-label">Mi az a terület, amelyen a legtöbbet szeretnél fejlődni az önálló életkezdés szempontjából?</label>
+      <label class="q-label"><span data-lang="hu">Mi az a terület, amelyen a legtöbbet szeretnél fejlődni az önálló életkezdés szempontjából?</span><span data-lang="en">What is the area you most want to improve in terms of starting independent living?</span><span data-lang="ro">Care este domeniul în care dorești să te dezvolți cel mai mult din perspectiva începerii vieții independente?</span></label>
       <textarea class="reflection-textarea" rows="3" placeholder="Írd ide a válaszodat..."></textarea>
     </div>
-          <button class="submit-btn" onclick="submitReflection()">Visszajelzés megjelenítése</button>
+          <button class="submit-btn" onclick="submitReflection()"><span data-lang="hu">Visszajelzés megjelenítése</span><span data-lang="en">Show feedback</span><span data-lang="ro">Afișează feedback-ul</span></button>
           <div class="feedback-box" id="feedbackBox" style="display:none;"></div>
         </div>
       </div>
@@ -331,35 +409,42 @@
       <div class="section-header">
         <span class="section-icon">📋</span>
         <div>
-          <h2>Összefoglalás</h2>
-          <p class="section-subtitle">Önálló életkezdés eszköztára</p>
+          <h2><span data-lang="hu">Összefoglalás</span><span data-lang="en">Summary</span><span data-lang="ro">Rezumat</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Önálló életkezdés eszköztára</span><span data-lang="en">Toolkit for Starting Independent Living</span><span data-lang="ro">Trusa de instrumente pentru începutul vieții independente</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #1A237E, transparent);"></div>
-      <p class="section-intro">Az önálló életkezdés egy folyamat, nem egy pillanat. Minden lépés számít – és minden kihívás tanulási lehetőség.</p>
+      <p class="section-intro"><span data-lang="hu">Az önálló életkezdés egy folyamat, nem egy pillanat. Minden lépés számít – és minden kihívás tanulási lehetőség.</span><span data-lang="en">Starting independent living is a process, not a moment. Every step counts – and every challenge is a learning opportunity.</span><span data-lang="ro">Începerea vieții independente este un proces, nu un moment. Fiecare pas contează – iar fiecare provocare este o oportunitate de învățare.</span></p>
       <div class="section-content">
 <div class="summary-grid">
-  <div class="summary-card"><h4>🌱 Készülődő felnőttség</h4><p>A 18-29 éves kor a kísérletezés és felfedezés kora – éld meg tudatosan, ne siess át rajta.</p></div>
-  <div class="summary-card"><h4>🏛️ 4 pillér</h4><p>Érzelmi – Gyakorlati – Szociális – Szellemi önállóság. Mindegyik fejleszthető és erősíthető.</p></div>
-  <div class="summary-card"><h4>🛠️ WÉK módszer</h4><p>Kommunikáció – Problémamegoldás – Stresszkezelés – Célkitűzés. Bizonyítottan hatékony életkészségek.</p></div>
-  <div class="summary-card"><h4>💰 Pénzügyi tudatosság</h4><p>Büdzsé – Vészalap – Tudatos fogyasztás – Hosszú távú tervezés. Az anyagi önállóság alapjai.</p></div>
+  <div class="summary-card"><h4><span data-lang="hu">🌱 Készülődő felnőttség</span><span data-lang="en">🌱 Preparing for Adulthood</span><span data-lang="ro">🌱 Pregătirea pentru maturitate</span></h4><p><span data-lang="hu">A 18-29 éves kor a kísérletezés és felfedezés kora – éld meg tudatosan, ne siess át rajta.</span><span data-lang="en">Ages 18-29 are a time of experimentation and discovery – experience it consciously, don’t rush through it.</span><span data-lang="ro">Vârsta de 18-29 ani este o perioadă de experimentare și descoperire – trăiește-o conștient, nu trece prin ea în grabă.</span></p></div>
+  <div class="summary-card"><h4><span data-lang="hu">🏛️ 4 pillér</span><span data-lang="en">🏛️ 4 Pillars</span><span data-lang="ro">🏛️ 4 piloni</span></h4><p><span data-lang="hu">Érzelmi – Gyakorlati – Szociális – Szellemi önállóság. Mindegyik fejleszthető és erősíthető.</span><span data-lang="en">Emotional – Practical – Social – Intellectual independence. Each can be developed and strengthened.</span><span data-lang="ro">Independență emoțională – practică – socială – intelectuală. Toate pot fi dezvoltate și întărite.</span></p></div>
+  <div class="summary-card"><h4><span data-lang="hu">🛠️ WÉK módszer</span><span data-lang="en">🛠️ WÉK Method</span><span data-lang="ro">🛠️ Metoda WÉK</span></h4><p><span data-lang="hu">Kommunikáció – Problémamegoldás – Stresszkezelés – Célkitűzés. Bizonyítottan hatékony életkészségek.</span><span data-lang="en">Communication – Problem Solving – Stress Management – Goal Setting. Proven effective life skills.</span><span data-lang="ro">Comunicare – Rezolvare de probleme – Gestionarea stresului – Stabilirea obiectivelor. Abilități de viață dovedite ca fiind eficiente.</span></p></div>
+  <div class="summary-card"><h4><span data-lang="hu">💰 Pénzügyi tudatosság</span><span data-lang="en">💰 Financial Awareness</span><span data-lang="ro">💰 Conștientizare financiară</span></h4><p><span data-lang="hu">Büdzsé – Vészalap – Tudatos fogyasztás – Hosszú távú tervezés. Az anyagi önállóság alapjai.</span><span data-lang="en">Budget – Emergency Fund – Conscious Consumption – Long-term Planning. The foundations of financial independence.</span><span data-lang="ro">Buget – Fond de urgență – Consum conștient – Planificare pe termen lung. Bazele independenței financiare.</span></p></div>
 </div>
       </div>
     </section>
 
 
     <div class="pdf-section">
-      <h3>📥 Fejezet letöltése PDF formátumban</h3>
-      <a href="https://drive.google.com/file/d/1xb4n2ZYYVV-D5xJXKcgGxrJeOyGcyhuG/view" target="_blank" class="pdf-btn">🇭🇺 Magyar PDF letöltése</a>
+      <h3><span data-lang="hu">📥 Fejezet letöltése PDF formátumban</span><span data-lang="en">📥 Download Chapter in PDF Format</span><span data-lang="ro">📥 Descarcă capitolul în format PDF</span></h3>
+      <a href="https://drive.google.com/file/d/1xb4n2ZYYVV-D5xJXKcgGxrJeOyGcyhuG/view" target="_blank" class="pdf-btn"><span data-lang="hu">🇭🇺 Magyar PDF letöltése</span><span data-lang="en">🇭🇺 Download Hungarian PDF</span><span data-lang="ro">🇭🇺 Descarcă PDF în maghiară</span></a>
       <a href="https://drive.google.com/file/d/1GQLVPmq1mpX2Fyqeu5ANyLgb2mApy0Ej/view" target="_blank" class="pdf-btn">🇬🇧 English PDF</a>
       <a href="https://drive.google.com/file/d/1bd7fuXdnVHxyxxAE-crI9jdUbcnnq7Qq/view" target="_blank" class="pdf-btn">🇷🇴 PDF în română</a>
     </div>
   </main>
 </div>
 
+
+<div class="chapter-nav">
+  <a href="../chapter9/index.html">← <span data-lang="hu"><span data-lang="hu">9. fejezet</span><span data-lang="en">Chapter 9</span><span data-lang="ro">Capitolul 9</span></span><span data-lang="en">Chapter 9</span><span data-lang="ro">Capitolul 9</span></a>
+  <a href="../index.html" class="nav-home"><span data-lang="hu"><span data-lang="hu">🏠 Főoldal</span><span data-lang="en">🏠 Home</span><span data-lang="ro">🏠 Pagina principală</span></span><span data-lang="en">🏠 Home</span><span data-lang="ro">🏠 Acasă</span></a>
+  <a href="../coaching1/index.html"><span data-lang="hu"><span data-lang="hu">Coaching 1</span><span data-lang="en">Coaching 1</span><span data-lang="ro">Coaching 1</span></span><span data-lang="en"><span data-lang="hu">Coaching 1</span><span data-lang="en">Coaching 1</span><span data-lang="ro">Coaching 1</span></span><span data-lang="ro"><span data-lang="hu">Coaching 1</span><span data-lang="en">Coaching 1</span><span data-lang="ro">Coaching 1</span></span> →</a>
+</div>
+
 <footer class="chapter-footer">
   <p>IMELO – Identity Mosaic | Erasmus+ KA2 projekt | © 2024–2026</p>
-  <p>Az Európai Bizottság támogatásával készült. A tartalom kizárólag a szerzők álláspontját tükrözi.</p>
+  <p><span data-lang="hu">Az Európai Bizottság támogatásával készült. A tartalom kizárólag a szerzők álláspontját tükrözi.</span><span data-lang="en">Produced with the support of the European Commission. The content reflects the views of the authors only.</span><span data-lang="ro">Realizat cu sprijinul Comisiei Europene. Conținutul reflectă exclusiv punctul de vedere al autorilor.</span></p>
 </footer>
 
 <script>
@@ -399,6 +484,23 @@
       if (target) target.scrollIntoView({behavior: 'smooth', block: 'start'});
     });
   });
+
+  // Language switcher
+  (function() {
+    var stored = localStorage.getItem('imelo-lang') || 'hu';
+    document.body.setAttribute('data-active-lang', stored);
+    document.querySelectorAll('.lang-btn-sub').forEach(function(btn) {
+      if (btn.getAttribute('data-lang-switch') === stored) btn.classList.add('active');
+    });
+  })();
+  function switchLangSub(lang) {
+    document.body.setAttribute('data-active-lang', lang);
+    localStorage.setItem('imelo-lang', lang);
+    document.querySelectorAll('.lang-btn-sub').forEach(function(btn) {
+      btn.classList.toggle('active', btn.getAttribute('data-lang-switch') === lang);
+    });
+  }
+
 </script>
 </body>
 </html>

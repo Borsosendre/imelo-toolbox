@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4. Fejezet – Kulturális Identitás Eszközök | IMELO Toolbox</title>
+  <title><span data-lang="hu">4. Fejezet – Kulturális Identitás Eszközök | IMELO Toolbox</span><span data-lang="en">Chapter 4 – Cultural Identity Tools | IMELO Toolbox</span><span data-lang="ro">Capitolul 4 – Instrumente pentru Identitatea Culturală | IMELO Toolbox</span></title>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -117,28 +117,106 @@
 
     /* FOOTER */
     .chapter-footer { background: #1a1a2e; color: white; text-align: center; padding: 1.5rem; font-size: 0.8rem; opacity: 0.8; }
+  
+    /* Chapter navigation */
+    .chapter-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 1.5rem;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      margin: 1.5rem 0;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .chapter-nav a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: linear-gradient(135deg, #1a7a4a 0%, #2ecc71 100%);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+      transition: opacity 0.2s;
+    }
+    .chapter-nav a:hover { opacity: 0.85; }
+    .chapter-nav .nav-home {
+      background: linear-gradient(135deg, #E8622A 0%, #f39c12 100%);
+    }
+    .chapter-nav .nav-center {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #888;
+      flex: 1;
+    }
+    @media (max-width: 600px) {
+      .chapter-nav { flex-direction: column; align-items: stretch; text-align: center; }
+      .chapter-nav a { justify-content: center; }
+    }
+
+  
+    [data-lang] { display: none; }
+    body[data-active-lang="hu"] [data-lang="hu"] { display: inline; }
+    body[data-active-lang="en"] [data-lang="en"] { display: inline; }
+    body[data-active-lang="ro"] [data-lang="ro"] { display: inline; }
+
+  
+    /* Language switching */
+    [data-lang] { display: none; }
+    body[data-active-lang="hu"] [data-lang="hu"],
+    body[data-active-lang="hu"] span[data-lang="hu"] { display: inline; }
+    body[data-active-lang="en"] [data-lang="en"],
+    body[data-active-lang="en"] span[data-lang="en"] { display: inline; }
+    body[data-active-lang="ro"] [data-lang="ro"],
+    body[data-active-lang="ro"] span[data-lang="ro"] { display: inline; }
+    body[data-active-lang="hu"] div[data-lang="hu"],
+    body[data-active-lang="en"] div[data-lang="en"],
+    body[data-active-lang="ro"] div[data-lang="ro"] { display: block; }
+    .lang-switcher-sub {
+      position: fixed; top: 12px; right: 16px; z-index: 9999;
+      display: flex; gap: 6px; background: rgba(255,255,255,0.95);
+      padding: 4px 8px; border-radius: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .lang-btn-sub {
+      background: none; border: none; cursor: pointer;
+      font-size: 1.2rem; padding: 2px 4px; border-radius: 6px;
+      opacity: 0.6; transition: opacity 0.2s;
+    }
+    .lang-btn-sub:hover, .lang-btn-sub.active { opacity: 1; }
+
   </style>
 </head>
-<body>
+<body data-active-lang="hu">
+<div class="lang-switcher-sub">
+  <button class="lang-btn-sub" data-lang-switch="hu" onclick="switchLangSub('hu')" title="Magyar">🇭🇺</button>
+  <button class="lang-btn-sub" data-lang-switch="en" onclick="switchLangSub('en')" title="English">🇬🇧</button>
+  <button class="lang-btn-sub" data-lang-switch="ro" onclick="switchLangSub('ro')" title="Română">🇷🇴</button>
+</div>
 
 <nav class="topbar">
   <a href="../index.html" class="topbar-logo">
     <img src="imelo_logo.png" alt="Identity Mosaic logó">
   </a>
-  <a href="../index.html" class="back-btn">← Vissza az Eszköztárhoz</a>
+  <a href="../index.html" class="back-btn"><span data-lang="hu">← Vissza az Eszköztárhoz</span><span data-lang="en">← Back to Toolbox</span><span data-lang="ro">← Înapoi la Instrumentar</span></a>
 </nav>
 
 <div class="chapter-hero">
-  <div class="chapter-num">4. Fejezet</div>
-  <h1>Kulturális Identitás Eszközök</h1>
-  <p class="subtitle">Identitásfeltárás és kulturális sokszínűség</p>
-  <div class="tags"><span class="tag">🌍 Kulturális identitás</span> <span class="tag">🧩 Identitásmozaik</span> <span class="tag">🏛️ Hagyományőrzés</span></div>
+  <div class="chapter-num"><span data-lang="hu">4. Fejezet</span><span data-lang="en">Chapter 4</span><span data-lang="ro">Capitolul 4</span></div>
+  <h1><span data-lang="hu">Kulturális Identitás Eszközök</span><span data-lang="en">Cultural Identity Tools</span><span data-lang="ro">Instrumente pentru Identitatea Culturală</span></h1>
+  <p class="subtitle"><span data-lang="hu">Identitásfeltárás és kulturális sokszínűség</span><span data-lang="en">Exploring Identity and Cultural Diversity</span><span data-lang="ro">Explorarea identității și diversitatea culturală</span></p>
+  <div class="tags"><span class="tag"><span data-lang="hu">🌍 Kulturális identitás</span><span data-lang="en">🌍 Cultural Identity</span><span data-lang="ro">🌍 Identitate culturală</span></span> <span class="tag"><span data-lang="hu">🧩 Identitásmozaik</span><span data-lang="en">🧩 Identity Mosaic</span><span data-lang="ro">🧩 Mozaicul identității</span></span> <span class="tag"><span data-lang="hu">🏛️ Hagyományőrzés</span><span data-lang="en">🏛️ Tradition Preservation</span><span data-lang="ro">🏛️ Conservarea tradițiilor</span></span></div>
 </div>
 
 <div class="page-layout">
   <aside class="sidebar">
-    <h3>Tartalomjegyzék</h3>
-    <a href="#miert" class="toc-item">Miért fontos a kulturális identitás?</a><a href="#kettosidentitas" class="toc-item">Kettős Identitás és Kétnyelvűség</a><a href="#hagyomanyok" class="toc-item">Hagyományőrzés Alapjai</a><a href="#kihivasok" class="toc-item">Kulturális Kihívások és Megoldások</a><a href="#onreflexio" class="toc-item">Önreflexió – Kulturális Identitásom</a><a href="#osszefoglalas" class="toc-item">Összefoglalás</a>
+    <h3><span data-lang="hu">Tartalomjegyzék</span><span data-lang="en">Table of Contents</span><span data-lang="ro">Cuprins</span></h3>
+    <a href="#miert" class="toc-item"><span data-lang="hu">Miért fontos a kulturális identitás?</span><span data-lang="en">Why is Cultural Identity Important?</span><span data-lang="ro">De ce este importantă identitatea culturală?</span></a><a href="#kettosidentitas" class="toc-item"><span data-lang="hu">Kettős Identitás és Kétnyelvűség</span><span data-lang="en">Dual Identity and Bilingualism</span><span data-lang="ro">Identitate dublă și bilingvism</span></a><a href="#hagyomanyok" class="toc-item"><span data-lang="hu">Hagyományőrzés Alapjai</span><span data-lang="en">Basics of Tradition Preservation</span><span data-lang="ro">Bazele conservării tradițiilor</span></a><a href="#kihivasok" class="toc-item"><span data-lang="hu">Kulturális Kihívások és Megoldások</span><span data-lang="en">Cultural Challenges and Solutions</span><span data-lang="ro">Provocări și soluții culturale</span></a><a href="#onreflexio" class="toc-item"><span data-lang="hu">Önreflexió – Kulturális Identitásom</span><span data-lang="en">Self-reflection – My Cultural Identity</span><span data-lang="ro">Auto-reflecție – Identitatea mea culturală</span></a><a href="#osszefoglalas" class="toc-item"><span data-lang="hu">Összefoglalás</span><span data-lang="en">Summary</span><span data-lang="ro">Rezumat</span></a>
   </aside>
 
   <main>
@@ -147,21 +225,21 @@
       <div class="section-header">
         <span class="section-icon">🌍</span>
         <div>
-          <h2>Miért fontos a kulturális identitás?</h2>
-          <p class="section-subtitle">Az identitás alapjai és hatása</p>
+          <h2><span data-lang="hu">Miért fontos a kulturális identitás?</span><span data-lang="en">Why is Cultural Identity Important?</span><span data-lang="ro">De ce este importantă identitatea culturală?</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Az identitás alapjai és hatása</span><span data-lang="en">The Basics and Impact of Identity</span><span data-lang="ro">Bazele și impactul identității</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #6A1B9A, transparent);"></div>
-      <p class="section-intro">A kulturális identitás meghatározza, kik vagyunk, hova tartozunk és hogyan értelmezzük a világot. A kisebbségi közegben élő fiatalok számára különösen fontos a kulturális identitás tudatos megőrzése és fejlesztése.</p>
+      <p class="section-intro"><span data-lang="hu">A kulturális identitás meghatározza, kik vagyunk, hova tartozunk és hogyan értelmezzük a világot. A kisebbségi közegben élő fiatalok számára különösen fontos a kulturális identitás tudatos megőrzése és fejlesztése.</span><span data-lang="en">Cultural identity defines who we are, where we belong, and how we interpret the world. For young people living in minority environments, consciously preserving and developing cultural identity is especially important.</span><span data-lang="ro">Identitatea culturală ne definește cine suntem, unde aparținem și cum interpretăm lumea. Pentru tinerii care trăiesc într-un mediu minoritar, este deosebit de importantă conștientizarea, păstrarea și dezvoltarea identității culturale.</span></p>
       <div class="stats-row">
-        <div class="stat-card"><div class="stat-value" style="color:#6A1B9A">2×</div><div class="stat-label">Erősebb önbizalom kulturálisan tudatos fiataloknál</div></div>
-        <div class="stat-card"><div class="stat-value" style="color:#CE93D8">65%</div><div class="stat-label">Kisebbségi fiatalok, akik identitáskonflikust tapasztalnak</div></div>
-        <div class="stat-card"><div class="stat-value" style="color:#1565C0">3×</div><div class="stat-label">Jobb iskolai teljesítmény erős kulturális identitással</div></div>
+        <div class="stat-card"><div class="stat-value" style="color:#6A1B9A">2×</div><div class="stat-label"><span data-lang="hu">Erősebb önbizalom kulturálisan tudatos fiataloknál</span><span data-lang="en">Stronger self-confidence among culturally aware youth</span><span data-lang="ro">Încredere de sine mai puternică la tinerii conștienți cultural</span></div></div>
+        <div class="stat-card"><div class="stat-value" style="color:#CE93D8">65%</div><div class="stat-label"><span data-lang="hu">Kisebbségi fiatalok, akik identitáskonflikust tapasztalnak</span><span data-lang="en">Minority youth experiencing identity conflicts</span><span data-lang="ro">Tineri din minorități care experimentează conflicte de identitate</span></div></div>
+        <div class="stat-card"><div class="stat-value" style="color:#1565C0">3×</div><div class="stat-label"><span data-lang="hu">Jobb iskolai teljesítmény erős kulturális identitással</span><span data-lang="en">Better school performance linked to strong cultural identity</span><span data-lang="ro">Performanțe școlare mai bune cu o identitate culturală puternică</span></div></div>
       </div>
       <div class="section-content">
 <div class="content-grid">
-  <div class="content-card"><h4>🧩 Az identitás rétegei</h4><p>Az identitás nem egydimenziós – egyszerre vagyunk egyének, egy család tagjai, egy kultúra képviselői és a globális világ polgárai. Az IMELO projekt az <strong>identitásmozaik</strong> metaforájával írja le ezt a gazdagságot.</p></div>
-  <div class="content-card"><h4>🎯 Az eszköztár célja</h4><ul><li>Kulturális identitás tudatos megismerése</li><li>Kettős identitás erőforrásként való kezelése</li><li>Hagyományok megőrzése és átadása</li><li>Interkulturális kompetencia fejlesztése</li></ul></div>
+  <div class="content-card"><h4><span data-lang="hu">🧩 Az identitás rétegei</span><span data-lang="en">🧩 Layers of Identity</span><span data-lang="ro">🧩 Straturile identității</span></h4><p><span data-lang="hu">Az identitás nem egydimenziós – egyszerre vagyunk egyének, egy család tagjai, egy kultúra képviselői és a globális világ polgárai. Az IMELO projekt az</span><span data-lang="en">Identity is not one-dimensional – we are individuals, members of a family, representatives of a culture, and citizens of a global world all at once. The IMELO project describes this richness with the</span><span data-lang="ro">Identitatea nu este unidimensională – suntem în același timp indivizi, membri ai unei familii, reprezentanți ai unei culturi și cetățeni ai lumii globale. Proiectul IMELO descrie această bogăție prin metafora</span> <strong><span data-lang="hu">identitásmozaik</span><span data-lang="en">identity mosaic</span><span data-lang="ro">mozaicului identității</span></strong> <span data-lang="hu">metaforájával írja le ezt a gazdagságot.</span><span data-lang="en">metaphor.</span><span data-lang="ro">.</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">🎯 Az eszköztár célja</span><span data-lang="en">🎯 Purpose of the Toolbox</span><span data-lang="ro">🎯 Scopul instrumentarului</span></h4><ul><li><span data-lang="hu">Kulturális identitás tudatos megismerése</span><span data-lang="en">Conscious exploration of cultural identity</span><span data-lang="ro">Cunoașterea conștientă a identității culturale</span></li><li><span data-lang="hu">Kettős identitás erőforrásként való kezelése</span><span data-lang="en">Treating dual identity as a resource</span><span data-lang="ro">Gestionarea identității duble ca resursă</span></li><li><span data-lang="hu">Hagyományok megőrzése és átadása</span><span data-lang="en">Preserving and passing on traditions</span><span data-lang="ro">Păstrarea și transmiterea tradițiilor</span></li><li><span data-lang="hu">Interkulturális kompetencia fejlesztése</span><span data-lang="en">Developing intercultural competence</span><span data-lang="ro">Dezvoltarea competențelor interculturale</span></li></ul></div>
 </div>
       </div>
 
@@ -177,24 +255,24 @@
           allowfullscreen>
         </iframe>
       </div>
-      <p class="video-caption">A videó azt mutatja be, hogyan szolgálhat a kulturális identitás stabil horgonyként a fiatalok számára egy változó, bizonytalan világban, és hogyan erősítheti a közösségi befogadást.</p>
+      <p class="video-caption"><span data-lang="hu">A videó azt mutatja be, hogyan szolgálhat a kulturális identitás stabil horgonyként a fiatalok számára egy változó, bizonytalan világban, és hogyan erősítheti a közösségi befogadást.</span><span data-lang="en">The video demonstrates how cultural identity can serve as a stable anchor for young people in a changing, uncertain world and how it can strengthen community inclusion.</span><span data-lang="ro">Videoclipul arată cum identitatea culturală poate servi drept ancoră stabilă pentru tineri într-o lume schimbătoare și incertă și cum poate întări incluziunea comunitară.</span></p>
     </section>
 
     <section class="chapter-section" id="kettosidentitas">
       <div class="section-header">
         <span class="section-icon">🌉</span>
         <div>
-          <h2>Kettős Identitás és Kétnyelvűség</h2>
-          <p class="section-subtitle">Az erőforrásként kezelt kettős kötődés</p>
+          <h2><span data-lang="hu">Kettős Identitás és Kétnyelvűség</span><span data-lang="en">Dual Identity and Bilingualism</span><span data-lang="ro">Identitate dublă și bilingvism</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Az erőforrásként kezelt kettős kötődés</span><span data-lang="en">Dual Belonging as a Resource</span><span data-lang="ro">Legătura dublă ca resursă</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #6A1B9A, transparent);"></div>
-      <p class="section-intro">A kétnyelvű, kisebbségi közegben élő fiatalok egyedülálló lehetőséggel rendelkeznek: két kultúra értékeit, perspektíváit és erőforrásait integrálhatják saját identitásukba.</p>
+      <p class="section-intro"><span data-lang="hu">A kétnyelvű, kisebbségi közegben élő fiatalok egyedülálló lehetőséggel rendelkeznek: két kultúra értékeit, perspektíváit és erőforrásait integrálhatják saját identitásukba.</span><span data-lang="en">Young people living in bilingual, minority environments have a unique opportunity: they can integrate the values, perspectives, and resources of two cultures into their own identity.</span><span data-lang="ro">Tinerii bilingvi care trăiesc într-un mediu minoritar au o oportunitate unică: pot integra valorile, perspectivele și resursele a două culturi în propria identitate.</span></p>
       <div class="section-content">
 <div class="content-grid">
-  <div class="content-card"><h4>✅ A kettős identitás előnyei</h4><ul><li>Rugalmasabb gondolkodásmód</li><li>Erősebb empátia és perspektívaváltás</li><li>Gazdasági lehetőségek (kétnyelvűség)</li><li>Kulturális közvetítő szerep</li></ul></div>
-  <div class="content-card"><h4>⚠️ Kihívások</h4><ul><li>Identitáskonfliktus ("Hova tartozom?")</li><li>Nyelvhasználati dilemma</li><li>Megfelelési nyomás mindkét kultúrától</li><li>Generációs különbségek a hagyományokban</li></ul></div>
-  <div class="content-card"><h4>🔑 Stratégiák</h4><ul><li>Mindkét identitás tudatos megélése</li><li>Kulturális rugalmasság fejlesztése</li><li>Hasonló hátterű közösségek keresése</li><li>Mentorálás és szerepmodellek</li></ul></div>
+  <div class="content-card"><h4><span data-lang="hu">✅ A kettős identitás előnyei</span><span data-lang="en">✅ Benefits of Dual Identity</span><span data-lang="ro">✅ Avantajele identității duble</span></h4><ul><li><span data-lang="hu">Rugalmasabb gondolkodásmód</span><span data-lang="en">More flexible thinking</span><span data-lang="ro">Mod de gândire mai flexibil</span></li><li><span data-lang="hu">Erősebb empátia és perspektívaváltás</span><span data-lang="en">Stronger empathy and perspective-taking</span><span data-lang="ro">Empatie și schimbare de perspectivă mai puternice</span></li><li><span data-lang="hu">Gazdasági lehetőségek (kétnyelvűség)</span><span data-lang="en">Economic opportunities (bilingualism)</span><span data-lang="ro">Oportunități economice (bilingvism)</span></li><li><span data-lang="hu">Kulturális közvetítő szerep</span><span data-lang="en">Role as cultural mediators</span><span data-lang="ro">Rol de mediator cultural</span></li></ul></div>
+  <div class="content-card"><h4><span data-lang="hu">⚠️ Kihívások</span><span data-lang="en">⚠️ Challenges</span><span data-lang="ro">⚠️ Provocări</span></h4><ul><li><span data-lang="hu">Identitáskonfliktus ("Hova tartozom?")</span><span data-lang="en">Identity conflict ("Where do I belong?")</span><span data-lang="ro">Conflict de identitate („Unde aparțin?”)</span></li><li><span data-lang="hu">Nyelvhasználati dilemma</span><span data-lang="en">Language use dilemmas</span><span data-lang="ro">Dilema utilizării limbii</span></li><li><span data-lang="hu">Megfelelési nyomás mindkét kultúrától</span><span data-lang="en">Pressure to conform from both cultures</span><span data-lang="ro">Presiune de conformare din partea ambelor culturi</span></li><li><span data-lang="hu">Generációs különbségek a hagyományokban</span><span data-lang="en">Generational differences in traditions</span><span data-lang="ro">Diferențe generaționale în tradiții</span></li></ul></div>
+  <div class="content-card"><h4><span data-lang="hu">🔑 Stratégiák</span><span data-lang="en">🔑 Strategies</span><span data-lang="ro">🔑 Strategii</span></h4><ul><li><span data-lang="hu">Mindkét identitás tudatos megélése</span><span data-lang="en">Conscious living of both identities</span><span data-lang="ro">Trăirea conștientă a ambelor identități</span></li><li><span data-lang="hu">Kulturális rugalmasság fejlesztése</span><span data-lang="en">Developing cultural flexibility</span><span data-lang="ro">Dezvoltarea flexibilității culturale</span></li><li><span data-lang="hu">Hasonló hátterű közösségek keresése</span><span data-lang="en">Seeking communities with similar backgrounds</span><span data-lang="ro">Căutarea comunităților cu fundal similar</span></li><li><span data-lang="hu">Mentorálás és szerepmodellek</span><span data-lang="en">Mentoring and role models</span><span data-lang="ro">Mentorat și modele de rol</span></li></ul></div>
 </div>
       </div>
     </section>
@@ -203,18 +281,18 @@
       <div class="section-header">
         <span class="section-icon">🏛️</span>
         <div>
-          <h2>Hagyományőrzés Alapjai</h2>
-          <p class="section-subtitle">Miért fontosak a hagyományok?</p>
+          <h2><span data-lang="hu">Hagyományőrzés Alapjai</span><span data-lang="en">Basics of Tradition Preservation</span><span data-lang="ro">Bazele conservării tradițiilor</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Miért fontosak a hagyományok?</span><span data-lang="en">Why are traditions important?</span><span data-lang="ro">De ce sunt importante tradițiile?</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #6A1B9A, transparent);"></div>
-      <p class="section-intro">A hagyományok a kulturális identitás alapvető építőkövei, amelyek összekötik a múltat a jelennel, és segítenek megőrizni a közösségi értékeket és történelmet.</p>
+      <p class="section-intro"><span data-lang="hu">A hagyományok a kulturális identitás alapvető építőkövei, amelyek összekötik a múltat a jelennel, és segítenek megőrizni a közösségi értékeket és történelmet.</span><span data-lang="en">Traditions are fundamental building blocks of cultural identity, connecting the past with the present and helping to preserve community values and history.</span><span data-lang="ro">Tradițiile sunt elemente fundamentale ale identității culturale, care leagă trecutul de prezent și ajută la păstrarea valorilor și istoriei comunității.</span></p>
       <div class="section-content">
 <div class="content-grid">
-  <div class="content-card"><h4>👨‍👩‍👧 Családi hagyományok</h4><p>A családi hagyományok a kulturális identitás legközvetlenebb átadási formái. Közös ételek, ünnepek, rituálék és történetek generációról generációra örökítik a szokásokat és értékeket.</p></div>
-  <div class="content-card"><h4>🍲 Gasztronómiai hagyományok</h4><p>A hagyományos ételek elkészítése és közös elfogyasztása. Receptek átadása generációról generációra – a konyha a kultúra egyik legtermészetesebb átadási tere.</p></div>
-  <div class="content-card"><h4>🎉 Ünnepek és rituálék</h4><p>Magyar ünnepek megtartása a hagyományos szokások szerint. Családi rituálék kialakítása, amelyek ötvözik a magyar hagyományokat a helyi szokásokkal.</p></div>
-  <div class="content-card"><h4>📖 Történetek és emlékezet</h4><p>Családi történetek, anekdoták és a családtörténet megosztása. Családfa készítése, régi fényképek és dokumentumok megőrzése és digitalizálása.</p></div>
+  <div class="content-card"><h4><span data-lang="hu">👨‍👩‍👧 Családi hagyományok</span><span data-lang="en">👨‍👩‍👧 Family traditions</span><span data-lang="ro">👨‍👩‍👧 Tradiții familiale</span></h4><p><span data-lang="hu">A családi hagyományok a kulturális identitás legközvetlenebb átadási formái. Közös ételek, ünnepek, rituálék és történetek generációról generációra örökítik a szokásokat és értékeket.</span><span data-lang="en">Family traditions are the most direct forms of transmitting cultural identity. Shared meals, celebrations, rituals, and stories pass customs and values from generation to generation.</span><span data-lang="ro">Tradițiile familiale sunt cele mai directe forme de transmitere a identității culturale. Mesele comune, sărbătorile, ritualurile și poveștile transmit obiceiurile și valorile din generație în generație.</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">🍲 Gasztronómiai hagyományok</span><span data-lang="en">🍲 Gastronomic traditions</span><span data-lang="ro">🍲 Tradiții gastronomice</span></h4><p><span data-lang="hu">A hagyományos ételek elkészítése és közös elfogyasztása. Receptek átadása generációról generációra – a konyha a kultúra egyik legtermészetesebb átadási tere.</span><span data-lang="en">Preparing and sharing traditional dishes together. Passing down recipes from generation to generation – the kitchen is one of the most natural spaces for cultural transmission.</span><span data-lang="ro">Prepararea și consumul împreună al mâncărurilor tradiționale. Transmiterea rețetelor din generație în generație – bucătăria este unul dintre cele mai naturale spații de transmitere a culturii.</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">🎉 Ünnepek és rituálék</span><span data-lang="en">🎉 Celebrations and rituals</span><span data-lang="ro">🎉 Sărbători și ritualuri</span></h4><p><span data-lang="hu">Magyar ünnepek megtartása a hagyományos szokások szerint. Családi rituálék kialakítása, amelyek ötvözik a magyar hagyományokat a helyi szokásokkal.</span><span data-lang="en">Observing Hungarian holidays according to traditional customs. Creating family rituals that blend Hungarian traditions with local practices.</span><span data-lang="ro">Păstrarea sărbătorilor maghiare conform obiceiurilor tradiționale. Crearea de ritualuri familiale care combină tradițiile maghiare cu obiceiurile locale.</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">📖 Történetek és emlékezet</span><span data-lang="en">📖 Stories and memory</span><span data-lang="ro">📖 Povești și memorie</span></h4><p><span data-lang="hu">Családi történetek, anekdoták és a családtörténet megosztása. Családfa készítése, régi fényképek és dokumentumok megőrzése és digitalizálása.</span><span data-lang="en">Sharing family stories, anecdotes, and genealogy. Creating family trees, preserving and digitizing old photos and documents.</span><span data-lang="ro">Povești de familie, anecdote și împărtășirea istoriei familiale. Crearea arborelui genealogic, păstrarea și digitalizarea fotografiilor și documentelor vechi.</span></p></div>
 </div>
       </div>
     </section>
@@ -223,18 +301,18 @@
       <div class="section-header">
         <span class="section-icon">⚡</span>
         <div>
-          <h2>Kulturális Kihívások és Megoldások</h2>
-          <p class="section-subtitle">Navigálás a kultúrák között</p>
+          <h2><span data-lang="hu">Kulturális Kihívások és Megoldások</span><span data-lang="en">Cultural Challenges and Solutions</span><span data-lang="ro">Provocări și soluții culturale</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Navigálás a kultúrák között</span><span data-lang="en">Navigating between cultures</span><span data-lang="ro">Navigarea între culturi</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #6A1B9A, transparent);"></div>
-      <p class="section-intro">A kisebbségi közegben élő fiatalok számos kihívással szembesülnek a kulturális identitásuk megőrzése során. Ezek a kihívások kezelhetők megfelelő stratégiákkal.</p>
+      <p class="section-intro"><span data-lang="hu">A kisebbségi közegben élő fiatalok számos kihívással szembesülnek a kulturális identitásuk megőrzése során. Ezek a kihívások kezelhetők megfelelő stratégiákkal.</span><span data-lang="en">Young people living in minority environments face many challenges in preserving their cultural identity. These challenges can be managed with appropriate strategies.</span><span data-lang="ro">Tinerii care trăiesc în medii minoritare se confruntă cu numeroase provocări în păstrarea identității culturale. Aceste provocări pot fi gestionate prin strategii adecvate.</span></p>
       <div class="section-content">
 <div class="steps-list">
-  <div class="step"><span class="step-num">1</span><div><strong>Egyensúly</strong><p>A két kultúra és nyelv közötti egyensúly megtalálása, a kettős identitás előnyeinek tudatos kihasználása. Nem kell választani – mindkét identitás értékes.</p></div></div>
-  <div class="step"><span class="step-num">2</span><div><strong>Tudatosság</strong><p>A kulturális örökség tudatos megismerése és ápolása, a nyelvi készségek folyamatos fejlesztése. A tudatosság az identitás erősítésének alapja.</p></div></div>
-  <div class="step"><span class="step-num">3</span><div><strong>Közösség</strong><p>Aktív részvétel magyar kulturális közösségekben, kapcsolatok építése és ápolása hasonló hátterű fiatalokkal. A közösség erőt és megerősítést nyújt.</p></div></div>
-  <div class="step"><span class="step-num">4</span><div><strong>Fejlődés</strong><p>A kulturális identitás folyamatos fejlesztése és gazdagítása, új elemek integrálása a hagyományok tiszteletben tartása mellett.</p></div></div>
+  <div class="step"><span class="step-num">1</span><div><strong><span data-lang="hu">Egyensúly</span><span data-lang="en">Balance</span><span data-lang="ro">Echilibru</span></strong><p><span data-lang="hu">A két kultúra és nyelv közötti egyensúly megtalálása, a kettős identitás előnyeinek tudatos kihasználása. Nem kell választani – mindkét identitás értékes.</span><span data-lang="en">Finding balance between two cultures and languages, consciously leveraging the advantages of dual identity. There is no need to choose – both identities are valuable.</span><span data-lang="ro">Găsirea echilibrului între cele două culturi și limbi, valorificând conștient avantajele identității duble. Nu trebuie să alegi – ambele identități sunt valoroase.</span></p></div></div>
+  <div class="step"><span class="step-num">2</span><div><strong><span data-lang="hu">Tudatosság</span><span data-lang="en">Awareness</span><span data-lang="ro">Conștientizare</span></strong><p><span data-lang="hu">A kulturális örökség tudatos megismerése és ápolása, a nyelvi készségek folyamatos fejlesztése. A tudatosság az identitás erősítésének alapja.</span><span data-lang="en">Conscious understanding and nurturing of cultural heritage, continuous development of language skills. Awareness is the foundation for strengthening identity.</span><span data-lang="ro">Cunoașterea și cultivarea conștientă a patrimoniului cultural, dezvoltarea continuă a competențelor lingvistice. Conștientizarea este baza întăririi identității.</span></p></div></div>
+  <div class="step"><span class="step-num">3</span><div><strong><span data-lang="hu">Közösség</span><span data-lang="en">Community</span><span data-lang="ro">Comunitate</span></strong><p><span data-lang="hu">Aktív részvétel magyar kulturális közösségekben, kapcsolatok építése és ápolása hasonló hátterű fiatalokkal. A közösség erőt és megerősítést nyújt.</span><span data-lang="en">Active participation in Hungarian cultural communities, building and maintaining relationships with peers of similar backgrounds. Community provides strength and reinforcement.</span><span data-lang="ro">Participare activă în comunități culturale maghiare, construirea și menținerea relațiilor cu tineri de origine similară. Comunitatea oferă putere și sprijin.</span></p></div></div>
+  <div class="step"><span class="step-num">4</span><div><strong><span data-lang="hu">Fejlődés</span><span data-lang="en">Development</span><span data-lang="ro">Dezvoltare</span></strong><p><span data-lang="hu">A kulturális identitás folyamatos fejlesztése és gazdagítása, új elemek integrálása a hagyományok tiszteletben tartása mellett.</span><span data-lang="en">Continuous development and enrichment of cultural identity, integrating new elements while respecting traditions.</span><span data-lang="ro">Dezvoltarea și îmbogățirea continuă a identității culturale, integrarea elementelor noi respectând tradițiile.</span></p></div></div>
 </div>
       </div>
     </section>
@@ -243,63 +321,63 @@
       <div class="section-header">
         <span class="section-icon">🪞</span>
         <div>
-          <h2>Önreflexió – Kulturális Identitásom</h2>
-          <p class="section-subtitle">Saját identitásmozaiком feltérképezése</p>
+          <h2><span data-lang="hu">Önreflexió – Kulturális Identitásom</span><span data-lang="en">Self-reflection – My Cultural Identity</span><span data-lang="ro">Auto-reflecție – Identitatea mea culturală</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Saját identitásmozaiком feltérképezése</span><span data-lang="en">Mapping your own identity mosaic</span><span data-lang="ro">Cartografierea mozaicului propriei identități</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #6A1B9A, transparent);"></div>
-      <p class="section-intro">Az alábbi kérdőív segít feltérképezni a kulturális identitásoddal kapcsolatos gondolataidat, érzéseidet és tapasztalataidat.</p>
+      <p class="section-intro"><span data-lang="hu">Az alábbi kérdőív segít feltérképezni a kulturális identitásoddal kapcsolatos gondolataidat, érzéseidet és tapasztalataidat.</span><span data-lang="en">The questionnaire below helps you explore your thoughts, feelings, and experiences related to your cultural identity.</span><span data-lang="ro">Chestionarul de mai jos te ajută să explorezi gândurile, sentimentele și experiențele legate de identitatea ta culturală.</span></p>
 
       <div class="interactive-box" style="background:#f3e5f5; border-left: 4px solid #6A1B9A;">
-        <h3>🧩 Önértékelő kérdőív – Kulturális identitásom</h3>
-        <p>Töltsd ki az alábbi kérdőívet, hogy képet kapj jelenlegi szokásaidról és fejlesztési lehetőségeidről!</p>
+        <h3><span data-lang="hu">🧩 Önértékelő kérdőív – Kulturális identitásom</span><span data-lang="en">🧩 Self-assessment questionnaire – My cultural identity</span><span data-lang="ro">🧩 Chestionar de autoevaluare – Identitatea mea culturală</span></h3>
+        <p><span data-lang="hu">Töltsd ki az alábbi kérdőívet, hogy képet kapj jelenlegi szokásaidról és fejlesztési lehetőségeidről!</span><span data-lang="en">Fill out the questionnaire below to get an overview of your current habits and areas for development!</span><span data-lang="ro">Completează chestionarul de mai jos pentru a obține o imagine asupra obiceiurilor tale actuale și a posibilităților de dezvoltare!</span></p>
         <div class="reflection-form" id="reflectionForm">
 
     <div class="reflection-question" id="q1">
-      <label class="q-label">Mennyire érzem erősnek a kulturális identitásomat?</label>
+      <label class="q-label"><span data-lang="hu">Mennyire érzem erősnek a kulturális identitásomat?</span><span data-lang="en">How strong do I feel my cultural identity is?</span><span data-lang="ro">Cât de puternică simt identitatea mea culturală?</span></label>
       <div class="scale-container">
-        <span class="scale-label">Egyáltalán nem</span>
+        <span class="scale-label"><span data-lang="hu">Egyáltalán nem</span><span data-lang="en">Not at all</span><span data-lang="ro">Deloc</span></span>
         <div class="scale-buttons">
           <button class="scale-btn" onclick="selectScale(this, 1)">1</button><button class="scale-btn" onclick="selectScale(this, 1)">2</button><button class="scale-btn" onclick="selectScale(this, 1)">3</button><button class="scale-btn" onclick="selectScale(this, 1)">4</button><button class="scale-btn" onclick="selectScale(this, 1)">5</button>
         </div>
-        <span class="scale-label">Teljes mértékben</span>
+        <span class="scale-label"><span data-lang="hu">Teljes mértékben</span><span data-lang="en">Completely</span><span data-lang="ro">Complet</span></span>
       </div>
     </div>
     <div class="reflection-question" id="q2">
-      <label class="q-label">Mennyire aktívan veszek részt a kulturális közösségem életében?</label>
+      <label class="q-label"><span data-lang="hu">Mennyire aktívan veszek részt a kulturális közösségem életében?</span><span data-lang="en">How actively do I participate in the life of my cultural community?</span><span data-lang="ro">Cât de activ particip la viața comunității mele culturale?</span></label>
       <div class="scale-container">
-        <span class="scale-label">Egyáltalán nem</span>
+        <span class="scale-label"><span data-lang="hu">Egyáltalán nem</span><span data-lang="en">Not at all</span><span data-lang="ro">Deloc</span></span>
         <div class="scale-buttons">
           <button class="scale-btn" onclick="selectScale(this, 2)">1</button><button class="scale-btn" onclick="selectScale(this, 2)">2</button><button class="scale-btn" onclick="selectScale(this, 2)">3</button><button class="scale-btn" onclick="selectScale(this, 2)">4</button><button class="scale-btn" onclick="selectScale(this, 2)">5</button>
         </div>
-        <span class="scale-label">Teljes mértékben</span>
+        <span class="scale-label"><span data-lang="hu">Teljes mértékben</span><span data-lang="en">Completely</span><span data-lang="ro">Complet</span></span>
       </div>
     </div>
     <div class="reflection-question" id="q3">
-      <label class="q-label">Mennyire tudatosan őrzöm és ápolom a hagyományokat?</label>
+      <label class="q-label"><span data-lang="hu">Mennyire tudatosan őrzöm és ápolom a hagyományokat?</span><span data-lang="en">How consciously do I preserve and nurture traditions?</span><span data-lang="ro">Cât de conștient păstrez și cultiv tradițiile?</span></label>
       <div class="scale-container">
-        <span class="scale-label">Egyáltalán nem</span>
+        <span class="scale-label"><span data-lang="hu">Egyáltalán nem</span><span data-lang="en">Not at all</span><span data-lang="ro">Deloc</span></span>
         <div class="scale-buttons">
           <button class="scale-btn" onclick="selectScale(this, 3)">1</button><button class="scale-btn" onclick="selectScale(this, 3)">2</button><button class="scale-btn" onclick="selectScale(this, 3)">3</button><button class="scale-btn" onclick="selectScale(this, 3)">4</button><button class="scale-btn" onclick="selectScale(this, 3)">5</button>
         </div>
-        <span class="scale-label">Teljes mértékben</span>
+        <span class="scale-label"><span data-lang="hu">Teljes mértékben</span><span data-lang="en">Completely</span><span data-lang="ro">Complet</span></span>
       </div>
     </div>
     <div class="reflection-question" id="q4">
-      <label class="q-label">Mennyire érzem erőforrásnak a kettős kulturális identitásomat?</label>
+      <label class="q-label"><span data-lang="hu">Mennyire érzem erőforrásnak a kettős kulturális identitásomat?</span><span data-lang="en">How much do I see my dual cultural identity as a resource?</span><span data-lang="ro">Cât de mult simt identitatea mea culturală dublă ca pe o resursă?</span></label>
       <div class="scale-container">
-        <span class="scale-label">Egyáltalán nem</span>
+        <span class="scale-label"><span data-lang="hu">Egyáltalán nem</span><span data-lang="en">Not at all</span><span data-lang="ro">Deloc</span></span>
         <div class="scale-buttons">
           <button class="scale-btn" onclick="selectScale(this, 4)">1</button><button class="scale-btn" onclick="selectScale(this, 4)">2</button><button class="scale-btn" onclick="selectScale(this, 4)">3</button><button class="scale-btn" onclick="selectScale(this, 4)">4</button><button class="scale-btn" onclick="selectScale(this, 4)">5</button>
         </div>
-        <span class="scale-label">Teljes mértékben</span>
+        <span class="scale-label"><span data-lang="hu">Teljes mértékben</span><span data-lang="en">Completely</span><span data-lang="ro">Complet</span></span>
       </div>
     </div>
     <div class="reflection-question" id="q5">
-      <label class="q-label">Milyen hagyományt vagy kulturális értéket szeretnél tovább adni?</label>
+      <label class="q-label"><span data-lang="hu">Milyen hagyományt vagy kulturális értéket szeretnél tovább adni?</span><span data-lang="en">What tradition or cultural value would you like to pass on?</span><span data-lang="ro">Ce tradiție sau valoare culturală dorești să transmiți mai departe?</span></label>
       <textarea class="reflection-textarea" rows="3" placeholder="Írd ide a válaszodat..."></textarea>
     </div>
-          <button class="submit-btn" onclick="submitReflection()">Visszajelzés megjelenítése</button>
+          <button class="submit-btn" onclick="submitReflection()"><span data-lang="hu">Visszajelzés megjelenítése</span><span data-lang="en">Show feedback</span><span data-lang="ro">Afișează feedback-ul</span></button>
           <div class="feedback-box" id="feedbackBox" style="display:none;"></div>
         </div>
       </div>
@@ -309,18 +387,18 @@
       <div class="section-header">
         <span class="section-icon">📋</span>
         <div>
-          <h2>Összefoglalás</h2>
-          <p class="section-subtitle">A kulturális identitás eszköztára</p>
+          <h2><span data-lang="hu">Összefoglalás</span><span data-lang="en">Summary</span><span data-lang="ro">Rezumat</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">A kulturális identitás eszköztára</span><span data-lang="en">The toolkit of cultural identity</span><span data-lang="ro">Instrumentarul identității culturale</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #6A1B9A, transparent);"></div>
-      <p class="section-intro">A kulturális identitás megőrzése egy folyamatos, tudatos munka, amely egyéni és közösségi szinten is erőfeszítést igényel.</p>
+      <p class="section-intro"><span data-lang="hu">A kulturális identitás megőrzése egy folyamatos, tudatos munka, amely egyéni és közösségi szinten is erőfeszítést igényel.</span><span data-lang="en">Preserving cultural identity is an ongoing, conscious effort that requires commitment both individually and collectively.</span><span data-lang="ro">Păstrarea identității culturale este un proces continuu, conștient, care necesită eforturi atât la nivel individual, cât și comunitar.</span></p>
       <div class="section-content">
 <div class="summary-grid">
-  <div class="summary-card"><h4>🌉 Kettős identitás</h4><p>A kettős kulturális identitás erőforrás, nem teher. Mindkét kultúra értékeit tudatosan integráld az életedbe.</p></div>
-  <div class="summary-card"><h4>🏛️ Hagyományőrzés</h4><p>Vegyél részt aktívan a kulturális hagyományok megőrzésében és átadásában – a konyhától az ünnepekig.</p></div>
-  <div class="summary-card"><h4>🤝 Közösség</h4><p>Csatlakozz kulturális közösségekhez, építs kapcsolatokat hasonló hátterű fiatalokkal.</p></div>
-  <div class="summary-card"><h4>🌱 Fejlődés</h4><p>A kulturális identitás nem statikus – folyamatosan gazdagítható és fejleszthető új tapasztalatokkal.</p></div>
+  <div class="summary-card"><h4><span data-lang="hu">🌉 Kettős identitás</span><span data-lang="en">🌉 Dual identity</span><span data-lang="ro">🌉 Identitate dublă</span></h4><p><span data-lang="hu">A kettős kulturális identitás erőforrás, nem teher. Mindkét kultúra értékeit tudatosan integráld az életedbe.</span><span data-lang="en">Dual cultural identity is a resource, not a burden. Consciously integrate the values of both cultures into your life.</span><span data-lang="ro">Identitatea culturală dublă este o resursă, nu o povară. Integrează conștient valorile ambelor culturi în viața ta.</span></p></div>
+  <div class="summary-card"><h4><span data-lang="hu">🏛️ Hagyományőrzés</span><span data-lang="en">🏛️ Tradition preservation</span><span data-lang="ro">🏛️ Păstrarea tradițiilor</span></h4><p><span data-lang="hu">Vegyél részt aktívan a kulturális hagyományok megőrzésében és átadásában – a konyhától az ünnepekig.</span><span data-lang="en">Actively participate in preserving and passing on cultural traditions – from the kitchen to celebrations.</span><span data-lang="ro">Participă activ la păstrarea și transmiterea tradițiilor culturale – de la bucătărie până la sărbători.</span></p></div>
+  <div class="summary-card"><h4><span data-lang="hu">🤝 Közösség</span><span data-lang="en">🤝 Community</span><span data-lang="ro">🤝 Comunitate</span></h4><p><span data-lang="hu">Csatlakozz kulturális közösségekhez, építs kapcsolatokat hasonló hátterű fiatalokkal.</span><span data-lang="en">Join cultural communities, build connections with young people of similar backgrounds.</span><span data-lang="ro">Alătură-te comunităților culturale, construiește relații cu tineri de origine similară.</span></p></div>
+  <div class="summary-card"><h4><span data-lang="hu">🌱 Fejlődés</span><span data-lang="en">🌱 Development</span><span data-lang="ro">🌱 Dezvoltare</span></h4><p><span data-lang="hu">A kulturális identitás nem statikus – folyamatosan gazdagítható és fejleszthető új tapasztalatokkal.</span><span data-lang="en">Cultural identity is not static – it can be continuously enriched and developed with new experiences.</span><span data-lang="ro">Identitatea culturală nu este statică – poate fi îmbogățită și dezvoltată continuu prin experiențe noi.</span></p></div>
 </div>
       </div>
 
@@ -336,22 +414,29 @@
           allowfullscreen>
         </iframe>
       </div>
-      <p class="video-caption">Bedő Imre szakmai reflexiója az identitás szerepéről a fiatalok fejlődésében, amely átfogó, összefoglaló perspektívát nyújt a fejezet témáihoz.</p>
+      <p class="video-caption"><span data-lang="hu">Bedő Imre szakmai reflexiója az identitás szerepéről a fiatalok fejlődésében, amely átfogó, összefoglaló perspektívát nyújt a fejezet témáihoz.</span><span data-lang="en">Professional reflection by Imre Bedő on the role of identity in youth development, providing a comprehensive, summarising perspective on the chapter's topics.</span><span data-lang="ro">Reflecția profesională a lui Imre Bedő despre rolul identității în dezvoltarea tinerilor, oferind o perspectivă cuprinzătoare și sumarizatoare asupra temelor capitolului.</span></p>
     </section>
 
 
     <div class="pdf-section">
-      <h3>📥 Fejezet letöltése PDF formátumban</h3>
-      <a href="https://drive.google.com/file/d/1FuFM4eIGDn3B4CNTATnKQ8Eb1YV__SZR/view" target="_blank" class="pdf-btn">🇭🇺 Magyar PDF letöltése</a>
+      <h3><span data-lang="hu">📥 Fejezet letöltése PDF formátumban</span><span data-lang="en">📥 Download chapter in PDF format</span><span data-lang="ro">📥 Descarcă capitolul în format PDF</span></h3>
+      <a href="https://drive.google.com/file/d/1FuFM4eIGDn3B4CNTATnKQ8Eb1YV__SZR/view" target="_blank" class="pdf-btn"><span data-lang="hu">🇭🇺 Magyar PDF letöltése</span><span data-lang="en">🇭🇺 Download Hungarian PDF</span><span data-lang="ro">🇭🇺 Descarcă PDF în maghiară</span></a>
       <a href="https://drive.google.com/file/d/1Zve1c5mmyLbGRVrQXCkoQ1fbeURo3HbU/view" target="_blank" class="pdf-btn">🇬🇧 English PDF</a>
       <a href="https://drive.google.com/file/d/13bhcOtIv0gFs9SjkFaILsZpCf0Ohf-HL/view" target="_blank" class="pdf-btn">🇷🇴 PDF în română</a>
     </div>
   </main>
 </div>
 
+
+<div class="chapter-nav">
+  <a href="../chapter3/index.html">← <span data-lang="hu"><span data-lang="hu">3. fejezet</span><span data-lang="en">Chapter 3</span><span data-lang="ro">Capitolul 3</span></span><span data-lang="en">Chapter 3</span><span data-lang="ro">Capitolul 3</span></a>
+  <a href="../index.html" class="nav-home"><span data-lang="hu"><span data-lang="hu">🏠 Főoldal</span><span data-lang="en">🏠 Home</span><span data-lang="ro">🏠 Pagina principală</span></span><span data-lang="en">🏠 Home</span><span data-lang="ro">🏠 Acasă</span></a>
+  <a href="../chapter5/index.html"><span data-lang="hu"><span data-lang="hu">5. fejezet</span><span data-lang="en">Chapter 5</span><span data-lang="ro">Capitolul 5</span></span><span data-lang="en">Chapter 5</span><span data-lang="ro">Capitolul 5</span> →</a>
+</div>
+
 <footer class="chapter-footer">
   <p>IMELO – Identity Mosaic | Erasmus+ KA2 projekt | © 2024–2026</p>
-  <p>Az Európai Bizottság támogatásával készült. A tartalom kizárólag a szerzők álláspontját tükrözi.</p>
+  <p><span data-lang="hu">Az Európai Bizottság támogatásával készült. A tartalom kizárólag a szerzők álláspontját tükrözi.</span><span data-lang="en">Produced with the support of the European Commission. The content reflects the views of the authors only.</span><span data-lang="ro">Realizat cu sprijinul Comisiei Europene. Conținutul reflectă exclusiv punctul de vedere al autorilor.</span></p>
 </footer>
 
 <script>
@@ -391,6 +476,23 @@
       if (target) target.scrollIntoView({behavior: 'smooth', block: 'start'});
     });
   });
+
+  // Language switcher
+  (function() {
+    var stored = localStorage.getItem('imelo-lang') || 'hu';
+    document.body.setAttribute('data-active-lang', stored);
+    document.querySelectorAll('.lang-btn-sub').forEach(function(btn) {
+      if (btn.getAttribute('data-lang-switch') === stored) btn.classList.add('active');
+    });
+  })();
+  function switchLangSub(lang) {
+    document.body.setAttribute('data-active-lang', lang);
+    localStorage.setItem('imelo-lang', lang);
+    document.querySelectorAll('.lang-btn-sub').forEach(function(btn) {
+      btn.classList.toggle('active', btn.getAttribute('data-lang-switch') === lang);
+    });
+  }
+
 </script>
 </body>
 </html>

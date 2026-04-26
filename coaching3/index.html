@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Coaching 3 – Célkitűzés és Motiváció Támogatása | IMELO Toolbox</title>
+  <title><span data-lang="hu">Coaching 3 – Célkitűzés és Motiváció Támogatása | IMELO Toolbox</span><span data-lang="en">Coaching 3 – Supporting Goal Setting and Motivation | IMELO Toolbox</span><span data-lang="ro">Coaching 3 – Stabilirea Obiectivelor și Sprijinirea Motivației | IMELO Toolbox</span></title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
@@ -101,31 +101,109 @@
     .dl-btn svg { width: 18px; height: 18px; }
     .eu-footer { background: #2c2c54; color: rgba(255,255,255,0.7); text-align: center; padding: 1.5rem 2rem; font-size: 0.8rem; line-height: 1.6; }
     @media (max-width: 640px) { .topbar { padding: 0 1rem; } .main-content { padding: 1.5rem 1rem 3rem; } .smart-grid { grid-template-columns: 1fr 1fr; } }
+  
+    /* Chapter navigation */
+    .chapter-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 1.5rem;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      margin: 1.5rem 0;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .chapter-nav a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: linear-gradient(135deg, #1a7a4a 0%, #2ecc71 100%);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+      transition: opacity 0.2s;
+    }
+    .chapter-nav a:hover { opacity: 0.85; }
+    .chapter-nav .nav-home {
+      background: linear-gradient(135deg, #E8622A 0%, #f39c12 100%);
+    }
+    .chapter-nav .nav-center {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #888;
+      flex: 1;
+    }
+    @media (max-width: 600px) {
+      .chapter-nav { flex-direction: column; align-items: stretch; text-align: center; }
+      .chapter-nav a { justify-content: center; }
+    }
+
+  
+    [data-lang] { display: none; }
+    body[data-active-lang="hu"] [data-lang="hu"] { display: inline; }
+    body[data-active-lang="en"] [data-lang="en"] { display: inline; }
+    body[data-active-lang="ro"] [data-lang="ro"] { display: inline; }
+
+  
+    /* Language switching */
+    [data-lang] { display: none; }
+    body[data-active-lang="hu"] [data-lang="hu"],
+    body[data-active-lang="hu"] span[data-lang="hu"] { display: inline; }
+    body[data-active-lang="en"] [data-lang="en"],
+    body[data-active-lang="en"] span[data-lang="en"] { display: inline; }
+    body[data-active-lang="ro"] [data-lang="ro"],
+    body[data-active-lang="ro"] span[data-lang="ro"] { display: inline; }
+    body[data-active-lang="hu"] div[data-lang="hu"],
+    body[data-active-lang="en"] div[data-lang="en"],
+    body[data-active-lang="ro"] div[data-lang="ro"] { display: block; }
+    .lang-switcher-sub {
+      position: fixed; top: 12px; right: 16px; z-index: 9999;
+      display: flex; gap: 6px; background: rgba(255,255,255,0.95);
+      padding: 4px 8px; border-radius: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .lang-btn-sub {
+      background: none; border: none; cursor: pointer;
+      font-size: 1.2rem; padding: 2px 4px; border-radius: 6px;
+      opacity: 0.6; transition: opacity 0.2s;
+    }
+    .lang-btn-sub:hover, .lang-btn-sub.active { opacity: 1; }
+
   </style>
 </head>
-<body>
+<body data-active-lang="hu">
+<div class="lang-switcher-sub">
+  <button class="lang-btn-sub" data-lang-switch="hu" onclick="switchLangSub('hu')" title="Magyar">🇭🇺</button>
+  <button class="lang-btn-sub" data-lang-switch="en" onclick="switchLangSub('en')" title="English">🇬🇧</button>
+  <button class="lang-btn-sub" data-lang-switch="ro" onclick="switchLangSub('ro')" title="Română">🇷🇴</button>
+</div>
 
 <nav class="topbar">
   <div class="topbar-left">
     <a href="../index.html" class="back-btn">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-      Vissza az Eszköztárhoz
+      <span data-lang="hu">Vissza az Eszköztárhoz</span><span data-lang="en">Back to Toolbox</span><span data-lang="ro">Înapoi la Trusă</span>
     </a>
     <a href="../index.html" class="topbar-logo">
       <img src="imelo_logo.png" alt="Identity Mosaic" />
     </a>
   </div>
-  <span class="chapter-badge">🎓 Coaching Modul – 3. rész</span>
+  <span class="chapter-badge"><span data-lang="hu">🎓 Coaching Modul – 3. rész</span><span data-lang="en">🎓 Coaching Module – Part 3</span><span data-lang="ro">🎓 Modul Coaching – Partea 3</span></span>
 </nav>
 
 <div class="hero">
-  <div class="hero-tag">COACHING MODUL · 3. RÉSZ</div>
-  <h1>Célkitűzés és Motiváció Támogatása</h1>
-  <p class="subtitle">Hogyan segítsük a fiatalokat valódi céljaik megtalálásában, a belső motiváció feltárásában és a cselekvési tervek elkészítésében</p>
+  <div class="hero-tag"><span data-lang="hu">COACHING MODUL · 3. RÉSZ</span><span data-lang="en">COACHING MODULE · PART 3</span><span data-lang="ro">MODUL COACHING · PARTEA 3</span></div>
+  <h1><span data-lang="hu">Célkitűzés és Motiváció Támogatása</span><span data-lang="en">Supporting Goal Setting and Motivation</span><span data-lang="ro">Sprijinirea Stabilirii Obiectivelor și Motivației</span></h1>
+  <p class="subtitle"><span data-lang="hu">Hogyan segítsük a fiatalokat valódi céljaik megtalálásában, a belső motiváció feltárásában és a cselekvési tervek elkészítésében</span><span data-lang="en">How to help young people find their true goals, uncover intrinsic motivation, and create action plans</span><span data-lang="ro">Cum să ajutăm tinerii să-și găsească obiective reale, să descopere motivația internă și să-și creeze planuri de acțiune</span></p>
   <div class="hero-meta">
-    <span>🎯 Célcsoport: Ifjúságsegítők</span>
-    <span>⏱️ Olvasási idő: ~15 perc</span>
-    <span>📚 Coaching Modul 3/3</span>
+    <span><span data-lang="hu">🎯 Célcsoport: Ifjúságsegítők</span><span data-lang="en">🎯 Target Group: Youth Workers</span><span data-lang="ro">🎯 Grup țintă: Lucrători de tineret</span></span>
+    <span><span data-lang="hu">⏱️ Olvasási idő: ~15 perc</span><span data-lang="en">⏱️ Reading Time: ~15 minutes</span><span data-lang="ro">⏱️ Timp de citire: ~15 minute</span></span>
+    <span><span data-lang="hu">📚 Coaching Modul 3/3</span><span data-lang="en">📚 Coaching Module 3/3</span><span data-lang="ro">📚 Modul Coaching 3/3</span></span>
   </div>
 </div>
 
@@ -133,14 +211,14 @@
   <div class="toc-inner">
     <div class="toc-title">Tartalom</div>
     <div class="toc-links">
-      <a href="#celkituzes">Célkitűzés jelentősége</a>
-      <a href="#smart">SMART Célok</a>
-      <a href="#motivacio">Motiváció Támogatása</a>
-      <a href="#akadalyok">Akadályok Kezelése</a>
-      <a href="#cselekvesi-terv">Cselekvési Terv</a>
-      <a href="#elszamoltathatosag">Elszámoltathatóság</a>
-      <a href="#siker">Siker Mérése</a>
-      <a href="#onreflexio">Önreflexió</a>
+      <a href="#celkituzes"><span data-lang="hu">Célkitűzés jelentősége</span><span data-lang="en">The Importance of Goal Setting</span><span data-lang="ro">Importanța Stabilirii Obiectivelor</span></a>
+      <a href="#smart"><span data-lang="hu">SMART Célok</span><span data-lang="en">SMART Goals</span><span data-lang="ro">Obiective SMART</span></a>
+      <a href="#motivacio"><span data-lang="hu">Motiváció Támogatása</span><span data-lang="en">Supporting Motivation</span><span data-lang="ro">Sprijinirea Motivației</span></a>
+      <a href="#akadalyok"><span data-lang="hu">Akadályok Kezelése</span><span data-lang="en">Managing Obstacles</span><span data-lang="ro">Gestionarea Obstacolelor</span></a>
+      <a href="#cselekvesi-terv"><span data-lang="hu">Cselekvési Terv</span><span data-lang="en">Action Plan</span><span data-lang="ro">Plan de Acțiune</span></a>
+      <a href="#elszamoltathatosag"><span data-lang="hu">Elszámoltathatóság</span><span data-lang="en">Accountability</span><span data-lang="ro">Responsabilitate</span></a>
+      <a href="#siker"><span data-lang="hu">Siker Mérése</span><span data-lang="en">Measuring Success</span><span data-lang="ro">Măsurarea Succesului</span></a>
+      <a href="#onreflexio"><span data-lang="hu">Önreflexió</span><span data-lang="en">Self-Reflection</span><span data-lang="ro">Auto-reflecție</span></a>
     </div>
   </div>
 </div>
@@ -150,19 +228,19 @@
   <div class="stat-grid">
     <div class="stat-card" style="border-color:#E8622A;">
       <div class="stat-num" style="color:#E8622A;">SMART</div>
-      <div class="stat-label">Célkitűzési keretrendszer</div>
+      <div class="stat-label"><span data-lang="hu">Célkitűzési keretrendszer</span><span data-lang="en">Goal Setting Framework</span><span data-lang="ro">Cadru pentru Stabilirea Obiectivelor</span></div>
     </div>
     <div class="stat-card" style="border-color:#FF8C42;">
       <div class="stat-num" style="color:#FF8C42;">3</div>
-      <div class="stat-label">Akadálytípus</div>
+      <div class="stat-label"><span data-lang="hu">Akadálytípus</span><span data-lang="en">Type of Obstacle</span><span data-lang="ro">Tip de Obstacol</span></div>
     </div>
     <div class="stat-card" style="border-color:#4B2D8B;">
       <div class="stat-num" style="color:#4B2D8B;">4</div>
-      <div class="stat-label">Cselekvési terv lépés</div>
+      <div class="stat-label"><span data-lang="hu">Cselekvési terv lépés</span><span data-lang="en">Action Plan Step</span><span data-lang="ro">Pas în Planul de Acțiune</span></div>
     </div>
     <div class="stat-card" style="border-color:#1a7a4a;">
       <div class="stat-num" style="color:#1a7a4a;">3</div>
-      <div class="stat-label">Coaching modul összesen</div>
+      <div class="stat-label"><span data-lang="hu">Coaching modul összesen</span><span data-lang="en">Total Coaching Module</span><span data-lang="ro">Modul Coaching în total</span></div>
     </div>
   </div>
 
@@ -171,42 +249,42 @@
     <div class="section-header">
       <div class="section-icon" style="background:#fff3e0;">🎯</div>
       <div>
-        <h2>A Célkitűzés Jelentősége</h2>
-        <div class="section-sub">Miért fontos a célok tudatos megfogalmazása?</div>
+        <h2><span data-lang="hu">A Célkitűzés Jelentősége</span><span data-lang="en">The Importance of Goal Setting</span><span data-lang="ro">Importanța Stabilirii Obiectivelor</span></h2>
+        <div class="section-sub"><span data-lang="hu">Miért fontos a célok tudatos megfogalmazása?</span><span data-lang="en">Why is it important to formulate goals consciously?</span><span data-lang="ro">De ce este importantă formularea conștientă a obiectivelor?</span></div>
       </div>
     </div>
     <div class="intro-box">
-      A célkitűzés a coaching folyamat egyik alapköve, amely <strong>irányt és struktúrát ad</strong> a fejlődésnek. Segít a fiataloknak fókuszálni energiájukat, növeli a motivációt és az elkötelezettséget, valamint megkönnyíti a haladás mérését.
+      <span data-lang="hu">A célkitűzés a coaching folyamat egyik alapköve, amely</span><span data-lang="en">Goal setting is a cornerstone of the coaching process that</span><span data-lang="ro">Stabilirea obiectivelor este unul dintre pilonii procesului de coaching, care</span> <strong><span data-lang="hu">irányt és struktúrát ad</span><span data-lang="en">provides direction and structure</span><span data-lang="ro">oferă direcție și structură</span></strong> <span data-lang="hu">a fejlődésnek. Segít a fiataloknak fókuszálni energiájukat, növeli a motivációt és az elkötelezettséget, valamint megkönnyíti a haladás mérését.</span><span data-lang="en">to development. It helps young people focus their energy, increases motivation and commitment, and facilitates measuring progress.</span><span data-lang="ro">dezvoltării. Ajută tinerii să-și concentreze energia, crește motivația și angajamentul, precum și facilitează măsurarea progresului.</span>
     </div>
     <div class="feature-grid">
       <div class="feature-card" style="border-color:#E8622A;">
-        <h3>🎯 Miért fontos?</h3>
+        <h3><span data-lang="hu">🎯 Miért fontos?</span><span data-lang="en">🎯 Why is it important?</span><span data-lang="ro">🎯 De ce este important?</span></h3>
         <ul>
-          <li>Fókuszálja az energiát és figyelmet</li>
-          <li>Növeli a motivációt és elköteleződést</li>
-          <li>Megkönnyíti a haladás mérését</li>
-          <li>Csökkenti a bizonytalanságot</li>
-          <li>Erősíti az önbizalmat</li>
+          <li><span data-lang="hu">Fókuszálja az energiát és figyelmet</span><span data-lang="en">Focuses energy and attention</span><span data-lang="ro">Concentrează energia și atenția</span></li>
+          <li><span data-lang="hu">Növeli a motivációt és elköteleződést</span><span data-lang="en">Increases motivation and commitment</span><span data-lang="ro">Crește motivația și angajamentul</span></li>
+          <li><span data-lang="hu">Megkönnyíti a haladás mérését</span><span data-lang="en">Facilitates measuring progress</span><span data-lang="ro">Facilitează măsurarea progresului</span></li>
+          <li><span data-lang="hu">Csökkenti a bizonytalanságot</span><span data-lang="en">Reduces uncertainty</span><span data-lang="ro">Reduce incertitudinea</span></li>
+          <li><span data-lang="hu">Erősíti az önbizalmat</span><span data-lang="en">Strengthens self-confidence</span><span data-lang="ro">Întărește încrederea în sine</span></li>
         </ul>
       </div>
       <div class="feature-card" style="border-color:#FF8C42;">
-        <h3>🌟 A jó cél jellemzői</h3>
+        <h3><span data-lang="hu">🌟 A jó cél jellemzői</span><span data-lang="en">🌟 Characteristics of a Good Goal</span><span data-lang="ro">🌟 Caracteristicile unui obiectiv bun</span></h3>
         <ul>
-          <li>Konkrét és egyértelmű</li>
-          <li>Mérhető és nyomon követhető</li>
-          <li>Elérhető, de kihívást jelent</li>
-          <li>Releváns és értékekhez kapcsolódó</li>
-          <li>Időhöz kötött</li>
+          <li><span data-lang="hu">Konkrét és egyértelmű</span><span data-lang="en">Specific and clear</span><span data-lang="ro">Concret și clar</span></li>
+          <li><span data-lang="hu">Mérhető és nyomon követhető</span><span data-lang="en">Measurable and trackable</span><span data-lang="ro">Măsurabil și monitorizabil</span></li>
+          <li><span data-lang="hu">Elérhető, de kihívást jelent</span><span data-lang="en">Achievable but challenging</span><span data-lang="ro">Realizabil, dar provocator</span></li>
+          <li><span data-lang="hu">Releváns és értékekhez kapcsolódó</span><span data-lang="en">Relevant and connected to values</span><span data-lang="ro">Relevant și legat de valori</span></li>
+          <li><span data-lang="hu">Időhöz kötött</span><span data-lang="en">Time-bound</span><span data-lang="ro">Limitat în timp</span></li>
         </ul>
       </div>
       <div class="feature-card" style="border-color:#4B2D8B;">
-        <h3>👥 Célok az ifjúsági munkában</h3>
+        <h3><span data-lang="hu">👥 Célok az ifjúsági munkában</span><span data-lang="en">👥 Goals in Youth Work</span><span data-lang="ro">👥 Obiective în munca cu tineretul</span></h3>
         <ul>
-          <li>Tanulmányi célok és pályaorientáció</li>
-          <li>Személyes fejlődési célok</li>
-          <li>Kapcsolati és szociális célok</li>
-          <li>Egészség és életmód célok</li>
-          <li>Kreativitás és hobbi célok</li>
+          <li><span data-lang="hu">Tanulmányi célok és pályaorientáció</span><span data-lang="en">Academic goals and career orientation</span><span data-lang="ro">Obiective academice și orientare în carieră</span></li>
+          <li><span data-lang="hu">Személyes fejlődési célok</span><span data-lang="en">Personal development goals</span><span data-lang="ro">Obiective de dezvoltare personală</span></li>
+          <li><span data-lang="hu">Kapcsolati és szociális célok</span><span data-lang="en">Relational and social goals</span><span data-lang="ro">Obiective relaționale și sociale</span></li>
+          <li><span data-lang="hu">Egészség és életmód célok</span><span data-lang="en">Health and lifestyle goals</span><span data-lang="ro">Obiective legate de sănătate și stil de viață</span></li>
+          <li><span data-lang="hu">Kreativitás és hobbi célok</span><span data-lang="en">Creativity and hobby goals</span><span data-lang="ro">Obiective legate de creativitate și hobby-uri</span></li>
         </ul>
       </div>
     </div>
@@ -222,7 +300,7 @@
         allowfullscreen>
       </iframe>
     </div>
-    <p class="video-caption">A videó a SMART célok ifjúsági munkára adaptált alkalmazását és a belső motiváció feltárásának módszereit mutatja be, hangsúlyozva a célok személyes értékekhez való kapcsolásának fontosságát a fiatalok elköteleződésének erősítése érdekében.</p>
+    <p class="video-caption"><span data-lang="hu">A videó a SMART célok ifjúsági munkára adaptált alkalmazását és a belső motiváció feltárásának módszereit mutatja be, hangsúlyozva a célok személyes értékekhez való kapcsolásának fontosságát a fiatalok elköteleződésének erősítése érdekében.</span><span data-lang="en">The video presents the adapted application of SMART goals for youth work and methods for uncovering intrinsic motivation, emphasizing the importance of linking goals to personal values to strengthen young people’s commitment.</span><span data-lang="ro">Videoclipul prezintă aplicarea adaptată a obiectivelor SMART în munca cu tineretul și metodele de descoperire a motivației interne, subliniind importanța conectării obiectivelor la valori personale pentru a întări angajamentul tinerilor.</span></p>
   </div>
 
   <!-- SECTION 2: SMART CÉLOK -->
@@ -230,46 +308,46 @@
     <div class="section-header">
       <div class="section-icon" style="background:#fff3e0;">📐</div>
       <div>
-        <h2>SMART Célok</h2>
-        <div class="section-sub">A hatékony célmegfogalmazás keretrendszere</div>
+        <h2><span data-lang="hu">SMART Célok</span><span data-lang="en">SMART Goals</span><span data-lang="ro">Obiective SMART</span></h2>
+        <div class="section-sub"><span data-lang="hu">A hatékony célmegfogalmazás keretrendszere</span><span data-lang="en">A framework for effective goal formulation</span><span data-lang="ro">Cadrul pentru formularea eficientă a obiectivelor</span></div>
       </div>
     </div>
     <div class="intro-box">
-      A <strong>SMART keretrendszer</strong> segít a fiataloknak homályos vágyakból konkrét, megvalósítható célokat formálni. Minden betű egy fontos szempontot jelöl.
+      A <strong>SMART keretrendszer</strong> <span data-lang="hu">segít a fiataloknak homályos vágyakból konkrét, megvalósítható célokat formálni. Minden betű egy fontos szempontot jelöl.</span><span data-lang="en">helps young people turn vague desires into concrete, achievable goals. Each letter represents an important aspect.</span><span data-lang="ro">ajută tinerii să transforme dorințele vagi în obiective concrete și realizabile. Fiecare literă reprezintă un aspect important.</span>
     </div>
     <div class="smart-grid">
       <div class="smart-card" style="border-color:#E8622A;">
         <div class="smart-letter" style="color:#E8622A;">S</div>
-        <div class="smart-word">Specific (Konkrét)</div>
-        <div class="smart-desc">Pontosan mit szeretnél elérni? Minél konkrétabb, annál jobb.</div>
+        <div class="smart-word"><span data-lang="hu">Specific (Konkrét)</span><span data-lang="en">Specific (Konkrét)</span><span data-lang="ro">Specific (Concret)</span></div>
+        <div class="smart-desc"><span data-lang="hu">Pontosan mit szeretnél elérni? Minél konkrétabb, annál jobb.</span><span data-lang="en">Exactly what do you want to achieve? The more specific, the better.</span><span data-lang="ro">Ce anume dorești să realizezi? Cu cât este mai concret, cu atât mai bine.</span></div>
       </div>
       <div class="smart-card" style="border-color:#FF8C42;">
         <div class="smart-letter" style="color:#FF8C42;">M</div>
-        <div class="smart-word">Measurable (Mérhető)</div>
-        <div class="smart-desc">Hogyan fogod tudni, hogy elérted? Mi a siker mérőszáma?</div>
+        <div class="smart-word"><span data-lang="hu">Measurable (Mérhető)</span><span data-lang="en">Measurable</span><span data-lang="ro">Măsurabil (Mérhető)</span></div>
+        <div class="smart-desc"><span data-lang="hu">Hogyan fogod tudni, hogy elérted? Mi a siker mérőszáma?</span><span data-lang="en">How will you know that you have achieved it? What is the success indicator?</span><span data-lang="ro">Cum vei ști că ai atins obiectivul? Care este indicatorul de succes?</span></div>
       </div>
       <div class="smart-card" style="border-color:#4B2D8B;">
         <div class="smart-letter" style="color:#4B2D8B;">A</div>
-        <div class="smart-word">Achievable (Elérhető)</div>
-        <div class="smart-desc">Reálisan megvalósítható-e a rendelkezésre álló erőforrásokkal?</div>
+        <div class="smart-word"><span data-lang="hu">Achievable (Elérhető)</span><span data-lang="en">Achievable</span><span data-lang="ro">Realizabil (Elérhető)</span></div>
+        <div class="smart-desc"><span data-lang="hu">Reálisan megvalósítható-e a rendelkezésre álló erőforrásokkal?</span><span data-lang="en">Is it realistically achievable with the available resources?</span><span data-lang="ro">Este realizabil în mod realist cu resursele disponibile?</span></div>
       </div>
       <div class="smart-card" style="border-color:#1565C0;">
         <div class="smart-letter" style="color:#1565C0;">R</div>
-        <div class="smart-word">Relevant (Releváns)</div>
-        <div class="smart-desc">Miért fontos ez neked? Hogyan kapcsolódik értékeidhez?</div>
+        <div class="smart-word"><span data-lang="hu">Relevant (Releváns)</span><span data-lang="en">Relevant</span><span data-lang="ro">Relevant (Releváns)</span></div>
+        <div class="smart-desc"><span data-lang="hu">Miért fontos ez neked? Hogyan kapcsolódik értékeidhez?</span><span data-lang="en">Why is this important to you? How does it relate to your values?</span><span data-lang="ro">De ce este important pentru tine? Cum se leagă de valorile tale?</span></div>
       </div>
       <div class="smart-card" style="border-color:#1a7a4a;">
         <div class="smart-letter" style="color:#1a7a4a;">T</div>
-        <div class="smart-word">Time-bound (Időhöz kötött)</div>
-        <div class="smart-desc">Mikor szeretnéd elérni? Mi a határidő?</div>
+        <div class="smart-word"><span data-lang="hu">Time-bound (Időhöz kötött)</span><span data-lang="en">Time-bound</span><span data-lang="ro">Limitat în timp (Időhöz kötött)</span></div>
+        <div class="smart-desc"><span data-lang="hu">Mikor szeretnéd elérni? Mi a határidő?</span><span data-lang="en">When would you like to achieve it? What is the deadline?</span><span data-lang="ro">Când dorești să îl atingi? Care este termenul limită?</span></div>
       </div>
     </div>
     <div class="callout info">
       <span class="callout-icon">💡</span>
       <div class="callout-text">
-        <strong>Példa SMART célra</strong>
-        <p><strong>Nem SMART:</strong> "Szeretnék jobb jegyeket kapni."<br>
-        <strong>SMART:</strong> "A következő félévben matematikából legalább 4-es átlagot érek el, heti 3 alkalommal 45 percet tanulva, és minden héten ellenőrzöm a haladást."</p>
+        <strong><span data-lang="hu">Példa SMART célra</span><span data-lang="en">Example of a SMART goal</span><span data-lang="ro">Exemplu de obiectiv SMART</span></strong>
+        <p><strong><span data-lang="hu">Nem SMART:</span><span data-lang="en">Not SMART:</span><span data-lang="ro">Nu este SMART:</span></strong> <span data-lang="hu">"Szeretnék jobb jegyeket kapni."</span><span data-lang="en">"I want to get better grades."</span><span data-lang="ro">"Aș vrea să iau note mai bune."</span><br>
+        <strong>SMART:</strong> <span data-lang="hu">"A következő félévben matematikából legalább 4-es átlagot érek el, heti 3 alkalommal 45 percet tanulva, és minden héten ellenőrzöm a haladást."</span><span data-lang="en">"In the next semester, I will achieve at least a grade 4 average in mathematics by studying 45 minutes three times a week and checking progress every week."</span><span data-lang="ro">"În semestrul următor, voi obține o medie de cel puțin 4 la matematică, studiind de 3 ori pe săptămână câte 45 de minute și verificând progresul în fiecare săptămână."</span></p>
       </div>
     </div>
   </div>
@@ -279,30 +357,30 @@
     <div class="section-header">
       <div class="section-icon" style="background:#fff3e0;">🔥</div>
       <div>
-        <h2>Motiváció Támogatása</h2>
-        <div class="section-sub">Belső motiváció feltárása és erősítése</div>
+        <h2><span data-lang="hu">Motiváció Támogatása</span><span data-lang="en">Supporting Motivation</span><span data-lang="ro">Susținerea motivației</span></h2>
+        <div class="section-sub"><span data-lang="hu">Belső motiváció feltárása és erősítése</span><span data-lang="en">Exploring and strengthening intrinsic motivation</span><span data-lang="ro">Descoperirea și întărirea motivației interne</span></div>
       </div>
     </div>
-    <p style="margin-bottom:1.25rem;">A tartós motiváció alapja a <strong>belső motiváció</strong> – amikor a fiatal saját értékei és érdeklődése hajtja, nem külső nyomás vagy jutalom. Az ifjúságsegítő feladata ennek feltárása és erősítése.</p>
+    <p style="margin-bottom:1.25rem;"><span data-lang="hu">A tartós motiváció alapja a</span><span data-lang="en">The basis of lasting motivation is</span><span data-lang="ro">Baza motivației durabile este</span> <strong><span data-lang="hu">belső motiváció</span><span data-lang="en">intrinsic motivation</span><span data-lang="ro">motivația internă</span></strong> <span data-lang="hu">– amikor a fiatal saját értékei és érdeklődése hajtja, nem külső nyomás vagy jutalom. Az ifjúságsegítő feladata ennek feltárása és erősítése.</span><span data-lang="en">– when the young person is driven by their own values and interests, not external pressure or reward. The youth worker's task is to explore and strengthen this.</span><span data-lang="ro">– atunci când tânărul este motivat de propriile valori și interese, nu de presiuni externe sau recompense. Sarcina lucrătorului de tineret este să o descopere și să o întărească.</span></p>
     <div class="motivation-grid">
       <div class="motivation-card" style="border-color:#E8622A;">
-        <h4>🔥 Belső motiváció feltárása</h4>
-        <p>Kérdések, amelyek segítenek: "Mi az, ami igazán fontos neked?" "Mikor érzed magad a legjobban?" "Mi az, amiben természetesen jó vagy?"</p>
+        <h4><span data-lang="hu">🔥 Belső motiváció feltárása</span><span data-lang="en">🔥 Exploring Intrinsic Motivation</span><span data-lang="ro">🔥 Descoperirea motivației interne</span></h4>
+        <p><span data-lang="hu">Kérdések, amelyek segítenek: "Mi az, ami igazán fontos neked?" "Mikor érzed magad a legjobban?" "Mi az, amiben természetesen jó vagy?"</span><span data-lang="en">Questions that help: "What is truly important to you?" "When do you feel your best?" "What are you naturally good at?"</span><span data-lang="ro">Întrebări care ajută: „Ce este cu adevărat important pentru tine?” „Când te simți cel mai bine?” „La ce ești în mod natural bun?”</span></p>
       </div>
       <div class="motivation-card" style="border-color:#FF8C42;">
-        <h4>🌟 Értékek tisztázása</h4>
-        <p>Segítsük a fiatalt felismerni, hogyan kapcsolódnak céljai a számára fontos értékekhez, erősítve ezzel a belső motivációt.</p>
+        <h4><span data-lang="hu">🌟 Értékek tisztázása</span><span data-lang="en">🌟 Clarifying Values</span><span data-lang="ro">🌟 Clarificarea valorilor</span></h4>
+        <p><span data-lang="hu">Segítsük a fiatalt felismerni, hogyan kapcsolódnak céljai a számára fontos értékekhez, erősítve ezzel a belső motivációt.</span><span data-lang="en">Help the young person recognize how their goals relate to the values important to them, thereby strengthening intrinsic motivation.</span><span data-lang="ro">Ajutăm tânărul să recunoască cum se leagă obiectivele sale de valorile importante pentru el, întărind astfel motivația internă.</span></p>
       </div>
       <div class="motivation-card" style="border-color:#4B2D8B;">
-        <h4>🏆 Sikerélmények felidézése</h4>
-        <p>Bátorítsuk a korábbi sikerek és leküzdött akadályok felidézését, ami növeli az önbizalmat és a motivációt az új kihívásokhoz.</p>
+        <h4><span data-lang="hu">🏆 Sikerélmények felidézése</span><span data-lang="en">🏆 Recalling Successes</span><span data-lang="ro">🏆 Amintirea succeselor</span></h4>
+        <p><span data-lang="hu">Bátorítsuk a korábbi sikerek és leküzdött akadályok felidézését, ami növeli az önbizalmat és a motivációt az új kihívásokhoz.</span><span data-lang="en">Encourage recalling past successes and obstacles overcome, which increases confidence and motivation for new challenges.</span><span data-lang="ro">Încurajăm amintirea succeselor anterioare și a obstacolelor depășite, ceea ce crește încrederea în sine și motivația pentru noi provocări.</span></p>
       </div>
     </div>
     <div class="callout tip">
       <span class="callout-icon">💡</span>
       <div class="callout-text">
-        <strong>Tipp ifjúságsegítőknek</strong>
-        <p>A motiváció nem állandó – hullámzik. Segítsd a fiatalt megérteni, hogy ez normális, és hogy a motiváció csökkenésekor is lehet előre haladni kis lépésekkel. A rendszeres check-in beszélgetések segítenek fenntartani a lendületet.</p>
+        <strong><span data-lang="hu">Tipp ifjúságsegítőknek</span><span data-lang="en">Tip for youth workers</span><span data-lang="ro">Sfat pentru lucrătorii de tineret</span></strong>
+        <p><span data-lang="hu">A motiváció nem állandó – hullámzik. Segítsd a fiatalt megérteni, hogy ez normális, és hogy a motiváció csökkenésekor is lehet előre haladni kis lépésekkel. A rendszeres check-in beszélgetések segítenek fenntartani a lendületet.</span><span data-lang="en">Motivation is not constant – it fluctuates. Help the young person understand that this is normal, and that progress can still be made with small steps even when motivation decreases. Regular check-in conversations help maintain momentum.</span><span data-lang="ro">Motivația nu este constantă – fluctuează. Ajută tânărul să înțeleagă că este normal și că, chiar și atunci când motivația scade, se poate progresa cu pași mici. Discuțiile regulate de check-in ajută la menținerea impulsului.</span></p>
       </div>
     </div>
   </div>
@@ -312,48 +390,48 @@
     <div class="section-header">
       <div class="section-icon" style="background:#fff3e0;">🚧</div>
       <div>
-        <h2>Akadályok Azonosítása és Kezelése</h2>
-        <div class="section-sub">A célok elérésének gátló tényezői</div>
+        <h2><span data-lang="hu">Akadályok Azonosítása és Kezelése</span><span data-lang="en">Identifying and Managing Obstacles</span><span data-lang="ro">Identificarea și gestionarea obstacolelor</span></h2>
+        <div class="section-sub"><span data-lang="hu">A célok elérésének gátló tényezői</span><span data-lang="en">Factors hindering goal achievement</span><span data-lang="ro">Factorii care împiedică atingerea obiectivelor</span></div>
       </div>
     </div>
     <div class="feature-grid">
       <div class="feature-card" style="border-color:#E8622A;">
-        <h3>🧠 Belső akadályok</h3>
+        <h3><span data-lang="hu">🧠 Belső akadályok</span><span data-lang="en">🧠 Internal obstacles</span><span data-lang="ro">🧠 Obstacole interne</span></h3>
         <ul>
-          <li>Önbizalomhiány</li>
-          <li>Félelem a kudarctól</li>
-          <li>Negatív gondolkodási minták</li>
-          <li>Motiváció hiánya</li>
-          <li>Korábbi kudarcok hatása</li>
+          <li><span data-lang="hu">Önbizalomhiány</span><span data-lang="en">Lack of self-confidence</span><span data-lang="ro">Lipsa încrederii în sine</span></li>
+          <li><span data-lang="hu">Félelem a kudarctól</span><span data-lang="en">Fear of failure</span><span data-lang="ro">Frica de eșec</span></li>
+          <li><span data-lang="hu">Negatív gondolkodási minták</span><span data-lang="en">Negative thinking patterns</span><span data-lang="ro">Tipare negative de gândire</span></li>
+          <li><span data-lang="hu">Motiváció hiánya</span><span data-lang="en">Lack of motivation</span><span data-lang="ro">Lipsa motivației</span></li>
+          <li><span data-lang="hu">Korábbi kudarcok hatása</span><span data-lang="en">Impact of past failures</span><span data-lang="ro">Impactul eșecurilor anterioare</span></li>
         </ul>
       </div>
       <div class="feature-card" style="border-color:#FF8C42;">
-        <h3>🌍 Külső akadályok</h3>
+        <h3><span data-lang="hu">🌍 Külső akadályok</span><span data-lang="en">🌍 External obstacles</span><span data-lang="ro">🌍 Obstacole externe</span></h3>
         <ul>
-          <li>Erőforrások hiánya</li>
-          <li>Támogató környezet hiánya</li>
-          <li>Időkorlátok</li>
-          <li>Váratlan események</li>
-          <li>Társadalmi nyomás</li>
+          <li><span data-lang="hu">Erőforrások hiánya</span><span data-lang="en">Lack of resources</span><span data-lang="ro">Lipsa resurselor</span></li>
+          <li><span data-lang="hu">Támogató környezet hiánya</span><span data-lang="en">Lack of supportive environment</span><span data-lang="ro">Lipsa unui mediu de susținere</span></li>
+          <li><span data-lang="hu">Időkorlátok</span><span data-lang="en">Time constraints</span><span data-lang="ro">Constrângeri de timp</span></li>
+          <li><span data-lang="hu">Váratlan események</span><span data-lang="en">Unexpected events</span><span data-lang="ro">Evenimente neașteptate</span></li>
+          <li><span data-lang="hu">Társadalmi nyomás</span><span data-lang="en">Social pressure</span><span data-lang="ro">Presiune socială</span></li>
         </ul>
       </div>
       <div class="feature-card" style="border-color:#4B2D8B;">
-        <h3>📚 Készségbeli akadályok</h3>
+        <h3><span data-lang="hu">📚 Készségbeli akadályok</span><span data-lang="en">📚 Skill-related obstacles</span><span data-lang="ro">📚 Obstacole legate de competențe</span></h3>
         <ul>
-          <li>Hiányzó tudás vagy képességek</li>
-          <li>Tervezési nehézségek</li>
-          <li>Időmenedzsment problémák</li>
-          <li>Prioritások meghatározása</li>
-          <li>Döntéshozatali nehézségek</li>
+          <li><span data-lang="hu">Hiányzó tudás vagy képességek</span><span data-lang="en">Missing knowledge or skills</span><span data-lang="ro">Lipsa cunoștințelor sau abilităților</span></li>
+          <li><span data-lang="hu">Tervezési nehézségek</span><span data-lang="en">Planning difficulties</span><span data-lang="ro">Dificultăți în planificare</span></li>
+          <li><span data-lang="hu">Időmenedzsment problémák</span><span data-lang="en">Time management problems</span><span data-lang="ro">Probleme de gestionare a timpului</span></li>
+          <li><span data-lang="hu">Prioritások meghatározása</span><span data-lang="en">Setting priorities</span><span data-lang="ro">Stabilirea priorităților</span></li>
+          <li><span data-lang="hu">Döntéshozatali nehézségek</span><span data-lang="en">Decision-making difficulties</span><span data-lang="ro">Dificultăți în luarea deciziilor</span></li>
         </ul>
       </div>
     </div>
-    <h3 style="font-size:1.05rem; font-weight:800; margin:1.5rem 0 0.75rem; color:#2c2c54;">Az akadályok leküzdésének stratégiája</h3>
+    <h3 style="font-size:1.05rem; font-weight:800; margin:1.5rem 0 0.75rem; color:#2c2c54;"><span data-lang="hu">Az akadályok leküzdésének stratégiája</span><span data-lang="en">Strategy for overcoming obstacles</span><span data-lang="ro">Strategia de depășire a obstacolelor</span></h3>
     <ol class="step-list">
-      <li><div class="step-text"><strong>Azonosítás és megnevezés</strong> – Az akadályok pontos azonosítása és megnevezése. Csak amit látunk, azt tudjuk kezelni.</div></li>
-      <li><div class="step-text"><strong>Valódi okok feltárása</strong> – Az akadályok mögötti valódi okok megértése. Mi áll valójában a háttérben?</div></li>
-      <li><div class="step-text"><strong>Alternatívák keresése</strong> – Alternatív megközelítések és megoldások keresése. Milyen más utak léteznek?</div></li>
-      <li><div class="step-text"><strong>Erőforrások megszerzése</strong> – Szükséges erőforrások és támogatás azonosítása és megszerzése.</div></li>
+      <li><div class="step-text"><strong><span data-lang="hu">Azonosítás és megnevezés</span><span data-lang="en">Identification and naming</span><span data-lang="ro">Identificare și denumire</span></strong> <span data-lang="hu">– Az akadályok pontos azonosítása és megnevezése. Csak amit látunk, azt tudjuk kezelni.</span><span data-lang="en">– Precise identification and naming of obstacles. We can only manage what we see.</span><span data-lang="ro">– Identificarea și denumirea exactă a obstacolelor. Putem gestiona doar ceea ce vedem.</span></div></li>
+      <li><div class="step-text"><strong><span data-lang="hu">Valódi okok feltárása</span><span data-lang="en">Exploring real causes</span><span data-lang="ro">Descoperirea cauzelor reale</span></strong> <span data-lang="hu">– Az akadályok mögötti valódi okok megértése. Mi áll valójában a háttérben?</span><span data-lang="en">– Understanding the real causes behind obstacles. What is really behind them?</span><span data-lang="ro">– Înțelegerea cauzelor reale din spatele obstacolelor. Ce se află cu adevărat în spate?</span></div></li>
+      <li><div class="step-text"><strong><span data-lang="hu">Alternatívák keresése</span><span data-lang="en">Searching for Alternatives</span><span data-lang="ro">Căutarea alternativelor</span></strong> <span data-lang="hu">– Alternatív megközelítések és megoldások keresése. Milyen más utak léteznek?</span><span data-lang="en">– Searching for alternative approaches and solutions. What other paths exist?</span><span data-lang="ro">– Căutarea unor abordări și soluții alternative. Ce alte căi există?</span></div></li>
+      <li><div class="step-text"><strong><span data-lang="hu">Erőforrások megszerzése</span><span data-lang="en">Acquiring Resources</span><span data-lang="ro">Obținerea resurselor</span></strong> <span data-lang="hu">– Szükséges erőforrások és támogatás azonosítása és megszerzése.</span><span data-lang="en">– Identifying and obtaining necessary resources and support.</span><span data-lang="ro">– Identificarea și obținerea resurselor și sprijinului necesar.</span></div></li>
     </ol>
   </div>
 
@@ -362,44 +440,44 @@
     <div class="section-header">
       <div class="section-icon" style="background:#fff3e0;">📋</div>
       <div>
-        <h2>Cselekvési Tervek Készítése</h2>
-        <div class="section-sub">A céltól a konkrét lépésekig</div>
+        <h2><span data-lang="hu">Cselekvési Tervek Készítése</span><span data-lang="en">Creating Action Plans</span><span data-lang="ro">Elaborarea planurilor de acțiune</span></h2>
+        <div class="section-sub"><span data-lang="hu">A céltól a konkrét lépésekig</span><span data-lang="en">From the goal to concrete steps</span><span data-lang="ro">De la obiectiv la pași concreți</span></div>
       </div>
     </div>
     <div class="intro-box">
-      A cselekvési terv a célok <strong>konkrét lépésekre bontása</strong>, amely segít a fiataloknak átlátni a folyamatot és fenntartani a motivációt a cél eléréséig.
+      <span data-lang="hu">A cselekvési terv a célok</span><span data-lang="en">The action plan breaks down the goals</span><span data-lang="ro">Planul de acțiune este</span> <strong><span data-lang="hu">konkrét lépésekre bontása</span><span data-lang="en">into concrete steps</span><span data-lang="ro">împărțirea obiectivelor în pași concreți</span></strong><span data-lang="hu">, amely segít a fiataloknak átlátni a folyamatot és fenntartani a motivációt a cél eléréséig.</span><span data-lang="en">, which helps young people understand the process and maintain motivation until the goal is reached.</span><span data-lang="ro">, care ajută tinerii să înțeleagă procesul și să își mențină motivația până la atingerea scopului.</span>
     </div>
     <ol class="step-list">
       <li>
         <div class="step-text">
-          <strong>Bontsd le a célt kisebb lépésekre</strong><br>
-          A nagy cél kisebb, könnyen teljesíthető részfeladatokra bontása segít elkerülni a túlterheltség érzését.
+          <strong><span data-lang="hu">Bontsd le a célt kisebb lépésekre</span><span data-lang="en">Break the goal into smaller steps</span><span data-lang="ro">Împarte obiectivul în pași mai mici</span></strong><br>
+          <span data-lang="hu">A nagy cél kisebb, könnyen teljesíthető részfeladatokra bontása segít elkerülni a túlterheltség érzését.</span><span data-lang="en">Breaking a big goal into smaller, manageable tasks helps avoid feeling overwhelmed.</span><span data-lang="ro">Împărțirea unui obiectiv mare în sarcini mai mici, ușor de realizat, ajută la evitarea sentimentului de copleșire.</span>
         </div>
       </li>
       <li>
         <div class="step-text">
-          <strong>Határozz meg konkrét tevékenységeket</strong><br>
-          Minden lépéshez rendelj konkrét, végrehajtható tevékenységeket, amelyek egyértelműek és megvalósíthatók.
+          <strong><span data-lang="hu">Határozz meg konkrét tevékenységeket</span><span data-lang="en">Define specific activities</span><span data-lang="ro">Stabilește activități concrete</span></strong><br>
+          <span data-lang="hu">Minden lépéshez rendelj konkrét, végrehajtható tevékenységeket, amelyek egyértelműek és megvalósíthatók.</span><span data-lang="en">Assign clear and achievable activities to each step.</span><span data-lang="ro">Atribuie fiecărui pas activități clare și realizabile, care sunt ușor de înțeles și aplicat.</span>
         </div>
       </li>
       <li>
         <div class="step-text">
-          <strong>Állíts fel határidőket</strong><br>
-          Minden tevékenységhez rendelj reális határidőt, amely segít fenntartani a lendületet és a fókuszt.
+          <strong><span data-lang="hu">Állíts fel határidőket</span><span data-lang="en">Set deadlines</span><span data-lang="ro">Stabilește termene limită</span></strong><br>
+          <span data-lang="hu">Minden tevékenységhez rendelj reális határidőt, amely segít fenntartani a lendületet és a fókuszt.</span><span data-lang="en">Assign realistic deadlines to each activity to help maintain momentum and focus.</span><span data-lang="ro">Atribuie fiecărei activități un termen realist, care ajută la menținerea ritmului și a concentrării.</span>
         </div>
       </li>
       <li>
         <div class="step-text">
-          <strong>Azonosítsd a szükséges erőforrásokat</strong><br>
-          Határozd meg, milyen eszközökre, támogatásra vagy információra van szükség a tevékenységek végrehajtásához.
+          <strong><span data-lang="hu">Azonosítsd a szükséges erőforrásokat</span><span data-lang="en">Identify necessary resources</span><span data-lang="ro">Identifică resursele necesare</span></strong><br>
+          <span data-lang="hu">Határozd meg, milyen eszközökre, támogatásra vagy információra van szükség a tevékenységek végrehajtásához.</span><span data-lang="en">Determine what tools, support, or information are needed to carry out the activities.</span><span data-lang="ro">Determină ce instrumente, sprijin sau informații sunt necesare pentru realizarea activităților.</span>
         </div>
       </li>
     </ol>
     <div class="callout tip">
       <span class="callout-icon">💡</span>
       <div class="callout-text">
-        <strong>Tipp ifjúságsegítőknek</strong>
-        <p>Segítsd a fiatalokat a cselekvési terv vizualizálásában! Használhattok színes post-it jegyzeteket, gondolattérképet vagy digitális alkalmazásokat a terv szemléltetésére. A vizuális megjelenítés növeli az elköteleződést.</p>
+        <strong><span data-lang="hu">Tipp ifjúságsegítőknek</span><span data-lang="en">Tip for youth workers</span><span data-lang="ro">Sfat pentru lucrătorii de tineret</span></strong>
+        <p><span data-lang="hu">Segítsd a fiatalokat a cselekvési terv vizualizálásában! Használhattok színes post-it jegyzeteket, gondolattérképet vagy digitális alkalmazásokat a terv szemléltetésére. A vizuális megjelenítés növeli az elköteleződést.</span><span data-lang="en">Help young people visualize the action plan! You can use colorful post-it notes, mind maps, or digital apps to illustrate the plan. Visual representation increases engagement.</span><span data-lang="ro">Ajută tinerii să vizualizeze planul de acțiune! Puteți folosi notițe colorate post-it, hărți mentale sau aplicații digitale pentru a ilustra planul. Reprezentarea vizuală crește angajamentul.</span></p>
       </div>
     </div>
     <span id="video-2"></span>
@@ -414,7 +492,7 @@
         allowfullscreen>
       </iframe>
     </div>
-    <p class="video-caption">A videó bemutatja, hogyan bonthatók le a nagy célok apró, kezelhető lépésekre, hogyan azonosíthatók az akadályok előre, és hogyan tartható fenn a fiatalok motivációja rendszeres visszajelzéssel és a kis sikerek megünneplésével.</p>
+    <p class="video-caption"><span data-lang="hu">A videó bemutatja, hogyan bonthatók le a nagy célok apró, kezelhető lépésekre, hogyan azonosíthatók az akadályok előre, és hogyan tartható fenn a fiatalok motivációja rendszeres visszajelzéssel és a kis sikerek megünneplésével.</span><span data-lang="en">The video demonstrates how large goals can be broken down into small, manageable steps, how obstacles can be anticipated, and how young people’s motivation can be maintained through regular feedback and celebrating small successes.</span><span data-lang="ro">Videoclipul arată cum pot fi împărțite obiectivele mari în pași mici și gestionabili, cum pot fi identificate obstacolele din timp și cum poate fi menținută motivația tinerilor prin feedback regulat și sărbătorirea micilor succese.</span></p>
   </div>
 
   <!-- SECTION 6: ELSZÁMOLTATHATÓSÁG -->
@@ -422,33 +500,33 @@
     <div class="section-header">
       <div class="section-icon" style="background:#fff3e0;">🤝</div>
       <div>
-        <h2>Elszámoltathatóság és Követés</h2>
-        <div class="section-sub">A haladás nyomon követése és a motiváció fenntartása</div>
+        <h2><span data-lang="hu">Elszámoltathatóság és Követés</span><span data-lang="en">Accountability and Follow-up</span><span data-lang="ro">Responsabilitate și monitorizare</span></h2>
+        <div class="section-sub"><span data-lang="hu">A haladás nyomon követése és a motiváció fenntartása</span><span data-lang="en">Tracking progress and maintaining motivation</span><span data-lang="ro">Urmărirea progresului și menținerea motivației</span></div>
       </div>
     </div>
     <div class="motivation-grid">
       <div class="motivation-card" style="border-color:#E8622A;">
         <h4>📅 Rendszeres check-in</h4>
-        <p>Előre egyeztetett időpontokban történő találkozók, amelyek során átbeszélitek a haladást és az esetleges nehézségeket.</p>
+        <p><span data-lang="hu">Előre egyeztetett időpontokban történő találkozók, amelyek során átbeszélitek a haladást és az esetleges nehézségeket.</span><span data-lang="en">Meetings scheduled in advance to discuss progress and any challenges.</span><span data-lang="ro">Întâlniri programate în avans, în cadrul cărora discutați progresul și eventualele dificultăți.</span></p>
       </div>
       <div class="motivation-card" style="border-color:#FF8C42;">
-        <h4>📓 Haladási napló</h4>
-        <p>A fiatal vezet egy naplót, amelyben dokumentálja a megtett lépéseket, sikereket és kihívásokat a céljai felé vezető úton.</p>
+        <h4><span data-lang="hu">📓 Haladási napló</span><span data-lang="en">📓 Progress Journal</span><span data-lang="ro">📓 Jurnal de progres</span></h4>
+        <p><span data-lang="hu">A fiatal vezet egy naplót, amelyben dokumentálja a megtett lépéseket, sikereket és kihívásokat a céljai felé vezető úton.</span><span data-lang="en">The young person keeps a journal documenting steps taken, successes, and challenges on their path to their goals.</span><span data-lang="ro">Tânărul ține un jurnal în care documentează pașii făcuți, succesele și provocările pe drumul către obiectivele sale.</span></p>
       </div>
       <div class="motivation-card" style="border-color:#4B2D8B;">
-        <h4>👥 Támogató közösség</h4>
-        <p>Hasonló célokkal rendelkező fiatalok csoportja, akik kölcsönösen támogatják és motiválják egymást.</p>
+        <h4><span data-lang="hu">👥 Támogató közösség</span><span data-lang="en">👥 Supportive Community</span><span data-lang="ro">👥 Comunitate de sprijin</span></h4>
+        <p><span data-lang="hu">Hasonló célokkal rendelkező fiatalok csoportja, akik kölcsönösen támogatják és motiválják egymást.</span><span data-lang="en">A group of young people with similar goals who mutually support and motivate each other.</span><span data-lang="ro">Un grup de tineri cu obiective similare, care se susțin și motivează reciproc.</span></p>
       </div>
       <div class="motivation-card" style="border-color:#1a7a4a;">
-        <h4>🏁 Mérföldkövek</h4>
-        <p>A nagyobb célokat kisebb mérföldkövekre bontva, minden elért eredményt elismerve és megünnepelve.</p>
+        <h4><span data-lang="hu">🏁 Mérföldkövek</span><span data-lang="en">🏁 Milestones</span><span data-lang="ro">🏁 Repere</span></h4>
+        <p><span data-lang="hu">A nagyobb célokat kisebb mérföldkövekre bontva, minden elért eredményt elismerve és megünnepelve.</span><span data-lang="en">Breaking larger goals into smaller milestones, recognizing and celebrating each achievement.</span><span data-lang="ro">Împărțirea obiectivelor mari în repere mai mici, recunoscând și sărbătorind fiecare realizare.</span></p>
       </div>
     </div>
     <div class="callout warning">
       <span class="callout-icon">⚠️</span>
       <div class="callout-text">
-        <strong>Fontos: Az elszámoltathatóság ≠ számonkérés</strong>
-        <p>Teremts támogató légkört, ahol a fiatal biztonságban érzi magát megosztani a kihívásait és esetleges kudarcait is. Az elszámoltathatóság a bizalom és a támogatás eszköze, nem a kontrollé.</p>
+        <strong><span data-lang="hu">Fontos: Az elszámoltathatóság ≠ számonkérés</span><span data-lang="en">Important: Accountability ≠ Checking up</span><span data-lang="ro">Important: Responsabilitatea ≠ control</span></strong>
+        <p><span data-lang="hu">Teremts támogató légkört, ahol a fiatal biztonságban érzi magát megosztani a kihívásait és esetleges kudarcait is. Az elszámoltathatóság a bizalom és a támogatás eszköze, nem a kontrollé.</span><span data-lang="en">Create a supportive atmosphere where the young person feels safe sharing challenges and possible setbacks. Accountability is a tool of trust and support, not control.</span><span data-lang="ro">Creează un mediu de susținere în care tânărul să se simtă în siguranță să împărtășească provocările și eventualele eșecuri. Responsabilitatea este un instrument al încrederii și sprijinului, nu al controlului.</span></p>
       </div>
     </div>
   </div>
@@ -458,63 +536,63 @@
     <div class="section-header">
       <div class="section-icon" style="background:#fff3e0;">🏆</div>
       <div>
-        <h2>Siker Mérése és Ünneplése</h2>
-        <div class="section-sub">Az eredmények elismerése és a motiváció megerősítése</div>
+        <h2><span data-lang="hu">Siker Mérése és Ünneplése</span><span data-lang="en">Measuring and Celebrating Success</span><span data-lang="ro">Măsurarea și sărbătorirea succesului</span></h2>
+        <div class="section-sub"><span data-lang="hu">Az eredmények elismerése és a motiváció megerősítése</span><span data-lang="en">Recognizing results and reinforcing motivation</span><span data-lang="ro">Recunoașterea rezultatelor și consolidarea motivației</span></div>
       </div>
     </div>
     <div class="feature-grid">
       <div class="feature-card" style="border-color:#E8622A;">
-        <h3>📊 Objektív mérőszámok</h3>
+        <h3><span data-lang="hu">📊 Objektív mérőszámok</span><span data-lang="en">📊 Objective Metrics</span><span data-lang="ro">📊 Indicatori obiectivi</span></h3>
         <ul>
-          <li>Konkrét, számszerűsíthető eredmények</li>
-          <li>Jobb jegyek, több megtakarítás</li>
-          <li>Kevesebb késés, több elvégzett feladat</li>
-          <li>Mérhető viselkedésváltozás</li>
+          <li><span data-lang="hu">Konkrét, számszerűsíthető eredmények</span><span data-lang="en">Concrete, quantifiable outcomes</span><span data-lang="ro">Rezultate concrete, cuantificabile</span></li>
+          <li><span data-lang="hu">Jobb jegyek, több megtakarítás</span><span data-lang="en">Better grades, more savings</span><span data-lang="ro">Note mai bune, economii mai mari</span></li>
+          <li><span data-lang="hu">Kevesebb késés, több elvégzett feladat</span><span data-lang="en">Less lateness, more tasks completed</span><span data-lang="ro">Întârzieri mai puține, sarcini finalizate mai multe</span></li>
+          <li><span data-lang="hu">Mérhető viselkedésváltozás</span><span data-lang="en">Measurable behavior change</span><span data-lang="ro">Schimbări comportamentale măsurabile</span></li>
         </ul>
       </div>
       <div class="feature-card" style="border-color:#FF8C42;">
-        <h3>❤️ Szubjektív értékelés</h3>
+        <h3><span data-lang="hu">❤️ Szubjektív értékelés</span><span data-lang="en">❤️ Subjective Evaluation</span><span data-lang="ro">❤️ Evaluare subiectivă</span></h3>
         <ul>
-          <li>A fiatal saját érzései és elégedettsége</li>
-          <li>Magabiztosság növekedése</li>
-          <li>Stressz csökkenése</li>
-          <li>Önértékelés változása</li>
+          <li><span data-lang="hu">A fiatal saját érzései és elégedettsége</span><span data-lang="en">The young person’s own feelings and satisfaction</span><span data-lang="ro">Sentimentele și satisfacția tânărului</span></li>
+          <li><span data-lang="hu">Magabiztosság növekedése</span><span data-lang="en">Increased confidence</span><span data-lang="ro">Creșterea încrederii în sine</span></li>
+          <li><span data-lang="hu">Stressz csökkenése</span><span data-lang="en">Reduced stress</span><span data-lang="ro">Reducerea stresului</span></li>
+          <li><span data-lang="hu">Önértékelés változása</span><span data-lang="en">Changes in self-assessment</span><span data-lang="ro">Schimbarea autoevaluării</span></li>
         </ul>
       </div>
       <div class="feature-card" style="border-color:#4B2D8B;">
-        <h3>📸 Dokumentálás</h3>
+        <h3><span data-lang="hu">📸 Dokumentálás</span><span data-lang="en">📸 Documentation</span><span data-lang="ro">📸 Documentare</span></h3>
         <ul>
-          <li>Fotók, naplók, videók</li>
-          <li>A fejlődés láthatóvá tétele</li>
-          <li>Emlékeztetés a megtett útra</li>
-          <li>Visszajelzések gyűjtése</li>
+          <li><span data-lang="hu">Fotók, naplók, videók</span><span data-lang="en">Photos, journals, videos</span><span data-lang="ro">Fotografii, jurnale, videoclipuri</span></li>
+          <li><span data-lang="hu">A fejlődés láthatóvá tétele</span><span data-lang="en">Making progress visible</span><span data-lang="ro">Vizibilizarea progresului</span></li>
+          <li><span data-lang="hu">Emlékeztetés a megtett útra</span><span data-lang="en">A reminder of the journey traveled</span><span data-lang="ro">Amintirea parcursului realizat</span></li>
+          <li><span data-lang="hu">Visszajelzések gyűjtése</span><span data-lang="en">Collecting feedback</span><span data-lang="ro">Colectarea feedback-ului</span></li>
         </ul>
       </div>
     </div>
     <div class="callout tip">
       <span class="callout-icon">🎉</span>
       <div class="callout-text">
-        <strong>Az ünneplés jelentősége</strong>
-        <p>Az elért sikerek megünneplése nem csak jutalom, hanem a coaching folyamat szerves része. Segít megerősíteni a pozitív viselkedést, növeli az önbizalmat és motivációt ad a további célok kitűzéséhez. Bátorítsuk a fiatalokat, hogy találják meg a számukra megfelelő módját a sikereik elismerésének!</p>
+        <strong><span data-lang="hu">Az ünneplés jelentősége</span><span data-lang="en">The importance of celebration</span><span data-lang="ro">Importanța sărbătoririi</span></strong>
+        <p><span data-lang="hu">Az elért sikerek megünneplése nem csak jutalom, hanem a coaching folyamat szerves része. Segít megerősíteni a pozitív viselkedést, növeli az önbizalmat és motivációt ad a további célok kitűzéséhez. Bátorítsuk a fiatalokat, hogy találják meg a számukra megfelelő módját a sikereik elismerésének!</span><span data-lang="en">Celebrating achievements is not just a reward but an integral part of the coaching process. It helps reinforce positive behavior, boosts confidence, and provides motivation for setting further goals. Encourage young people to find the way that suits them best to acknowledge their successes!</span><span data-lang="ro">Sărbătorirea succeselor obținute nu este doar o recompensă, ci o parte integrantă a procesului de coaching. Ajută la consolidarea comportamentului pozitiv, crește încrederea în sine și oferă motivație pentru stabilirea unor noi obiective. Încurajăm tinerii să găsească modalitatea potrivită pentru ei de a-și recunoaște succesele!</span></p>
       </div>
     </div>
   </div>
 
   <!-- ÖSSZEFOGLALÁS: A 3 MODUL ÖSSZEKAPCSOLÁSA -->
   <div class="module-summary">
-    <h3>🎓 A három Coaching Modul összekapcsolása</h3>
+    <h3><span data-lang="hu">🎓 A három Coaching Modul összekapcsolása</span><span data-lang="en">🎓 Connecting the Three Coaching Modules</span><span data-lang="ro">🎓 Conectarea celor trei Module de Coaching</span></h3>
     <div class="module-links">
       <div class="module-link-card">
-        <h4>1️⃣ Coaching Alapok</h4>
-        <p>Megteremti a bizalmi kapcsolatot és a támogató környezetet a GROW modell segítségével.</p>
+        <h4><span data-lang="hu">1️⃣ Coaching Alapok</span><span data-lang="en">1️⃣ Coaching Basics</span><span data-lang="ro">1️⃣ Bazele Coaching-ului</span></h4>
+        <p><span data-lang="hu">Megteremti a bizalmi kapcsolatot és a támogató környezetet a GROW modell segítségével.</span><span data-lang="en">Establishes a trusting relationship and a supportive environment using the GROW model.</span><span data-lang="ro">Creează o relație de încredere și un mediu de susținere cu ajutorul modelului GROW.</span></p>
       </div>
       <div class="module-link-card">
-        <h4>2️⃣ Aktív Hallgatás</h4>
-        <p>Segít feltárni a fiatal valódi céljait és motivációit a hatékony kérdezéstechnikával.</p>
+        <h4><span data-lang="hu">2️⃣ Aktív Hallgatás</span><span data-lang="en">2️⃣ Active Listening</span><span data-lang="ro">2️⃣ Ascultare Activă</span></h4>
+        <p><span data-lang="hu">Segít feltárni a fiatal valódi céljait és motivációit a hatékony kérdezéstechnikával.</span><span data-lang="en">Helps uncover the young person's true goals and motivations through effective questioning techniques.</span><span data-lang="ro">Ajută la descoperirea adevăratelor obiective și motivații ale tinerilor prin tehnici eficiente de întrebare.</span></p>
       </div>
       <div class="module-link-card">
-        <h4>3️⃣ Célkitűzés és Motiváció</h4>
-        <p>Konkrét eszközöket ad a célok eléréséhez és a fejlődés fenntartásához.</p>
+        <h4><span data-lang="hu">3️⃣ Célkitűzés és Motiváció</span><span data-lang="en">3️⃣ Goal Setting and Motivation</span><span data-lang="ro">3️⃣ Stabilirea Obiectivelor și Motivația</span></h4>
+        <p><span data-lang="hu">Konkrét eszközöket ad a célok eléréséhez és a fejlődés fenntartásához.</span><span data-lang="en">Provides concrete tools for achieving goals and maintaining progress.</span><span data-lang="ro">Oferă instrumente concrete pentru atingerea obiectivelor și menținerea progresului.</span></p>
       </div>
     </div>
   </div>
@@ -524,59 +602,59 @@
     <div class="section-header">
       <div class="section-icon" style="background:#fff3e0;">🔍</div>
       <div>
-        <h2>Önreflexió és Gyakorlat</h2>
-        <div class="section-sub">Értékeld saját célkitűzési és motivációs készségeidet</div>
+        <h2><span data-lang="hu">Önreflexió és Gyakorlat</span><span data-lang="en">Self-Reflection and Practice</span><span data-lang="ro">Auto-reflecție și Practică</span></h2>
+        <div class="section-sub"><span data-lang="hu">Értékeld saját célkitűzési és motivációs készségeidet</span><span data-lang="en">Evaluate your own goal-setting and motivation skills</span><span data-lang="ro">Evaluează-ți propriile abilități de stabilire a obiectivelor și motivație</span></div>
       </div>
     </div>
     <div class="reflection-section">
-      <h3>🎯 Célkitűzési Készségek Önértékelése</h3>
+      <h3><span data-lang="hu">🎯 Célkitűzési Készségek Önértékelése</span><span data-lang="en">🎯 Goal-Setting Skills Self-Assessment</span><span data-lang="ro">🎯 Autoevaluarea Abilităților de Stabilire a Obiectivelor</span></h3>
 
       <div class="reflection-question">
-        <label>1. Mennyire érzed magad felkészültnek a SMART célok alkalmazásában fiatalokkal?</label>
+        <label><span data-lang="hu">1. Mennyire érzed magad felkészültnek a SMART célok alkalmazásában fiatalokkal?</span><span data-lang="en">1. How prepared do you feel to apply SMART goals with young people?</span><span data-lang="ro">1. Cât de pregătit te simți să aplici obiective SMART cu tinerii?</span></label>
         <div class="scale-options">
-          <input type="radio" name="q1" id="q1_1" value="1"><label for="q1_1">1 – Kezdő</label>
+          <input type="radio" name="q1" id="q1_1" value="1"><label for="q1_1"><span data-lang="hu">1 – Kezdő</span><span data-lang="en">1 – Beginner</span><span data-lang="ro">1 – Începător</span></label>
           <input type="radio" name="q1" id="q1_2" value="2"><label for="q1_2">2</label>
-          <input type="radio" name="q1" id="q1_3" value="3"><label for="q1_3">3 – Közepes</label>
+          <input type="radio" name="q1" id="q1_3" value="3"><label for="q1_3"><span data-lang="hu">3 – Közepes</span><span data-lang="en">3 – Intermediate</span><span data-lang="ro">3 – Mediu</span></label>
           <input type="radio" name="q1" id="q1_4" value="4"><label for="q1_4">4</label>
           <input type="radio" name="q1" id="q1_5" value="5"><label for="q1_5">5 – Magabiztos</label>
         </div>
       </div>
 
       <div class="reflection-question">
-        <label>2. Gondolj egy fiatalra, akivel dolgozol. Milyen típusú akadályokkal szembesül leggyakrabban?</label>
+        <label><span data-lang="hu">2. Gondolj egy fiatalra, akivel dolgozol. Milyen típusú akadályokkal szembesül leggyakrabban?</span><span data-lang="en">2. Think of a young person you work with. What types of obstacles do they most often face?</span><span data-lang="ro">2. Gândește-te la un tânăr cu care lucrezi. Ce tipuri de obstacole întâmpină cel mai des?</span></label>
         <div class="scale-options">
-          <input type="radio" name="q2" id="q2_a" value="a"><label for="q2_a">Belső akadályok</label>
-          <input type="radio" name="q2" id="q2_b" value="b"><label for="q2_b">Külső akadályok</label>
-          <input type="radio" name="q2" id="q2_c" value="c"><label for="q2_c">Készségbeli akadályok</label>
+          <input type="radio" name="q2" id="q2_a" value="a"><label for="q2_a"><span data-lang="hu">Belső akadályok</span><span data-lang="en">Internal obstacles</span><span data-lang="ro">Obstacole interne</span></label>
+          <input type="radio" name="q2" id="q2_b" value="b"><label for="q2_b"><span data-lang="hu">Külső akadályok</span><span data-lang="en">External obstacles</span><span data-lang="ro">Obstacole externe</span></label>
+          <input type="radio" name="q2" id="q2_c" value="c"><label for="q2_c"><span data-lang="hu">Készségbeli akadályok</span><span data-lang="en">Skill-related obstacles</span><span data-lang="ro">Obstacole legate de competențe</span></label>
           <input type="radio" name="q2" id="q2_d" value="d"><label for="q2_d">Vegyes</label>
         </div>
       </div>
 
       <div class="reflection-question">
-        <label>3. Írj le egy konkrét célt SMART formátumban, amelyet egy fiatallal közösen fogalmaznál meg:</label>
+        <label><span data-lang="hu">3. Írj le egy konkrét célt SMART formátumban, amelyet egy fiatallal közösen fogalmaznál meg:</span><span data-lang="en">3. Write down a specific goal in SMART format that you would formulate together with a young person:</span><span data-lang="ro">3. Scrie un obiectiv concret în format SMART pe care l-ai formula împreună cu un tânăr:</span></label>
         <textarea class="reflection-textarea" placeholder="Pl.: 'A következő 3 hónapban..., amelyet mérni fogunk azzal, hogy..., és ehhez szükséges...'"></textarea>
       </div>
 
       <div class="reflection-question">
-        <label>4. Hogyan tervezed beépíteni a cselekvési terv készítést a mindennapi munkádba?</label>
+        <label><span data-lang="hu">4. Hogyan tervezed beépíteni a cselekvési terv készítést a mindennapi munkádba?</span><span data-lang="en">4. How do you plan to integrate action planning into your daily work?</span><span data-lang="ro">4. Cum plănuiești să integrezi elaborarea planului de acțiune în munca ta zilnică?</span></label>
         <textarea class="reflection-textarea" placeholder="Konkrét terved..."></textarea>
       </div>
 
       <div class="reflection-question">
-        <label>5. Mennyire tartod fontosnak a sikerek megünneplését a coaching folyamatban?</label>
+        <label><span data-lang="hu">5. Mennyire tartod fontosnak a sikerek megünneplését a coaching folyamatban?</span><span data-lang="en">5. How important do you consider celebrating successes in the coaching process?</span><span data-lang="ro">5. Cât de important consideri să sărbătorești succesele în procesul de coaching?</span></label>
         <div class="scale-options">
-          <input type="radio" name="q5" id="q5_1" value="1"><label for="q5_1">1 – Nem fontos</label>
+          <input type="radio" name="q5" id="q5_1" value="1"><label for="q5_1"><span data-lang="hu">1 – Nem fontos</span><span data-lang="en">1 – Not important</span><span data-lang="ro">1 – Nu este important</span></label>
           <input type="radio" name="q5" id="q5_2" value="2"><label for="q5_2">2</label>
-          <input type="radio" name="q5" id="q5_3" value="3"><label for="q5_3">3 – Közepes</label>
+          <input type="radio" name="q5" id="q5_3" value="3"><label for="q5_3"><span data-lang="hu">3 – Közepes</span><span data-lang="en">3 – Moderate</span><span data-lang="ro">3 – Mediu</span></label>
           <input type="radio" name="q5" id="q5_4" value="4"><label for="q5_4">4</label>
           <input type="radio" name="q5" id="q5_5" value="5"><label for="q5_5">5 – Nagyon fontos</label>
         </div>
       </div>
 
-      <button class="reflection-btn" onclick="showResult()">Visszajelzés kérése</button>
+      <button class="reflection-btn" onclick="showResult()"><span data-lang="hu">Visszajelzés kérése</span><span data-lang="en">Request Feedback</span><span data-lang="ro">Cerere de feedback</span></button>
       <div class="reflection-result" id="reflResult">
-        <strong>🎉 Gratulálok a Coaching Modul elvégzéséhez!</strong><br>
-        Sikeresen végigjártad mindhárom coaching modult. Most már rendelkezész az eszközökkel a bizalmi kapcsolat kiépítéséhez (1. modul), a hatékony hallgatáshoz és kérdezéshez (2. modul), és a célkitűzés támogatásához (3. modul). Következő lépés: próbáld ki a tanultakat egy valós helyzetben, és reflektálj a tapasztalataidra!
+        <strong><span data-lang="hu">🎉 Gratulálok a Coaching Modul elvégzéséhez!</span><span data-lang="en">🎉 Congratulations on Completing the Coaching Module!</span><span data-lang="ro">🎉 Felicitări pentru finalizarea Modulului de Coaching!</span></strong><br>
+        <span data-lang="hu">Sikeresen végigjártad mindhárom coaching modult. Most már rendelkezész az eszközökkel a bizalmi kapcsolat kiépítéséhez (1. modul), a hatékony hallgatáshoz és kérdezéshez (2. modul), és a célkitűzés támogatásához (3. modul). Következő lépés: próbáld ki a tanultakat egy valós helyzetben, és reflektálj a tapasztalataidra!</span><span data-lang="en">You have successfully completed all three coaching modules. You now have the tools to build trust (Module 1), practice effective listening and questioning (Module 2), and support goal setting (Module 3). Next step: try out what you have learned in a real situation and reflect on your experiences!</span><span data-lang="ro">Ai parcurs cu succes toate cele trei module de coaching. Acum dispui de instrumentele necesare pentru a construi o relație de încredere (modul 1), pentru ascultare și întrebare eficientă (modul 2) și pentru susținerea stabilirii obiectivelor (modul 3). Pasul următor: aplică ceea ce ai învățat într-o situație reală și reflectează asupra experiențelor tale!</span>
       </div>
     </div>
   </div>
@@ -585,8 +663,8 @@
 
 <div class="download-footer">
   <div class="download-footer-inner">
-    <h3>📄 Modul letöltése PDF formátumban</h3>
-    <p>Töltsd le a Célkitűzés és Motiváció Támogatása modult PDF formátumban.</p>
+    <h3><span data-lang="hu">📄 Modul letöltése PDF formátumban</span><span data-lang="en">📄 Download Module in PDF Format</span><span data-lang="ro">📄 Descarcă modulul în format PDF</span></h3>
+    <p><span data-lang="hu">Töltsd le a Célkitűzés és Motiváció Támogatása modult PDF formátumban.</span><span data-lang="en">Download the Goal Setting and Motivation Support module in PDF format.</span><span data-lang="ro">Descarcă modulul Sprijinirea Stabilirii Obiectivelor și Motivației în format PDF.</span></p>
     <div class="download-btns">
       <a href="coach3_hu.pdf" class="dl-btn" download>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
@@ -605,7 +683,7 @@
 </div>
 
 <div class="eu-footer">
-  <p>Az Európai Unió finanszírozásával. Az itt szereplő információk és állítások a szerző(k) álláspontját képviselik, és nem feltétlenül tükrözik az Európai Unió vagy a Tempus Közalapítvány hivatalos véleményét.</p>
+  <p><span data-lang="hu">Az Európai Unió finanszírozásával. Az itt szereplő információk és állítások a szerző(k) álláspontját képviselik, és nem feltétlenül tükrözik az Európai Unió vagy a Tempus Közalapítvány hivatalos véleményét.</span><span data-lang="en">Funded by the European Union. The information and views expressed here represent the author(s)' positions and do not necessarily reflect the official opinion of the European Union or the Tempus Public Foundation.</span><span data-lang="ro">Finanțat de Uniunea Europeană. Informațiile și opiniile exprimate aici reflectă punctul de vedere al autorului/autorilor și nu reflectă neapărat poziția oficială a Uniunii Europene sau a Fundației Tempus.</span></p>
   <p style="margin-top:0.5rem;">IMELO Projekt · 2024-3-HU01-KA210-YOU-000290582</p>
 </div>
 
@@ -615,6 +693,31 @@ function showResult() {
   r.style.display = 'block';
   r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
+</script>
+
+<div class="chapter-nav">
+  <a href="../coaching2/index.html">← <span data-lang="hu"><span data-lang="hu">Coaching 2</span><span data-lang="en">Coaching 2</span><span data-lang="ro">Coaching 2</span></span><span data-lang="en"><span data-lang="hu">Coaching 2</span><span data-lang="en">Coaching 2</span><span data-lang="ro">Coaching 2</span></span><span data-lang="ro"><span data-lang="hu">Coaching 2</span><span data-lang="en">Coaching 2</span><span data-lang="ro">Coaching 2</span></span></a>
+  <a href="../index.html" class="nav-home"><span data-lang="hu"><span data-lang="hu">🏠 Főoldal</span><span data-lang="en">🏠 Home</span><span data-lang="ro">🏠 Pagina principală</span></span><span data-lang="en">🏠 Home</span><span data-lang="ro">🏠 Acasă</span></a>
+  <span></span>
+</div>
+
+<script>
+  // Language switcher
+  (function() {
+    var stored = localStorage.getItem('imelo-lang') || 'hu';
+    document.body.setAttribute('data-active-lang', stored);
+    document.querySelectorAll('.lang-btn-sub').forEach(function(btn) {
+      if (btn.getAttribute('data-lang-switch') === stored) btn.classList.add('active');
+    });
+  })();
+  function switchLangSub(lang) {
+    document.body.setAttribute('data-active-lang', lang);
+    localStorage.setItem('imelo-lang', lang);
+    document.querySelectorAll('.lang-btn-sub').forEach(function(btn) {
+      btn.classList.toggle('active', btn.getAttribute('data-lang-switch') === lang);
+    });
+  }
+
 </script>
 </body>
 </html>

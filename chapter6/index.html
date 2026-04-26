@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>6. Fejezet – Problémamegoldás és Döntéshozatal | IMELO Toolbox</title>
+  <title><span data-lang="hu">6. Fejezet – Problémamegoldás és Döntéshozatal | IMELO Toolbox</span><span data-lang="en">Chapter 6 – Problem Solving and Decision Making | IMELO Toolbox</span><span data-lang="ro">Capitolul 6 – Rezolvarea problemelor și Luarea deciziilor | IMELO Toolbox</span></title>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -117,28 +117,106 @@
 
     /* FOOTER */
     .chapter-footer { background: #1a1a2e; color: white; text-align: center; padding: 1.5rem; font-size: 0.8rem; opacity: 0.8; }
+  
+    /* Chapter navigation */
+    .chapter-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 1.5rem;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      margin: 1.5rem 0;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .chapter-nav a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: linear-gradient(135deg, #1a7a4a 0%, #2ecc71 100%);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+      transition: opacity 0.2s;
+    }
+    .chapter-nav a:hover { opacity: 0.85; }
+    .chapter-nav .nav-home {
+      background: linear-gradient(135deg, #E8622A 0%, #f39c12 100%);
+    }
+    .chapter-nav .nav-center {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #888;
+      flex: 1;
+    }
+    @media (max-width: 600px) {
+      .chapter-nav { flex-direction: column; align-items: stretch; text-align: center; }
+      .chapter-nav a { justify-content: center; }
+    }
+
+  
+    [data-lang] { display: none; }
+    body[data-active-lang="hu"] [data-lang="hu"] { display: inline; }
+    body[data-active-lang="en"] [data-lang="en"] { display: inline; }
+    body[data-active-lang="ro"] [data-lang="ro"] { display: inline; }
+
+  
+    /* Language switching */
+    [data-lang] { display: none; }
+    body[data-active-lang="hu"] [data-lang="hu"],
+    body[data-active-lang="hu"] span[data-lang="hu"] { display: inline; }
+    body[data-active-lang="en"] [data-lang="en"],
+    body[data-active-lang="en"] span[data-lang="en"] { display: inline; }
+    body[data-active-lang="ro"] [data-lang="ro"],
+    body[data-active-lang="ro"] span[data-lang="ro"] { display: inline; }
+    body[data-active-lang="hu"] div[data-lang="hu"],
+    body[data-active-lang="en"] div[data-lang="en"],
+    body[data-active-lang="ro"] div[data-lang="ro"] { display: block; }
+    .lang-switcher-sub {
+      position: fixed; top: 12px; right: 16px; z-index: 9999;
+      display: flex; gap: 6px; background: rgba(255,255,255,0.95);
+      padding: 4px 8px; border-radius: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .lang-btn-sub {
+      background: none; border: none; cursor: pointer;
+      font-size: 1.2rem; padding: 2px 4px; border-radius: 6px;
+      opacity: 0.6; transition: opacity 0.2s;
+    }
+    .lang-btn-sub:hover, .lang-btn-sub.active { opacity: 1; }
+
   </style>
 </head>
-<body>
+<body data-active-lang="hu">
+<div class="lang-switcher-sub">
+  <button class="lang-btn-sub" data-lang-switch="hu" onclick="switchLangSub('hu')" title="Magyar">🇭🇺</button>
+  <button class="lang-btn-sub" data-lang-switch="en" onclick="switchLangSub('en')" title="English">🇬🇧</button>
+  <button class="lang-btn-sub" data-lang-switch="ro" onclick="switchLangSub('ro')" title="Română">🇷🇴</button>
+</div>
 
 <nav class="topbar">
   <a href="../index.html" class="topbar-logo">
     <img src="imelo_logo.png" alt="Identity Mosaic logó">
   </a>
-  <a href="../index.html" class="back-btn">← Vissza az Eszköztárhoz</a>
+  <a href="../index.html" class="back-btn"><span data-lang="hu">← Vissza az Eszköztárhoz</span><span data-lang="en">← Back to Toolbox</span><span data-lang="ro">← Înapoi la Toolbox</span></a>
 </nav>
 
 <div class="chapter-hero">
-  <div class="chapter-num">6. Fejezet</div>
-  <h1>Problémamegoldás és Döntéshozatal</h1>
-  <p class="subtitle">Strukturált gondolkodás és döntési stratégiák</p>
-  <div class="tags"><span class="tag">🧩 Problémamegoldás</span> <span class="tag">🎯 Döntéshozatal</span> <span class="tag">💡 Kreatív gondolkodás</span></div>
+  <div class="chapter-num"><span data-lang="hu">6. Fejezet</span><span data-lang="en">Chapter 6</span><span data-lang="ro">Capitolul 6</span></div>
+  <h1><span data-lang="hu">Problémamegoldás és Döntéshozatal</span><span data-lang="en">Problem Solving and Decision Making</span><span data-lang="ro">Rezolvarea problemelor și Luarea deciziilor</span></h1>
+  <p class="subtitle"><span data-lang="hu">Strukturált gondolkodás és döntési stratégiák</span><span data-lang="en">Structured Thinking and Decision Strategies</span><span data-lang="ro">Gândire structurată și strategii decizionale</span></p>
+  <div class="tags"><span class="tag"><span data-lang="hu">🧩 Problémamegoldás</span><span data-lang="en">🧩 Problem Solving</span><span data-lang="ro">🧩 Rezolvarea problemelor</span></span> <span class="tag"><span data-lang="hu">🎯 Döntéshozatal</span><span data-lang="en">🎯 Decision Making</span><span data-lang="ro">🎯 Luarea deciziilor</span></span> <span class="tag"><span data-lang="hu">💡 Kreatív gondolkodás</span><span data-lang="en">💡 Creative Thinking</span><span data-lang="ro">💡 Gândire creativă</span></span></div>
 </div>
 
 <div class="page-layout">
   <aside class="sidebar">
-    <h3>Tartalomjegyzék</h3>
-    <a href="#alapok" class="toc-item">A Problémamegoldás Pszichológiája</a><a href="#polya" class="toc-item">A Polya-féle 4 Lépéses Modell</a><a href="#strukturalt" class="toc-item">Strukturált Problémamegoldó Módszerek</a><a href="#kreativ" class="toc-item">Kreatív Problémamegoldási Technikák</a><a href="#onreflexio" class="toc-item">Önreflexió – Problémamegoldó Stílusom</a><a href="#osszefoglalas" class="toc-item">Összefoglalás</a>
+    <h3><span data-lang="hu">Tartalomjegyzék</span><span data-lang="en">Table of Contents</span><span data-lang="ro">Cuprins</span></h3>
+    <a href="#alapok" class="toc-item"><span data-lang="hu">A Problémamegoldás Pszichológiája</span><span data-lang="en">The Psychology of Problem Solving</span><span data-lang="ro">Psihologia rezolvării problemelor</span></a><a href="#polya" class="toc-item"><span data-lang="hu">A Polya-féle 4 Lépéses Modell</span><span data-lang="en">Polya’s 4-Step Model</span><span data-lang="ro">Modelul în 4 pași al lui Polya</span></a><a href="#strukturalt" class="toc-item"><span data-lang="hu">Strukturált Problémamegoldó Módszerek</span><span data-lang="en">Structured Problem-Solving Methods</span><span data-lang="ro">Metode structurate de rezolvare a problemelor</span></a><a href="#kreativ" class="toc-item"><span data-lang="hu">Kreatív Problémamegoldási Technikák</span><span data-lang="en">Creative Problem-Solving Techniques</span><span data-lang="ro">Tehnici creative de rezolvare a problemelor</span></a><a href="#onreflexio" class="toc-item"><span data-lang="hu">Önreflexió – Problémamegoldó Stílusom</span><span data-lang="en">Self-Reflection – My Problem-Solving Style</span><span data-lang="ro">Auto-reflecție – Stilul meu de rezolvare a problemelor</span></a><a href="#osszefoglalas" class="toc-item"><span data-lang="hu">Összefoglalás</span><span data-lang="en">Summary</span><span data-lang="ro">Rezumat</span></a>
   </aside>
 
   <main>
@@ -147,21 +225,21 @@
       <div class="section-header">
         <span class="section-icon">🧩</span>
         <div>
-          <h2>A Problémamegoldás Pszichológiája</h2>
-          <p class="section-subtitle">Hogyan gondolkodunk a problémákról?</p>
+          <h2><span data-lang="hu">A Problémamegoldás Pszichológiája</span><span data-lang="en">The Psychology of Problem Solving</span><span data-lang="ro">Psihologia rezolvării problemelor</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Hogyan gondolkodunk a problémákról?</span><span data-lang="en">How do we think about problems?</span><span data-lang="ro">Cum gândim despre probleme?</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #E65100, transparent);"></div>
-      <p class="section-intro">A problémamegoldás egy kognitív folyamat, amely során egy kezdeti állapotból egy célállapotba jutunk át olyan lépések sorozatán keresztül, amelyek nem nyilvánvalóak a probléma felvetésekor (Newell & Simon).</p>
+      <p class="section-intro"><span data-lang="hu">A problémamegoldás egy kognitív folyamat, amely során egy kezdeti állapotból egy célállapotba jutunk át olyan lépések sorozatán keresztül, amelyek nem nyilvánvalóak a probléma felvetésekor (Newell & Simon).</span><span data-lang="en">Problem solving is a cognitive process through which we move from an initial state to a goal state via a series of steps that are not obvious when the problem is first posed (Newell & Simon).</span><span data-lang="ro">Rezolvarea problemelor este un proces cognitiv prin care trecem de la o stare inițială la o stare țintă printr-o serie de pași care nu sunt evidenți la formularea problemei (Newell & Simon).</span></p>
       <div class="stats-row">
-        <div class="stat-card"><div class="stat-value" style="color:#E65100">4 lépés</div><div class="stat-label">A Polya-féle problémamegoldó modell</div></div>
-        <div class="stat-card"><div class="stat-value" style="color:#004D40">2 típus</div><div class="stat-label">Algoritmikus és heurisztikus gondolkodás</div></div>
-        <div class="stat-card"><div class="stat-value" style="color:#1565C0">5×</div><div class="stat-label">Hatékonyabb megoldás strukturált megközelítéssel</div></div>
+        <div class="stat-card"><div class="stat-value" style="color:#E65100"><span data-lang="hu">4 lépés</span><span data-lang="en">4 steps</span><span data-lang="ro">4 pași</span></div><div class="stat-label"><span data-lang="hu">A Polya-féle problémamegoldó modell</span><span data-lang="en">Polya’s problem-solving model</span><span data-lang="ro">Modelul de rezolvare a problemelor al lui Polya</span></div></div>
+        <div class="stat-card"><div class="stat-value" style="color:#004D40"><span data-lang="hu">2 típus</span><span data-lang="en">2 types</span><span data-lang="ro">2 tipuri</span></div><div class="stat-label"><span data-lang="hu">Algoritmikus és heurisztikus gondolkodás</span><span data-lang="en">Algorithmic and heuristic thinking</span><span data-lang="ro">Gândire algoritmică și euristică</span></div></div>
+        <div class="stat-card"><div class="stat-value" style="color:#1565C0">5×</div><div class="stat-label"><span data-lang="hu">Hatékonyabb megoldás strukturált megközelítéssel</span><span data-lang="en">More effective solutions with a structured approach</span><span data-lang="ro">O soluție mai eficientă printr-o abordare structurată</span></div></div>
       </div>
       <div class="section-content">
 <div class="content-grid">
-  <div class="content-card"><h4>⚙️ Algoritmikus gondolkodás</h4><p>Lépésről lépésre haladó, garantált megoldást adó módszer. Jól definiált problémáknál hatékony, ahol az összes lépés ismert.</p></div>
-  <div class="content-card"><h4>💡 Heurisztikus gondolkodás</h4><p>Tapasztalati szabályokon alapuló, gyors, de nem garantált módszer. Komplex, nyitott problémáknál alkalmazható, ahol nincs egyetlen helyes megoldás.</p></div>
+  <div class="content-card"><h4><span data-lang="hu">⚙️ Algoritmikus gondolkodás</span><span data-lang="en">⚙️ Algorithmic thinking</span><span data-lang="ro">⚙️ Gândire algoritmică</span></h4><p><span data-lang="hu">Lépésről lépésre haladó, garantált megoldást adó módszer. Jól definiált problémáknál hatékony, ahol az összes lépés ismert.</span><span data-lang="en">A step-by-step method that guarantees a solution. Effective for well-defined problems where all steps are known.</span><span data-lang="ro">Metodă pas cu pas, care garantează o soluție. Eficientă pentru probleme bine definite, unde toți pașii sunt cunoscuți.</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">💡 Heurisztikus gondolkodás</span><span data-lang="en">💡 Heuristic thinking</span><span data-lang="ro">💡 Gândire euristică</span></h4><p><span data-lang="hu">Tapasztalati szabályokon alapuló, gyors, de nem garantált módszer. Komplex, nyitott problémáknál alkalmazható, ahol nincs egyetlen helyes megoldás.</span><span data-lang="en">A fast, experience-based method that does not guarantee a solution. Applicable to complex, open problems where there is no single correct answer.</span><span data-lang="ro">Metodă rapidă bazată pe reguli empirice, dar fără garanția soluției. Aplicabilă în probleme complexe, deschise, unde nu există o singură soluție corectă.</span></p></div>
 </div>
       </div>
 
@@ -177,25 +255,25 @@
           allowfullscreen>
         </iframe>
       </div>
-      <p class="video-caption">A videó tudományosan megalapozott problémaelemzési és döntéshozatali módszereket mutat be, amelyek segítségével az ifjúságsegítők hatékonyabban tudják támogatni a fiatalokat a kihívások leküzdésében.</p>
+      <p class="video-caption"><span data-lang="hu">A videó tudományosan megalapozott problémaelemzési és döntéshozatali módszereket mutat be, amelyek segítségével az ifjúságsegítők hatékonyabban tudják támogatni a fiatalokat a kihívások leküzdésében.</span><span data-lang="en">The video presents scientifically grounded problem analysis and decision-making methods that help youth workers support young people more effectively in overcoming challenges.</span><span data-lang="ro">Videoclipul prezintă metode științific fundamentate de analiză a problemelor și luare a deciziilor, care ajută lucrătorii de tineret să sprijine mai eficient tinerii în depășirea provocărilor.</span></p>
     </section>
 
     <section class="chapter-section" id="polya">
       <div class="section-header">
         <span class="section-icon">🪜</span>
         <div>
-          <h2>A Polya-féle 4 Lépéses Modell</h2>
-          <p class="section-subtitle">Klasszikus problémamegoldó keretrendszer</p>
+          <h2><span data-lang="hu">A Polya-féle 4 Lépéses Modell</span><span data-lang="en">Polya’s 4-Step Model</span><span data-lang="ro">Modelul în 4 pași al lui Polya</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Klasszikus problémamegoldó keretrendszer</span><span data-lang="en">A classic problem-solving framework</span><span data-lang="ro">Cadru clasic de rezolvare a problemelor</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #E65100, transparent);"></div>
-      <p class="section-intro">George Polya matematikus 1945-ben publikált problémamegoldó modellje azóta is az egyik legelterjedtebb keretrendszer – nemcsak matematikai, hanem mindennapi problémák megoldásához is.</p>
+      <p class="section-intro"><span data-lang="hu">George Polya matematikus 1945-ben publikált problémamegoldó modellje azóta is az egyik legelterjedtebb keretrendszer – nemcsak matematikai, hanem mindennapi problémák megoldásához is.</span><span data-lang="en">George Polya’s problem-solving model, published in 1945, remains one of the most widely used frameworks – not only for mathematical but also everyday problem solving.</span><span data-lang="ro">Modelul de rezolvare a problemelor al matematicianului George Polya, publicat în 1945, este încă unul dintre cele mai răspândite cadre – nu doar pentru probleme matematice, ci și pentru cele cotidiene.</span></p>
       <div class="section-content">
 <div class="steps-list">
-  <div class="step"><span class="step-num">1</span><div><strong>Megértés</strong><p>A probléma pontos definiálása és feltételeinek tisztázása. Mit tudunk? Mit keresünk? Mi a feltétel? Rajzold le, írd le saját szavaiddal!</p></div></div>
-  <div class="step"><span class="step-num">2</span><div><strong>Tervkészítés</strong><p>Stratégia kidolgozása a megoldáshoz. Ismersz hasonló problémát? Tudsz részproblémákra bontani? Milyen módszerek jöhetnek szóba?</p></div></div>
-  <div class="step"><span class="step-num">3</span><div><strong>Végrehajtás</strong><p>A terv megvalósítása lépésről lépésre. Ellenőrizd minden lépést – valóban helyes? Dokumentáld a folyamatot!</p></div></div>
-  <div class="step"><span class="step-num">4</span><div><strong>Értékelés</strong><p>Az eredmény ellenőrzése és a folyamat áttekintése. Megkaptuk, amit kerestünk? Mit tanultunk? Hogyan lehetett volna jobban?</p></div></div>
+  <div class="step"><span class="step-num">1</span><div><strong><span data-lang="hu">Megértés</span><span data-lang="en">Understanding</span><span data-lang="ro">Înțelegerea</span></strong><p><span data-lang="hu">A probléma pontos definiálása és feltételeinek tisztázása. Mit tudunk? Mit keresünk? Mi a feltétel? Rajzold le, írd le saját szavaiddal!</span><span data-lang="en">Precisely defining the problem and clarifying its conditions. What do we know? What are we looking for? What are the conditions? Draw it, describe it in your own words!</span><span data-lang="ro">Definirea clară a problemei și clarificarea condițiilor. Ce știm? Ce căutăm? Care este condiția? Desenează, scrie cu propriile cuvinte!</span></p></div></div>
+  <div class="step"><span class="step-num">2</span><div><strong><span data-lang="hu">Tervkészítés</span><span data-lang="en">Planning</span><span data-lang="ro">Planificarea</span></strong><p><span data-lang="hu">Stratégia kidolgozása a megoldáshoz. Ismersz hasonló problémát? Tudsz részproblémákra bontani? Milyen módszerek jöhetnek szóba?</span><span data-lang="en">Developing a strategy for the solution. Do you know a similar problem? Can you break it down into subproblems? What methods might be applicable?</span><span data-lang="ro">Elaborarea unei strategii pentru soluție. Cunoști o problemă similară? Poți împărți problema în subprobleme? Ce metode pot fi utilizate?</span></p></div></div>
+  <div class="step"><span class="step-num">3</span><div><strong><span data-lang="hu">Végrehajtás</span><span data-lang="en">Execution</span><span data-lang="ro">Executarea</span></strong><p><span data-lang="hu">A terv megvalósítása lépésről lépésre. Ellenőrizd minden lépést – valóban helyes? Dokumentáld a folyamatot!</span><span data-lang="en">Implementing the plan step by step. Check each step – is it really correct? Document the process!</span><span data-lang="ro">Implementarea planului pas cu pas. Verifică fiecare pas – este cu adevărat corect? Documentează procesul!</span></p></div></div>
+  <div class="step"><span class="step-num">4</span><div><strong><span data-lang="hu">Értékelés</span><span data-lang="en">Evaluation</span><span data-lang="ro">Evaluarea</span></strong><p><span data-lang="hu">Az eredmény ellenőrzése és a folyamat áttekintése. Megkaptuk, amit kerestünk? Mit tanultunk? Hogyan lehetett volna jobban?</span><span data-lang="en">Checking the result and reviewing the process. Did we get what we were looking for? What did we learn? How could it have been better?</span><span data-lang="ro">Verificarea rezultatului și revizuirea procesului. Am obținut ce căutam? Ce am învățat? Cum ar fi putut fi mai bine?</span></p></div></div>
 </div>
       </div>
     </section>
@@ -204,17 +282,17 @@
       <div class="section-header">
         <span class="section-icon">🔧</span>
         <div>
-          <h2>Strukturált Problémamegoldó Módszerek</h2>
-          <p class="section-subtitle">Bevált eszközök a hatékony megoldáshoz</p>
+          <h2><span data-lang="hu">Strukturált Problémamegoldó Módszerek</span><span data-lang="en">Structured Problem-Solving Methods</span><span data-lang="ro">Metode structurate de rezolvare a problemelor</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Bevált eszközök a hatékony megoldáshoz</span><span data-lang="en">Proven tools for effective solutions</span><span data-lang="ro">Instrumente dovedite pentru soluții eficiente</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #E65100, transparent);"></div>
-      <p class="section-intro">A strukturált módszerek segítenek rendszerezni a gondolkodást és feltárni a problémák gyökérokait.</p>
+      <p class="section-intro"><span data-lang="hu">A strukturált módszerek segítenek rendszerezni a gondolkodást és feltárni a problémák gyökérokait.</span><span data-lang="en">Structured methods help organize thinking and uncover the root causes of problems.</span><span data-lang="ro">Metodele structurate ajută la organizarea gândirii și la identificarea cauzelor rădăcină ale problemelor.</span></p>
       <div class="section-content">
 <div class="content-grid">
-  <div class="content-card"><h4>❓ 5 Miért módszer</h4><p>Az ok-okozati összefüggések feltárása a gyökérokig. Minden válaszra újabb "miért?" kérdést teszünk fel.</p><p><em>Példa: Miért késtem el? → Forgalom → Rossz útvonal → Nem terveztem → Nincs rutinom → Hozzáállás a pontossághoz</em></p></div>
-  <div class="content-card"><h4>📊 SWOT Mátrix</h4><p>Erősségek (Strengths), Gyengeségek (Weaknesses), Lehetőségek (Opportunities) és Veszélyek (Threats) elemzése.</p><p>Belső tényezők (S, W) vs. Külső tényezők (O, T) – átfogó helyzetértékelés.</p></div>
-  <div class="content-card"><h4>🐟 Halszálka diagram</h4><p>Ishikawa (1968) módszere a lehetséges okok szisztematikus kategorizálására. A 6M kategória: Ember, Módszer, Gép, Anyag, Környezet, Mérés.</p></div>
+  <div class="content-card"><h4><span data-lang="hu">❓ 5 Miért módszer</span><span data-lang="en">❓ 5 Whys method</span><span data-lang="ro">❓ Metoda celor 5 De ce</span></h4><p><span data-lang="hu">Az ok-okozati összefüggések feltárása a gyökérokig. Minden válaszra újabb "miért?" kérdést teszünk fel.</span><span data-lang="en">Exploring cause-and-effect relationships down to the root cause. For every answer, ask another "why?" question.</span><span data-lang="ro">Identificarea relațiilor cauză-efect până la cauza rădăcină. Pentru fiecare răspuns se pune o nouă întrebare „de ce?”</span></p><p><em><span data-lang="hu">Példa: Miért késtem el? → Forgalom → Rossz útvonal → Nem terveztem → Nincs rutinom → Hozzáállás a pontossághoz</span><span data-lang="en">Example: Why was I late? → Traffic → Wrong route → No planning → No routine → Attitude towards punctuality</span><span data-lang="ro">Exemplu: De ce am întârziat? → Trafic → Rută greșită → Nu am planificat → Nu am rutină → Atitudinea față de punctualitate</span></em></p></div>
+  <div class="content-card"><h4><span data-lang="hu">📊 SWOT Mátrix</span><span data-lang="en">📊 SWOT Matrix</span><span data-lang="ro">📊 Matricea SWOT</span></h4><p><span data-lang="hu">Erősségek (Strengths), Gyengeségek (Weaknesses), Lehetőségek (Opportunities) és Veszélyek (Threats) elemzése.</span><span data-lang="en">Analysis of Strengths, Weaknesses, Opportunities, and Threats.</span><span data-lang="ro">Analiza punctelor tari (Strengths), punctelor slabe (Weaknesses), oportunităților (Opportunities) și amenințărilor (Threats).</span></p><p><span data-lang="hu">Belső tényezők (S, W) vs. Külső tényezők (O, T) – átfogó helyzetértékelés.</span><span data-lang="en">Internal factors (S, W) vs. External factors (O, T) – comprehensive situational assessment.</span><span data-lang="ro">Factori interni (S, W) vs. factori externi (O, T) – evaluare cuprinzătoare a situației.</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">🐟 Halszálka diagram</span><span data-lang="en">🐟 Fishbone diagram</span><span data-lang="ro">🐟 Diagrama osului de pește</span></h4><p><span data-lang="hu">Ishikawa (1968) módszere a lehetséges okok szisztematikus kategorizálására. A 6M kategória: Ember, Módszer, Gép, Anyag, Környezet, Mérés.</span><span data-lang="en">Ishikawa’s (1968) method for systematically categorizing possible causes. The 6M categories: Man, Method, Machine, Material, Environment, Measurement.</span><span data-lang="ro">Metoda Ishikawa (1968) pentru categorisirea sistematică a cauzelor posibile. Categoria 6M: Om, Metodă, Mașină, Material, Mediu, Măsurare.</span></p></div>
 </div>
       </div>
     </section>
@@ -223,18 +301,18 @@
       <div class="section-header">
         <span class="section-icon">💡</span>
         <div>
-          <h2>Kreatív Problémamegoldási Technikák</h2>
-          <p class="section-subtitle">Gondolkodj a dobozon kívül!</p>
+          <h2><span data-lang="hu">Kreatív Problémamegoldási Technikák</span><span data-lang="en">Creative Problem-Solving Techniques</span><span data-lang="ro">Tehnici Creative de Rezolvare a Problemelor</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Gondolkodj a dobozon kívül!</span><span data-lang="en">Think Outside the Box!</span><span data-lang="ro">Gândește în afara cutiei!</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #E65100, transparent);"></div>
-      <p class="section-intro">A kreatív technikák segítenek kilépni a megszokott gondolkodási mintákból és új perspektívákból megközelíteni a problémákat.</p>
+      <p class="section-intro"><span data-lang="hu">A kreatív technikák segítenek kilépni a megszokott gondolkodási mintákból és új perspektívákból megközelíteni a problémákat.</span><span data-lang="en">Creative techniques help you break free from habitual thinking patterns and approach problems from new perspectives.</span><span data-lang="ro">Tehnicile creative ajută la ieșirea din tiparele obișnuite de gândire și la abordarea problemelor din perspective noi.</span></p>
       <div class="section-content">
 <div class="content-grid">
-  <div class="content-card"><h4>🧠 Brainstorming</h4><p>Szabad ötletgyűjtés ítélkezés nélkül. Szabályok: minden ötlet értékes, nincs kritika, minél több, annál jobb, az ötletek kombinálhatók.</p></div>
-  <div class="content-card"><h4>🎩 Hat Kalap módszer</h4><p>Edward de Bono módszere a probléma több szempontú megközelítésére. Minden kalap egy gondolkodási stílust képvisel: fehér (tények), piros (érzelmek), fekete (kritika), sárga (optimizmus), zöld (kreativitás), kék (folyamat).</p></div>
-  <div class="content-card"><h4>🔄 Fordított gondolkodás</h4><p>Fordítsd meg a problémát: "Hogyan tudnám a legbiztosabban elbukni?" – majd fordítsd vissza a válaszokat megoldásokká.</p></div>
-  <div class="content-card"><h4>🗺️ Gondolattérkép</h4><p>Vizuális eszköz az ötletek és összefüggések feltérképezéséhez. A középponttól kifelé haladva bővítsd az asszociációkat.</p></div>
+  <div class="content-card"><h4>🧠 Brainstorming</h4><p><span data-lang="hu">Szabad ötletgyűjtés ítélkezés nélkül. Szabályok: minden ötlet értékes, nincs kritika, minél több, annál jobb, az ötletek kombinálhatók.</span><span data-lang="en">Free brainstorming without judgment. Rules: every idea is valuable, no criticism, the more the better, ideas can be combined.</span><span data-lang="ro">Brainstorming liber fără judecăți. Regulile: fiecare idee este valoroasă, fără critici, cu cât mai multe, cu atât mai bine, ideile pot fi combinate.</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">🎩 Hat Kalap módszer</span><span data-lang="en">🎩 Six Thinking Hats method</span><span data-lang="ro">🎩 Metoda celor Șase Pălării</span></h4><p><span data-lang="hu">Edward de Bono módszere a probléma több szempontú megközelítésére. Minden kalap egy gondolkodási stílust képvisel: fehér (tények), piros (érzelmek), fekete (kritika), sárga (optimizmus), zöld (kreativitás), kék (folyamat).</span><span data-lang="en">Edward de Bono's method for approaching problems from multiple perspectives. Each hat represents a thinking style: white (facts), red (emotions), black (criticism), yellow (optimism), green (creativity), blue (process).</span><span data-lang="ro">Metoda lui Edward de Bono pentru abordarea problemei din mai multe perspective. Fiecare pălărie reprezintă un stil de gândire: alb (fapte), roșu (emoții), negru (critică), galben (optimism), verde (creativitate), albastru (proces).</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">🔄 Fordított gondolkodás</span><span data-lang="en">🔄 Reverse Thinking</span><span data-lang="ro">🔄 Gândire Inversă</span></h4><p><span data-lang="hu">Fordítsd meg a problémát: "Hogyan tudnám a legbiztosabban elbukni?" – majd fordítsd vissza a válaszokat megoldásokká.</span><span data-lang="en">Turn the problem around: "How could I fail most surely?" – then reverse the answers into solutions.</span><span data-lang="ro">Inversează problema: „Cum aș putea să eșuez cel mai sigur?” – apoi transformă răspunsurile în soluții.</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">🗺️ Gondolattérkép</span><span data-lang="en">🗺️ Mind Map</span><span data-lang="ro">🗺️ Harta Mentală</span></h4><p><span data-lang="hu">Vizuális eszköz az ötletek és összefüggések feltérképezéséhez. A középponttól kifelé haladva bővítsd az asszociációkat.</span><span data-lang="en">A visual tool for mapping ideas and connections. Expand associations outward from the center.</span><span data-lang="ro">Instrument vizual pentru cartografierea ideilor și conexiunilor. Extinde asociațiile pornind din centru spre exterior.</span></p></div>
 </div>
       </div>
     </section>
@@ -243,63 +321,63 @@
       <div class="section-header">
         <span class="section-icon">🪞</span>
         <div>
-          <h2>Önreflexió – Problémamegoldó Stílusom</h2>
-          <p class="section-subtitle">Saját gondolkodási minták feltérképezése</p>
+          <h2><span data-lang="hu">Önreflexió – Problémamegoldó Stílusom</span><span data-lang="en">Self-Reflection – My Problem-Solving Style</span><span data-lang="ro">Auto-reflecție – Stilul Meu de Rezolvare a Problemelor</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Saját gondolkodási minták feltérképezése</span><span data-lang="en">Mapping your own thinking patterns</span><span data-lang="ro">Cartografierea propriilor tipare de gândire</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #E65100, transparent);"></div>
-      <p class="section-intro">Az alábbi kérdőív segít azonosítani a problémamegoldó stílusodat és a fejlesztendő területeket.</p>
+      <p class="section-intro"><span data-lang="hu">Az alábbi kérdőív segít azonosítani a problémamegoldó stílusodat és a fejlesztendő területeket.</span><span data-lang="en">The questionnaire below helps identify your problem-solving style and areas for development.</span><span data-lang="ro">Chestionarul de mai jos te ajută să identifici stilul tău de rezolvare a problemelor și ariile de dezvoltare.</span></p>
 
       <div class="interactive-box" style="background:#fff3e0; border-left: 4px solid #E65100;">
-        <h3>🧩 Önértékelő kérdőív – Problémamegoldó stílusom</h3>
-        <p>Töltsd ki az alábbi kérdőívet, hogy képet kapj jelenlegi szokásaidról és fejlesztési lehetőségeidről!</p>
+        <h3><span data-lang="hu">🧩 Önértékelő kérdőív – Problémamegoldó stílusom</span><span data-lang="en">🧩 Self-Assessment Questionnaire – My Problem-Solving Style</span><span data-lang="ro">🧩 Chestionar de Autoevaluare – Stilul Meu de Rezolvare a Problemelor</span></h3>
+        <p><span data-lang="hu">Töltsd ki az alábbi kérdőívet, hogy képet kapj jelenlegi szokásaidról és fejlesztési lehetőségeidről!</span><span data-lang="en">Fill out the questionnaire below to get an overview of your current habits and development opportunities!</span><span data-lang="ro">Completează chestionarul de mai jos pentru a-ți face o imagine asupra obiceiurilor actuale și a oportunităților de dezvoltare!</span></p>
         <div class="reflection-form" id="reflectionForm">
 
     <div class="reflection-question" id="q1">
-      <label class="q-label">Mennyire strukturáltan közelítem meg a problémákat?</label>
+      <label class="q-label"><span data-lang="hu">Mennyire strukturáltan közelítem meg a problémákat?</span><span data-lang="en">How structured is my approach to problems?</span><span data-lang="ro">Cât de structurat abordez problemele?</span></label>
       <div class="scale-container">
-        <span class="scale-label">Egyáltalán nem</span>
+        <span class="scale-label"><span data-lang="hu">Egyáltalán nem</span><span data-lang="en">Not at all</span><span data-lang="ro">Deloc</span></span>
         <div class="scale-buttons">
           <button class="scale-btn" onclick="selectScale(this, 1)">1</button><button class="scale-btn" onclick="selectScale(this, 1)">2</button><button class="scale-btn" onclick="selectScale(this, 1)">3</button><button class="scale-btn" onclick="selectScale(this, 1)">4</button><button class="scale-btn" onclick="selectScale(this, 1)">5</button>
         </div>
-        <span class="scale-label">Teljes mértékben</span>
+        <span class="scale-label"><span data-lang="hu">Teljes mértékben</span><span data-lang="en">Completely</span><span data-lang="ro">Complet</span></span>
       </div>
     </div>
     <div class="reflection-question" id="q2">
-      <label class="q-label">Mennyire tudok kreatívan gondolkodni nyomás alatt?</label>
+      <label class="q-label"><span data-lang="hu">Mennyire tudok kreatívan gondolkodni nyomás alatt?</span><span data-lang="en">How well can I think creatively under pressure?</span><span data-lang="ro">Cât de creativ pot gândi sub presiune?</span></label>
       <div class="scale-container">
-        <span class="scale-label">Egyáltalán nem</span>
+        <span class="scale-label"><span data-lang="hu">Egyáltalán nem</span><span data-lang="en">Not at all</span><span data-lang="ro">Deloc</span></span>
         <div class="scale-buttons">
           <button class="scale-btn" onclick="selectScale(this, 2)">1</button><button class="scale-btn" onclick="selectScale(this, 2)">2</button><button class="scale-btn" onclick="selectScale(this, 2)">3</button><button class="scale-btn" onclick="selectScale(this, 2)">4</button><button class="scale-btn" onclick="selectScale(this, 2)">5</button>
         </div>
-        <span class="scale-label">Teljes mértékben</span>
+        <span class="scale-label"><span data-lang="hu">Teljes mértékben</span><span data-lang="en">Completely</span><span data-lang="ro">Complet</span></span>
       </div>
     </div>
     <div class="reflection-question" id="q3">
-      <label class="q-label">Mennyire keresem a gyökérokokat a tünetek helyett?</label>
+      <label class="q-label"><span data-lang="hu">Mennyire keresem a gyökérokokat a tünetek helyett?</span><span data-lang="en">How much do I look for root causes instead of symptoms?</span><span data-lang="ro">Cât de mult caut cauzele rădăcină în loc de simptome?</span></label>
       <div class="scale-container">
-        <span class="scale-label">Egyáltalán nem</span>
+        <span class="scale-label"><span data-lang="hu">Egyáltalán nem</span><span data-lang="en">Not at all</span><span data-lang="ro">Deloc</span></span>
         <div class="scale-buttons">
           <button class="scale-btn" onclick="selectScale(this, 3)">1</button><button class="scale-btn" onclick="selectScale(this, 3)">2</button><button class="scale-btn" onclick="selectScale(this, 3)">3</button><button class="scale-btn" onclick="selectScale(this, 3)">4</button><button class="scale-btn" onclick="selectScale(this, 3)">5</button>
         </div>
-        <span class="scale-label">Teljes mértékben</span>
+        <span class="scale-label"><span data-lang="hu">Teljes mértékben</span><span data-lang="en">Completely</span><span data-lang="ro">Complet</span></span>
       </div>
     </div>
     <div class="reflection-question" id="q4">
-      <label class="q-label">Mennyire veszem figyelembe mások nézőpontját a döntéshozatalnál?</label>
+      <label class="q-label"><span data-lang="hu">Mennyire veszem figyelembe mások nézőpontját a döntéshozatalnál?</span><span data-lang="en">How much do I consider others’ perspectives when making decisions?</span><span data-lang="ro">Cât de mult iau în considerare punctele de vedere ale altora în luarea deciziilor?</span></label>
       <div class="scale-container">
-        <span class="scale-label">Egyáltalán nem</span>
+        <span class="scale-label"><span data-lang="hu">Egyáltalán nem</span><span data-lang="en">Not at all</span><span data-lang="ro">Deloc</span></span>
         <div class="scale-buttons">
           <button class="scale-btn" onclick="selectScale(this, 4)">1</button><button class="scale-btn" onclick="selectScale(this, 4)">2</button><button class="scale-btn" onclick="selectScale(this, 4)">3</button><button class="scale-btn" onclick="selectScale(this, 4)">4</button><button class="scale-btn" onclick="selectScale(this, 4)">5</button>
         </div>
-        <span class="scale-label">Teljes mértékben</span>
+        <span class="scale-label"><span data-lang="hu">Teljes mértékben</span><span data-lang="en">Completely</span><span data-lang="ro">Complet</span></span>
       </div>
     </div>
     <div class="reflection-question" id="q5">
-      <label class="q-label">Írj le egy problémát, amelyet szeretnél strukturáltabban megközelíteni!</label>
+      <label class="q-label"><span data-lang="hu">Írj le egy problémát, amelyet szeretnél strukturáltabban megközelíteni!</span><span data-lang="en">Describe a problem you would like to approach more structurally!</span><span data-lang="ro">Descrie o problemă pe care ai dori să o abordezi mai structurat!</span></label>
       <textarea class="reflection-textarea" rows="3" placeholder="Írd ide a válaszodat..."></textarea>
     </div>
-          <button class="submit-btn" onclick="submitReflection()">Visszajelzés megjelenítése</button>
+          <button class="submit-btn" onclick="submitReflection()"><span data-lang="hu">Visszajelzés megjelenítése</span><span data-lang="en">Show feedback</span><span data-lang="ro">Afișează feedback-ul</span></button>
           <div class="feedback-box" id="feedbackBox" style="display:none;"></div>
         </div>
       </div>
@@ -309,35 +387,42 @@
       <div class="section-header">
         <span class="section-icon">📋</span>
         <div>
-          <h2>Összefoglalás</h2>
-          <p class="section-subtitle">Problémamegoldás és döntéshozatal eszköztára</p>
+          <h2><span data-lang="hu">Összefoglalás</span><span data-lang="en">Summary</span><span data-lang="ro">Rezumat</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Problémamegoldás és döntéshozatal eszköztára</span><span data-lang="en">Toolkit for Problem Solving and Decision Making</span><span data-lang="ro">Trusa de instrumente pentru rezolvarea problemelor și luarea deciziilor</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #E65100, transparent);"></div>
-      <p class="section-intro">A hatékony problémamegoldás és döntéshozatal tanulható készségek. A strukturált megközelítés és a kreatív gondolkodás kombinációja a legjobb eredményeket hozza.</p>
+      <p class="section-intro"><span data-lang="hu">A hatékony problémamegoldás és döntéshozatal tanulható készségek. A strukturált megközelítés és a kreatív gondolkodás kombinációja a legjobb eredményeket hozza.</span><span data-lang="en">Effective problem solving and decision making are learnable skills. Combining a structured approach with creative thinking yields the best results.</span><span data-lang="ro">Rezolvarea eficientă a problemelor și luarea deciziilor sunt abilități care pot fi învățate. Combinarea unei abordări structurate cu gândirea creativă aduce cele mai bune rezultate.</span></p>
       <div class="section-content">
 <div class="summary-grid">
-  <div class="summary-card"><h4>🪜 Polya 4 lépés</h4><p>Megértés – Tervkészítés – Végrehajtás – Értékelés. Alkalmazható minden problémára.</p></div>
-  <div class="summary-card"><h4>❓ 5 Miért</h4><p>A gyökérokok feltárásának legegyszerűbb eszköze. Mindig kérdezz mélyebbre!</p></div>
-  <div class="summary-card"><h4>🎩 Hat Kalap</h4><p>Nézd meg a problémát minden oldalról – tények, érzelmek, kritika, optimizmus, kreativitás, folyamat.</p></div>
-  <div class="summary-card"><h4>💡 Kreativitás</h4><p>A legjobb megoldások gyakran a megszokott gondolkodási mintákon kívül rejlenek. Merj brainstormingolni!</p></div>
+  <div class="summary-card"><h4><span data-lang="hu">🪜 Polya 4 lépés</span><span data-lang="en">🪜 Polya’s 4 Steps</span><span data-lang="ro">🪜 Cei 4 pași ai lui Polya</span></h4><p><span data-lang="hu">Megértés – Tervkészítés – Végrehajtás – Értékelés. Alkalmazható minden problémára.</span><span data-lang="en">Understand – Plan – Execute – Review. Applicable to any problem.</span><span data-lang="ro">Înțelegere – Planificare – Executare – Evaluare. Aplicabilă oricărei probleme.</span></p></div>
+  <div class="summary-card"><h4><span data-lang="hu">❓ 5 Miért</span><span data-lang="en">❓ 5 Whys</span><span data-lang="ro">❓ 5 De ce</span></h4><p><span data-lang="hu">A gyökérokok feltárásának legegyszerűbb eszköze. Mindig kérdezz mélyebbre!</span><span data-lang="en">The simplest tool for uncovering root causes. Always ask deeper!</span><span data-lang="ro">Cel mai simplu instrument pentru identificarea cauzelor rădăcină. Întreabă mereu mai adânc!</span></p></div>
+  <div class="summary-card"><h4>🎩 Hat Kalap</h4><p><span data-lang="hu">Nézd meg a problémát minden oldalról – tények, érzelmek, kritika, optimizmus, kreativitás, folyamat.</span><span data-lang="en">Look at the problem from every angle – facts, emotions, criticism, optimism, creativity, process.</span><span data-lang="ro">Privește problema din toate unghiurile – fapte, emoții, critică, optimism, creativitate, proces.</span></p></div>
+  <div class="summary-card"><h4><span data-lang="hu">💡 Kreativitás</span><span data-lang="en">💡 Creativity</span><span data-lang="ro">💡 Creativitate</span></h4><p><span data-lang="hu">A legjobb megoldások gyakran a megszokott gondolkodási mintákon kívül rejlenek. Merj brainstormingolni!</span><span data-lang="en">The best solutions often lie beyond habitual thinking patterns. Dare to brainstorm!</span><span data-lang="ro">Cele mai bune soluții se găsesc adesea dincolo de tiparele obișnuite de gândire. Îndrăznește să faci brainstorming!</span></p></div>
 </div>
       </div>
     </section>
 
 
     <div class="pdf-section">
-      <h3>📥 Fejezet letöltése PDF formátumban</h3>
-      <a href="https://drive.google.com/file/d/1W07Rh0rLaNViw4vfRNG2xy9vEBVXwehP/view" target="_blank" class="pdf-btn">🇭🇺 Magyar PDF letöltése</a>
+      <h3><span data-lang="hu">📥 Fejezet letöltése PDF formátumban</span><span data-lang="en">📥 Download chapter as PDF</span><span data-lang="ro">📥 Descarcă capitolul în format PDF</span></h3>
+      <a href="https://drive.google.com/file/d/1W07Rh0rLaNViw4vfRNG2xy9vEBVXwehP/view" target="_blank" class="pdf-btn"><span data-lang="hu">🇭🇺 Magyar PDF letöltése</span><span data-lang="en">🇭🇺 Download Hungarian PDF</span><span data-lang="ro">🇭🇺 Descarcă PDF în maghiară</span></a>
       <a href="https://drive.google.com/file/d/1VrJYHKlRuX_JU78IDZFS-N_9sXwEFiDd/view" target="_blank" class="pdf-btn">🇬🇧 English PDF</a>
       <a href="https://drive.google.com/file/d/1LsNYFcmjuesBWznRqf08nK2chSpi9nGS/view" target="_blank" class="pdf-btn">🇷🇴 PDF în română</a>
     </div>
   </main>
 </div>
 
+
+<div class="chapter-nav">
+  <a href="../chapter5/index.html">← <span data-lang="hu"><span data-lang="hu">5. fejezet</span><span data-lang="en">Chapter 5</span><span data-lang="ro">Capitolul 5</span></span><span data-lang="en">Chapter 5</span><span data-lang="ro">Capitolul 5</span></a>
+  <a href="../index.html" class="nav-home"><span data-lang="hu"><span data-lang="hu">🏠 Főoldal</span><span data-lang="en">🏠 Home</span><span data-lang="ro">🏠 Pagina principală</span></span><span data-lang="en">🏠 Home</span><span data-lang="ro">🏠 Acasă</span></a>
+  <a href="../chapter7/index.html"><span data-lang="hu"><span data-lang="hu">7. fejezet</span><span data-lang="en">Chapter 7</span><span data-lang="ro">Capitolul 7</span></span><span data-lang="en">Chapter 7</span><span data-lang="ro">Capitolul 7</span> →</a>
+</div>
+
 <footer class="chapter-footer">
   <p>IMELO – Identity Mosaic | Erasmus+ KA2 projekt | © 2024–2026</p>
-  <p>Az Európai Bizottság támogatásával készült. A tartalom kizárólag a szerzők álláspontját tükrözi.</p>
+  <p><span data-lang="hu">Az Európai Bizottság támogatásával készült. A tartalom kizárólag a szerzők álláspontját tükrözi.</span><span data-lang="en">Produced with the support of the European Commission. The content reflects the views of the authors only.</span><span data-lang="ro">Realizat cu sprijinul Comisiei Europene. Conținutul reflectă exclusiv punctul de vedere al autorilor.</span></p>
 </footer>
 
 <script>
@@ -377,6 +462,23 @@
       if (target) target.scrollIntoView({behavior: 'smooth', block: 'start'});
     });
   });
+
+  // Language switcher
+  (function() {
+    var stored = localStorage.getItem('imelo-lang') || 'hu';
+    document.body.setAttribute('data-active-lang', stored);
+    document.querySelectorAll('.lang-btn-sub').forEach(function(btn) {
+      if (btn.getAttribute('data-lang-switch') === stored) btn.classList.add('active');
+    });
+  })();
+  function switchLangSub(lang) {
+    document.body.setAttribute('data-active-lang', lang);
+    localStorage.setItem('imelo-lang', lang);
+    document.querySelectorAll('.lang-btn-sub').forEach(function(btn) {
+      btn.classList.toggle('active', btn.getAttribute('data-lang-switch') === lang);
+    });
+  }
+
 </script>
 </body>
 </html>

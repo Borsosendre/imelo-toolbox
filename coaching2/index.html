@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Coaching 2 – Aktív Hallgatás és Kérdezési Technikák | IMELO Toolbox</title>
+  <title><span data-lang="hu">Coaching 2 – Aktív Hallgatás és Kérdezési Technikák | IMELO Toolbox</span><span data-lang="en">Coaching 2 – Active Listening and Questioning Techniques | IMELO Toolbox</span><span data-lang="ro">Coaching 2 – Ascultare Activă și Tehnici de Întrebare | IMELO Toolbox</span></title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
@@ -94,31 +94,109 @@
     .dl-btn svg { width: 18px; height: 18px; }
     .eu-footer { background: #2c2c54; color: rgba(255,255,255,0.7); text-align: center; padding: 1.5rem 2rem; font-size: 0.8rem; line-height: 1.6; }
     @media (max-width: 640px) { .topbar { padding: 0 1rem; } .main-content { padding: 1.5rem 1rem 3rem; } }
+  
+    /* Chapter navigation */
+    .chapter-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 1.5rem;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      margin: 1.5rem 0;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .chapter-nav a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: linear-gradient(135deg, #1a7a4a 0%, #2ecc71 100%);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+      transition: opacity 0.2s;
+    }
+    .chapter-nav a:hover { opacity: 0.85; }
+    .chapter-nav .nav-home {
+      background: linear-gradient(135deg, #E8622A 0%, #f39c12 100%);
+    }
+    .chapter-nav .nav-center {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #888;
+      flex: 1;
+    }
+    @media (max-width: 600px) {
+      .chapter-nav { flex-direction: column; align-items: stretch; text-align: center; }
+      .chapter-nav a { justify-content: center; }
+    }
+
+  
+    [data-lang] { display: none; }
+    body[data-active-lang="hu"] [data-lang="hu"] { display: inline; }
+    body[data-active-lang="en"] [data-lang="en"] { display: inline; }
+    body[data-active-lang="ro"] [data-lang="ro"] { display: inline; }
+
+  
+    /* Language switching */
+    [data-lang] { display: none; }
+    body[data-active-lang="hu"] [data-lang="hu"],
+    body[data-active-lang="hu"] span[data-lang="hu"] { display: inline; }
+    body[data-active-lang="en"] [data-lang="en"],
+    body[data-active-lang="en"] span[data-lang="en"] { display: inline; }
+    body[data-active-lang="ro"] [data-lang="ro"],
+    body[data-active-lang="ro"] span[data-lang="ro"] { display: inline; }
+    body[data-active-lang="hu"] div[data-lang="hu"],
+    body[data-active-lang="en"] div[data-lang="en"],
+    body[data-active-lang="ro"] div[data-lang="ro"] { display: block; }
+    .lang-switcher-sub {
+      position: fixed; top: 12px; right: 16px; z-index: 9999;
+      display: flex; gap: 6px; background: rgba(255,255,255,0.95);
+      padding: 4px 8px; border-radius: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .lang-btn-sub {
+      background: none; border: none; cursor: pointer;
+      font-size: 1.2rem; padding: 2px 4px; border-radius: 6px;
+      opacity: 0.6; transition: opacity 0.2s;
+    }
+    .lang-btn-sub:hover, .lang-btn-sub.active { opacity: 1; }
+
   </style>
 </head>
-<body>
+<body data-active-lang="hu">
+<div class="lang-switcher-sub">
+  <button class="lang-btn-sub" data-lang-switch="hu" onclick="switchLangSub('hu')" title="Magyar">🇭🇺</button>
+  <button class="lang-btn-sub" data-lang-switch="en" onclick="switchLangSub('en')" title="English">🇬🇧</button>
+  <button class="lang-btn-sub" data-lang-switch="ro" onclick="switchLangSub('ro')" title="Română">🇷🇴</button>
+</div>
 
 <nav class="topbar">
   <div class="topbar-left">
     <a href="../index.html" class="back-btn">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-      Vissza az Eszköztárhoz
+      <span data-lang="hu">Vissza az Eszköztárhoz</span><span data-lang="en">Back to Toolbox</span><span data-lang="ro">Înapoi la Trusă</span>
     </a>
     <a href="../index.html" class="topbar-logo">
       <img src="imelo_logo.png" alt="Identity Mosaic" />
     </a>
   </div>
-  <span class="chapter-badge">🎓 Coaching Modul – 2. rész</span>
+  <span class="chapter-badge"><span data-lang="hu">🎓 Coaching Modul – 2. rész</span><span data-lang="en">🎓 Coaching Module – Part 2</span><span data-lang="ro">🎓 Modul Coaching – Partea 2</span></span>
 </nav>
 
 <div class="hero">
-  <div class="hero-tag">COACHING MODUL · 2. RÉSZ</div>
-  <h1>Aktív Hallgatás és Kérdezési Technikák</h1>
-  <p class="subtitle">A hatékony coaching legfontosabb eszközei: hogyan hallgassunk igazán, és hogyan kérdezzünk úgy, hogy valódi változást indítsunk el</p>
+  <div class="hero-tag"><span data-lang="hu">COACHING MODUL · 2. RÉSZ</span><span data-lang="en">COACHING MODULE · PART 2</span><span data-lang="ro">MODUL COACHING · PARTEA 2</span></div>
+  <h1><span data-lang="hu">Aktív Hallgatás és Kérdezési Technikák</span><span data-lang="en">Active Listening and Questioning Techniques</span><span data-lang="ro">Ascultare Activă și Tehnici de Întrebare</span></h1>
+  <p class="subtitle"><span data-lang="hu">A hatékony coaching legfontosabb eszközei: hogyan hallgassunk igazán, és hogyan kérdezzünk úgy, hogy valódi változást indítsunk el</span><span data-lang="en">The most important tools for effective coaching: how to truly listen and how to ask questions that spark real change</span><span data-lang="ro">Cele mai importante instrumente ale coachingului eficient: cum să ascultăm cu adevărat și cum să punem întrebări care să declanșeze o schimbare reală</span></p>
   <div class="hero-meta">
-    <span>🎯 Célcsoport: Ifjúságsegítők</span>
-    <span>⏱️ Olvasási idő: ~15 perc</span>
-    <span>📚 Coaching Modul 2/3</span>
+    <span><span data-lang="hu">🎯 Célcsoport: Ifjúságsegítők</span><span data-lang="en">🎯 Target Group: Youth Workers</span><span data-lang="ro">🎯 Grup țintă: Lucrători de tineret</span></span>
+    <span><span data-lang="hu">⏱️ Olvasási idő: ~15 perc</span><span data-lang="en">⏱️ Reading Time: ~15 minutes</span><span data-lang="ro">⏱️ Timp de citire: ~15 minute</span></span>
+    <span><span data-lang="hu">📚 Coaching Modul 2/3</span><span data-lang="en">📚 Coaching Module 2/3</span><span data-lang="ro">📚 Modul Coaching 2/3</span></span>
   </div>
 </div>
 
@@ -126,13 +204,13 @@
   <div class="toc-inner">
     <div class="toc-title">Tartalom</div>
     <div class="toc-links">
-      <a href="#aktiv-hallgatas">Mi az aktív hallgatás?</a>
-      <a href="#technikak">Aktív hallgatás technikái</a>
-      <a href="#akadalyok">A hallgatás akadályai</a>
-      <a href="#kerdezes">Kérdezési technikák</a>
-      <a href="#kerdestipusok">Kérdéstípusok</a>
-      <a href="#eroteljes">Erőteljes kérdések</a>
-      <a href="#onreflexio">Önreflexió</a>
+      <a href="#aktiv-hallgatas"><span data-lang="hu">Mi az aktív hallgatás?</span><span data-lang="en">What is active listening?</span><span data-lang="ro">Ce este ascultarea activă?</span></a>
+      <a href="#technikak"><span data-lang="hu">Aktív hallgatás technikái</span><span data-lang="en">Techniques of active listening</span><span data-lang="ro">Tehnici de ascultare activă</span></a>
+      <a href="#akadalyok"><span data-lang="hu">A hallgatás akadályai</span><span data-lang="en">Barriers to listening</span><span data-lang="ro">Obstacole în ascultare</span></a>
+      <a href="#kerdezes"><span data-lang="hu">Kérdezési technikák</span><span data-lang="en">Questioning techniques</span><span data-lang="ro">Tehnici de întrebare</span></a>
+      <a href="#kerdestipusok"><span data-lang="hu">Kérdéstípusok</span><span data-lang="en">Types of questions</span><span data-lang="ro">Tipuri de întrebări</span></a>
+      <a href="#eroteljes"><span data-lang="hu">Erőteljes kérdések</span><span data-lang="en">Powerful questions</span><span data-lang="ro">Întrebări puternice</span></a>
+      <a href="#onreflexio"><span data-lang="hu">Önreflexió</span><span data-lang="en">Self-reflection</span><span data-lang="ro">Auto-reflecție</span></a>
     </div>
   </div>
 </div>
@@ -142,19 +220,19 @@
   <div class="stat-grid">
     <div class="stat-card" style="border-color:#1565C0;">
       <div class="stat-num" style="color:#1565C0;">4</div>
-      <div class="stat-label">Aktív hallgatás technika</div>
+      <div class="stat-label"><span data-lang="hu">Aktív hallgatás technika</span><span data-lang="en">Active listening technique</span><span data-lang="ro">Tehnica ascultării active</span></div>
     </div>
     <div class="stat-card" style="border-color:#42A5F5;">
       <div class="stat-num" style="color:#42A5F5;">5</div>
-      <div class="stat-label">Hallgatási akadály</div>
+      <div class="stat-label"><span data-lang="hu">Hallgatási akadály</span><span data-lang="en">Listening barrier</span><span data-lang="ro">Obstacol în ascultare</span></div>
     </div>
     <div class="stat-card" style="border-color:#1a7a4a;">
       <div class="stat-num" style="color:#1a7a4a;">4</div>
-      <div class="stat-label">Kérdéstípus</div>
+      <div class="stat-label"><span data-lang="hu">Kérdéstípus</span><span data-lang="en">Question type</span><span data-lang="ro">Tip de întrebare</span></div>
     </div>
     <div class="stat-card" style="border-color:#E8622A;">
       <div class="stat-num" style="color:#E8622A;">∞</div>
-      <div class="stat-label">Erőteljes kérdés lehetőség</div>
+      <div class="stat-label"><span data-lang="hu">Erőteljes kérdés lehetőség</span><span data-lang="en">Powerful question opportunity</span><span data-lang="ro">Posibilitate de întrebare puternică</span></div>
     </div>
   </div>
 
@@ -163,39 +241,39 @@
     <div class="section-header">
       <div class="section-icon" style="background:#e3f2fd;">👂</div>
       <div>
-        <h2>Mi az aktív hallgatás?</h2>
-        <div class="section-sub">Több mint egyszerű hallás</div>
+        <h2><span data-lang="hu">Mi az aktív hallgatás?</span><span data-lang="en">What is active listening?</span><span data-lang="ro">Ce este ascultarea activă?</span></h2>
+        <div class="section-sub"><span data-lang="hu">Több mint egyszerű hallás</span><span data-lang="en">More than just hearing</span><span data-lang="ro">Mai mult decât simpla auzire</span></div>
       </div>
     </div>
     <div class="intro-box">
-      Az aktív hallgatás egy <strong>tudatos kommunikációs technika</strong>, amelyben a hallgató teljes figyelmével, empátiával és megértéssel fordul a beszélő felé, és visszajelzésekkel segíti a kommunikációt. Nem csupán a szavak meghallása, hanem a mögöttes érzelmek, szándékok és jelentések megértése is.
+      <span data-lang="hu">Az aktív hallgatás egy</span><span data-lang="en">Active listening is a</span><span data-lang="ro">Ascultarea activă este o</span> <strong><span data-lang="hu">tudatos kommunikációs technika</span><span data-lang="en">conscious communication technique</span><span data-lang="ro">tehnică conștientă de comunicare</span></strong><span data-lang="hu">, amelyben a hallgató teljes figyelmével, empátiával és megértéssel fordul a beszélő felé, és visszajelzésekkel segíti a kommunikációt. Nem csupán a szavak meghallása, hanem a mögöttes érzelmek, szándékok és jelentések megértése is.</span><span data-lang="en"> in which the listener turns to the speaker with full attention, empathy, and understanding, supporting communication with feedback. It is not only about hearing the words but also understanding the underlying emotions, intentions, and meanings.</span><span data-lang="ro">, în care ascultătorul se concentrează cu toată atenția, empatia și înțelegerea asupra vorbitorului și sprijină comunicarea prin feedback. Nu este doar auzirea cuvintelor, ci și înțelegerea emoțiilor, intențiilor și semnificațiilor din spatele acestora.</span>
     </div>
     <div class="feature-grid">
       <div class="feature-card" style="border-color:#1565C0;">
-        <h3>👂 Több mint hallás</h3>
+        <h3><span data-lang="hu">👂 Több mint hallás</span><span data-lang="en">👂 More than hearing</span><span data-lang="ro">👂 Mai mult decât auzire</span></h3>
         <ul>
-          <li>Mögöttes érzelmek megértése</li>
-          <li>Szándékok és jelentések feltárása</li>
-          <li>Nem verbális jelzések figyelése</li>
-          <li>Teljes figyelem és jelenlét</li>
+          <li><span data-lang="hu">Mögöttes érzelmek megértése</span><span data-lang="en">Understanding underlying emotions</span><span data-lang="ro">Înțelegerea emoțiilor ascunse</span></li>
+          <li><span data-lang="hu">Szándékok és jelentések feltárása</span><span data-lang="en">Uncovering intentions and meanings</span><span data-lang="ro">Descoperirea intențiilor și semnificațiilor</span></li>
+          <li><span data-lang="hu">Nem verbális jelzések figyelése</span><span data-lang="en">Observing non-verbal cues</span><span data-lang="ro">Observarea semnalelor non-verbale</span></li>
+          <li><span data-lang="hu">Teljes figyelem és jelenlét</span><span data-lang="en">Full attention and presence</span><span data-lang="ro">Atenție și prezență totală</span></li>
         </ul>
       </div>
       <div class="feature-card" style="border-color:#42A5F5;">
-        <h3>🧠 Teljes jelenlét</h3>
+        <h3><span data-lang="hu">🧠 Teljes jelenlét</span><span data-lang="en">🧠 Full presence</span><span data-lang="ro">🧠 Prezență completă</span></h3>
         <ul>
-          <li>Saját gondolatok félretétele</li>
-          <li>Ítéletek felfüggesztése</li>
-          <li>Mentális és érzelmi jelenlét</li>
-          <li>Zavaró tényezők kiiktatása</li>
+          <li><span data-lang="hu">Saját gondolatok félretétele</span><span data-lang="en">Putting aside own thoughts</span><span data-lang="ro">Lăsarea gândurilor proprii deoparte</span></li>
+          <li><span data-lang="hu">Ítéletek felfüggesztése</span><span data-lang="en">Suspending judgments</span><span data-lang="ro">Suspendarea judecăților</span></li>
+          <li><span data-lang="hu">Mentális és érzelmi jelenlét</span><span data-lang="en">Mental and emotional presence</span><span data-lang="ro">Prezență mentală și emoțională</span></li>
+          <li><span data-lang="hu">Zavaró tényezők kiiktatása</span><span data-lang="en">Eliminating distractions</span><span data-lang="ro">Eliminarea factorilor perturbatori</span></li>
         </ul>
       </div>
       <div class="feature-card" style="border-color:#1a7a4a;">
         <h3>❤️ Bizalom alapja</h3>
         <ul>
-          <li>Bizalmi kapcsolat kiépítése</li>
-          <li>Mélyebb megértés lehetővé tétele</li>
-          <li>Rejtett problémák feltárása</li>
-          <li>Motivációk megismerése</li>
+          <li><span data-lang="hu">Bizalmi kapcsolat kiépítése</span><span data-lang="en">Building a trustful relationship</span><span data-lang="ro">Construirea unei relații de încredere</span></li>
+          <li><span data-lang="hu">Mélyebb megértés lehetővé tétele</span><span data-lang="en">Enabling deeper understanding</span><span data-lang="ro">Permitere înțelegerii mai profunde</span></li>
+          <li><span data-lang="hu">Rejtett problémák feltárása</span><span data-lang="en">Uncovering hidden issues</span><span data-lang="ro">Descoperirea problemelor ascunse</span></li>
+          <li><span data-lang="hu">Motivációk megismerése</span><span data-lang="en">Getting to know motivations</span><span data-lang="ro">Cunoașterea motivațiilor</span></li>
         </ul>
       </div>
     </div>
@@ -211,7 +289,7 @@
         allowfullscreen>
       </iframe>
     </div>
-    <p class="video-caption">A videó az aktív hallgatás kulcstechnikáit mutatja be – a visszatükrözést, az érzelmek validálását és a tudatos csend alkalmazását –, valamint azonosítja a hatékony hallgatás belső és külső akadályait a fiatalokkal való kommunikációban.</p>
+    <p class="video-caption"><span data-lang="hu">A videó az aktív hallgatás kulcstechnikáit mutatja be – a visszatükrözést, az érzelmek validálását és a tudatos csend alkalmazását –, valamint azonosítja a hatékony hallgatás belső és külső akadályait a fiatalokkal való kommunikációban.</span><span data-lang="en">The video presents key techniques of active listening – mirroring, validating emotions, and using conscious silence – and identifies internal and external barriers to effective listening in communication with young people.</span><span data-lang="ro">Videoclipul prezintă tehnicile cheie ale ascultării active – reflectarea, validarea emoțiilor și aplicarea tăcerii conștiente – și identifică obstacolele interne și externe ale ascultării eficiente în comunicarea cu tinerii.</span></p>
   </div>
 
   <!-- SECTION 2: TECHNIKÁK -->
@@ -219,29 +297,29 @@
     <div class="section-header">
       <div class="section-icon" style="background:#e3f2fd;">🛠️</div>
       <div>
-        <h2>Az Aktív Hallgatás Technikái</h2>
-        <div class="section-sub">Konkrét eszközök és példák</div>
+        <h2><span data-lang="hu">Az Aktív Hallgatás Technikái</span><span data-lang="en">Techniques of Active Listening</span><span data-lang="ro">Tehnicile Ascultării Active</span></h2>
+        <div class="section-sub"><span data-lang="hu">Konkrét eszközök és példák</span><span data-lang="en">Concrete tools and examples</span><span data-lang="ro">Instrumente și exemple concrete</span></div>
       </div>
     </div>
     <div class="technique-card">
       <h3>👁️ 1. Teljes figyelem</h3>
-      <p>Szemkontaktus tartása, nyitott testtartás, zavaró tényezők kiiktatása (telefon, egyéb gondolatok). A testbeszéd jelzi a figyelmet.</p>
-      <div class="example">💬 Példa: "Látom, hogy ez fontos számodra."</div>
+      <p><span data-lang="hu">Szemkontaktus tartása, nyitott testtartás, zavaró tényezők kiiktatása (telefon, egyéb gondolatok). A testbeszéd jelzi a figyelmet.</span><span data-lang="en">Maintaining eye contact, open body posture, eliminating distractions (phone, other thoughts). Body language signals attention.</span><span data-lang="ro">Menținerea contactului vizual, postura deschisă, eliminarea factorilor perturbatori (telefon, alte gânduri). Limbajul corpului indică atenția.</span></p>
+      <div class="example"><span data-lang="hu">💬 Példa: "Látom, hogy ez fontos számodra."</span><span data-lang="en">💬 Example: "I see this is important to you."</span><span data-lang="ro">💬 Exemplu: „Văd că acest lucru este important pentru tine.”</span></div>
     </div>
     <div class="technique-card">
-      <h3>🔄 2. Visszatükrözés</h3>
-      <p>Az elhangzottak saját szavainkkal történő visszamondása a megértés ellenőrzésére. Ez megerősíti az ügyfelet és tisztázza a félreértéseket.</p>
-      <div class="example">💬 Példa: "Ha jól értem, azt mondod, hogy..."</div>
+      <h3><span data-lang="hu">🔄 2. Visszatükrözés</span><span data-lang="en">🔄 2. Mirroring</span><span data-lang="ro">🔄 2. Reflectare</span></h3>
+      <p><span data-lang="hu">Az elhangzottak saját szavainkkal történő visszamondása a megértés ellenőrzésére. Ez megerősíti az ügyfelet és tisztázza a félreértéseket.</span><span data-lang="en">Repeating what was said in our own words to check understanding. This reinforces the client and clarifies misunderstandings.</span><span data-lang="ro">Redarea cu propriile cuvinte a celor auzite pentru a verifica înțelegerea. Aceasta întărește clientul și clarifică neînțelegerile.</span></p>
+      <div class="example"><span data-lang="hu">💬 Példa: "Ha jól értem, azt mondod, hogy..."</span><span data-lang="en">💬 Example: "If I understand correctly, you are saying that..."</span><span data-lang="ro">💬 Exemplu: „Dacă am înțeles bine, spui că...“</span></div>
     </div>
     <div class="technique-card">
-      <h3>❤️ 3. Érzelmek validálása</h3>
-      <p>Az ügyfél érzéseinek elismerése és normalizálása, ítélkezés nélkül. Az érzelmek validálása nem jelenti az egyetértést – csupán az elismerést.</p>
-      <div class="example">💬 Példa: "Érthető, hogy frusztrált vagy ebben a helyzetben."</div>
+      <h3><span data-lang="hu">❤️ 3. Érzelmek validálása</span><span data-lang="en">❤️ 3. Validating emotions</span><span data-lang="ro">❤️ 3. Validarea emoțiilor</span></h3>
+      <p><span data-lang="hu">Az ügyfél érzéseinek elismerése és normalizálása, ítélkezés nélkül. Az érzelmek validálása nem jelenti az egyetértést – csupán az elismerést.</span><span data-lang="en">Acknowledging and normalizing the client’s feelings without judgment. Validating emotions does not mean agreeing – just recognizing them.</span><span data-lang="ro">Recunoașterea și normalizarea sentimentelor clientului, fără judecată. Validarea emoțiilor nu înseamnă acord, ci doar recunoaștere.</span></p>
+      <div class="example"><span data-lang="hu">💬 Példa: "Érthető, hogy frusztrált vagy ebben a helyzetben."</span><span data-lang="en">💬 Example: "It’s understandable that you feel frustrated in this situation."</span><span data-lang="ro">💬 Exemplu: „Este de înțeles că te simți frustrat în această situație.”</span></div>
     </div>
     <div class="technique-card">
-      <h3>🔇 4. Csend és összefoglalás</h3>
-      <p>Tudatos szünetek tartása és a beszélgetés főbb pontjainak összegzése. A csend értékes eszköz – adj időt a gondolkodásra!</p>
-      <div class="example">💬 Példa: "Tehát a fő kihívások, amelyekkel szembesülsz..."</div>
+      <h3><span data-lang="hu">🔇 4. Csend és összefoglalás</span><span data-lang="en">🔇 4. Silence and Summary</span><span data-lang="ro">🔇 4. Liniște și rezumat</span></h3>
+      <p><span data-lang="hu">Tudatos szünetek tartása és a beszélgetés főbb pontjainak összegzése. A csend értékes eszköz – adj időt a gondolkodásra!</span><span data-lang="en">Taking conscious pauses and summarizing the main points of the conversation. Silence is a valuable tool – give time for reflection!</span><span data-lang="ro">Pauze conștiente și rezumarea punctelor principale ale discuției. Liniștea este un instrument valoros – oferă timp pentru reflecție!</span></p>
+      <div class="example"><span data-lang="hu">💬 Példa: "Tehát a fő kihívások, amelyekkel szembesülsz..."</span><span data-lang="en">💬 Example: "So the main challenges you are facing..."</span><span data-lang="ro">💬 Exemplu: „Deci, principalele provocări cu care te confrunți...”</span></div>
     </div>
   </div>
 
@@ -250,42 +328,42 @@
     <div class="section-header">
       <div class="section-icon" style="background:#fff8e1;">⚠️</div>
       <div>
-        <h2>A Hallgatás Akadályai</h2>
-        <div class="section-sub">Mik akadályozzák a hatékony hallgatást?</div>
+        <h2><span data-lang="hu">A Hallgatás Akadályai</span><span data-lang="en">Barriers to Listening</span><span data-lang="ro">Obstacolele ascultării</span></h2>
+        <div class="section-sub"><span data-lang="hu">Mik akadályozzák a hatékony hallgatást?</span><span data-lang="en">What hinders effective listening?</span><span data-lang="ro">Ce împiedică o ascultare eficientă?</span></div>
       </div>
     </div>
     <div class="obstacle-grid">
       <div class="obstacle-card">
         <div class="obstacle-icon">💭</div>
-        <h4>Belső párbeszéd</h4>
-        <p>Saját gondolatainkkal való foglalkozás ahelyett, hogy a másikra figyelnénk.</p>
+        <h4><span data-lang="hu">Belső párbeszéd</span><span data-lang="en">Internal Dialogue</span><span data-lang="ro">Dialog interior</span></h4>
+        <p><span data-lang="hu">Saját gondolatainkkal való foglalkozás ahelyett, hogy a másikra figyelnénk.</span><span data-lang="en">Focusing on our own thoughts instead of paying attention to the other person.</span><span data-lang="ro">A te ocupa de propriile gânduri în loc să acorzi atenție celuilalt.</span></p>
       </div>
       <div class="obstacle-card">
         <div class="obstacle-icon">🏷️</div>
-        <h4>Előítéletek</h4>
-        <p>A beszélő vagy a téma előzetes megítélése, ami torzítja a hallottakat.</p>
+        <h4><span data-lang="hu">Előítéletek</span><span data-lang="en">Prejudices</span><span data-lang="ro">Prejudecăți</span></h4>
+        <p><span data-lang="hu">A beszélő vagy a téma előzetes megítélése, ami torzítja a hallottakat.</span><span data-lang="en">Prejudging the speaker or the topic, which distorts what is heard.</span><span data-lang="ro">Judecarea anticipată a vorbitorului sau a subiectului, care distorsionează ceea ce auzi.</span></p>
       </div>
       <div class="obstacle-card">
         <div class="obstacle-icon">⏰</div>
-        <h4>Türelmetlenség</h4>
-        <p>Siettetés, a beszélő félbeszakítása vagy a válasz előre megfogalmazása.</p>
+        <h4><span data-lang="hu">Türelmetlenség</span><span data-lang="en">Impatience</span><span data-lang="ro">Nerăbdare</span></h4>
+        <p><span data-lang="hu">Siettetés, a beszélő félbeszakítása vagy a válasz előre megfogalmazása.</span><span data-lang="en">Rushing, interrupting the speaker, or formulating the response in advance.</span><span data-lang="ro">Grăbirea, întreruperea vorbitorului sau formularea anticipată a răspunsului.</span></p>
       </div>
       <div class="obstacle-card">
         <div class="obstacle-icon">📱</div>
-        <h4>Figyelemelterelők</h4>
-        <p>Külső zavaró tényezők (telefon, zaj) vagy belső elterelő gondolatok.</p>
+        <h4><span data-lang="hu">Figyelemelterelők</span><span data-lang="en">Distractions</span><span data-lang="ro">Distrageri</span></h4>
+        <p><span data-lang="hu">Külső zavaró tényezők (telefon, zaj) vagy belső elterelő gondolatok.</span><span data-lang="en">External disturbances (phone, noise) or internal distracting thoughts.</span><span data-lang="ro">Factori externi perturbatori (telefon, zgomot) sau gânduri interne care distrag atenția.</span></p>
       </div>
       <div class="obstacle-card">
         <div class="obstacle-icon">🪞</div>
-        <h4>Énközpontúság</h4>
-        <p>A beszélgetés visszaterelése saját tapasztalatainkra, problémáinkra.</p>
+        <h4><span data-lang="hu">Énközpontúság</span><span data-lang="en">Self-centeredness</span><span data-lang="ro">Egocentrism</span></h4>
+        <p><span data-lang="hu">A beszélgetés visszaterelése saját tapasztalatainkra, problémáinkra.</span><span data-lang="en">Redirecting the conversation back to our own experiences and problems.</span><span data-lang="ro">Redirecționarea conversației către propriile experiențe și probleme.</span></p>
       </div>
     </div>
     <div class="callout tip">
       <span class="callout-icon">💡</span>
       <div class="callout-text">
-        <strong>Tipp a tudatossághoz</strong>
-        <p>Gyakorold a tudatosságot! Figyeld meg, mikor kalandozik el a figyelmed, és gyengéden tereld vissza a beszélőre. Ez nem gyengeség – hanem a hallgatás mestersége.</p>
+        <strong><span data-lang="hu">Tipp a tudatossághoz</span><span data-lang="en">Tip for Awareness</span><span data-lang="ro">Sfat pentru conștientizare</span></strong>
+        <p><span data-lang="hu">Gyakorold a tudatosságot! Figyeld meg, mikor kalandozik el a figyelmed, és gyengéden tereld vissza a beszélőre. Ez nem gyengeség – hanem a hallgatás mestersége.</span><span data-lang="en">Practice mindfulness! Notice when your attention wanders and gently bring it back to the speaker. This is not a weakness – it is the art of listening.</span><span data-lang="ro">Exersează conștientizarea! Observă când îți rătăcește atenția și readu-o cu blândețe către vorbitor. Aceasta nu este o slăbiciune – ci arta ascultării.</span></p>
       </div>
     </div>
   </div>
@@ -295,39 +373,39 @@
     <div class="section-header">
       <div class="section-icon" style="background:#e3f2fd;">❓</div>
       <div>
-        <h2>Kérdezési Technikák Alapjai</h2>
-        <div class="section-sub">A hatékony kérdezés elvei</div>
+        <h2><span data-lang="hu">Kérdezési Technikák Alapjai</span><span data-lang="en">Basics of Questioning Techniques</span><span data-lang="ro">Bazele tehnicilor de întrebare</span></h2>
+        <div class="section-sub"><span data-lang="hu">A hatékony kérdezés elvei</span><span data-lang="en">Principles of effective questioning</span><span data-lang="ro">Principiile unei întrebări eficiente</span></div>
       </div>
     </div>
     <div class="intro-box">
-      A hatékony kérdezés a coaching egyik legfontosabb eszköze, amely segíti az ügyfelet a mélyebb önreflexióban és új felismerések megszületésében.
+      <span data-lang="hu">A hatékony kérdezés a coaching egyik legfontosabb eszköze, amely segíti az ügyfelet a mélyebb önreflexióban és új felismerések megszületésében.</span><span data-lang="en">Effective questioning is one of the most important coaching tools, helping the client engage in deeper self-reflection and new insights.</span><span data-lang="ro">Întrebarea eficientă este unul dintre cele mai importante instrumente din coaching, care ajută clientul să se auto-reflecteze mai profund și să ajungă la noi descoperiri.</span>
     </div>
     <div class="feature-grid">
       <div class="feature-card" style="border-color:#1565C0;">
-        <h3>🎯 Célirányosság</h3>
+        <h3><span data-lang="hu">🎯 Célirányosság</span><span data-lang="en">🎯 Purposefulness</span><span data-lang="ro">🎯 Țintire</span></h3>
         <ul>
-          <li>Konkrét célt szolgálnak</li>
-          <li>Tisztázás vagy mélyebb megértés</li>
-          <li>Új perspektívák feltárása</li>
-          <li>Cselekvésre ösztönzés</li>
+          <li><span data-lang="hu">Konkrét célt szolgálnak</span><span data-lang="en">Serve a specific purpose</span><span data-lang="ro">Servesc unui scop concret</span></li>
+          <li><span data-lang="hu">Tisztázás vagy mélyebb megértés</span><span data-lang="en">Clarification or deeper understanding</span><span data-lang="ro">Clarificare sau înțelegere mai profundă</span></li>
+          <li><span data-lang="hu">Új perspektívák feltárása</span><span data-lang="en">Exploring new perspectives</span><span data-lang="ro">Descoperirea unor perspective noi</span></li>
+          <li><span data-lang="hu">Cselekvésre ösztönzés</span><span data-lang="en">Encouraging action</span><span data-lang="ro">Încurajarea acțiunii</span></li>
         </ul>
       </div>
       <div class="feature-card" style="border-color:#42A5F5;">
-        <h3>🔓 Nyitottság</h3>
+        <h3><span data-lang="hu">🔓 Nyitottság</span><span data-lang="en">🔓 Openness</span><span data-lang="ro">🔓 Deschidere</span></h3>
         <ul>
-          <li>Teret adnak a gondolkodásnak</li>
-          <li>Önkifejezést lehetővé teszik</li>
-          <li>Nem sugallnak megoldást</li>
-          <li>Nem igen/nem válaszok</li>
+          <li><span data-lang="hu">Teret adnak a gondolkodásnak</span><span data-lang="en">Allow space for thinking</span><span data-lang="ro">Oferă spațiu pentru gândire</span></li>
+          <li><span data-lang="hu">Önkifejezést lehetővé teszik</span><span data-lang="en">Enable self-expression</span><span data-lang="ro">Permite exprimarea de sine</span></li>
+          <li><span data-lang="hu">Nem sugallnak megoldást</span><span data-lang="en">Do not suggest solutions</span><span data-lang="ro">Nu sugerează soluții</span></li>
+          <li><span data-lang="hu">Nem igen/nem válaszok</span><span data-lang="en">Avoid yes/no answers</span><span data-lang="ro">Nu răspunsuri da/nu</span></li>
         </ul>
       </div>
       <div class="feature-card" style="border-color:#1a7a4a;">
-        <h3>⏱️ Időzítés és egyszerűség</h3>
+        <h3><span data-lang="hu">⏱️ Időzítés és egyszerűség</span><span data-lang="en">⏱️ Timing and Simplicity</span><span data-lang="ro">⏱️ Timp și simplitate</span></h3>
         <ul>
-          <li>Megfelelő kérdés a megfelelő időben</li>
-          <li>Egyszerű, érthető megfogalmazás</li>
-          <li>Kerüljük a szakzsargont</li>
-          <li>Egy kérdés egyszerre</li>
+          <li><span data-lang="hu">Megfelelő kérdés a megfelelő időben</span><span data-lang="en">The right question at the right time</span><span data-lang="ro">Întrebarea potrivită la momentul potrivit</span></li>
+          <li><span data-lang="hu">Egyszerű, érthető megfogalmazás</span><span data-lang="en">Simple, clear wording</span><span data-lang="ro">Formulare simplă și clară</span></li>
+          <li><span data-lang="hu">Kerüljük a szakzsargont</span><span data-lang="en">Avoid jargon</span><span data-lang="ro">Evită jargonul de specialitate</span></li>
+          <li><span data-lang="hu">Egy kérdés egyszerre</span><span data-lang="en">One question at a time</span><span data-lang="ro">O singură întrebare odată</span></li>
         </ul>
       </div>
     </div>
@@ -338,30 +416,30 @@
     <div class="section-header">
       <div class="section-icon" style="background:#e3f2fd;">📋</div>
       <div>
-        <h2>Kérdéstípusok</h2>
-        <div class="section-sub">A négy fő kérdéstípus és alkalmazásuk</div>
+        <h2><span data-lang="hu">Kérdéstípusok</span><span data-lang="en">Types of Questions</span><span data-lang="ro">Tipuri de întrebări</span></h2>
+        <div class="section-sub"><span data-lang="hu">A négy fő kérdéstípus és alkalmazásuk</span><span data-lang="en">The four main types of questions and their application</span><span data-lang="ro">Cele patru tipuri principale de întrebări și aplicarea lor</span></div>
       </div>
     </div>
     <div class="question-type-grid">
       <div class="question-card" style="border-color:#1565C0;">
-        <h4>🔓 Nyitott kérdések</h4>
-        <p>Bővebb kifejtést igényelnek, nem válaszolhatók meg egyszerű igennel vagy nemmel. Segítenek feltárni a gondolatokat és érzéseket.</p>
-        <div class="q-example">"Mit gondolsz erről a helyzetről?"<br>"Hogyan érzed magad ezzel kapcsolatban?"</div>
+        <h4><span data-lang="hu">🔓 Nyitott kérdések</span><span data-lang="en">🔓 Open Questions</span><span data-lang="ro">🔓 Întrebări deschise</span></h4>
+        <p><span data-lang="hu">Bővebb kifejtést igényelnek, nem válaszolhatók meg egyszerű igennel vagy nemmel. Segítenek feltárni a gondolatokat és érzéseket.</span><span data-lang="en">Require elaboration, cannot be answered with a simple yes or no. Help uncover thoughts and feelings.</span><span data-lang="ro">Necesită o exprimare mai amplă, nu pot fi răspunse simplu cu da sau nu. Ajută la explorarea gândurilor și sentimentelor.</span></p>
+        <div class="q-example"><span data-lang="hu">"Mit gondolsz erről a helyzetről?"</span><span data-lang="en">"What do you think about this situation?"</span><span data-lang="ro">„Ce părere ai despre această situație?”</span><br><span data-lang="hu">"Hogyan érzed magad ezzel kapcsolatban?"</span><span data-lang="en">"How do you feel about this?"</span><span data-lang="ro">„Cum te simți în legătură cu asta?”</span></div>
       </div>
       <div class="question-card" style="border-color:#42A5F5;">
-        <h4>🔒 Zárt kérdések</h4>
-        <p>Konkrét, rövid válaszokat igényelnek. Tények tisztázására hasznos, de korlátozhatja a beszélgetést.</p>
-        <div class="q-example">"Beszéltél már erről valakivel?"<br>"Elkezdted már a feladatot?"</div>
+        <h4><span data-lang="hu">🔒 Zárt kérdések</span><span data-lang="en">🔒 Closed Questions</span><span data-lang="ro">🔒 Întrebări închise</span></h4>
+        <p><span data-lang="hu">Konkrét, rövid válaszokat igényelnek. Tények tisztázására hasznos, de korlátozhatja a beszélgetést.</span><span data-lang="en">Require specific, brief answers. Useful for clarifying facts but can limit the conversation.</span><span data-lang="ro">Necesită răspunsuri scurte și concrete. Sunt utile pentru clarificarea faptelor, dar pot limita conversația.</span></p>
+        <div class="q-example"><span data-lang="hu">"Beszéltél már erről valakivel?"</span><span data-lang="en">"Have you talked about this with anyone?"</span><span data-lang="ro">„Ai vorbit deja cu cineva despre asta?”</span><br><span data-lang="hu">"Elkezdted már a feladatot?"</span><span data-lang="en">"Have you started the task yet?"</span><span data-lang="ro">„Ai început deja sarcina?”</span></div>
       </div>
       <div class="question-card" style="border-color:#1a7a4a;">
-        <h4>🔍 Feltáró kérdések</h4>
-        <p>Mélyebb gondolkodásra ösztönöznek, segítenek a részletek és összefüggések feltárásában.</p>
-        <div class="q-example">"Mi lehet ennek az oka?"<br>"Hogyan kapcsolódik ez a korábbi tapasztalataidhoz?"</div>
+        <h4><span data-lang="hu">🔍 Feltáró kérdések</span><span data-lang="en">🔍 Exploratory Questions</span><span data-lang="ro">🔍 Întrebări exploratorii</span></h4>
+        <p><span data-lang="hu">Mélyebb gondolkodásra ösztönöznek, segítenek a részletek és összefüggések feltárásában.</span><span data-lang="en">Encourage deeper thinking, help uncover details and connections.</span><span data-lang="ro">Încurajează o reflecție mai profundă, ajută la descoperirea detaliilor și conexiunilor.</span></p>
+        <div class="q-example"><span data-lang="hu">"Mi lehet ennek az oka?"</span><span data-lang="en">"What could be the reason for this?"</span><span data-lang="ro">„Care ar putea fi cauza acestui lucru?”</span><br><span data-lang="hu">"Hogyan kapcsolódik ez a korábbi tapasztalataidhoz?"</span><span data-lang="en">"How does this relate to your previous experiences?"</span><span data-lang="ro">„Cum se leagă asta de experiențele tale anterioare?”</span></div>
       </div>
       <div class="question-card" style="border-color:#9C27B0;">
-        <h4>💭 Hipotetikus kérdések</h4>
-        <p>Új perspektívákat nyitnak, segítenek elképzelni különböző lehetőségeket és következményeket.</p>
-        <div class="q-example">"Mi történne, ha...?"<br>"Hogyan alakulna a helyzet, ha másképp közelítenéd meg?"</div>
+        <h4><span data-lang="hu">💭 Hipotetikus kérdések</span><span data-lang="en">💭 Hypothetical Questions</span><span data-lang="ro">💭 Întrebări ipotetice</span></h4>
+        <p><span data-lang="hu">Új perspektívákat nyitnak, segítenek elképzelni különböző lehetőségeket és következményeket.</span><span data-lang="en">They open new perspectives, helping to imagine different possibilities and consequences.</span><span data-lang="ro">Deschid perspective noi, ajută la imaginarea diferitelor posibilități și consecințe.</span></p>
+        <div class="q-example"><span data-lang="hu">"Mi történne, ha...?"</span><span data-lang="en">"What would happen if...?"</span><span data-lang="ro">"Ce s-ar întâmpla dacă...?"</span><br><span data-lang="hu">"Hogyan alakulna a helyzet, ha másképp közelítenéd meg?"</span><span data-lang="en">"How would the situation change if you approached it differently?"</span><span data-lang="ro">"Cum s-ar schimba situația dacă ai aborda-o altfel?"</span></div>
       </div>
     </div>
   </div>
@@ -371,40 +449,40 @@
     <div class="section-header">
       <div class="section-icon" style="background:#e3f2fd;">⚡</div>
       <div>
-        <h2>Erőteljes Kérdések</h2>
-        <div class="section-sub">A coaching eszköztár leghatékonyabb elemei</div>
+        <h2><span data-lang="hu">Erőteljes Kérdések</span><span data-lang="en">Powerful Questions</span><span data-lang="ro">Întrebări Puternice</span></h2>
+        <div class="section-sub"><span data-lang="hu">A coaching eszköztár leghatékonyabb elemei</span><span data-lang="en">The most effective elements of the coaching toolkit</span><span data-lang="ro">Cele mai eficiente elemente ale trusei de instrumente de coaching</span></div>
       </div>
     </div>
     <div class="intro-box">
-      Az erőteljes kérdések a coaching eszköztár leghatékonyabb elemei, amelyek <strong>új felismerésekhez, mélyebb megértéshez és valódi változáshoz</strong> vezetnek.
+      <span data-lang="hu">Az erőteljes kérdések a coaching eszköztár leghatékonyabb elemei, amelyek</span><span data-lang="en">Powerful questions are the most effective elements of the coaching toolkit, which</span><span data-lang="ro">Întrebările puternice sunt cele mai eficiente elemente ale trusei de instrumente de coaching, care</span> <strong><span data-lang="hu">új felismerésekhez, mélyebb megértéshez és valódi változáshoz</span><span data-lang="en">lead to new insights, deeper understanding, and real change</span><span data-lang="ro">conduc la noi descoperiri, înțelegere mai profundă și schimbare reală</span></strong> vezetnek.
     </div>
     <div class="feature-grid">
       <div class="feature-card" style="border-color:#1565C0;">
-        <h3>✅ Jellemzőik</h3>
+        <h3><span data-lang="hu">✅ Jellemzőik</span><span data-lang="en">✅ Characteristics</span><span data-lang="ro">✅ Caracteristicile lor</span></h3>
         <ul>
-          <li>Nyitottak, nem igen/nem válasz</li>
-          <li>Gondolkodásra ösztönöznek</li>
-          <li>Nem sugallnak megoldást</li>
-          <li>Új perspektívákat nyitnak</li>
-          <li>Egyszerűek és világosak</li>
+          <li><span data-lang="hu">Nyitottak, nem igen/nem válasz</span><span data-lang="en">They are open-ended, not yes/no answers</span><span data-lang="ro">Sunt deschise, nu răspunsuri da/nu</span></li>
+          <li><span data-lang="hu">Gondolkodásra ösztönöznek</span><span data-lang="en">They encourage reflection</span><span data-lang="ro">Încurajează gândirea</span></li>
+          <li><span data-lang="hu">Nem sugallnak megoldást</span><span data-lang="en">They do not suggest solutions</span><span data-lang="ro">Nu sugerează soluții</span></li>
+          <li><span data-lang="hu">Új perspektívákat nyitnak</span><span data-lang="en">They open new perspectives</span><span data-lang="ro">Deschid perspective noi</span></li>
+          <li><span data-lang="hu">Egyszerűek és világosak</span><span data-lang="en">Simple and clear</span><span data-lang="ro">Sunt simple și clare</span></li>
         </ul>
       </div>
       <div class="feature-card" style="border-color:#E8622A;">
-        <h3>⚡ Példák erőteljes kérdésekre</h3>
+        <h3><span data-lang="hu">⚡ Példák erőteljes kérdésekre</span><span data-lang="en">⚡ Examples of powerful questions</span><span data-lang="ro">⚡ Exemple de întrebări puternice</span></h3>
         <ul>
-          <li>"Mi lenne számodra a legjobb kimenetel?"</li>
-          <li>"Mit tanultál ebből a tapasztalatból?"</li>
-          <li>"Ha minden lehetőséged megvolna, mit tennél?"</li>
-          <li>"Mi tartja vissza a változástól?"</li>
-          <li>"Milyen erőforrásaid vannak már most?"</li>
+          <li><span data-lang="hu">"Mi lenne számodra a legjobb kimenetel?"</span><span data-lang="en">"What would be the best outcome for you?"</span><span data-lang="ro">"Care ar fi pentru tine cel mai bun rezultat?"</span></li>
+          <li><span data-lang="hu">"Mit tanultál ebből a tapasztalatból?"</span><span data-lang="en">"What have you learned from this experience?"</span><span data-lang="ro">"Ce ai învățat din această experiență?"</span></li>
+          <li><span data-lang="hu">"Ha minden lehetőséged megvolna, mit tennél?"</span><span data-lang="en">"If you had all the possibilities, what would you do?"</span><span data-lang="ro">"Dacă ai avea toate opțiunile disponibile, ce ai face?"</span></li>
+          <li><span data-lang="hu">"Mi tartja vissza a változástól?"</span><span data-lang="en">"What is holding you back from change?"</span><span data-lang="ro">"Ce te reține să faci schimbarea?"</span></li>
+          <li><span data-lang="hu">"Milyen erőforrásaid vannak már most?"</span><span data-lang="en">"What resources do you already have?"</span><span data-lang="ro">"Ce resurse ai deja?"</span></li>
         </ul>
       </div>
     </div>
     <div class="callout warning">
       <span class="callout-icon">⚠️</span>
       <div class="callout-text">
-        <strong>Kerülendő: "Miért?" kérdések</strong>
-        <p>A "Miért?" kérdések védekezést válthatnak ki, különösen fiataloknál. Helyette használj: "Mi az oka annak, hogy...?", "Hogyan jutottál erre a döntésre?", "Mi motivált ebben?"</p>
+        <strong><span data-lang="hu">Kerülendő: "Miért?" kérdések</span><span data-lang="en">To avoid: "Why?" questions</span><span data-lang="ro">De evitat: întrebările „De ce?”</span></strong>
+        <p><span data-lang="hu">A "Miért?" kérdések védekezést válthatnak ki, különösen fiataloknál. Helyette használj: "Mi az oka annak, hogy...?", "Hogyan jutottál erre a döntésre?", "Mi motivált ebben?"</span><span data-lang="en">"Why?" questions can trigger defensiveness, especially among young people. Instead, use: "What is the reason that...?", "How did you come to this decision?", "What motivated you in this?"</span><span data-lang="ro">Întrebările „De ce?” pot declanșa o reacție defensivă, mai ales în rândul tinerilor. În locul lor, folosește: „Care este motivul pentru care...?“, „Cum ai ajuns la această decizie?“, „Ce te-a motivat în acest sens?“</span></p>
       </div>
     </div>
     <span id="video-2"></span>
@@ -419,7 +497,7 @@
         allowfullscreen>
       </iframe>
     </div>
-    <p class="video-caption">A videó a nyitott és zárt kérdések közötti különbséget, az erőteljes kérdések megfogalmazásának elveit, valamint a „Miért?" kérdések kerülésének és hatékony helyettesítésének módszereit mutatja be ifjúságsegítői kontextusban.</p>
+    <p class="video-caption"><span data-lang="hu">A videó a nyitott és zárt kérdések közötti különbséget, az erőteljes kérdések megfogalmazásának elveit, valamint a „Miért?" kérdések kerülésének és hatékony helyettesítésének módszereit mutatja be ifjúságsegítői kontextusban.</span><span data-lang="en">The video presents the difference between open and closed questions, principles for formulating powerful questions, as well as methods for avoiding and effectively replacing "Why?" questions in a youth work context.</span><span data-lang="ro">Videoclipul prezintă diferența dintre întrebările deschise și cele închise, principiile formulării întrebărilor puternice, precum și metodele de evitare și înlocuire eficientă a întrebărilor „De ce?” în contextul lucrului cu tinerii.</span></p>
   </div>
 
   <!-- ÖNREFLEXIÓ -->
@@ -427,49 +505,49 @@
     <div class="section-header">
       <div class="section-icon" style="background:#e3f2fd;">🔍</div>
       <div>
-        <h2>Önreflexió és Gyakorlat</h2>
-        <div class="section-sub">Értékeld saját hallgatási és kérdezési készségeidet</div>
+        <h2><span data-lang="hu">Önreflexió és Gyakorlat</span><span data-lang="en">Self-reflection and Practice</span><span data-lang="ro">Auto-reflecție și Exercițiu</span></h2>
+        <div class="section-sub"><span data-lang="hu">Értékeld saját hallgatási és kérdezési készségeidet</span><span data-lang="en">Evaluate your own listening and questioning skills</span><span data-lang="ro">Evaluează-ți abilitățile de ascultare și de adresare a întrebărilor</span></div>
       </div>
     </div>
     <div class="reflection-section">
-      <h3>👂 Aktív Hallgatás Önértékelése</h3>
+      <h3><span data-lang="hu">👂 Aktív Hallgatás Önértékelése</span><span data-lang="en">👂 Active Listening Self-Assessment</span><span data-lang="ro">👂 Autoevaluare a Ascultării Active</span></h3>
 
       <div class="reflection-question">
-        <label>1. Mennyire tudod félretenni saját gondolataidat, amikor másokat hallgatsz?</label>
+        <label><span data-lang="hu">1. Mennyire tudod félretenni saját gondolataidat, amikor másokat hallgatsz?</span><span data-lang="en">1. How well can you set aside your own thoughts when listening to others?</span><span data-lang="ro">1. Cât de bine poți să-ți pui deoparte propriile gânduri atunci când asculți pe alții?</span></label>
         <div class="scale-options">
-          <input type="radio" name="q1" id="q1_1" value="1"><label for="q1_1">1 – Nehéz</label>
+          <input type="radio" name="q1" id="q1_1" value="1"><label for="q1_1"><span data-lang="hu">1 – Nehéz</span><span data-lang="en">1 – Difficult</span><span data-lang="ro">1 – Dificil</span></label>
           <input type="radio" name="q1" id="q1_2" value="2"><label for="q1_2">2</label>
-          <input type="radio" name="q1" id="q1_3" value="3"><label for="q1_3">3 – Közepes</label>
+          <input type="radio" name="q1" id="q1_3" value="3"><label for="q1_3"><span data-lang="hu">3 – Közepes</span><span data-lang="en">3 – Moderate</span><span data-lang="ro">3 – Mediu</span></label>
           <input type="radio" name="q1" id="q1_4" value="4"><label for="q1_4">4</label>
-          <input type="radio" name="q1" id="q1_5" value="5"><label for="q1_5">5 – Könnyű</label>
+          <input type="radio" name="q1" id="q1_5" value="5"><label for="q1_5"><span data-lang="hu">5 – Könnyű</span><span data-lang="en">5 – Easy</span><span data-lang="ro">5 – Ușor</span></label>
         </div>
       </div>
 
       <div class="reflection-question">
-        <label>2. Melyik hallgatási akadályt tapasztalod leggyakrabban saját magadnál?</label>
+        <label><span data-lang="hu">2. Melyik hallgatási akadályt tapasztalod leggyakrabban saját magadnál?</span><span data-lang="en">2. Which listening barrier do you most often experience in yourself?</span><span data-lang="ro">2. Care este cel mai frecvent obstacol în ascultare pe care îl experimentezi la tine?</span></label>
         <div class="scale-options">
-          <input type="radio" name="q2" id="q2_a" value="a"><label for="q2_a">Belső párbeszéd</label>
-          <input type="radio" name="q2" id="q2_b" value="b"><label for="q2_b">Előítéletek</label>
-          <input type="radio" name="q2" id="q2_c" value="c"><label for="q2_c">Türelmetlenség</label>
-          <input type="radio" name="q2" id="q2_d" value="d"><label for="q2_d">Figyelemelterelők</label>
-          <input type="radio" name="q2" id="q2_e" value="e"><label for="q2_e">Énközpontúság</label>
+          <input type="radio" name="q2" id="q2_a" value="a"><label for="q2_a"><span data-lang="hu">Belső párbeszéd</span><span data-lang="en">Internal dialogue</span><span data-lang="ro">Dialog interior</span></label>
+          <input type="radio" name="q2" id="q2_b" value="b"><label for="q2_b"><span data-lang="hu">Előítéletek</span><span data-lang="en">Prejudices</span><span data-lang="ro">Prejudecăți</span></label>
+          <input type="radio" name="q2" id="q2_c" value="c"><label for="q2_c"><span data-lang="hu">Türelmetlenség</span><span data-lang="en">Impatience</span><span data-lang="ro">Nerăbdare</span></label>
+          <input type="radio" name="q2" id="q2_d" value="d"><label for="q2_d"><span data-lang="hu">Figyelemelterelők</span><span data-lang="en">Distractions</span><span data-lang="ro">Distrageri</span></label>
+          <input type="radio" name="q2" id="q2_e" value="e"><label for="q2_e"><span data-lang="hu">Énközpontúság</span><span data-lang="en">Egocentrism</span><span data-lang="ro">Egocentrism</span></label>
         </div>
       </div>
 
       <div class="reflection-question">
-        <label>3. Írj le egy erőteljes kérdést, amelyet egy fiatal segítésénél alkalmaznál:</label>
+        <label><span data-lang="hu">3. Írj le egy erőteljes kérdést, amelyet egy fiatal segítésénél alkalmaznál:</span><span data-lang="en">3. Write down a powerful question you would use when helping a young person:</span><span data-lang="ro">3. Scrie o întrebare puternică pe care ai folosi-o pentru a ajuta un tânăr:</span></label>
         <textarea class="reflection-textarea" placeholder="Pl.: 'Mi lenne számodra a legjobb kimenetel ebben a helyzetben?'"></textarea>
       </div>
 
       <div class="reflection-question">
-        <label>4. Milyen konkrét helyzetben tervezed alkalmazni az aktív hallgatás technikáit?</label>
+        <label><span data-lang="hu">4. Milyen konkrét helyzetben tervezed alkalmazni az aktív hallgatás technikáit?</span><span data-lang="en">4. In what specific situation do you plan to apply active listening techniques?</span><span data-lang="ro">4. În ce situație concretă plănuiești să aplici tehnicile de ascultare activă?</span></label>
         <textarea class="reflection-textarea" placeholder="Írj egy konkrét helyzetet..."></textarea>
       </div>
 
-      <button class="reflection-btn" onclick="showResult()">Visszajelzés kérése</button>
+      <button class="reflection-btn" onclick="showResult()"><span data-lang="hu">Visszajelzés kérése</span><span data-lang="en">Requesting feedback</span><span data-lang="ro">Cerere de feedback</span></button>
       <div class="reflection-result" id="reflResult">
-        <strong>🌟 Kiváló önreflexió!</strong><br>
-        Az aktív hallgatás és a hatékony kérdezés a coaching legfontosabb készségei. Javasolt következő lépés: válassz ki egy hallgatási akadályt, amelyen dolgozni szeretnél, és tudatosan figyelj rá a következő héten. Folytasd a tanulást a 3. modullal: <em>Célkitűzés és Motiváció Támogatása</em>.
+        <strong><span data-lang="hu">🌟 Kiváló önreflexió!</span><span data-lang="en">🌟 Excellent self-reflection!</span><span data-lang="ro">🌟 Auto-reflecție excelentă!</span></strong><br>
+        <span data-lang="hu">Az aktív hallgatás és a hatékony kérdezés a coaching legfontosabb készségei. Javasolt következő lépés: válassz ki egy hallgatási akadályt, amelyen dolgozni szeretnél, és tudatosan figyelj rá a következő héten. Folytasd a tanulást a 3. modullal:</span><span data-lang="en">Active listening and effective questioning are the most important coaching skills. Suggested next step: choose one listening barrier you want to work on and consciously pay attention to it over the next week. Continue learning with Module 3:</span><span data-lang="ro">Ascultarea activă și adresarea eficientă a întrebărilor sunt cele mai importante abilități în coaching. Pasul următor recomandat: alege un obstacol în ascultare la care vrei să lucrezi și fii conștient de el în săptămâna următoare. Continuă să înveți cu modulul 3:</span> <em><span data-lang="hu">Célkitűzés és Motiváció Támogatása</span><span data-lang="en">Supporting Goal Setting and Motivation</span><span data-lang="ro">Stabilirea Obiectivelor și Sprijinirea Motivației</span></em>.
       </div>
     </div>
   </div>
@@ -478,8 +556,8 @@
 
 <div class="download-footer">
   <div class="download-footer-inner">
-    <h3>📄 Modul letöltése PDF formátumban</h3>
-    <p>Töltsd le az Aktív Hallgatás és Kérdezési Technikák modult PDF formátumban.</p>
+    <h3><span data-lang="hu">📄 Modul letöltése PDF formátumban</span><span data-lang="en">📄 Download module in PDF format</span><span data-lang="ro">📄 Descarcă modulul în format PDF</span></h3>
+    <p><span data-lang="hu">Töltsd le az Aktív Hallgatás és Kérdezési Technikák modult PDF formátumban.</span><span data-lang="en">Download the Active Listening and Questioning Techniques module in PDF format.</span><span data-lang="ro">Descarcă modulul Ascultare Activă și Tehnici de Întrebare în format PDF.</span></p>
     <div class="download-btns">
       <a href="coach2_hu.pdf" class="dl-btn" download>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
@@ -498,7 +576,7 @@
 </div>
 
 <div class="eu-footer">
-  <p>Az Európai Unió finanszírozásával. Az itt szereplő információk és állítások a szerző(k) álláspontját képviselik, és nem feltétlenül tükrözik az Európai Unió vagy a Tempus Közalapítvány hivatalos véleményét.</p>
+  <p><span data-lang="hu">Az Európai Unió finanszírozásával. Az itt szereplő információk és állítások a szerző(k) álláspontját képviselik, és nem feltétlenül tükrözik az Európai Unió vagy a Tempus Közalapítvány hivatalos véleményét.</span><span data-lang="en">Funded by the European Union. The information and views expressed here represent the author(s)’ views and do not necessarily reflect the official opinion of the European Union or the Tempus Public Foundation.</span><span data-lang="ro">Finanțat de Uniunea Europeană. Informațiile și opiniile prezentate aici reflectă punctul de vedere al autorului/autorilor și nu reflectă neapărat opinia oficială a Uniunii Europene sau a Fundației Tempus.</span></p>
   <p style="margin-top:0.5rem;">IMELO Projekt · 2024-3-HU01-KA210-YOU-000290582</p>
 </div>
 
@@ -508,6 +586,31 @@ function showResult() {
   r.style.display = 'block';
   r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
+</script>
+
+<div class="chapter-nav">
+  <a href="../coaching1/index.html">← <span data-lang="hu"><span data-lang="hu">Coaching 1</span><span data-lang="en">Coaching 1</span><span data-lang="ro">Coaching 1</span></span><span data-lang="en"><span data-lang="hu">Coaching 1</span><span data-lang="en">Coaching 1</span><span data-lang="ro">Coaching 1</span></span><span data-lang="ro"><span data-lang="hu">Coaching 1</span><span data-lang="en">Coaching 1</span><span data-lang="ro">Coaching 1</span></span></a>
+  <a href="../index.html" class="nav-home"><span data-lang="hu"><span data-lang="hu">🏠 Főoldal</span><span data-lang="en">🏠 Home</span><span data-lang="ro">🏠 Pagina principală</span></span><span data-lang="en">🏠 Home</span><span data-lang="ro">🏠 Acasă</span></a>
+  <a href="../coaching3/index.html"><span data-lang="hu"><span data-lang="hu">Coaching 3</span><span data-lang="en">Coaching 3</span><span data-lang="ro">Coaching 3</span></span><span data-lang="en"><span data-lang="hu">Coaching 3</span><span data-lang="en">Coaching 3</span><span data-lang="ro">Coaching 3</span></span><span data-lang="ro"><span data-lang="hu">Coaching 3</span><span data-lang="en">Coaching 3</span><span data-lang="ro">Coaching 3</span></span> →</a>
+</div>
+
+<script>
+  // Language switcher
+  (function() {
+    var stored = localStorage.getItem('imelo-lang') || 'hu';
+    document.body.setAttribute('data-active-lang', stored);
+    document.querySelectorAll('.lang-btn-sub').forEach(function(btn) {
+      if (btn.getAttribute('data-lang-switch') === stored) btn.classList.add('active');
+    });
+  })();
+  function switchLangSub(lang) {
+    document.body.setAttribute('data-active-lang', lang);
+    localStorage.setItem('imelo-lang', lang);
+    document.querySelectorAll('.lang-btn-sub').forEach(function(btn) {
+      btn.classList.toggle('active', btn.getAttribute('data-lang-switch') === lang);
+    });
+  }
+
 </script>
 </body>
 </html>

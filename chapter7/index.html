@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>7. Fejezet – Tudatos Pályaorientáció és Karrierépítés | IMELO Toolbox</title>
+  <title><span data-lang="hu">7. Fejezet – Tudatos Pályaorientáció és Karrierépítés | IMELO Toolbox</span><span data-lang="en">Chapter 7 – Conscious Career Orientation and Career Building | IMELO Toolbox</span><span data-lang="ro">Capitolul 7 – Orientare Conștientă în Carieră și Construirea Carierei | IMELO Toolbox</span></title>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -117,28 +117,106 @@
 
     /* FOOTER */
     .chapter-footer { background: #1a1a2e; color: white; text-align: center; padding: 1.5rem; font-size: 0.8rem; opacity: 0.8; }
+  
+    /* Chapter navigation */
+    .chapter-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 1.5rem;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      margin: 1.5rem 0;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .chapter-nav a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: linear-gradient(135deg, #1a7a4a 0%, #2ecc71 100%);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+      transition: opacity 0.2s;
+    }
+    .chapter-nav a:hover { opacity: 0.85; }
+    .chapter-nav .nav-home {
+      background: linear-gradient(135deg, #E8622A 0%, #f39c12 100%);
+    }
+    .chapter-nav .nav-center {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #888;
+      flex: 1;
+    }
+    @media (max-width: 600px) {
+      .chapter-nav { flex-direction: column; align-items: stretch; text-align: center; }
+      .chapter-nav a { justify-content: center; }
+    }
+
+  
+    [data-lang] { display: none; }
+    body[data-active-lang="hu"] [data-lang="hu"] { display: inline; }
+    body[data-active-lang="en"] [data-lang="en"] { display: inline; }
+    body[data-active-lang="ro"] [data-lang="ro"] { display: inline; }
+
+  
+    /* Language switching */
+    [data-lang] { display: none; }
+    body[data-active-lang="hu"] [data-lang="hu"],
+    body[data-active-lang="hu"] span[data-lang="hu"] { display: inline; }
+    body[data-active-lang="en"] [data-lang="en"],
+    body[data-active-lang="en"] span[data-lang="en"] { display: inline; }
+    body[data-active-lang="ro"] [data-lang="ro"],
+    body[data-active-lang="ro"] span[data-lang="ro"] { display: inline; }
+    body[data-active-lang="hu"] div[data-lang="hu"],
+    body[data-active-lang="en"] div[data-lang="en"],
+    body[data-active-lang="ro"] div[data-lang="ro"] { display: block; }
+    .lang-switcher-sub {
+      position: fixed; top: 12px; right: 16px; z-index: 9999;
+      display: flex; gap: 6px; background: rgba(255,255,255,0.95);
+      padding: 4px 8px; border-radius: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .lang-btn-sub {
+      background: none; border: none; cursor: pointer;
+      font-size: 1.2rem; padding: 2px 4px; border-radius: 6px;
+      opacity: 0.6; transition: opacity 0.2s;
+    }
+    .lang-btn-sub:hover, .lang-btn-sub.active { opacity: 1; }
+
   </style>
 </head>
-<body>
+<body data-active-lang="hu">
+<div class="lang-switcher-sub">
+  <button class="lang-btn-sub" data-lang-switch="hu" onclick="switchLangSub('hu')" title="Magyar">🇭🇺</button>
+  <button class="lang-btn-sub" data-lang-switch="en" onclick="switchLangSub('en')" title="English">🇬🇧</button>
+  <button class="lang-btn-sub" data-lang-switch="ro" onclick="switchLangSub('ro')" title="Română">🇷🇴</button>
+</div>
 
 <nav class="topbar">
   <a href="../index.html" class="topbar-logo">
     <img src="imelo_logo.png" alt="Identity Mosaic logó">
   </a>
-  <a href="../index.html" class="back-btn">← Vissza az Eszköztárhoz</a>
+  <a href="../index.html" class="back-btn"><span data-lang="hu">← Vissza az Eszköztárhoz</span><span data-lang="en">← Back to the Toolbox</span><span data-lang="ro">← Înapoi la Toolbox</span></a>
 </nav>
 
 <div class="chapter-hero">
-  <div class="chapter-num">7. Fejezet</div>
-  <h1>Tudatos Pályaorientáció és Karrierépítés</h1>
-  <p class="subtitle">Célok, erősségek és karrierlehetőségek feltérképezése</p>
-  <div class="tags"><span class="tag">🎯 Karriertervezés</span> <span class="tag">💼 Pályaorientáció</span> <span class="tag">🌱 Személyes fejlődés</span></div>
+  <div class="chapter-num"><span data-lang="hu">7. Fejezet</span><span data-lang="en">Chapter 7</span><span data-lang="ro">Capitolul 7</span></div>
+  <h1><span data-lang="hu">Tudatos Pályaorientáció és Karrierépítés</span><span data-lang="en">Conscious Career Orientation and Career Building</span><span data-lang="ro">Orientare Conștientă în Carieră și Construirea Carierei</span></h1>
+  <p class="subtitle"><span data-lang="hu">Célok, erősségek és karrierlehetőségek feltérképezése</span><span data-lang="en">Mapping Goals, Strengths, and Career Opportunities</span><span data-lang="ro">Cartografierea obiectivelor, punctelor forte și oportunităților de carieră</span></p>
+  <div class="tags"><span class="tag"><span data-lang="hu">🎯 Karriertervezés</span><span data-lang="en">🎯 Career Planning</span><span data-lang="ro">🎯 Planificarea carierei</span></span> <span class="tag"><span data-lang="hu">💼 Pályaorientáció</span><span data-lang="en">💼 Career Orientation</span><span data-lang="ro">💼 Orientare în carieră</span></span> <span class="tag"><span data-lang="hu">🌱 Személyes fejlődés</span><span data-lang="en">🌱 Personal Development</span><span data-lang="ro">🌱 Dezvoltare personală</span></span></div>
 </div>
 
 <div class="page-layout">
   <aside class="sidebar">
-    <h3>Tartalomjegyzék</h3>
-    <a href="#miert" class="toc-item">Miért fontos a tudatos pályaorientáció?</a><a href="#erossesgek" class="toc-item">Önismeret és Erősségek Feltérképezése</a><a href="#celok" class="toc-item">Karriercélok Kitűzése</a><a href="#munkaeropiaci" class="toc-item">Munkaerőpiaci Tájékozódás</a><a href="#onreflexio" class="toc-item">Önreflexió – Karriertervem</a><a href="#osszefoglalas" class="toc-item">Összefoglalás</a>
+    <h3><span data-lang="hu">Tartalomjegyzék</span><span data-lang="en">Table of Contents</span><span data-lang="ro">Cuprins</span></h3>
+    <a href="#miert" class="toc-item"><span data-lang="hu">Miért fontos a tudatos pályaorientáció?</span><span data-lang="en">Why is conscious career orientation important?</span><span data-lang="ro">De ce este importantă orientarea conștientă în carieră?</span></a><a href="#erossesgek" class="toc-item"><span data-lang="hu">Önismeret és Erősségek Feltérképezése</span><span data-lang="en">Self-awareness and Strengths Mapping</span><span data-lang="ro">Autocunoaștere și cartografierea punctelor forte</span></a><a href="#celok" class="toc-item"><span data-lang="hu">Karriercélok Kitűzése</span><span data-lang="en">Setting Career Goals</span><span data-lang="ro">Stabilirea obiectivelor de carieră</span></a><a href="#munkaeropiaci" class="toc-item"><span data-lang="hu">Munkaerőpiaci Tájékozódás</span><span data-lang="en">Labour Market Orientation</span><span data-lang="ro">Informare pe piața muncii</span></a><a href="#onreflexio" class="toc-item"><span data-lang="hu">Önreflexió – Karriertervem</span><span data-lang="en">Self-reflection – My Career Plan</span><span data-lang="ro">Auto-reflecție – Planul meu de carieră</span></a><a href="#osszefoglalas" class="toc-item"><span data-lang="hu">Összefoglalás</span><span data-lang="en">Summary</span><span data-lang="ro">Rezumat</span></a>
   </aside>
 
   <main>
@@ -147,21 +225,21 @@
       <div class="section-header">
         <span class="section-icon">🎯</span>
         <div>
-          <h2>Miért fontos a tudatos pályaorientáció?</h2>
-          <p class="section-subtitle">A karriertervezés alapjai</p>
+          <h2><span data-lang="hu">Miért fontos a tudatos pályaorientáció?</span><span data-lang="en">Why is conscious career orientation important?</span><span data-lang="ro">De ce este importantă orientarea conștientă în carieră?</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">A karriertervezés alapjai</span><span data-lang="en">The basics of career planning</span><span data-lang="ro">Bazele planificării carierei</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #004D40, transparent);"></div>
-      <p class="section-intro">A tudatos pályaorientáció nem csupán arról szól, hogy milyen munkát választasz – hanem arról, hogy milyen életet szeretnél élni. Az erősségeidre épített karrier nemcsak sikeresebb, hanem boldogabb is.</p>
+      <p class="section-intro"><span data-lang="hu">A tudatos pályaorientáció nem csupán arról szól, hogy milyen munkát választasz – hanem arról, hogy milyen életet szeretnél élni. Az erősségeidre épített karrier nemcsak sikeresebb, hanem boldogabb is.</span><span data-lang="en">Conscious career orientation is not just about what job you choose – it’s about the life you want to live. A career built on your strengths is not only more successful but also happier.</span><span data-lang="ro">Orientarea conștientă în carieră nu înseamnă doar alegerea unui loc de muncă – ci alegerea vieții pe care vrei să o trăiești. O carieră construită pe punctele tale forte nu este doar mai de succes, ci și mai fericită.</span></p>
       <div class="stats-row">
-        <div class="stat-card"><div class="stat-value" style="color:#004D40">3×</div><div class="stat-label">Elégedettebb azok munkája, akik erősségeikre építenek</div></div>
-        <div class="stat-card"><div class="stat-value" style="color:#80CBC4">80%</div><div class="stat-label">A munkák 80%-a nem kerül nyilvános hirdetésre</div></div>
-        <div class="stat-card"><div class="stat-value" style="color:#E65100">5-7×</div><div class="stat-label">Átlagos karrierváltások száma egy életpályán</div></div>
+        <div class="stat-card"><div class="stat-value" style="color:#004D40">3×</div><div class="stat-label"><span data-lang="hu">Elégedettebb azok munkája, akik erősségeikre építenek</span><span data-lang="en">Those who build their work on their strengths are more satisfied</span><span data-lang="ro">Cei care își construiesc cariera pe punctele forte sunt mai mulțumiți de munca lor</span></div></div>
+        <div class="stat-card"><div class="stat-value" style="color:#80CBC4">80%</div><div class="stat-label"><span data-lang="hu">A munkák 80%-a nem kerül nyilvános hirdetésre</span><span data-lang="en">80% of jobs are not publicly advertised</span><span data-lang="ro">80% din locurile de muncă nu sunt anunțate public</span></div></div>
+        <div class="stat-card"><div class="stat-value" style="color:#E65100">5-7×</div><div class="stat-label"><span data-lang="hu">Átlagos karrierváltások száma egy életpályán</span><span data-lang="en">Average number of career changes in a lifetime</span><span data-lang="ro">Numărul mediu de schimbări de carieră într-o viață profesională</span></div></div>
       </div>
       <div class="section-content">
 <div class="content-grid">
-  <div class="content-card"><h4>🔍 Mi a pályaorientáció?</h4><p>A pályaorientáció egy folyamatos önismereti és tájékozódási folyamat, amely segít megtalálni az erősségeidnek, értékeidnek és érdeklődésednek megfelelő karrierutat.</p></div>
-  <div class="content-card"><h4>🎯 Az eszköztár célja</h4><ul><li>Erősségek és értékek azonosítása</li><li>Karriercélok megfogalmazása</li><li>Munkaerőpiaci tájékozódás</li><li>Hálózatépítési készségek fejlesztése</li></ul></div>
+  <div class="content-card"><h4><span data-lang="hu">🔍 Mi a pályaorientáció?</span><span data-lang="en">🔍 What is career orientation?</span><span data-lang="ro">🔍 Ce este orientarea în carieră?</span></h4><p><span data-lang="hu">A pályaorientáció egy folyamatos önismereti és tájékozódási folyamat, amely segít megtalálni az erősségeidnek, értékeidnek és érdeklődésednek megfelelő karrierutat.</span><span data-lang="en">Career orientation is an ongoing process of self-awareness and exploration that helps you find a career path that fits your strengths, values, and interests.</span><span data-lang="ro">Orientarea în carieră este un proces continuu de autocunoaștere și informare care te ajută să găsești o cale profesională potrivită punctelor tale forte, valorilor și intereselor.</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">🎯 Az eszköztár célja</span><span data-lang="en">🎯 The aim of the toolbox</span><span data-lang="ro">🎯 Scopul toolbox-ului</span></h4><ul><li><span data-lang="hu">Erősségek és értékek azonosítása</span><span data-lang="en">Identifying strengths and values</span><span data-lang="ro">Identificarea punctelor forte și a valorilor</span></li><li><span data-lang="hu">Karriercélok megfogalmazása</span><span data-lang="en">Formulating career goals</span><span data-lang="ro">Formularea obiectivelor de carieră</span></li><li><span data-lang="hu">Munkaerőpiaci tájékozódás</span><span data-lang="en">Labour market orientation</span><span data-lang="ro">Informare pe piața muncii</span></li><li><span data-lang="hu">Hálózatépítési készségek fejlesztése</span><span data-lang="en">Developing networking skills</span><span data-lang="ro">Dezvoltarea abilităților de networking</span></li></ul></div>
 </div>
       </div>
 
@@ -177,24 +255,24 @@
           allowfullscreen>
         </iframe>
       </div>
-      <p class="video-caption">A videó gyakorlati eszköztárat kínál ifjúságsegítők számára, amellyel magabiztosabban kalauzolhatják a fiatalokat a munkaerőpiaci tájékozódásban és a tudatos karriertervezésben.</p>
+      <p class="video-caption"><span data-lang="hu">A videó gyakorlati eszköztárat kínál ifjúságsegítők számára, amellyel magabiztosabban kalauzolhatják a fiatalokat a munkaerőpiaci tájékozódásban és a tudatos karriertervezésben.</span><span data-lang="en">The video offers a practical toolbox for youth workers to confidently guide young people in labour market orientation and conscious career planning.</span><span data-lang="ro">Videoclipul oferă un set practic de instrumente pentru lucrătorii de tineret, pentru a ghida cu mai multă încredere tinerii în informarea pe piața muncii și în planificarea conștientă a carierei.</span></p>
     </section>
 
     <section class="chapter-section" id="erossesgek">
       <div class="section-header">
         <span class="section-icon">💪</span>
         <div>
-          <h2>Önismeret és Erősségek Feltérképezése</h2>
-          <p class="section-subtitle">Ki vagyok és miben vagyok jó?</p>
+          <h2><span data-lang="hu">Önismeret és Erősségek Feltérképezése</span><span data-lang="en">Self-awareness and Strengths Mapping</span><span data-lang="ro">Autocunoaștere și cartografierea punctelor forte</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Ki vagyok és miben vagyok jó?</span><span data-lang="en">Who am I and what am I good at?</span><span data-lang="ro">Cine sunt și în ce sunt bun?</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #004D40, transparent);"></div>
-      <p class="section-intro">Az erősségekre épített karriertervezés a leghatékonyabb megközelítés. Az erősségeid azok a természetes tehetségek és készségek, amelyeket szinte erőfeszítés nélkül alkalmazol.</p>
+      <p class="section-intro"><span data-lang="hu">Az erősségekre épített karriertervezés a leghatékonyabb megközelítés. Az erősségeid azok a természetes tehetségek és készségek, amelyeket szinte erőfeszítés nélkül alkalmazol.</span><span data-lang="en">Career planning based on strengths is the most effective approach. Your strengths are the natural talents and skills you apply almost effortlessly.</span><span data-lang="ro">Planificarea carierei bazată pe punctele forte este cea mai eficientă abordare. Punctele tale forte sunt talentele și abilitățile naturale pe care le aplici aproape fără efort.</span></p>
       <div class="section-content">
 <div class="content-grid">
-  <div class="content-card"><h4>🌟 Erősségek azonosítása</h4><ul><li>Milyen tevékenységek során érzed magad "flow"-ban?</li><li>Miben dicsérnek mások rendszeresen?</li><li>Mit csinálsz szívesen, még ha nem is fizetnek érte?</li><li>Milyen problémákat oldasz meg könnyen?</li></ul></div>
-  <div class="content-card"><h4>💎 Értékek iránytűje</h4><ul><li>Mi az igazán fontos számodra a munkában?</li><li>Autonómia, kreativitás, biztonság, kapcsolatok?</li><li>Milyen hatást szeretnél gyakorolni a világra?</li><li>Milyen munkahelyi kultúrában érzed jól magad?</li></ul></div>
-  <div class="content-card"><h4>🎨 Érdeklődési területek</h4><p>A Holland-modell 6 érdeklődési típust azonosít: Realista, Kutató, Művészi, Szociális, Vállalkozói, Irodai. A legelégedettebb munkavállalók olyan munkát végeznek, amely illeszkedik az érdeklődési típusukhoz.</p></div>
+  <div class="content-card"><h4><span data-lang="hu">🌟 Erősségek azonosítása</span><span data-lang="en">🌟 Identifying strengths</span><span data-lang="ro">🌟 Identificarea punctelor forte</span></h4><ul><li><span data-lang="hu">Milyen tevékenységek során érzed magad "flow"-ban?</span><span data-lang="en">During which activities do you feel 'in flow'?</span><span data-lang="ro">În ce activități te simți în "flow"?</span></li><li><span data-lang="hu">Miben dicsérnek mások rendszeresen?</span><span data-lang="en">What do others regularly praise you for?</span><span data-lang="ro">Pentru ce te laudă alții în mod regulat?</span></li><li><span data-lang="hu">Mit csinálsz szívesen, még ha nem is fizetnek érte?</span><span data-lang="en">What do you enjoy doing even if you’re not paid for it?</span><span data-lang="ro">Ce faci cu plăcere, chiar dacă nu ești plătit pentru asta?</span></li><li><span data-lang="hu">Milyen problémákat oldasz meg könnyen?</span><span data-lang="en">What problems do you solve easily?</span><span data-lang="ro">Ce probleme rezolvi cu ușurință?</span></li></ul></div>
+  <div class="content-card"><h4><span data-lang="hu">💎 Értékek iránytűje</span><span data-lang="en">💎 Values compass</span><span data-lang="ro">💎 Busola valorilor</span></h4><ul><li><span data-lang="hu">Mi az igazán fontos számodra a munkában?</span><span data-lang="en">What is truly important to you at work?</span><span data-lang="ro">Ce este cu adevărat important pentru tine la locul de muncă?</span></li><li><span data-lang="hu">Autonómia, kreativitás, biztonság, kapcsolatok?</span><span data-lang="en">Autonomy, creativity, security, relationships?</span><span data-lang="ro">Autonomie, creativitate, siguranță, relații?</span></li><li><span data-lang="hu">Milyen hatást szeretnél gyakorolni a világra?</span><span data-lang="en">What impact do you want to have on the world?</span><span data-lang="ro">Ce impact vrei să ai asupra lumii?</span></li><li><span data-lang="hu">Milyen munkahelyi kultúrában érzed jól magad?</span><span data-lang="en">In what kind of workplace culture do you feel comfortable?</span><span data-lang="ro">În ce cultură organizațională te simți bine?</span></li></ul></div>
+  <div class="content-card"><h4><span data-lang="hu">🎨 Érdeklődési területek</span><span data-lang="en">🎨 Areas of interest</span><span data-lang="ro">🎨 Domenii de interes</span></h4><p><span data-lang="hu">A Holland-modell 6 érdeklődési típust azonosít: Realista, Kutató, Művészi, Szociális, Vállalkozói, Irodai. A legelégedettebb munkavállalók olyan munkát végeznek, amely illeszkedik az érdeklődési típusukhoz.</span><span data-lang="en">The Holland model identifies 6 interest types: Realistic, Investigative, Artistic, Social, Enterprising, Conventional. The most satisfied employees do work that matches their interest type.</span><span data-lang="ro">Modelul Holland identifică 6 tipuri de interese: Realist, Investigativ, Artistic, Social, Antreprenorial, Convențional. Angajații cei mai mulțumiți fac o muncă care se potrivește tipului lor de interes.</span></p></div>
 </div>
       </div>
 
@@ -210,26 +288,26 @@
           allowfullscreen>
         </iframe>
       </div>
-      <p class="video-caption">A pályaválasztási döntések dilemmáiról szóló helyzet-alapú videó. Ifjúságsegítők használhatják demonstrációs céllal a pályaorientációs döntések támogatására.</p>
+      <p class="video-caption"><span data-lang="hu">A pályaválasztási döntések dilemmáiról szóló helyzet-alapú videó. Ifjúságsegítők használhatják demonstrációs céllal a pályaorientációs döntések támogatására.</span><span data-lang="en">A situational video about the dilemmas of career choice decisions. Youth workers can use it for demonstration purposes to support career orientation decisions.</span><span data-lang="ro">Videoclip situațional despre dilemele deciziilor de orientare în carieră. Lucrătorii de tineret îl pot folosi ca demonstrație pentru a sprijini deciziile de orientare profesională.</span></p>
     </section>
 
     <section class="chapter-section" id="celok">
       <div class="section-header">
         <span class="section-icon">🗺️</span>
         <div>
-          <h2>Karriercélok Kitűzése</h2>
-          <p class="section-subtitle">SMART célok a karrierben</p>
+          <h2><span data-lang="hu">Karriercélok Kitűzése</span><span data-lang="en">Setting Career Goals</span><span data-lang="ro">Stabilirea obiectivelor de carieră</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">SMART célok a karrierben</span><span data-lang="en">SMART goals in your career</span><span data-lang="ro">Obiective SMART în carieră</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #004D40, transparent);"></div>
-      <p class="section-intro">A jól megfogalmazott karriercélok irányt adnak és motiválnak. A SMART módszer segít konkrét, megvalósítható célokat kitűzni.</p>
+      <p class="section-intro"><span data-lang="hu">A jól megfogalmazott karriercélok irányt adnak és motiválnak. A SMART módszer segít konkrét, megvalósítható célokat kitűzni.</span><span data-lang="en">Well-defined career goals provide direction and motivation. The SMART method helps set specific, achievable goals.</span><span data-lang="ro">Obiectivele de carieră bine formulate oferă direcție și motivație. Metoda SMART ajută la stabilirea unor obiective concrete și realizabile.</span></p>
       <div class="section-content">
 <div class="steps-list">
-  <div class="step"><span class="step-num">S</span><div><strong>Specifikus</strong><p>Legyen konkrét és egyértelmű. Ne "jobb munkát akarok", hanem "UX designerként szeretnék dolgozni egy tech startup-nál".</p></div></div>
-  <div class="step"><span class="step-num">M</span><div><strong>Mérhető</strong><p>Hogyan tudod mérni a haladást? "3 hónap alatt elvégzem az UX design alapkurzust és elkészítek 2 portfólió projektet."</p></div></div>
-  <div class="step"><span class="step-num">A</span><div><strong>Akciótervvel rendelkező</strong><p>Milyen konkrét lépéseket teszel? Kurzusok, networking, portfólió, álláskeresés – mindegyiknek legyen határideje.</p></div></div>
-  <div class="step"><span class="step-num">R</span><div><strong>Reális</strong><p>Elérhető-e a jelenlegi erőforrásaiddal? Ha nem, mit kell fejlesztened? A cél legyen kihívó, de megvalósítható.</p></div></div>
-  <div class="step"><span class="step-num">T</span><div><strong>Időhöz kötött</strong><p>Mikor szeretnéd elérni? "2026 júniusáig szeretnék az első UX design állásomban dolgozni."</p></div></div>
+  <div class="step"><span class="step-num">S</span><div><strong>Specifikus</strong><p><span data-lang="hu">Legyen konkrét és egyértelmű. Ne "jobb munkát akarok", hanem "UX designerként szeretnék dolgozni egy tech startup-nál".</span><span data-lang="en">Be specific and clear. Not "I want a better job," but "I want to work as a UX designer at a tech startup."</span><span data-lang="ro">Fii concret și clar. Nu "vreau un job mai bun", ci "vreau să lucrez ca UX designer într-un startup tech".</span></p></div></div>
+  <div class="step"><span class="step-num">M</span><div><strong><span data-lang="hu">Mérhető</span><span data-lang="en">Measurable</span><span data-lang="ro">Măsurabil</span></strong><p><span data-lang="hu">Hogyan tudod mérni a haladást? "3 hónap alatt elvégzem az UX design alapkurzust és elkészítek 2 portfólió projektet."</span><span data-lang="en">How can you measure progress? "I will complete the basic UX design course and create 2 portfolio projects within 3 months."</span><span data-lang="ro">Cum poți măsura progresul? "În 3 luni voi finaliza cursul de bază UX design și voi realiza 2 proiecte pentru portofoliu."</span></p></div></div>
+  <div class="step"><span class="step-num">A</span><div><strong><span data-lang="hu">Akciótervvel rendelkező</span><span data-lang="en">With an action plan</span><span data-lang="ro">Cu plan de acțiune</span></strong><p><span data-lang="hu">Milyen konkrét lépéseket teszel? Kurzusok, networking, portfólió, álláskeresés – mindegyiknek legyen határideje.</span><span data-lang="en">What specific steps will you take? Courses, networking, portfolio, job searching – each should have a deadline.</span><span data-lang="ro">Ce pași concreți vei face? Cursuri, networking, portofoliu, căutare de job – fiecare să aibă un termen limită.</span></p></div></div>
+  <div class="step"><span class="step-num">R</span><div><strong><span data-lang="hu">Reális</span><span data-lang="en">Realistic</span><span data-lang="ro">Realist</span></strong><p><span data-lang="hu">Elérhető-e a jelenlegi erőforrásaiddal? Ha nem, mit kell fejlesztened? A cél legyen kihívó, de megvalósítható.</span><span data-lang="en">Is it achievable with your current resources? If not, what do you need to develop? The goal should be challenging but attainable.</span><span data-lang="ro">Este accesibil cu resursele tale actuale? Dacă nu, ce trebuie să dezvolți? Ținta să fie provocatoare, dar realizabilă.</span></p></div></div>
+  <div class="step"><span class="step-num">T</span><div><strong><span data-lang="hu">Időhöz kötött</span><span data-lang="en">Time-bound</span><span data-lang="ro">Legat de timp</span></strong><p><span data-lang="hu">Mikor szeretnéd elérni? "2026 júniusáig szeretnék az első UX design állásomban dolgozni."</span><span data-lang="en">When do you want to achieve it? "I want to work in my first UX design job by June 2026."</span><span data-lang="ro">Când dorești să atingi acest obiectiv? „Până în iunie 2026 vreau să lucrez în primul meu job de UX design.”</span></p></div></div>
 </div>
       </div>
     </section>
@@ -238,17 +316,17 @@
       <div class="section-header">
         <span class="section-icon">🌐</span>
         <div>
-          <h2>Munkaerőpiaci Tájékozódás</h2>
-          <p class="section-subtitle">A változó munkaerőpiac megértése</p>
+          <h2><span data-lang="hu">Munkaerőpiaci Tájékozódás</span><span data-lang="en">Labour Market Orientation</span><span data-lang="ro">Informare pe piața muncii</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">A változó munkaerőpiac megértése</span><span data-lang="en">Understanding the changing labour market</span><span data-lang="ro">Înțelegerea pieței muncii în schimbare</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #004D40, transparent);"></div>
-      <p class="section-intro">A munkaerőpiac gyorsan változik – a tudás felezési ideje 5 évről 18 hónapra csökkent (World Economic Forum, 2020). A sikeres karrierhez folyamatos tanulás és alkalmazkodás szükséges.</p>
+      <p class="section-intro"><span data-lang="hu">A munkaerőpiac gyorsan változik – a tudás felezési ideje 5 évről 18 hónapra csökkent (World Economic Forum, 2020). A sikeres karrierhez folyamatos tanulás és alkalmazkodás szükséges.</span><span data-lang="en">The labour market is changing rapidly – the half-life of skills has decreased from 5 years to 18 months (World Economic Forum, 2020). A successful career requires continuous learning and adaptation.</span><span data-lang="ro">Piața muncii se schimbă rapid – timpul de înjumătățire a cunoștințelor a scăzut de la 5 ani la 18 luni (World Economic Forum, 2020). Pentru o carieră de succes este necesară învățarea continuă și adaptarea.</span></p>
       <div class="section-content">
 <div class="content-grid">
-  <div class="content-card"><h4>📈 Növekvő területek</h4><ul><li>Digitális és technológiai szakmák</li><li>Zöld gazdaság és fenntarthatóság</li><li>Egészségügy és szociális ellátás</li><li>Kreativitás és tartalomgyártás</li></ul></div>
-  <div class="content-card"><h4>🤖 Automatizáció hatása</h4><p>Az ismétlődő, rutinszerű feladatok automatizálódnak. A jövő munkaerőpiacán az emberi készségek – kreativitás, empátia, kritikus gondolkodás – felértékelődnek.</p></div>
-  <div class="content-card"><h4>🌍 Globális lehetőségek</h4><ul><li>Távmunka és hibrid modellek terjedése</li><li>Nemzetközi projektek és csapatok</li><li>Freelance és portfolio karrier</li><li>Vállalkozás és innováció</li></ul></div>
+  <div class="content-card"><h4><span data-lang="hu">📈 Növekvő területek</span><span data-lang="en">📈 Growing sectors</span><span data-lang="ro">📈 Domenii în creștere</span></h4><ul><li><span data-lang="hu">Digitális és technológiai szakmák</span><span data-lang="en">Digital and technological professions</span><span data-lang="ro">Profesii digitale și tehnologice</span></li><li><span data-lang="hu">Zöld gazdaság és fenntarthatóság</span><span data-lang="en">Green economy and sustainability</span><span data-lang="ro">Economia verde și sustenabilitatea</span></li><li><span data-lang="hu">Egészségügy és szociális ellátás</span><span data-lang="en">Healthcare and social services</span><span data-lang="ro">Sănătate și asistență socială</span></li><li><span data-lang="hu">Kreativitás és tartalomgyártás</span><span data-lang="en">Creativity and content creation</span><span data-lang="ro">Creativitate și producție de conținut</span></li></ul></div>
+  <div class="content-card"><h4><span data-lang="hu">🤖 Automatizáció hatása</span><span data-lang="en">🤖 Impact of automation</span><span data-lang="ro">🤖 Impactul automatizării</span></h4><p><span data-lang="hu">Az ismétlődő, rutinszerű feladatok automatizálódnak. A jövő munkaerőpiacán az emberi készségek – kreativitás, empátia, kritikus gondolkodás – felértékelődnek.</span><span data-lang="en">Repetitive, routine tasks are being automated. In the future labour market, human skills – creativity, empathy, critical thinking – will be increasingly valued.</span><span data-lang="ro">Sarcinile repetitive și de rutină sunt automatizate. Pe piața muncii viitoare, abilitățile umane – creativitatea, empatia, gândirea critică – vor fi mai valoroase.</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">🌍 Globális lehetőségek</span><span data-lang="en">🌍 Global opportunities</span><span data-lang="ro">🌍 Oportunități globale</span></h4><ul><li><span data-lang="hu">Távmunka és hibrid modellek terjedése</span><span data-lang="en">Spread of remote work and hybrid models</span><span data-lang="ro">Răspândirea muncii la distanță și a modelelor hibride</span></li><li><span data-lang="hu">Nemzetközi projektek és csapatok</span><span data-lang="en">International projects and teams</span><span data-lang="ro">Proiecte și echipe internaționale</span></li><li><span data-lang="hu">Freelance és portfolio karrier</span><span data-lang="en">Freelance and portfolio careers</span><span data-lang="ro">Carieră freelance și pe bază de portofoliu</span></li><li><span data-lang="hu">Vállalkozás és innováció</span><span data-lang="en">Entrepreneurship and innovation</span><span data-lang="ro">Antreprenoriat și inovație</span></li></ul></div>
 </div>
       </div>
 
@@ -264,70 +342,70 @@
           allowfullscreen>
         </iframe>
       </div>
-      <p class="video-caption">A rajzos animációs videó szemléletesen mutatja be, hogyan segíthet az ifjúságsegítő a pályaorientációs bizonytalanságban lévő fiatalnak megtalálni a saját útját.</p>
+      <p class="video-caption"><span data-lang="hu">A rajzos animációs videó szemléletesen mutatja be, hogyan segíthet az ifjúságsegítő a pályaorientációs bizonytalanságban lévő fiatalnak megtalálni a saját útját.</span><span data-lang="en">The illustrated animation video clearly shows how a youth worker can help a young person uncertain about career orientation find their own path.</span><span data-lang="ro">Videoclipul animat explicativ arată cum poate ajuta lucrătorul de tineret un tânăr cu incertitudini în orientarea profesională să-și găsească propriul drum.</span></p>
     </section>
 
     <section class="chapter-section" id="onreflexio">
       <div class="section-header">
         <span class="section-icon">🪞</span>
         <div>
-          <h2>Önreflexió – Karriertervem</h2>
-          <p class="section-subtitle">Saját karriercélok és erősségek feltérképezése</p>
+          <h2><span data-lang="hu">Önreflexió – Karriertervem</span><span data-lang="en">Self-reflection – My Career Plan</span><span data-lang="ro">Auto-reflecție – Planul meu de carieră</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Saját karriercélok és erősségek feltérképezése</span><span data-lang="en">Mapping personal career goals and strengths</span><span data-lang="ro">Identificarea propriilor obiective și puncte forte în carieră</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #004D40, transparent);"></div>
-      <p class="section-intro">Az alábbi kérdőív segít feltérképezni a karrierrel kapcsolatos gondolataidat, erősségeidet és céljaidat.</p>
+      <p class="section-intro"><span data-lang="hu">Az alábbi kérdőív segít feltérképezni a karrierrel kapcsolatos gondolataidat, erősségeidet és céljaidat.</span><span data-lang="en">The questionnaire below helps you map your thoughts, strengths, and goals related to your career.</span><span data-lang="ro">Chestionarul de mai jos te ajută să-ți cartografiezi gândurile, punctele forte și obiectivele legate de carieră.</span></p>
 
       <div class="interactive-box" style="background:#e0f2f1; border-left: 4px solid #004D40;">
-        <h3>🧩 Önértékelő kérdőív – Karriertervem</h3>
-        <p>Töltsd ki az alábbi kérdőívet, hogy képet kapj jelenlegi szokásaidról és fejlesztési lehetőségeidről!</p>
+        <h3><span data-lang="hu">🧩 Önértékelő kérdőív – Karriertervem</span><span data-lang="en">🧩 Self-assessment questionnaire – My Career Plan</span><span data-lang="ro">🧩 Chestionar de autoevaluare – Planul meu de carieră</span></h3>
+        <p><span data-lang="hu">Töltsd ki az alábbi kérdőívet, hogy képet kapj jelenlegi szokásaidról és fejlesztési lehetőségeidről!</span><span data-lang="en">Fill out the questionnaire below to get an overview of your current habits and development opportunities!</span><span data-lang="ro">Completează chestionarul de mai jos pentru a-ți face o imagine asupra obiceiurilor actuale și a posibilităților tale de dezvoltare!</span></p>
         <div class="reflection-form" id="reflectionForm">
 
     <div class="reflection-question" id="q1">
-      <label class="q-label">Mennyire tisztán látom a karriercéljaimat?</label>
+      <label class="q-label"><span data-lang="hu">Mennyire tisztán látom a karriercéljaimat?</span><span data-lang="en">How clearly do I see my career goals?</span><span data-lang="ro">Cât de clar îmi văd obiectivele de carieră?</span></label>
       <div class="scale-container">
-        <span class="scale-label">Egyáltalán nem</span>
+        <span class="scale-label"><span data-lang="hu">Egyáltalán nem</span><span data-lang="en">Not at all</span><span data-lang="ro">Deloc</span></span>
         <div class="scale-buttons">
           <button class="scale-btn" onclick="selectScale(this, 1)">1</button><button class="scale-btn" onclick="selectScale(this, 1)">2</button><button class="scale-btn" onclick="selectScale(this, 1)">3</button><button class="scale-btn" onclick="selectScale(this, 1)">4</button><button class="scale-btn" onclick="selectScale(this, 1)">5</button>
         </div>
-        <span class="scale-label">Teljes mértékben</span>
+        <span class="scale-label"><span data-lang="hu">Teljes mértékben</span><span data-lang="en">Completely</span><span data-lang="ro">Complet</span></span>
       </div>
     </div>
     <div class="reflection-question" id="q2">
-      <label class="q-label">Mennyire ismerem az erősségeimet és értékeimet?</label>
+      <label class="q-label"><span data-lang="hu">Mennyire ismerem az erősségeimet és értékeimet?</span><span data-lang="en">How well do I know my strengths and values?</span><span data-lang="ro">Cât de bine îmi cunosc punctele forte și valorile?</span></label>
       <div class="scale-container">
-        <span class="scale-label">Egyáltalán nem</span>
+        <span class="scale-label"><span data-lang="hu">Egyáltalán nem</span><span data-lang="en">Not at all</span><span data-lang="ro">Deloc</span></span>
         <div class="scale-buttons">
           <button class="scale-btn" onclick="selectScale(this, 2)">1</button><button class="scale-btn" onclick="selectScale(this, 2)">2</button><button class="scale-btn" onclick="selectScale(this, 2)">3</button><button class="scale-btn" onclick="selectScale(this, 2)">4</button><button class="scale-btn" onclick="selectScale(this, 2)">5</button>
         </div>
-        <span class="scale-label">Teljes mértékben</span>
+        <span class="scale-label"><span data-lang="hu">Teljes mértékben</span><span data-lang="en">Completely</span><span data-lang="ro">Complet</span></span>
       </div>
     </div>
     <div class="reflection-question" id="q3">
-      <label class="q-label">Mennyire aktívan teszek a karriercéljaim elérése érdekében?</label>
+      <label class="q-label"><span data-lang="hu">Mennyire aktívan teszek a karriercéljaim elérése érdekében?</span><span data-lang="en">How actively am I working towards my career goals?</span><span data-lang="ro">Cât de activ acționez pentru a-mi atinge obiectivele de carieră?</span></label>
       <div class="scale-container">
-        <span class="scale-label">Egyáltalán nem</span>
+        <span class="scale-label"><span data-lang="hu">Egyáltalán nem</span><span data-lang="en">Not at all</span><span data-lang="ro">Deloc</span></span>
         <div class="scale-buttons">
           <button class="scale-btn" onclick="selectScale(this, 3)">1</button><button class="scale-btn" onclick="selectScale(this, 3)">2</button><button class="scale-btn" onclick="selectScale(this, 3)">3</button><button class="scale-btn" onclick="selectScale(this, 3)">4</button><button class="scale-btn" onclick="selectScale(this, 3)">5</button>
         </div>
-        <span class="scale-label">Teljes mértékben</span>
+        <span class="scale-label"><span data-lang="hu">Teljes mértékben</span><span data-lang="en">Completely</span><span data-lang="ro">Complet</span></span>
       </div>
     </div>
     <div class="reflection-question" id="q4">
-      <label class="q-label">Mennyire tudatosan építem a szakmai hálózatomat?</label>
+      <label class="q-label"><span data-lang="hu">Mennyire tudatosan építem a szakmai hálózatomat?</span><span data-lang="en">How consciously am I building my professional network?</span><span data-lang="ro">Cât de conștient îmi construiesc rețeaua profesională?</span></label>
       <div class="scale-container">
-        <span class="scale-label">Egyáltalán nem</span>
+        <span class="scale-label"><span data-lang="hu">Egyáltalán nem</span><span data-lang="en">Not at all</span><span data-lang="ro">Deloc</span></span>
         <div class="scale-buttons">
           <button class="scale-btn" onclick="selectScale(this, 4)">1</button><button class="scale-btn" onclick="selectScale(this, 4)">2</button><button class="scale-btn" onclick="selectScale(this, 4)">3</button><button class="scale-btn" onclick="selectScale(this, 4)">4</button><button class="scale-btn" onclick="selectScale(this, 4)">5</button>
         </div>
-        <span class="scale-label">Teljes mértékben</span>
+        <span class="scale-label"><span data-lang="hu">Teljes mértékben</span><span data-lang="en">Completely</span><span data-lang="ro">Complet</span></span>
       </div>
     </div>
     <div class="reflection-question" id="q5">
-      <label class="q-label">Mi a legfontosabb karriercélod a következő 2 évre?</label>
+      <label class="q-label"><span data-lang="hu">Mi a legfontosabb karriercélod a következő 2 évre?</span><span data-lang="en">What is your most important career goal for the next 2 years?</span><span data-lang="ro">Care este cel mai important obiectiv de carieră pentru următorii 2 ani?</span></label>
       <textarea class="reflection-textarea" rows="3" placeholder="Írd ide a válaszodat..."></textarea>
     </div>
-          <button class="submit-btn" onclick="submitReflection()">Visszajelzés megjelenítése</button>
+          <button class="submit-btn" onclick="submitReflection()"><span data-lang="hu">Visszajelzés megjelenítése</span><span data-lang="en">Display feedback</span><span data-lang="ro">Afișare feedback</span></button>
           <div class="feedback-box" id="feedbackBox" style="display:none;"></div>
         </div>
       </div>
@@ -337,35 +415,42 @@
       <div class="section-header">
         <span class="section-icon">📋</span>
         <div>
-          <h2>Összefoglalás</h2>
-          <p class="section-subtitle">Pályaorientáció és karrierépítés eszköztára</p>
+          <h2><span data-lang="hu">Összefoglalás</span><span data-lang="en">Summary</span><span data-lang="ro">Rezumat</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Pályaorientáció és karrierépítés eszköztára</span><span data-lang="en">Toolkit for career orientation and development</span><span data-lang="ro">Instrumentar pentru orientare profesională și construire a carierei</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #004D40, transparent);"></div>
-      <p class="section-intro">A tudatos karriertervezés folyamatos önismereti munka és aktív cselekvés kombinációja.</p>
+      <p class="section-intro"><span data-lang="hu">A tudatos karriertervezés folyamatos önismereti munka és aktív cselekvés kombinációja.</span><span data-lang="en">Conscious career planning is a combination of continuous self-awareness work and active action.</span><span data-lang="ro">Planificarea conștientă a carierei este o combinație continuă de auto-cunoaștere și acțiune activă.</span></p>
       <div class="section-content">
 <div class="summary-grid">
-  <div class="summary-card"><h4>💪 Erősségek</h4><p>Azonosítsd és fejleszd az erősségeidet – ezekre épített karrier elégedettebb és sikeresebb életet hoz.</p></div>
-  <div class="summary-card"><h4>🎯 SMART célok</h4><p>Konkrét, mérhető, akciótervvel rendelkező, reális és időhöz kötött karriercélok kitűzése.</p></div>
-  <div class="summary-card"><h4>🌐 Munkaerőpiac</h4><p>Folyamatosan tájékozódj a munkaerőpiaci trendekről és fejleszd a jövő készségeit.</p></div>
-  <div class="summary-card"><h4>🤝 Hálózat</h4><p>Az állások 80%-a nem kerül nyilvános hirdetésre – a szakmai hálózat kulcsfontosságú.</p></div>
+  <div class="summary-card"><h4><span data-lang="hu">💪 Erősségek</span><span data-lang="en">💪 Strengths</span><span data-lang="ro">💪 Puncte forte</span></h4><p><span data-lang="hu">Azonosítsd és fejleszd az erősségeidet – ezekre épített karrier elégedettebb és sikeresebb életet hoz.</span><span data-lang="en">Identify and develop your strengths – a career built on these brings a more satisfying and successful life.</span><span data-lang="ro">Identifică și dezvoltă-ți punctele forte – o carieră construită pe acestea aduce o viață mai satisfăcătoare și de succes.</span></p></div>
+  <div class="summary-card"><h4><span data-lang="hu">🎯 SMART célok</span><span data-lang="en">🎯 SMART goals</span><span data-lang="ro">🎯 Obiective SMART</span></h4><p><span data-lang="hu">Konkrét, mérhető, akciótervvel rendelkező, reális és időhöz kötött karriercélok kitűzése.</span><span data-lang="en">Setting specific, measurable, action-planned, realistic, and time-bound career goals.</span><span data-lang="ro">Stabilirea unor obiective de carieră concrete, măsurabile, cu plan de acțiune, realiste și legate de timp.</span></p></div>
+  <div class="summary-card"><h4><span data-lang="hu">🌐 Munkaerőpiac</span><span data-lang="en">🌐 Labour market</span><span data-lang="ro">🌐 Piața muncii</span></h4><p><span data-lang="hu">Folyamatosan tájékozódj a munkaerőpiaci trendekről és fejleszd a jövő készségeit.</span><span data-lang="en">Continuously stay informed about labor market trends and develop future skills.</span><span data-lang="ro">Informează-te continuu despre tendințele pieței muncii și dezvoltă competențele viitorului.</span></p></div>
+  <div class="summary-card"><h4><span data-lang="hu">🤝 Hálózat</span><span data-lang="en">🤝 Network</span><span data-lang="ro">🤝 Rețea</span></h4><p><span data-lang="hu">Az állások 80%-a nem kerül nyilvános hirdetésre – a szakmai hálózat kulcsfontosságú.</span><span data-lang="en">80% of jobs are not publicly advertised – professional networking is key.</span><span data-lang="ro">80% din locurile de muncă nu sunt anunțate public – rețeaua profesională este esențială.</span></p></div>
 </div>
       </div>
     </section>
 
 
     <div class="pdf-section">
-      <h3>📥 Fejezet letöltése PDF formátumban</h3>
-      <a href="https://drive.google.com/file/d/1Xf0NWoYaS1QV5Q4LSBnULb5kDzf0rWmN/view" target="_blank" class="pdf-btn">🇭🇺 Magyar PDF letöltése</a>
+      <h3><span data-lang="hu">📥 Fejezet letöltése PDF formátumban</span><span data-lang="en">📥 Download chapter in PDF format</span><span data-lang="ro">📥 Descarcă capitolul în format PDF</span></h3>
+      <a href="https://drive.google.com/file/d/1Xf0NWoYaS1QV5Q4LSBnULb5kDzf0rWmN/view" target="_blank" class="pdf-btn"><span data-lang="hu">🇭🇺 Magyar PDF letöltése</span><span data-lang="en">🇭🇺 Download Hungarian PDF</span><span data-lang="ro">🇭🇺 Descarcă PDF în maghiară</span></a>
       <a href="https://drive.google.com/file/d/1G2jDxLBnCC8CkmzRsKekpRmyrAN_roCV/view" target="_blank" class="pdf-btn">🇬🇧 English PDF</a>
       <a href="https://drive.google.com/file/d/1NMQjhHjcZbyJ40KrHXfc4ttgQoiUEtPR/view" target="_blank" class="pdf-btn">🇷🇴 PDF în română</a>
     </div>
   </main>
 </div>
 
+
+<div class="chapter-nav">
+  <a href="../chapter6/index.html">← <span data-lang="hu"><span data-lang="hu">6. fejezet</span><span data-lang="en">Chapter 6</span><span data-lang="ro">Capitolul 6</span></span><span data-lang="en">Chapter 6</span><span data-lang="ro">Capitolul 6</span></a>
+  <a href="../index.html" class="nav-home"><span data-lang="hu"><span data-lang="hu">🏠 Főoldal</span><span data-lang="en">🏠 Home</span><span data-lang="ro">🏠 Pagina principală</span></span><span data-lang="en">🏠 Home</span><span data-lang="ro">🏠 Acasă</span></a>
+  <a href="../chapter8/index.html"><span data-lang="hu"><span data-lang="hu">8. fejezet</span><span data-lang="en">Chapter 8</span><span data-lang="ro">Capitolul 8</span></span><span data-lang="en">Chapter 8</span><span data-lang="ro">Capitolul 8</span> →</a>
+</div>
+
 <footer class="chapter-footer">
   <p>IMELO – Identity Mosaic | Erasmus+ KA2 projekt | © 2024–2026</p>
-  <p>Az Európai Bizottság támogatásával készült. A tartalom kizárólag a szerzők álláspontját tükrözi.</p>
+  <p><span data-lang="hu">Az Európai Bizottság támogatásával készült. A tartalom kizárólag a szerzők álláspontját tükrözi.</span><span data-lang="en">Produced with the support of the European Commission. The content reflects the views of the authors only.</span><span data-lang="ro">Realizat cu sprijinul Comisiei Europene. Conținutul reflectă exclusiv punctul de vedere al autorilor.</span></p>
 </footer>
 
 <script>
@@ -405,6 +490,23 @@
       if (target) target.scrollIntoView({behavior: 'smooth', block: 'start'});
     });
   });
+
+  // Language switcher
+  (function() {
+    var stored = localStorage.getItem('imelo-lang') || 'hu';
+    document.body.setAttribute('data-active-lang', stored);
+    document.querySelectorAll('.lang-btn-sub').forEach(function(btn) {
+      if (btn.getAttribute('data-lang-switch') === stored) btn.classList.add('active');
+    });
+  })();
+  function switchLangSub(lang) {
+    document.body.setAttribute('data-active-lang', lang);
+    localStorage.setItem('imelo-lang', lang);
+    document.querySelectorAll('.lang-btn-sub').forEach(function(btn) {
+      btn.classList.toggle('active', btn.getAttribute('data-lang-switch') === lang);
+    });
+  }
+
 </script>
 </body>
 </html>

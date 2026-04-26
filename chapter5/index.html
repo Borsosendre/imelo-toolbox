@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>5. Fejezet – Konfliktuskezelés és Asszertív Kommunikáció | IMELO Toolbox</title>
+  <title><span data-lang="hu">5. Fejezet – Konfliktuskezelés és Asszertív Kommunikáció | IMELO Toolbox</span><span data-lang="en">Chapter 5 – Conflict Management and Assertive Communication | IMELO Toolbox</span><span data-lang="ro">Capitolul 5 – Gestionarea Conflictelor și Comunicare Asertivă | IMELO Toolbox</span></title>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -117,28 +117,106 @@
 
     /* FOOTER */
     .chapter-footer { background: #1a1a2e; color: white; text-align: center; padding: 1.5rem; font-size: 0.8rem; opacity: 0.8; }
+  
+    /* Chapter navigation */
+    .chapter-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 1.5rem;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      margin: 1.5rem 0;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .chapter-nav a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: linear-gradient(135deg, #1a7a4a 0%, #2ecc71 100%);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+      transition: opacity 0.2s;
+    }
+    .chapter-nav a:hover { opacity: 0.85; }
+    .chapter-nav .nav-home {
+      background: linear-gradient(135deg, #E8622A 0%, #f39c12 100%);
+    }
+    .chapter-nav .nav-center {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #888;
+      flex: 1;
+    }
+    @media (max-width: 600px) {
+      .chapter-nav { flex-direction: column; align-items: stretch; text-align: center; }
+      .chapter-nav a { justify-content: center; }
+    }
+
+  
+    [data-lang] { display: none; }
+    body[data-active-lang="hu"] [data-lang="hu"] { display: inline; }
+    body[data-active-lang="en"] [data-lang="en"] { display: inline; }
+    body[data-active-lang="ro"] [data-lang="ro"] { display: inline; }
+
+  
+    /* Language switching */
+    [data-lang] { display: none; }
+    body[data-active-lang="hu"] [data-lang="hu"],
+    body[data-active-lang="hu"] span[data-lang="hu"] { display: inline; }
+    body[data-active-lang="en"] [data-lang="en"],
+    body[data-active-lang="en"] span[data-lang="en"] { display: inline; }
+    body[data-active-lang="ro"] [data-lang="ro"],
+    body[data-active-lang="ro"] span[data-lang="ro"] { display: inline; }
+    body[data-active-lang="hu"] div[data-lang="hu"],
+    body[data-active-lang="en"] div[data-lang="en"],
+    body[data-active-lang="ro"] div[data-lang="ro"] { display: block; }
+    .lang-switcher-sub {
+      position: fixed; top: 12px; right: 16px; z-index: 9999;
+      display: flex; gap: 6px; background: rgba(255,255,255,0.95);
+      padding: 4px 8px; border-radius: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .lang-btn-sub {
+      background: none; border: none; cursor: pointer;
+      font-size: 1.2rem; padding: 2px 4px; border-radius: 6px;
+      opacity: 0.6; transition: opacity 0.2s;
+    }
+    .lang-btn-sub:hover, .lang-btn-sub.active { opacity: 1; }
+
   </style>
 </head>
-<body>
+<body data-active-lang="hu">
+<div class="lang-switcher-sub">
+  <button class="lang-btn-sub" data-lang-switch="hu" onclick="switchLangSub('hu')" title="Magyar">🇭🇺</button>
+  <button class="lang-btn-sub" data-lang-switch="en" onclick="switchLangSub('en')" title="English">🇬🇧</button>
+  <button class="lang-btn-sub" data-lang-switch="ro" onclick="switchLangSub('ro')" title="Română">🇷🇴</button>
+</div>
 
 <nav class="topbar">
   <a href="../index.html" class="topbar-logo">
     <img src="imelo_logo.png" alt="Identity Mosaic logó">
   </a>
-  <a href="../index.html" class="back-btn">← Vissza az Eszköztárhoz</a>
+  <a href="../index.html" class="back-btn"><span data-lang="hu">← Vissza az Eszköztárhoz</span><span data-lang="en">← Back to the Toolbox</span><span data-lang="ro">← Înapoi la Trusă</span></a>
 </nav>
 
 <div class="chapter-hero">
-  <div class="chapter-num">5. Fejezet</div>
-  <h1>Konfliktuskezelés és Asszertív Kommunikáció</h1>
-  <p class="subtitle">Hatékony kommunikáció és konfliktusmegoldás</p>
-  <div class="tags"><span class="tag">⚡ Konfliktuskezelés</span> <span class="tag">💬 Asszertivitás</span> <span class="tag">🤝 Win-win megoldások</span></div>
+  <div class="chapter-num"><span data-lang="hu">5. Fejezet</span><span data-lang="en">Chapter 5</span><span data-lang="ro">Capitolul 5</span></div>
+  <h1><span data-lang="hu">Konfliktuskezelés és Asszertív Kommunikáció</span><span data-lang="en">Conflict Management and Assertive Communication</span><span data-lang="ro">Gestionarea Conflictelor și Comunicare Asertivă</span></h1>
+  <p class="subtitle"><span data-lang="hu">Hatékony kommunikáció és konfliktusmegoldás</span><span data-lang="en">Effective Communication and Conflict Resolution</span><span data-lang="ro">Comunicare eficientă și rezolvare a conflictelor</span></p>
+  <div class="tags"><span class="tag"><span data-lang="hu">⚡ Konfliktuskezelés</span><span data-lang="en">⚡ Conflict Management</span><span data-lang="ro">⚡ Gestionarea Conflictelor</span></span> <span class="tag"><span data-lang="hu">💬 Asszertivitás</span><span data-lang="en">💬 Assertiveness</span><span data-lang="ro">💬 Asertivitate</span></span> <span class="tag"><span data-lang="hu">🤝 Win-win megoldások</span><span data-lang="en">🤝 Win-win Solutions</span><span data-lang="ro">🤝 Soluții win-win</span></span></div>
 </div>
 
 <div class="page-layout">
   <aside class="sidebar">
-    <h3>Tartalomjegyzék</h3>
-    <a href="#konfliktus" class="toc-item">A Konfliktus Nem Ellenség</a><a href="#asszertivitas" class="toc-item">Az Asszertivitás Alapjai</a><a href="#en-uzenetek" class="toc-item">Az Én-üzenetek Művészete</a><a href="#lepesek" class="toc-item">A Konfliktuskezelés 5 Lépése</a><a href="#onreflexio" class="toc-item">Önreflexió – Kommunikációs Stílusom</a><a href="#osszefoglalas" class="toc-item">Összefoglalás</a>
+    <h3><span data-lang="hu">Tartalomjegyzék</span><span data-lang="en">Table of Contents</span><span data-lang="ro">Cuprins</span></h3>
+    <a href="#konfliktus" class="toc-item"><span data-lang="hu">A Konfliktus Nem Ellenség</span><span data-lang="en">Conflict Is Not the Enemy</span><span data-lang="ro">Conflictul Nu Este Dușman</span></a><a href="#asszertivitas" class="toc-item"><span data-lang="hu">Az Asszertivitás Alapjai</span><span data-lang="en">The Basics of Assertiveness</span><span data-lang="ro">Bazele Asertivității</span></a><a href="#en-uzenetek" class="toc-item"><span data-lang="hu">Az Én-üzenetek Művészete</span><span data-lang="en">The Art of I-Messages</span><span data-lang="ro">Arta Mesajelor „Eu”</span></a><a href="#lepesek" class="toc-item"><span data-lang="hu">A Konfliktuskezelés 5 Lépése</span><span data-lang="en">The 5 Steps of Conflict Management</span><span data-lang="ro">Cele 5 Etape ale Gestionării Conflictului</span></a><a href="#onreflexio" class="toc-item"><span data-lang="hu">Önreflexió – Kommunikációs Stílusom</span><span data-lang="en">Self-Reflection – My Communication Style</span><span data-lang="ro">Auto-reflecție – Stilul Meu de Comunicare</span></a><a href="#osszefoglalas" class="toc-item"><span data-lang="hu">Összefoglalás</span><span data-lang="en">Summary</span><span data-lang="ro">Rezumat</span></a>
   </aside>
 
   <main>
@@ -147,22 +225,22 @@
       <div class="section-header">
         <span class="section-icon">⚡</span>
         <div>
-          <h2>A Konfliktus Nem Ellenség</h2>
-          <p class="section-subtitle">Új megközelítés a konfliktusokhoz</p>
+          <h2><span data-lang="hu">A Konfliktus Nem Ellenség</span><span data-lang="en">Conflict Is Not the Enemy</span><span data-lang="ro">Conflictul Nu Este Dușman</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Új megközelítés a konfliktusokhoz</span><span data-lang="en">A New Approach to Conflicts</span><span data-lang="ro">O abordare nouă a conflictelor</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #B71C1C, transparent);"></div>
-      <p class="section-intro">Tévhit, hogy a jó kapcsolatokban nincs vita. A konfliktus valójában lehetőség a fejlődésre és a kapcsolatok elmélyítésére – ha megfelelően kezeljük.</p>
+      <p class="section-intro"><span data-lang="hu">Tévhit, hogy a jó kapcsolatokban nincs vita. A konfliktus valójában lehetőség a fejlődésre és a kapcsolatok elmélyítésére – ha megfelelően kezeljük.</span><span data-lang="en">It is a misconception that good relationships have no conflicts. Conflict can actually be an opportunity for growth and deepening relationships – if managed properly.</span><span data-lang="ro">Este o concepție greșită că în relațiile bune nu există conflicte. Conflictul poate fi, de fapt, o oportunitate de dezvoltare și aprofundare a relațiilor – dacă este gestionat corect.</span></p>
       <div class="stats-row">
-        <div class="stat-card"><div class="stat-value" style="color:#B71C1C">Win-win</div><div class="stat-label">A jól kezelt konfliktus mindkét fél számára előnyös</div></div>
-        <div class="stat-card"><div class="stat-value" style="color:#E65100">5 lépés</div><div class="stat-label">A hatékony konfliktuskezelés folyamata</div></div>
-        <div class="stat-card"><div class="stat-value" style="color:#1565C0">70%</div><div class="stat-label">A konfliktusok kommunikációs problémából erednek</div></div>
+        <div class="stat-card"><div class="stat-value" style="color:#B71C1C">Win-win</div><div class="stat-label"><span data-lang="hu">A jól kezelt konfliktus mindkét fél számára előnyös</span><span data-lang="en">Well-managed conflict benefits both parties</span><span data-lang="ro">Un conflict bine gestionat este benefic pentru ambele părți</span></div></div>
+        <div class="stat-card"><div class="stat-value" style="color:#E65100"><span data-lang="hu">5 lépés</span><span data-lang="en">5 Steps</span><span data-lang="ro">5 pași</span></div><div class="stat-label"><span data-lang="hu">A hatékony konfliktuskezelés folyamata</span><span data-lang="en">The Process of Effective Conflict Management</span><span data-lang="ro">Procesul de gestionare eficientă a conflictelor</span></div></div>
+        <div class="stat-card"><div class="stat-value" style="color:#1565C0">70%</div><div class="stat-label"><span data-lang="hu">A konfliktusok kommunikációs problémából erednek</span><span data-lang="en">Conflicts arise from communication problems</span><span data-lang="ro">Conflictele provin din probleme de comunicare</span></div></div>
       </div>
       <div class="section-content">
 <div class="content-grid">
-  <div class="content-card"><h4>❌ Mit veszítesz, ha rosszul kezeled?</h4><ul><li>Kapcsolatok romlása</li><li>Önbecsülés csökkenése</li><li>Elszalasztott lehetőségek</li><li>Folyamatos stressz</li></ul></div>
-  <div class="content-card"><h4>✅ Mit nyerhetsz, ha jól kezeled?</h4><ul><li>Stabilabb kapcsolatok</li><li>Nagyobb önbizalom</li><li>Win-win megoldások</li><li>Személyes növekedés</li></ul></div>
-  <div class="content-card"><h4>🧊 A Jéghegy-modell</h4><p>A konfliktusok felszínén a vita és a harag látható. A mélyben azonban valódi szükségletek, félelmek és értékek húzódnak meg. A hatékony konfliktuskezelés ezeket tárja fel.</p></div>
+  <div class="content-card"><h4><span data-lang="hu">❌ Mit veszítesz, ha rosszul kezeled?</span><span data-lang="en">❌ What do you lose if you handle it poorly?</span><span data-lang="ro">❌ Ce pierzi dacă gestionezi prost?</span></h4><ul><li><span data-lang="hu">Kapcsolatok romlása</span><span data-lang="en">Deterioration of relationships</span><span data-lang="ro">Deteriorarea relațiilor</span></li><li><span data-lang="hu">Önbecsülés csökkenése</span><span data-lang="en">Decreased self-esteem</span><span data-lang="ro">Scăderea stimei de sine</span></li><li><span data-lang="hu">Elszalasztott lehetőségek</span><span data-lang="en">Missed opportunities</span><span data-lang="ro">Oportunități ratate</span></li><li>Folyamatos stressz</li></ul></div>
+  <div class="content-card"><h4><span data-lang="hu">✅ Mit nyerhetsz, ha jól kezeled?</span><span data-lang="en">✅ What can you gain if you handle it well?</span><span data-lang="ro">✅ Ce câștigi dacă gestionezi bine?</span></h4><ul><li>Stabilabb kapcsolatok</li><li><span data-lang="hu">Nagyobb önbizalom</span><span data-lang="en">Greater self-confidence</span><span data-lang="ro">Mai multă încredere în sine</span></li><li><span data-lang="hu">Win-win megoldások</span><span data-lang="en">Win-win solutions</span><span data-lang="ro">Soluții win-win</span></li><li><span data-lang="hu">Személyes növekedés</span><span data-lang="en">Personal growth</span><span data-lang="ro">Creștere personală</span></li></ul></div>
+  <div class="content-card"><h4><span data-lang="hu">🧊 A Jéghegy-modell</span><span data-lang="en">🧊 The Iceberg Model</span><span data-lang="ro">🧊 Modelul aisbergului</span></h4><p><span data-lang="hu">A konfliktusok felszínén a vita és a harag látható. A mélyben azonban valódi szükségletek, félelmek és értékek húzódnak meg. A hatékony konfliktuskezelés ezeket tárja fel.</span><span data-lang="en">On the surface of conflicts, arguments and anger are visible. Beneath, however, real needs, fears, and values lie hidden. Effective conflict management uncovers these.</span><span data-lang="ro">La suprafața conflictelor se văd certuri și furie. Însă în profunzime se ascund nevoi reale, temeri și valori. Gestionarea eficientă a conflictelor le aduce la lumină.</span></p></div>
 </div>
       </div>
 
@@ -178,26 +256,26 @@
           allowfullscreen>
         </iframe>
       </div>
-      <p class="video-caption">A videó konkrét, gyakorlati eszköztárat nyújt ifjúságsegítők számára a konfliktushelyzetek kezeléséhez, bemutatva, hogyan lehet a konfliktusokat fejlődési lehetőségként értelmezni a fiatalokkal való munkában.</p>
+      <p class="video-caption"><span data-lang="hu">A videó konkrét, gyakorlati eszköztárat nyújt ifjúságsegítők számára a konfliktushelyzetek kezeléséhez, bemutatva, hogyan lehet a konfliktusokat fejlődési lehetőségként értelmezni a fiatalokkal való munkában.</span><span data-lang="en">The video provides a concrete, practical toolkit for youth workers to handle conflict situations, demonstrating how conflicts can be understood as opportunities for growth when working with young people.</span><span data-lang="ro">Videoclipul oferă o trusă concretă și practică pentru lucrătorii de tineret în gestionarea situațiilor conflictuale, arătând cum pot fi interpretate conflictele ca oportunități de dezvoltare în munca cu tinerii.</span></p>
     </section>
 
     <section class="chapter-section" id="asszertivitas">
       <div class="section-header">
         <span class="section-icon">💪</span>
         <div>
-          <h2>Az Asszertivitás Alapjai</h2>
-          <p class="section-subtitle">Saját jogok és mások tisztelete</p>
+          <h2><span data-lang="hu">Az Asszertivitás Alapjai</span><span data-lang="en">The Basics of Assertiveness</span><span data-lang="ro">Bazele Asertivității</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Saját jogok és mások tisztelete</span><span data-lang="en">Respect for your own rights and those of others</span><span data-lang="ro">Respectarea propriilor drepturi și a celor ale altora</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #B71C1C, transparent);"></div>
-      <p class="section-intro">Az asszertivitás a saját jogaink és szükségleteink határozott, de tiszteletteljes képviselete – anélkül, hogy mások jogait megsértenénk.</p>
+      <p class="section-intro"><span data-lang="hu">Az asszertivitás a saját jogaink és szükségleteink határozott, de tiszteletteljes képviselete – anélkül, hogy mások jogait megsértenénk.</span><span data-lang="en">Assertiveness is the firm yet respectful representation of our own rights and needs – without violating the rights of others.</span><span data-lang="ro">Asertivitatea este reprezentarea fermă, dar respectuoasă, a propriilor drepturi și nevoi – fără a încălca drepturile altora.</span></p>
       <div class="section-content">
 <div class="content-grid">
-  <div class="content-card"><h4>😔 Passzív kommunikáció</h4><p>Saját igények feladása, mások igényeinek előtérbe helyezése, konfliktuskerülés. <em>"Nem baj, ha neked így jobb... Nekem mindegy."</em></p></div>
-  <div class="content-card"><h4>😠 Agresszív kommunikáció</h4><p>Saját igények erőltetése, mások jogainak figyelmen kívül hagyása, dominancia. <em>"Te mindig mindent elrontasz! Csináld úgy, ahogy mondom!"</em></p></div>
-  <div class="content-card"><h4>😊 Asszertív kommunikáció</h4><p>Saját jogok tiszteletben tartása, mások jogainak tisztelete, őszinte kommunikáció. <em>"Értem az álláspontodat, de nekem más a véleményem. Találjunk közös megoldást."</em></p></div>
+  <div class="content-card"><h4><span data-lang="hu">😔 Passzív kommunikáció</span><span data-lang="en">😔 Passive Communication</span><span data-lang="ro">😔 Comunicare pasivă</span></h4><p><span data-lang="hu">Saját igények feladása, mások igényeinek előtérbe helyezése, konfliktuskerülés.</span><span data-lang="en">Giving up your own needs, prioritizing others’ needs, avoiding conflict.</span><span data-lang="ro">Renunțarea la propriile nevoi, prioritizarea nevoilor altora, evitarea conflictelor.</span> <em><span data-lang="hu">"Nem baj, ha neked így jobb... Nekem mindegy."</span><span data-lang="en">"It’s okay if that works better for you... I don’t mind."</span><span data-lang="ro">"Nu-i nimic dacă ție îți e mai bine așa... Mie îmi e indiferent."</span></em></p></div>
+  <div class="content-card"><h4><span data-lang="hu">😠 Agresszív kommunikáció</span><span data-lang="en">😠 Aggressive Communication</span><span data-lang="ro">😠 Comunicare agresivă</span></h4><p><span data-lang="hu">Saját igények erőltetése, mások jogainak figyelmen kívül hagyása, dominancia.</span><span data-lang="en">Forcing your own needs, ignoring others’ rights, dominance.</span><span data-lang="ro">Impunerea propriilor nevoi, ignorarea drepturilor altora, dominanță.</span> <em><span data-lang="hu">"Te mindig mindent elrontasz! Csináld úgy, ahogy mondom!"</span><span data-lang="en">"You always mess everything up! Do it the way I say!"</span><span data-lang="ro">"Tu strici mereu totul! Fă cum îți spun eu!"</span></em></p></div>
+  <div class="content-card"><h4><span data-lang="hu">😊 Asszertív kommunikáció</span><span data-lang="en">😊 Assertive Communication</span><span data-lang="ro">😊 Comunicare asertivă</span></h4><p><span data-lang="hu">Saját jogok tiszteletben tartása, mások jogainak tisztelete, őszinte kommunikáció.</span><span data-lang="en">Respecting your own rights, respecting the rights of others, honest communication.</span><span data-lang="ro">Respectarea propriilor drepturi, respectarea drepturilor altora, comunicare sinceră.</span> <em><span data-lang="hu">"Értem az álláspontodat, de nekem más a véleményem. Találjunk közös megoldást."</span><span data-lang="en">"I understand your point, but I have a different opinion. Let’s find a solution together."</span><span data-lang="ro">"Îți înțeleg punctul de vedere, dar eu am o opinie diferită. Să găsim o soluție comună."</span></em></p></div>
 </div>
-<div class="highlight-box"><h4>📜 Asszertív Jogaid</h4><ul><li>Jogod van <strong>nemet mondani</strong></li><li>Jogod van <strong>meggondolni magad</strong></li><li>Jogod van <strong>hibázni</strong></li><li>Jogod van azt mondani: <strong>nem tudom / nem értem</strong></li><li>Jogod van <strong>segítséget kérni</strong></li><li>Jogod van <strong>kifejezni az érzéseidet</strong></li></ul></div>
+<div class="highlight-box"><h4><span data-lang="hu">📜 Asszertív Jogaid</span><span data-lang="en">📜 Your Assertive Rights</span><span data-lang="ro">📜 Drepturile Tale Asertive</span></h4><ul><li><span data-lang="hu">Jogod van</span><span data-lang="en">You have the right</span><span data-lang="ro">Ai dreptul</span> <strong>nemet mondani</strong></li><li><span data-lang="hu">Jogod van</span><span data-lang="en">You have the right</span><span data-lang="ro">Ai dreptul</span> <strong>meggondolni magad</strong></li><li><span data-lang="hu">Jogod van</span><span data-lang="en">You have the right</span><span data-lang="ro">Ai dreptul</span> <strong><span data-lang="hu">hibázni</span><span data-lang="en">to make mistakes</span><span data-lang="ro">să greșești</span></strong></li><li><span data-lang="hu">Jogod van azt mondani:</span><span data-lang="en">You have the right to say:</span><span data-lang="ro">Ai dreptul să spui:</span> <strong><span data-lang="hu">nem tudom / nem értem</span><span data-lang="en">I don't know / I don't understand</span><span data-lang="ro">nu știu / nu înțeleg</span></strong></li><li><span data-lang="hu">Jogod van</span><span data-lang="en">You have the right to</span><span data-lang="ro">Ai dreptul să</span> <strong><span data-lang="hu">segítséget kérni</span><span data-lang="en">ask for help</span><span data-lang="ro">ceri ajutor</span></strong></li><li><span data-lang="hu">Jogod van</span><span data-lang="en">You have the right to</span><span data-lang="ro">Ai dreptul să</span> <strong><span data-lang="hu">kifejezni az érzéseidet</span><span data-lang="en">express your feelings</span><span data-lang="ro">îți exprimi sentimentele</span></strong></li></ul></div>
       </div>
     </section>
 
@@ -205,21 +283,21 @@
       <div class="section-header">
         <span class="section-icon">💬</span>
         <div>
-          <h2>Az Én-üzenetek Művészete</h2>
-          <p class="section-subtitle">Felelősségteljes kommunikáció</p>
+          <h2><span data-lang="hu">Az Én-üzenetek Művészete</span><span data-lang="en">The Art of I-Messages</span><span data-lang="ro">Arta mesajelor „Eu”</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Felelősségteljes kommunikáció</span><span data-lang="en">Responsible communication</span><span data-lang="ro">Comunicare responsabilă</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #B71C1C, transparent);"></div>
-      <p class="section-intro">Az Én-üzenetek a felelős, nem hibáztató kommunikáció eszközei. Ahelyett, hogy a másik viselkedését ítélnénk meg, saját érzéseinkről és szükségleteinkről beszélünk.</p>
+      <p class="section-intro"><span data-lang="hu">Az Én-üzenetek a felelős, nem hibáztató kommunikáció eszközei. Ahelyett, hogy a másik viselkedését ítélnénk meg, saját érzéseinkről és szükségleteinkről beszélünk.</span><span data-lang="en">I-Messages are tools for responsible, non-blaming communication. Instead of judging the other person's behavior, we talk about our own feelings and needs.</span><span data-lang="ro">Mesajele „Eu” sunt instrumente de comunicare responsabilă, care nu învinovățesc. În loc să judecăm comportamentul celuilalt, vorbim despre propriile sentimente și nevoi.</span></p>
       <div class="section-content">
 <div class="content-grid">
-  <div class="content-card"><h4>❌ Te-üzenet</h4><p><em>"Te mindig elkésel! Soha nem lehet rád számítani, teljesen megbízhatatlan vagy!"</em></p><p>Hibáztat, ítélkezik, védekezést vált ki.</p></div>
-  <div class="content-card"><h4>✅ Én-üzenet</h4><p><em>"Aggódom, amikor késel, mert nem tudom, mi történt veled. Szeretném, ha legközelebb szólnál, ha késni fogsz."</em></p><p>Nem hibáztat, felelősséget vállal, megoldást javasol.</p></div>
+  <div class="content-card"><h4><span data-lang="hu">❌ Te-üzenet</span><span data-lang="en">❌ You-message</span><span data-lang="ro">❌ Mesaj „Tu”</span></h4><p><em><span data-lang="hu">"Te mindig elkésel! Soha nem lehet rád számítani, teljesen megbízhatatlan vagy!"</span><span data-lang="en">"You are always late! You can never be counted on, you are completely unreliable!"</span><span data-lang="ro">"Tu întârzii mereu! Nu te poți conta niciodată pe tine, ești complet nesigur!"</span></em></p><p><span data-lang="hu">Hibáztat, ítélkezik, védekezést vált ki.</span><span data-lang="en">Blames, judges, triggers defensiveness.</span><span data-lang="ro">Învinovățește, judecă, provoacă defensivă.</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">✅ Én-üzenet</span><span data-lang="en">✅ I-message</span><span data-lang="ro">✅ Mesaj „Eu”</span></h4><p><em><span data-lang="hu">"Aggódom, amikor késel, mert nem tudom, mi történt veled. Szeretném, ha legközelebb szólnál, ha késni fogsz."</span><span data-lang="en">"I worry when you're late because I don't know what happened to you. I would appreciate it if next time you could let me know if you will be late."</span><span data-lang="ro">"Mă îngrijorez când întârzii pentru că nu știu ce ți s-a întâmplat. Mi-ar plăcea să mă anunți data viitoare dacă vei întârzia."</span></em></p><p><span data-lang="hu">Nem hibáztat, felelősséget vállal, megoldást javasol.</span><span data-lang="en">Does not blame, takes responsibility, suggests a solution.</span><span data-lang="ro">Nu învinovățește, își asumă responsabilitatea, propune o soluție.</span></p></div>
 </div>
 <div class="steps-list">
-  <div class="step"><span class="step-num">1</span><div><strong>Probléma leírása</strong><p>Objektíven írd le a helyzetet vagy viselkedést ítélkezés nélkül. <em>"Amikor 30 percet késel a megbeszélt találkozóról..."</em></p></div></div>
-  <div class="step"><span class="step-num">2</span><div><strong>Hatás rám</strong><p>Mondd el, milyen érzéseket vagy következményeket okoz neked a helyzet. <em>"...aggódom, és bizonytalanná válok a terveinket illetően..."</em></p></div></div>
-  <div class="step"><span class="step-num">3</span><div><strong>Megoldási javaslat</strong><p>Javasolj egy konkrét, pozitív megoldást. <em>"...értékelném, ha legközelebb üzennél, ha késni fogsz."</em></p></div></div>
+  <div class="step"><span class="step-num">1</span><div><strong><span data-lang="hu">Probléma leírása</span><span data-lang="en">Description of the problem</span><span data-lang="ro">Descrierea problemei</span></strong><p><span data-lang="hu">Objektíven írd le a helyzetet vagy viselkedést ítélkezés nélkül.</span><span data-lang="en">Describe the situation or behavior objectively without judgment.</span><span data-lang="ro">Descrie obiectiv situația sau comportamentul fără judecată.</span> <em><span data-lang="hu">"Amikor 30 percet késel a megbeszélt találkozóról..."</span><span data-lang="en">"When you are 30 minutes late for the agreed meeting..."</span><span data-lang="ro">"Când întârzii 30 de minute la întâlnirea stabilită..."</span></em></p></div></div>
+  <div class="step"><span class="step-num">2</span><div><strong><span data-lang="hu">Hatás rám</span><span data-lang="en">Impact on me</span><span data-lang="ro">Impactul asupra mea</span></strong><p><span data-lang="hu">Mondd el, milyen érzéseket vagy következményeket okoz neked a helyzet.</span><span data-lang="en">Say what feelings or consequences the situation causes you.</span><span data-lang="ro">Spune ce sentimente sau consecințe îți provoacă situația.</span> <em><span data-lang="hu">"...aggódom, és bizonytalanná válok a terveinket illetően..."</span><span data-lang="en">"...I worry and become uncertain about our plans..."</span><span data-lang="ro">"...mă îngrijorez și devin nesigur în privința planurilor noastre..."</span></em></p></div></div>
+  <div class="step"><span class="step-num">3</span><div><strong><span data-lang="hu">Megoldási javaslat</span><span data-lang="en">Suggested solution</span><span data-lang="ro">Propunere de soluție</span></strong><p><span data-lang="hu">Javasolj egy konkrét, pozitív megoldást.</span><span data-lang="en">Propose a specific, positive solution.</span><span data-lang="ro">Propune o soluție concretă și pozitivă.</span> <em><span data-lang="hu">"...értékelném, ha legközelebb üzennél, ha késni fogsz."</span><span data-lang="en">"...I would appreciate it if next time you could send a message if you will be late."</span><span data-lang="ro">"...aș aprecia dacă data viitoare mi-ai trimite un mesaj dacă vei întârzia."</span></em></p></div></div>
 </div>
       </div>
     </section>
@@ -228,19 +306,19 @@
       <div class="section-header">
         <span class="section-icon">🪜</span>
         <div>
-          <h2>A Konfliktuskezelés 5 Lépése</h2>
-          <p class="section-subtitle">Strukturált megközelítés</p>
+          <h2><span data-lang="hu">A Konfliktuskezelés 5 Lépése</span><span data-lang="en">The 5 Steps of Conflict Management</span><span data-lang="ro">Cele 5 Pași ai Gestionării Conflictelor</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Strukturált megközelítés</span><span data-lang="en">Structured approach</span><span data-lang="ro">Abordare structurată</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #B71C1C, transparent);"></div>
-      <p class="section-intro">A hatékony konfliktuskezelés nem improvizáció – egy tanulható, gyakorolható folyamat, amely mindkét fél számára előnyös megoldáshoz vezet.</p>
+      <p class="section-intro"><span data-lang="hu">A hatékony konfliktuskezelés nem improvizáció – egy tanulható, gyakorolható folyamat, amely mindkét fél számára előnyös megoldáshoz vezet.</span><span data-lang="en">Effective conflict management is not improvisation – it is a learnable, practicable process that leads to a solution beneficial for both parties.</span><span data-lang="ro">Gestionarea eficientă a conflictelor nu este improvizație – este un proces care poate fi învățat și exersat, conducând la o soluție benefică pentru ambele părți.</span></p>
       <div class="section-content">
 <div class="steps-list">
-  <div class="step"><span class="step-num">1</span><div><strong>Értelmezés és megértés</strong><p>Mi a valódi probléma? Hallgasd meg a másik felet aktívan, és próbáld megérteni az ő nézőpontját is. A jéghegy mélyén lévő szükségletek feltárása.</p></div></div>
-  <div class="step"><span class="step-num">2</span><div><strong>Kommunikáció</strong><p>Fejezd ki saját érzéseidet és szükségleteidet Én-üzenetekkel. Kerüld a hibáztatást és az általánosításokat ("mindig", "soha").</p></div></div>
-  <div class="step"><span class="step-num">3</span><div><strong>Megoldások keresése</strong><p>Közösen keressetek lehetséges megoldásokat. A brainstorming fázisban minden ötlet értékes – az értékelés csak utána következik.</p></div></div>
-  <div class="step"><span class="step-num">4</span><div><strong>Megállapodás</strong><p>Válasszátok ki a mindkét fél számára elfogadható megoldást. A win-win megoldás nem kompromisszum – hanem mindkét fél szükségleteinek kielégítése.</p></div></div>
-  <div class="step"><span class="step-num">5</span><div><strong>Értékelés</strong><p>Egy idő után értékeljétek a megállapodás működését. Ha szükséges, módosítsátok – a rugalmasság a hatékony konfliktuskezelés része.</p></div></div>
+  <div class="step"><span class="step-num">1</span><div><strong><span data-lang="hu">Értelmezés és megértés</span><span data-lang="en">Interpretation and understanding</span><span data-lang="ro">Interpretare și înțelegere</span></strong><p><span data-lang="hu">Mi a valódi probléma? Hallgasd meg a másik felet aktívan, és próbáld megérteni az ő nézőpontját is. A jéghegy mélyén lévő szükségletek feltárása.</span><span data-lang="en">What is the real problem? Listen actively to the other party and try to understand their perspective as well. Uncover the needs beneath the surface like an iceberg.</span><span data-lang="ro">Care este problema reală? Ascultă activ cealaltă parte și încearcă să înțelegi și punctul său de vedere. Descoperirea nevoilor profunde, dincolo de suprafață.</span></p></div></div>
+  <div class="step"><span class="step-num">2</span><div><strong><span data-lang="hu">Kommunikáció</span><span data-lang="en">Communication</span><span data-lang="ro">Comunicare</span></strong><p><span data-lang="hu">Fejezd ki saját érzéseidet és szükségleteidet Én-üzenetekkel. Kerüld a hibáztatást és az általánosításokat ("mindig", "soha").</span><span data-lang="en">Express your own feelings and needs with I-Messages. Avoid blaming and generalizations ("always", "never").</span><span data-lang="ro">Exprimă-ți propriile sentimente și nevoi prin mesaje „Eu”. Evită învinovățirile și generalizările („mereu”, „niciodată”).</span></p></div></div>
+  <div class="step"><span class="step-num">3</span><div><strong><span data-lang="hu">Megoldások keresése</span><span data-lang="en">Searching for solutions</span><span data-lang="ro">Căutarea soluțiilor</span></strong><p><span data-lang="hu">Közösen keressetek lehetséges megoldásokat. A brainstorming fázisban minden ötlet értékes – az értékelés csak utána következik.</span><span data-lang="en">Together, look for possible solutions. In the brainstorming phase, every idea is valuable – evaluation comes only afterwards.</span><span data-lang="ro">Căutați împreună posibile soluții. În faza de brainstorming, orice idee este valoroasă – evaluarea vine după.</span></p></div></div>
+  <div class="step"><span class="step-num">4</span><div><strong><span data-lang="hu">Megállapodás</span><span data-lang="en">Agreement</span><span data-lang="ro">Acord</span></strong><p><span data-lang="hu">Válasszátok ki a mindkét fél számára elfogadható megoldást. A win-win megoldás nem kompromisszum – hanem mindkét fél szükségleteinek kielégítése.</span><span data-lang="en">Choose a solution acceptable to both parties. A win-win solution is not a compromise – it satisfies the needs of both parties.</span><span data-lang="ro">Alegeți o soluție acceptabilă pentru ambele părți. Soluția win-win nu este un compromis – ci satisfacerea nevoilor ambelor părți.</span></p></div></div>
+  <div class="step"><span class="step-num">5</span><div><strong><span data-lang="hu">Értékelés</span><span data-lang="en">Evaluation</span><span data-lang="ro">Evaluare</span></strong><p><span data-lang="hu">Egy idő után értékeljétek a megállapodás működését. Ha szükséges, módosítsátok – a rugalmasság a hatékony konfliktuskezelés része.</span><span data-lang="en">After some time, evaluate how the agreement is working. If necessary, modify it – flexibility is part of effective conflict management.</span><span data-lang="ro">După o perioadă, evaluați funcționarea acordului. Dacă este necesar, modificați-l – flexibilitatea face parte din gestionarea eficientă a conflictelor.</span></p></div></div>
 </div>
       </div>
     </section>
@@ -249,63 +327,63 @@
       <div class="section-header">
         <span class="section-icon">🪞</span>
         <div>
-          <h2>Önreflexió – Kommunikációs Stílusom</h2>
-          <p class="section-subtitle">Saját kommunikációs minták feltérképezése</p>
+          <h2><span data-lang="hu">Önreflexió – Kommunikációs Stílusom</span><span data-lang="en">Self-reflection – My Communication Style</span><span data-lang="ro">Auto-reflecție – Stilul meu de comunicare</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Saját kommunikációs minták feltérképezése</span><span data-lang="en">Mapping your own communication patterns</span><span data-lang="ro">Cartografierea propriilor tipare de comunicare</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #B71C1C, transparent);"></div>
-      <p class="section-intro">Az alábbi kérdőív segít azonosítani a kommunikációs stílusodat és a fejlesztendő területeket.</p>
+      <p class="section-intro"><span data-lang="hu">Az alábbi kérdőív segít azonosítani a kommunikációs stílusodat és a fejlesztendő területeket.</span><span data-lang="en">The following questionnaire helps identify your communication style and areas for development.</span><span data-lang="ro">Chestionarul de mai jos te ajută să identifici stilul tău de comunicare și zonele ce pot fi dezvoltate.</span></p>
 
       <div class="interactive-box" style="background:#fdeaea; border-left: 4px solid #B71C1C;">
-        <h3>🧩 Önértékelő kérdőív – Kommunikációs stílusom</h3>
-        <p>Töltsd ki az alábbi kérdőívet, hogy képet kapj jelenlegi szokásaidról és fejlesztési lehetőségeidről!</p>
+        <h3><span data-lang="hu">🧩 Önértékelő kérdőív – Kommunikációs stílusom</span><span data-lang="en">🧩 Self-assessment questionnaire – My communication style</span><span data-lang="ro">🧩 Chestionar de autoevaluare – Stilul meu de comunicare</span></h3>
+        <p><span data-lang="hu">Töltsd ki az alábbi kérdőívet, hogy képet kapj jelenlegi szokásaidról és fejlesztési lehetőségeidről!</span><span data-lang="en">Fill out the questionnaire below to get an overview of your current habits and development opportunities!</span><span data-lang="ro">Completează chestionarul de mai jos pentru a-ți face o imagine despre obiceiurile tale actuale și posibilitățile de dezvoltare!</span></p>
         <div class="reflection-form" id="reflectionForm">
 
     <div class="reflection-question" id="q1">
-      <label class="q-label">Mennyire tudok asszertívan kommunikálni konfliktushelyzetekben?</label>
+      <label class="q-label"><span data-lang="hu">Mennyire tudok asszertívan kommunikálni konfliktushelyzetekben?</span><span data-lang="en">How assertively can I communicate in conflict situations?</span><span data-lang="ro">Cât de bine pot comunica asertiv în situații de conflict?</span></label>
       <div class="scale-container">
-        <span class="scale-label">Egyáltalán nem</span>
+        <span class="scale-label"><span data-lang="hu">Egyáltalán nem</span><span data-lang="en">Not at all</span><span data-lang="ro">Deloc</span></span>
         <div class="scale-buttons">
           <button class="scale-btn" onclick="selectScale(this, 1)">1</button><button class="scale-btn" onclick="selectScale(this, 1)">2</button><button class="scale-btn" onclick="selectScale(this, 1)">3</button><button class="scale-btn" onclick="selectScale(this, 1)">4</button><button class="scale-btn" onclick="selectScale(this, 1)">5</button>
         </div>
-        <span class="scale-label">Teljes mértékben</span>
+        <span class="scale-label"><span data-lang="hu">Teljes mértékben</span><span data-lang="en">Completely</span><span data-lang="ro">Complet</span></span>
       </div>
     </div>
     <div class="reflection-question" id="q2">
-      <label class="q-label">Mennyire könnyen mondok nemet, ha szükséges?</label>
+      <label class="q-label"><span data-lang="hu">Mennyire könnyen mondok nemet, ha szükséges?</span><span data-lang="en">How easily do I say no when necessary?</span><span data-lang="ro">Cât de ușor spun nu când este necesar?</span></label>
       <div class="scale-container">
-        <span class="scale-label">Egyáltalán nem</span>
+        <span class="scale-label"><span data-lang="hu">Egyáltalán nem</span><span data-lang="en">Not at all</span><span data-lang="ro">Deloc</span></span>
         <div class="scale-buttons">
           <button class="scale-btn" onclick="selectScale(this, 2)">1</button><button class="scale-btn" onclick="selectScale(this, 2)">2</button><button class="scale-btn" onclick="selectScale(this, 2)">3</button><button class="scale-btn" onclick="selectScale(this, 2)">4</button><button class="scale-btn" onclick="selectScale(this, 2)">5</button>
         </div>
-        <span class="scale-label">Teljes mértékben</span>
+        <span class="scale-label"><span data-lang="hu">Teljes mértékben</span><span data-lang="en">Completely</span><span data-lang="ro">Complet</span></span>
       </div>
     </div>
     <div class="reflection-question" id="q3">
-      <label class="q-label">Mennyire használom az Én-üzeneteket a mindennapokban?</label>
+      <label class="q-label"><span data-lang="hu">Mennyire használom az Én-üzeneteket a mindennapokban?</span><span data-lang="en">How often do I use I-Messages in everyday life?</span><span data-lang="ro">Cât de des folosesc mesajele „Eu” în viața de zi cu zi?</span></label>
       <div class="scale-container">
-        <span class="scale-label">Egyáltalán nem</span>
+        <span class="scale-label"><span data-lang="hu">Egyáltalán nem</span><span data-lang="en">Not at all</span><span data-lang="ro">Deloc</span></span>
         <div class="scale-buttons">
           <button class="scale-btn" onclick="selectScale(this, 3)">1</button><button class="scale-btn" onclick="selectScale(this, 3)">2</button><button class="scale-btn" onclick="selectScale(this, 3)">3</button><button class="scale-btn" onclick="selectScale(this, 3)">4</button><button class="scale-btn" onclick="selectScale(this, 3)">5</button>
         </div>
-        <span class="scale-label">Teljes mértékben</span>
+        <span class="scale-label"><span data-lang="hu">Teljes mértékben</span><span data-lang="en">Completely</span><span data-lang="ro">În totalitate</span></span>
       </div>
     </div>
     <div class="reflection-question" id="q4">
-      <label class="q-label">Mennyire keresek win-win megoldásokat a konfliktusokban?</label>
+      <label class="q-label"><span data-lang="hu">Mennyire keresek win-win megoldásokat a konfliktusokban?</span><span data-lang="en">How much do I seek win-win solutions in conflicts?</span><span data-lang="ro">Cât de mult caut soluții win-win în conflicte?</span></label>
       <div class="scale-container">
-        <span class="scale-label">Egyáltalán nem</span>
+        <span class="scale-label"><span data-lang="hu">Egyáltalán nem</span><span data-lang="en">Not at all</span><span data-lang="ro">Deloc</span></span>
         <div class="scale-buttons">
           <button class="scale-btn" onclick="selectScale(this, 4)">1</button><button class="scale-btn" onclick="selectScale(this, 4)">2</button><button class="scale-btn" onclick="selectScale(this, 4)">3</button><button class="scale-btn" onclick="selectScale(this, 4)">4</button><button class="scale-btn" onclick="selectScale(this, 4)">5</button>
         </div>
-        <span class="scale-label">Teljes mértékben</span>
+        <span class="scale-label"><span data-lang="hu">Teljes mértékben</span><span data-lang="en">Completely</span><span data-lang="ro">În totalitate</span></span>
       </div>
     </div>
     <div class="reflection-question" id="q5">
-      <label class="q-label">Írj le egy helyzetet, amelyben asszertívabb kommunikációt szerettél volna alkalmazni!</label>
+      <label class="q-label"><span data-lang="hu">Írj le egy helyzetet, amelyben asszertívabb kommunikációt szerettél volna alkalmazni!</span><span data-lang="en">Describe a situation where you wanted to use more assertive communication!</span><span data-lang="ro">Descrie o situație în care ai fi dorit să folosești o comunicare mai asertivă!</span></label>
       <textarea class="reflection-textarea" rows="3" placeholder="Írd ide a válaszodat..."></textarea>
     </div>
-          <button class="submit-btn" onclick="submitReflection()">Visszajelzés megjelenítése</button>
+          <button class="submit-btn" onclick="submitReflection()"><span data-lang="hu">Visszajelzés megjelenítése</span><span data-lang="en">Show feedback</span><span data-lang="ro">Afișează feedback-ul</span></button>
           <div class="feedback-box" id="feedbackBox" style="display:none;"></div>
         </div>
       </div>
@@ -315,35 +393,42 @@
       <div class="section-header">
         <span class="section-icon">📋</span>
         <div>
-          <h2>Összefoglalás</h2>
-          <p class="section-subtitle">Konfliktuskezelés és asszertivitás eszköztára</p>
+          <h2><span data-lang="hu">Összefoglalás</span><span data-lang="en">Summary</span><span data-lang="ro">Rezumat</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Konfliktuskezelés és asszertivitás eszköztára</span><span data-lang="en">Toolkit for conflict management and assertiveness</span><span data-lang="ro">Instrumentar pentru gestionarea conflictelor și asertivitate</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #B71C1C, transparent);"></div>
-      <p class="section-intro">A hatékony kommunikáció és konfliktuskezelés tanulható készségek. Minél többet gyakorlod, annál természetesebbé válnak.</p>
+      <p class="section-intro"><span data-lang="hu">A hatékony kommunikáció és konfliktuskezelés tanulható készségek. Minél többet gyakorlod, annál természetesebbé válnak.</span><span data-lang="en">Effective communication and conflict management are learnable skills. The more you practice, the more natural they become.</span><span data-lang="ro">Comunicarea eficientă și gestionarea conflictelor sunt abilități care se pot învăța. Cu cât exersezi mai mult, cu atât devin mai naturale.</span></p>
       <div class="section-content">
 <div class="summary-grid">
-  <div class="summary-card"><h4>💪 Asszertivitás</h4><p>Saját jogaid képviselete mások tiszteletben tartása mellett. Sem passzív, sem agresszív – hanem egyenrangú.</p></div>
-  <div class="summary-card"><h4>💬 Én-üzenetek</h4><p>A felelős kommunikáció eszköze: probléma leírása – hatás rám – megoldási javaslat.</p></div>
-  <div class="summary-card"><h4>🪜 5 lépés</h4><p>Értelmezés – Kommunikáció – Megoldások keresése – Megállapodás – Értékelés.</p></div>
-  <div class="summary-card"><h4>🏆 Win-win</h4><p>A cél nem a győzelem, hanem mindkét fél szükségleteinek kielégítése. Ez erősíti a kapcsolatokat.</p></div>
+  <div class="summary-card"><h4><span data-lang="hu">💪 Asszertivitás</span><span data-lang="en">💪 Assertiveness</span><span data-lang="ro">💪 Asertivitate</span></h4><p><span data-lang="hu">Saját jogaid képviselete mások tiszteletben tartása mellett. Sem passzív, sem agresszív – hanem egyenrangú.</span><span data-lang="en">Representing your own rights while respecting others. Neither passive nor aggressive – but equal.</span><span data-lang="ro">Reprezentarea propriilor drepturi respectând pe ceilalți. Nici pasivă, nici agresivă – ci egală.</span></p></div>
+  <div class="summary-card"><h4><span data-lang="hu">💬 Én-üzenetek</span><span data-lang="en">💬 I-messages</span><span data-lang="ro">💬 Mesaje „Eu”</span></h4><p><span data-lang="hu">A felelős kommunikáció eszköze: probléma leírása – hatás rám – megoldási javaslat.</span><span data-lang="en">A tool for responsible communication: describing the problem – its impact on me – proposed solution.</span><span data-lang="ro">Instrumentul comunicării responsabile: descrierea problemei – impactul asupra mea – propunerea unei soluții.</span></p></div>
+  <div class="summary-card"><h4><span data-lang="hu">🪜 5 lépés</span><span data-lang="en">🪜 5 steps</span><span data-lang="ro">🪜 5 pași</span></h4><p><span data-lang="hu">Értelmezés – Kommunikáció – Megoldások keresése – Megállapodás – Értékelés.</span><span data-lang="en">Interpretation – Communication – Searching for solutions – Agreement – Evaluation.</span><span data-lang="ro">Interpretare – Comunicare – Căutarea soluțiilor – Acord – Evaluare.</span></p></div>
+  <div class="summary-card"><h4>🏆 Win-win</h4><p><span data-lang="hu">A cél nem a győzelem, hanem mindkét fél szükségleteinek kielégítése. Ez erősíti a kapcsolatokat.</span><span data-lang="en">The goal is not to win, but to satisfy the needs of both parties. This strengthens relationships.</span><span data-lang="ro">Scopul nu este victoria, ci satisfacerea nevoilor ambelor părți. Aceasta întărește relațiile.</span></p></div>
 </div>
       </div>
     </section>
 
 
     <div class="pdf-section">
-      <h3>📥 Fejezet letöltése PDF formátumban</h3>
-      <a href="https://drive.google.com/file/d/1cgAG-U8m31fpX9d9Zxu9CmnMIjdnYQs7/view" target="_blank" class="pdf-btn">🇭🇺 Magyar PDF letöltése</a>
+      <h3><span data-lang="hu">📥 Fejezet letöltése PDF formátumban</span><span data-lang="en">📥 Download chapter in PDF format</span><span data-lang="ro">📥 Descarcă capitolul în format PDF</span></h3>
+      <a href="https://drive.google.com/file/d/1cgAG-U8m31fpX9d9Zxu9CmnMIjdnYQs7/view" target="_blank" class="pdf-btn"><span data-lang="hu">🇭🇺 Magyar PDF letöltése</span><span data-lang="en">🇭🇺 Download Hungarian PDF</span><span data-lang="ro">🇭🇺 Descarcă PDF în maghiară</span></a>
       <a href="https://drive.google.com/file/d/1z0oB61SOP7mhYVZHpm1hE6A3L9GkCgRd/view" target="_blank" class="pdf-btn">🇬🇧 English PDF</a>
       <a href="https://drive.google.com/file/d/1m0FAyUvCv4AithtVgKIW9hNj9zx7PYwO/view" target="_blank" class="pdf-btn">🇷🇴 PDF în română</a>
     </div>
   </main>
 </div>
 
+
+<div class="chapter-nav">
+  <a href="../chapter4/index.html">← <span data-lang="hu"><span data-lang="hu">4. fejezet</span><span data-lang="en">Chapter 4</span><span data-lang="ro">Capitolul 4</span></span><span data-lang="en">Chapter 4</span><span data-lang="ro">Capitolul 4</span></a>
+  <a href="../index.html" class="nav-home"><span data-lang="hu"><span data-lang="hu">🏠 Főoldal</span><span data-lang="en">🏠 Home</span><span data-lang="ro">🏠 Pagina principală</span></span><span data-lang="en">🏠 Home</span><span data-lang="ro">🏠 Acasă</span></a>
+  <a href="../chapter6/index.html"><span data-lang="hu"><span data-lang="hu">6. fejezet</span><span data-lang="en">Chapter 6</span><span data-lang="ro">Capitolul 6</span></span><span data-lang="en">Chapter 6</span><span data-lang="ro">Capitolul 6</span> →</a>
+</div>
+
 <footer class="chapter-footer">
   <p>IMELO – Identity Mosaic | Erasmus+ KA2 projekt | © 2024–2026</p>
-  <p>Az Európai Bizottság támogatásával készült. A tartalom kizárólag a szerzők álláspontját tükrözi.</p>
+  <p><span data-lang="hu">Az Európai Bizottság támogatásával készült. A tartalom kizárólag a szerzők álláspontját tükrözi.</span><span data-lang="en">Produced with the support of the European Commission. The content reflects the views of the authors only.</span><span data-lang="ro">Realizat cu sprijinul Comisiei Europene. Conținutul reflectă exclusiv punctul de vedere al autorilor.</span></p>
 </footer>
 
 <script>
@@ -383,6 +468,23 @@
       if (target) target.scrollIntoView({behavior: 'smooth', block: 'start'});
     });
   });
+
+  // Language switcher
+  (function() {
+    var stored = localStorage.getItem('imelo-lang') || 'hu';
+    document.body.setAttribute('data-active-lang', stored);
+    document.querySelectorAll('.lang-btn-sub').forEach(function(btn) {
+      if (btn.getAttribute('data-lang-switch') === stored) btn.classList.add('active');
+    });
+  })();
+  function switchLangSub(lang) {
+    document.body.setAttribute('data-active-lang', lang);
+    localStorage.setItem('imelo-lang', lang);
+    document.querySelectorAll('.lang-btn-sub').forEach(function(btn) {
+      btn.classList.toggle('active', btn.getAttribute('data-lang-switch') === lang);
+    });
+  }
+
 </script>
 </body>
 </html>

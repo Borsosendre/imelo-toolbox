@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>9. Fejezet – Reziliencia és Megküzdési Stratégiák | IMELO Toolbox</title>
+  <title><span data-lang="hu">9. Fejezet – Reziliencia és Megküzdési Stratégiák | IMELO Toolbox</span><span data-lang="en">Chapter 9 – Resilience and Coping Strategies | IMELO Toolbox</span><span data-lang="ro">Capitolul 9 – Reziliență și Strategii de Adaptare | IMELO Toolbox</span></title>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -117,28 +117,106 @@
 
     /* FOOTER */
     .chapter-footer { background: #1a1a2e; color: white; text-align: center; padding: 1.5rem; font-size: 0.8rem; opacity: 0.8; }
+  
+    /* Chapter navigation */
+    .chapter-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 1.5rem;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      margin: 1.5rem 0;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .chapter-nav a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: linear-gradient(135deg, #1a7a4a 0%, #2ecc71 100%);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+      transition: opacity 0.2s;
+    }
+    .chapter-nav a:hover { opacity: 0.85; }
+    .chapter-nav .nav-home {
+      background: linear-gradient(135deg, #E8622A 0%, #f39c12 100%);
+    }
+    .chapter-nav .nav-center {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #888;
+      flex: 1;
+    }
+    @media (max-width: 600px) {
+      .chapter-nav { flex-direction: column; align-items: stretch; text-align: center; }
+      .chapter-nav a { justify-content: center; }
+    }
+
+  
+    [data-lang] { display: none; }
+    body[data-active-lang="hu"] [data-lang="hu"] { display: inline; }
+    body[data-active-lang="en"] [data-lang="en"] { display: inline; }
+    body[data-active-lang="ro"] [data-lang="ro"] { display: inline; }
+
+  
+    /* Language switching */
+    [data-lang] { display: none; }
+    body[data-active-lang="hu"] [data-lang="hu"],
+    body[data-active-lang="hu"] span[data-lang="hu"] { display: inline; }
+    body[data-active-lang="en"] [data-lang="en"],
+    body[data-active-lang="en"] span[data-lang="en"] { display: inline; }
+    body[data-active-lang="ro"] [data-lang="ro"],
+    body[data-active-lang="ro"] span[data-lang="ro"] { display: inline; }
+    body[data-active-lang="hu"] div[data-lang="hu"],
+    body[data-active-lang="en"] div[data-lang="en"],
+    body[data-active-lang="ro"] div[data-lang="ro"] { display: block; }
+    .lang-switcher-sub {
+      position: fixed; top: 12px; right: 16px; z-index: 9999;
+      display: flex; gap: 6px; background: rgba(255,255,255,0.95);
+      padding: 4px 8px; border-radius: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .lang-btn-sub {
+      background: none; border: none; cursor: pointer;
+      font-size: 1.2rem; padding: 2px 4px; border-radius: 6px;
+      opacity: 0.6; transition: opacity 0.2s;
+    }
+    .lang-btn-sub:hover, .lang-btn-sub.active { opacity: 1; }
+
   </style>
 </head>
-<body>
+<body data-active-lang="hu">
+<div class="lang-switcher-sub">
+  <button class="lang-btn-sub" data-lang-switch="hu" onclick="switchLangSub('hu')" title="Magyar">🇭🇺</button>
+  <button class="lang-btn-sub" data-lang-switch="en" onclick="switchLangSub('en')" title="English">🇬🇧</button>
+  <button class="lang-btn-sub" data-lang-switch="ro" onclick="switchLangSub('ro')" title="Română">🇷🇴</button>
+</div>
 
 <nav class="topbar">
   <a href="../index.html" class="topbar-logo">
     <img src="imelo_logo.png" alt="Identity Mosaic logó">
   </a>
-  <a href="../index.html" class="back-btn">← Vissza az Eszköztárhoz</a>
+  <a href="../index.html" class="back-btn"><span data-lang="hu">← Vissza az Eszköztárhoz</span><span data-lang="en">← Back to the Toolbox</span><span data-lang="ro">← Înapoi la Toolbox</span></a>
 </nav>
 
 <div class="chapter-hero">
-  <div class="chapter-num">9. Fejezet</div>
-  <h1>Reziliencia és Megküzdési Stratégiák</h1>
-  <p class="subtitle">Rugalmasság egy változó világban</p>
-  <div class="tags"><span class="tag">💪 Reziliencia</span> <span class="tag">🌊 Megküzdés</span> <span class="tag">🎋 Rugalmasság</span></div>
+  <div class="chapter-num"><span data-lang="hu">9. Fejezet</span><span data-lang="en">Chapter 9</span><span data-lang="ro">Capitolul 9</span></div>
+  <h1><span data-lang="hu">Reziliencia és Megküzdési Stratégiák</span><span data-lang="en">Resilience and Coping Strategies</span><span data-lang="ro">Reziliență și Strategii de Adaptare</span></h1>
+  <p class="subtitle"><span data-lang="hu">Rugalmasság egy változó világban</span><span data-lang="en">Flexibility in a Changing World</span><span data-lang="ro">Flexibilitate într-o lume în schimbare</span></p>
+  <div class="tags"><span class="tag">💪 Reziliencia</span> <span class="tag"><span data-lang="hu">🌊 Megküzdés</span><span data-lang="en">🌊 Coping</span><span data-lang="ro">🌊 Adaptare</span></span> <span class="tag"><span data-lang="hu">🎋 Rugalmasság</span><span data-lang="en">🎋 Resilience</span><span data-lang="ro">🎋 Reziliență</span></span></div>
 </div>
 
 <div class="page-layout">
   <aside class="sidebar">
-    <h3>Tartalomjegyzék</h3>
-    <a href="#miert" class="toc-item">Miért fontos a reziliencia?</a><a href="#definicio" class="toc-item">Mi az a Reziliencia?</a><a href="#tipusok" class="toc-item">A Reziliencia Típusai</a><a href="#megkuzdes" class="toc-item">Megküzdési Stratégiák</a><a href="#epites" class="toc-item">Reziliencia Építése</a><a href="#onreflexio" class="toc-item">Önreflexió – Rezilienciám</a><a href="#osszefoglalas" class="toc-item">Összefoglalás</a>
+    <h3><span data-lang="hu">Tartalomjegyzék</span><span data-lang="en">Table of Contents</span><span data-lang="ro">Cuprins</span></h3>
+    <a href="#miert" class="toc-item"><span data-lang="hu">Miért fontos a reziliencia?</span><span data-lang="en">Why is Resilience Important?</span><span data-lang="ro">De ce este importantă reziliența?</span></a><a href="#definicio" class="toc-item"><span data-lang="hu">Mi az a Reziliencia?</span><span data-lang="en">What is Resilience?</span><span data-lang="ro">Ce este Reziliența?</span></a><a href="#tipusok" class="toc-item"><span data-lang="hu">A Reziliencia Típusai</span><span data-lang="en">Types of Resilience</span><span data-lang="ro">Tipurile de Reziliență</span></a><a href="#megkuzdes" class="toc-item"><span data-lang="hu">Megküzdési Stratégiák</span><span data-lang="en">Coping Strategies</span><span data-lang="ro">Strategii de Adaptare</span></a><a href="#epites" class="toc-item"><span data-lang="hu">Reziliencia Építése</span><span data-lang="en">Building Resilience</span><span data-lang="ro">Construirea Rezilienței</span></a><a href="#onreflexio" class="toc-item"><span data-lang="hu">Önreflexió – Rezilienciám</span><span data-lang="en">Self-reflection – My Resilience</span><span data-lang="ro">Auto-reflecție – Reziliența mea</span></a><a href="#osszefoglalas" class="toc-item"><span data-lang="hu">Összefoglalás</span><span data-lang="en">Summary</span><span data-lang="ro">Rezumat</span></a>
   </aside>
 
   <main>
@@ -147,21 +225,21 @@
       <div class="section-header">
         <span class="section-icon">💪</span>
         <div>
-          <h2>Miért fontos a reziliencia?</h2>
-          <p class="section-subtitle">A 21. század szuperképessége</p>
+          <h2><span data-lang="hu">Miért fontos a reziliencia?</span><span data-lang="en">Why is Resilience Important?</span><span data-lang="ro">De ce este importantă reziliența?</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">A 21. század szuperképessége</span><span data-lang="en">The Superpower of the 21st Century</span><span data-lang="ro">Superputerea secolului XXI</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #880E4F, transparent);"></div>
-      <p class="section-intro">A Z generáció egyedülálló kihívásokkal néz szembe: gyors technológiai változások, információs túlterhelés, bizonytalanság a jövővel kapcsolatban. A reziliencia a 21. század szuperképessége – segít alkalmazkodni a folyamatos változásokhoz.</p>
+      <p class="section-intro"><span data-lang="hu">A Z generáció egyedülálló kihívásokkal néz szembe: gyors technológiai változások, információs túlterhelés, bizonytalanság a jövővel kapcsolatban. A reziliencia a 21. század szuperképessége – segít alkalmazkodni a folyamatos változásokhoz.</span><span data-lang="en">Generation Z faces unique challenges: rapid technological changes, information overload, uncertainty about the future. Resilience is the superpower of the 21st century – it helps adapt to constant change.</span><span data-lang="ro">Generația Z se confruntă cu provocări unice: schimbări tehnologice rapide, supraîncărcare informațională, incertitudine privind viitorul. Reziliența este superputerea secolului XXI – ajută la adaptarea la schimbările continue.</span></p>
       <div class="stats-row">
-        <div class="stat-card"><div class="stat-value" style="color:#880E4F">32%</div><div class="stat-label">A fiatalok, akik magas szintű stresszt tapasztalnak (WHO, 2022)</div></div>
-        <div class="stat-card"><div class="stat-value" style="color:#F48FB1">75%</div><div class="stat-label">Hatékonyabb stresszkezelés reziliens személyeknél (APA)</div></div>
-        <div class="stat-card"><div class="stat-value" style="color:#1565C0">4 típus</div><div class="stat-label">A reziliencia megnyilvánulási formái (Masten & Wright)</div></div>
+        <div class="stat-card"><div class="stat-value" style="color:#880E4F">32%</div><div class="stat-label"><span data-lang="hu">A fiatalok, akik magas szintű stresszt tapasztalnak (WHO, 2022)</span><span data-lang="en">Young people experiencing high levels of stress (WHO, 2022)</span><span data-lang="ro">Tinerii care experimentează niveluri ridicate de stres (OMS, 2022)</span></div></div>
+        <div class="stat-card"><div class="stat-value" style="color:#F48FB1">75%</div><div class="stat-label"><span data-lang="hu">Hatékonyabb stresszkezelés reziliens személyeknél (APA)</span><span data-lang="en">More effective stress management in resilient individuals (APA)</span><span data-lang="ro">Gestionarea mai eficientă a stresului la persoanele reziliente (APA)</span></div></div>
+        <div class="stat-card"><div class="stat-value" style="color:#1565C0"><span data-lang="hu">4 típus</span><span data-lang="en">4 Types</span><span data-lang="ro">4 tipuri</span></div><div class="stat-label"><span data-lang="hu">A reziliencia megnyilvánulási formái (Masten & Wright)</span><span data-lang="en">Manifestations of Resilience (Masten & Wright)</span><span data-lang="ro">Formele de manifestare ale rezilienței (Masten & Wright)</span></div></div>
       </div>
       <div class="section-content">
 <div class="content-grid">
-  <div class="content-card"><h4>🎋 A bambusz metafora</h4><p><em>"A bambusz titka: hajlik, de nem törik el a viharban."</em> A reziliencia nem merevséget jelent, hanem rugalmas alkalmazkodást – a nehézségek ellenére is megőrzött belső erőt.</p></div>
-  <div class="content-card"><h4>🎯 Az eszköztár célja</h4><ul><li>Reziliencia fogalmának megértése</li><li>Saját megküzdési stratégiák azonosítása</li><li>Adaptív coping technikák elsajátítása</li><li>Belső erőforrások mozgósítása</li></ul></div>
+  <div class="content-card"><h4>🎋 A bambusz metafora</h4><p><em><span data-lang="hu">"A bambusz titka: hajlik, de nem törik el a viharban."</span><span data-lang="en">"The secret of bamboo: it bends but does not break in the storm."</span><span data-lang="ro">"Secretul bambusului: se îndoaie, dar nu se rupe în furtună."</span></em> <span data-lang="hu">A reziliencia nem merevséget jelent, hanem rugalmas alkalmazkodást – a nehézségek ellenére is megőrzött belső erőt.</span><span data-lang="en">Resilience does not mean rigidity, but flexible adaptation – an inner strength preserved despite difficulties.</span><span data-lang="ro">Reziliența nu înseamnă rigiditate, ci adaptare flexibilă – o putere interioară menținută în ciuda dificultăților.</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">🎯 Az eszköztár célja</span><span data-lang="en">🎯 The Toolbox’s Aim</span><span data-lang="ro">🎯 Scopul toolbox-ului</span></h4><ul><li><span data-lang="hu">Reziliencia fogalmának megértése</span><span data-lang="en">Understanding the concept of resilience</span><span data-lang="ro">Înțelegerea conceptului de reziliență</span></li><li><span data-lang="hu">Saját megküzdési stratégiák azonosítása</span><span data-lang="en">Identifying personal coping strategies</span><span data-lang="ro">Identificarea propriilor strategii de adaptare</span></li><li><span data-lang="hu">Adaptív coping technikák elsajátítása</span><span data-lang="en">Mastering adaptive coping techniques</span><span data-lang="ro">Dobândirea tehnicilor adaptive de coping</span></li><li><span data-lang="hu">Belső erőforrások mozgósítása</span><span data-lang="en">Mobilizing internal resources</span><span data-lang="ro">Mobilizarea resurselor interioare</span></li></ul></div>
 </div>
       </div>
 
@@ -177,7 +255,7 @@
           allowfullscreen>
         </iframe>
       </div>
-      <p class="video-caption">A videó kézzelfogható reziliencia-fejlesztési eszközöket mutat be ifjúságsegítők számára, amelyek kifejezetten a Z generáció digitális kori kihívásaira adnak választ.</p>
+      <p class="video-caption"><span data-lang="hu">A videó kézzelfogható reziliencia-fejlesztési eszközöket mutat be ifjúságsegítők számára, amelyek kifejezetten a Z generáció digitális kori kihívásaira adnak választ.</span><span data-lang="en">The video presents tangible resilience-building tools for youth workers, specifically addressing the digital age challenges faced by Generation Z.</span><span data-lang="ro">Videoclipul prezintă instrumente practice pentru dezvoltarea rezilienței destinate lucrătorilor de tineret, care răspund în mod specific provocărilor erei digitale pentru generația Z.</span></p>
       </div>
     </section>
 
@@ -185,17 +263,17 @@
       <div class="section-header">
         <span class="section-icon">🌱</span>
         <div>
-          <h2>Mi az a Reziliencia?</h2>
-          <p class="section-subtitle">Fogalom és megközelítések</p>
+          <h2><span data-lang="hu">Mi az a Reziliencia?</span><span data-lang="en">What is Resilience?</span><span data-lang="ro">Ce este Reziliența?</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Fogalom és megközelítések</span><span data-lang="en">Concept and Approaches</span><span data-lang="ro">Concept și abordări</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #880E4F, transparent);"></div>
-      <p class="section-intro">A reziliencia a pszichés rugalmasság képessége, amely lehetővé teszi a sikeres alkalmazkodást kihívást jelentő vagy fenyegető körülmények esetén (Masten, 2001).</p>
+      <p class="section-intro"><span data-lang="hu">A reziliencia a pszichés rugalmasság képessége, amely lehetővé teszi a sikeres alkalmazkodást kihívást jelentő vagy fenyegető körülmények esetén (Masten, 2001).</span><span data-lang="en">Resilience is the capacity for psychological flexibility that enables successful adaptation in challenging or threatening circumstances (Masten, 2001).</span><span data-lang="ro">Reziliența este capacitatea de flexibilitate psihică care permite adaptarea cu succes în condiții provocatoare sau amenințătoare (Masten, 2001).</span></p>
       <div class="section-content">
 <div class="content-grid">
-  <div class="content-card"><h4>✅ Reziliencia</h4><p>Rugalmas alkalmazkodás, hajlékonyság, visszapattanás. Nem az érzelmek elfojtása, hanem azok elfogadása és konstruktív kezelése.</p></div>
-  <div class="content-card"><h4>⚠️ Ellenállás</h4><p>Merevség, törés veszélye, energia pazarlás. Az ellenállás rövid távon véd, de hosszú távon kimerítő és törékeny.</p></div>
-  <div class="content-card"><h4>🔴 Kiégés</h4><p>Alkalmazkodóképesség elvesztése, összeomlás. A kiégés a reziliencia hiányának végső következménye.</p></div>
+  <div class="content-card"><h4>✅ Reziliencia</h4><p><span data-lang="hu">Rugalmas alkalmazkodás, hajlékonyság, visszapattanás. Nem az érzelmek elfojtása, hanem azok elfogadása és konstruktív kezelése.</span><span data-lang="en">Flexible adaptation, pliability, bouncing back. Not suppressing emotions, but accepting and constructively managing them.</span><span data-lang="ro">Adaptare flexibilă, maleabilitate, revenire. Nu reprimarea emoțiilor, ci acceptarea și gestionarea constructivă a acestora.</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">⚠️ Ellenállás</span><span data-lang="en">⚠️ Resistance</span><span data-lang="ro">⚠️ Rezistență</span></h4><p><span data-lang="hu">Merevség, törés veszélye, energia pazarlás. Az ellenállás rövid távon véd, de hosszú távon kimerítő és törékeny.</span><span data-lang="en">Rigidity, risk of breaking, energy waste. Resistance provides short-term protection but is exhausting and fragile in the long run.</span><span data-lang="ro">Rigiditate, risc de rupere, risipă de energie. Rezistența protejează pe termen scurt, dar pe termen lung este epuizantă și fragilă.</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">🔴 Kiégés</span><span data-lang="en">🔴 Burnout</span><span data-lang="ro">🔴 Epuizare</span></h4><p><span data-lang="hu">Alkalmazkodóképesség elvesztése, összeomlás. A kiégés a reziliencia hiányának végső következménye.</span><span data-lang="en">Loss of adaptability, collapse. Burnout is the ultimate consequence of lacking resilience.</span><span data-lang="ro">Pierderea capacității de adaptare, colaps. Epuizarea este consecința finală a lipsei de reziliență.</span></p></div>
 </div>
       </div>
     </section>
@@ -204,18 +282,18 @@
       <div class="section-header">
         <span class="section-icon">🗺️</span>
         <div>
-          <h2>A Reziliencia Típusai</h2>
-          <p class="section-subtitle">Hogyan reagálsz a kihívásokra?</p>
+          <h2><span data-lang="hu">A Reziliencia Típusai</span><span data-lang="en">Types of Resilience</span><span data-lang="ro">Tipurile de Reziliență</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Hogyan reagálsz a kihívásokra?</span><span data-lang="en">How do you respond to challenges?</span><span data-lang="ro">Cum reacționezi la provocări?</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #880E4F, transparent);"></div>
-      <p class="section-intro">Masten és Wright modellje alapján a reziliencia négy különböző formában nyilvánulhat meg, attól függően, hogy milyen kihívással szembesülünk.</p>
+      <p class="section-intro"><span data-lang="hu">Masten és Wright modellje alapján a reziliencia négy különböző formában nyilvánulhat meg, attól függően, hogy milyen kihívással szembesülünk.</span><span data-lang="en">According to Masten and Wright’s model, resilience can manifest in four different forms depending on the challenge faced.</span><span data-lang="ro">Conform modelului lui Masten și Wright, reziliența se poate manifesta în patru forme diferite, în funcție de provocarea întâmpinată.</span></p>
       <div class="section-content">
 <div class="steps-list">
-  <div class="step"><span class="step-num">1</span><div><strong>Ellenállás (Resistance)</strong><p>Észszerű, kiegyensúlyozott, adaptív viselkedés fenntartása a nehézségek ellenére. Például: hátrányos körülmények ellenére sikeres fejlődési feladatok megoldása.</p></div></div>
-  <div class="step"><span class="step-num">2</span><div><strong>Kilábalás (Recovery)</strong><p>Trauma után átmenetileg megszűnő adaptív viselkedés, majd visszatérés a megfelelő szintre. Például: hirtelen katasztrófák utáni regenerálódás.</p></div></div>
-  <div class="step"><span class="step-num">3</span><div><strong>Normalizáció (Normalization)</strong><p>Ártalmas környezetből jobb feltételek közé kerülés, fokozatos javulás. Például: támogató környezetbe kerülés utáni fejlődés.</p></div></div>
-  <div class="step"><span class="step-num">4</span><div><strong>Átalakulás (Transformation)</strong><p>Csapás után az adaptív funkciók javulása, poszttraumatikus növekedés. Például: új értékek, mélyebb kapcsolatok, nagyobb életbölcsesség.</p></div></div>
+  <div class="step"><span class="step-num">1</span><div><strong><span data-lang="hu">Ellenállás (Resistance)</span><span data-lang="en">Resistance</span><span data-lang="ro">Rezistență (Resistance)</span></strong><p><span data-lang="hu">Észszerű, kiegyensúlyozott, adaptív viselkedés fenntartása a nehézségek ellenére. Például: hátrányos körülmények ellenére sikeres fejlődési feladatok megoldása.</span><span data-lang="en">Maintaining rational, balanced, adaptive behavior despite difficulties. For example: successfully completing developmental tasks despite adverse conditions.</span><span data-lang="ro">Menținerea unui comportament rațional, echilibrat și adaptiv în ciuda dificultăților. De exemplu: realizarea cu succes a sarcinilor de dezvoltare în condiții dezavantajoase.</span></p></div></div>
+  <div class="step"><span class="step-num">2</span><div><strong><span data-lang="hu">Kilábalás (Recovery)</span><span data-lang="en">Recovery</span><span data-lang="ro">Recuperare (Recovery)</span></strong><p><span data-lang="hu">Trauma után átmenetileg megszűnő adaptív viselkedés, majd visszatérés a megfelelő szintre. Például: hirtelen katasztrófák utáni regenerálódás.</span><span data-lang="en">Temporarily lost adaptive behavior after trauma, followed by a return to an appropriate level. For example: recovery after sudden disasters.</span><span data-lang="ro">Comportament adaptiv temporar întrerupt după traumă, urmat de revenirea la nivelul adecvat. De exemplu: regenerarea după dezastre bruște.</span></p></div></div>
+  <div class="step"><span class="step-num">3</span><div><strong><span data-lang="hu">Normalizáció (Normalization)</span><span data-lang="en">Normalization</span><span data-lang="ro">Normalizare (Normalization)</span></strong><p><span data-lang="hu">Ártalmas környezetből jobb feltételek közé kerülés, fokozatos javulás. Például: támogató környezetbe kerülés utáni fejlődés.</span><span data-lang="en">Moving from a harmful environment to better conditions, gradual improvement. For example: development after entering a supportive environment.</span><span data-lang="ro">Trecerea dintr-un mediu dăunător într-unul mai bun, cu o îmbunătățire treptată. De exemplu: dezvoltarea după intrarea într-un mediu de susținere.</span></p></div></div>
+  <div class="step"><span class="step-num">4</span><div><strong><span data-lang="hu">Átalakulás (Transformation)</span><span data-lang="en">Transformation</span><span data-lang="ro">Transformare (Transformation)</span></strong><p><span data-lang="hu">Csapás után az adaptív funkciók javulása, poszttraumatikus növekedés. Például: új értékek, mélyebb kapcsolatok, nagyobb életbölcsesség.</span><span data-lang="en">Improvement of adaptive functions after a blow, post-traumatic growth. For example: new values, deeper relationships, greater life wisdom.</span><span data-lang="ro">Îmbunătățirea funcțiilor adaptive după un șoc, creștere posttraumatică. De exemplu: valori noi, relații mai profunde, înțelepciune de viață sporită.</span></p></div></div>
 </div>
       </div>
     </section>
@@ -224,18 +302,18 @@
       <div class="section-header">
         <span class="section-icon">🛡️</span>
         <div>
-          <h2>Megküzdési Stratégiák</h2>
-          <p class="section-subtitle">Adaptív és maladaptív coping</p>
+          <h2><span data-lang="hu">Megküzdési Stratégiák</span><span data-lang="en">Coping Strategies</span><span data-lang="ro">Strategii de Adaptare</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Adaptív és maladaptív coping</span><span data-lang="en">Adaptive and Maladaptive Coping</span><span data-lang="ro">Coping adaptativ și maladaptativ</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #880E4F, transparent);"></div>
-      <p class="section-intro">A megküzdési stratégiák (coping) olyan kognitív és viselkedéses erőfeszítések, amelyekkel az egyén kezeli a stresszt okozó külső vagy belső kihívásokat (Lazarus és Folkman, 1984).</p>
+      <p class="section-intro"><span data-lang="hu">A megküzdési stratégiák (coping) olyan kognitív és viselkedéses erőfeszítések, amelyekkel az egyén kezeli a stresszt okozó külső vagy belső kihívásokat (Lazarus és Folkman, 1984).</span><span data-lang="en">Coping strategies are cognitive and behavioral efforts through which an individual manages external or internal challenges that cause stress (Lazarus and Folkman, 1984).</span><span data-lang="ro">Strategiile de coping sunt eforturi cognitive și comportamentale prin care individul gestionează provocările externe sau interne care cauzează stres (Lazarus și Folkman, 1984).</span></p>
       <div class="section-content">
 <div class="content-grid">
-  <div class="content-card"><h4>🎯 Problémafókuszú megküzdés</h4><p>A stresszforrás megváltoztatására irányul. Például: problémamegoldás, időgazdálkodás, segítségkérés, tervezés.</p></div>
-  <div class="content-card"><h4>💗 Érzelemfókuszú megküzdés</h4><p>A stresszre adott érzelmi reakciók szabályozására irányul. Például: relaxáció, ventilálás, átkeretezés, elfogadás.</p></div>
-  <div class="content-card"><h4>✅ Adaptív megküzdés</h4><p>Hosszú távon hatékony, fejlődést támogató stratégiák. Például: támogatás keresése, átkeretezés, aktív problémamegoldás.</p></div>
-  <div class="content-card"><h4>⚠️ Maladaptív megküzdés</h4><p>Rövid távú megkönnyebbülés, hosszú távon káros. Például: elkerülés, szerhasználat, érzelmi lekapcsolódás. A "gyors megoldások" csapdája!</p></div>
+  <div class="content-card"><h4><span data-lang="hu">🎯 Problémafókuszú megküzdés</span><span data-lang="en">🎯 Problem-Focused Coping</span><span data-lang="ro">🎯 Coping centrat pe problemă</span></h4><p><span data-lang="hu">A stresszforrás megváltoztatására irányul. Például: problémamegoldás, időgazdálkodás, segítségkérés, tervezés.</span><span data-lang="en">Aimed at changing the source of stress. For example: problem-solving, time management, asking for help, planning.</span><span data-lang="ro">Se concentrează pe schimbarea sursei stresului. De exemplu: rezolvarea problemelor, gestionarea timpului, cererea de ajutor, planificarea.</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">💗 Érzelemfókuszú megküzdés</span><span data-lang="en">💗 Emotion-Focused Coping</span><span data-lang="ro">💗 Coping centrat pe emoții</span></h4><p><span data-lang="hu">A stresszre adott érzelmi reakciók szabályozására irányul. Például: relaxáció, ventilálás, átkeretezés, elfogadás.</span><span data-lang="en">Aimed at regulating emotional responses to stress. For example: relaxation, venting, reframing, acceptance.</span><span data-lang="ro">Se concentrează pe reglarea reacțiilor emoționale la stres. De exemplu: relaxare, exprimarea emoțiilor, reîncadrare, acceptare.</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">✅ Adaptív megküzdés</span><span data-lang="en">✅ Adaptive Coping</span><span data-lang="ro">✅ Coping adaptativ</span></h4><p><span data-lang="hu">Hosszú távon hatékony, fejlődést támogató stratégiák. Például: támogatás keresése, átkeretezés, aktív problémamegoldás.</span><span data-lang="en">Long-term effective strategies that support growth. For example: seeking support, reframing, active problem-solving.</span><span data-lang="ro">Strategii eficiente pe termen lung care susțin dezvoltarea. De exemplu: căutarea sprijinului, reîncadrarea, rezolvarea activă a problemelor.</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">⚠️ Maladaptív megküzdés</span><span data-lang="en">⚠️ Maladaptive Coping</span><span data-lang="ro">⚠️ Coping maladaptativ</span></h4><p><span data-lang="hu">Rövid távú megkönnyebbülés, hosszú távon káros. Például: elkerülés, szerhasználat, érzelmi lekapcsolódás. A "gyors megoldások" csapdája!</span><span data-lang="en">Short-term relief but harmful in the long run. For example: avoidance, substance use, emotional disengagement. The trap of "quick fixes"!</span><span data-lang="ro">Ușurare pe termen scurt, dar dăunător pe termen lung. De exemplu: evitarea, consumul de substanțe, detașarea emoțională. Capcana „soluțiilor rapide”!</span></p></div>
 </div>
       </div>
     </section>
@@ -244,19 +322,19 @@
       <div class="section-header">
         <span class="section-icon">🏗️</span>
         <div>
-          <h2>Reziliencia Építése</h2>
-          <p class="section-subtitle">Az 5 pillér és mindfulness</p>
+          <h2><span data-lang="hu">Reziliencia Építése</span><span data-lang="en">Building Resilience</span><span data-lang="ro">Construirea rezilienței</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Az 5 pillér és mindfulness</span><span data-lang="en">The 5 Pillars and Mindfulness</span><span data-lang="ro">Cele 5 piloni și mindfulness</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #880E4F, transparent);"></div>
-      <p class="section-intro">A reziliencia nem veleszületett adottság – fejleszthető készség. Az alábbi 5 pillér rendszeres gyakorlásával erősíthető a belső rugalmasság.</p>
+      <p class="section-intro"><span data-lang="hu">A reziliencia nem veleszületett adottság – fejleszthető készség. Az alábbi 5 pillér rendszeres gyakorlásával erősíthető a belső rugalmasság.</span><span data-lang="en">Resilience is not an innate trait – it is a skill that can be developed. Inner flexibility can be strengthened through regular practice of the following 5 pillars.</span><span data-lang="ro">Reziliența nu este o trăsătură înnăscută – este o abilitate ce poate fi dezvoltată. Practicarea regulată a celor 5 piloni de mai jos întărește flexibilitatea internă.</span></p>
       <div class="section-content">
 <div class="content-grid">
-  <div class="content-card"><h4>🧘 1. Kapcsolat a jelen pillanattal</h4><p>A tudatos jelenlét gyakorlása, a figyelem irányítása, az "itt és most"-ban való létezés képessége (Kabat-Zinn, 2003).</p></div>
-  <div class="content-card"><h4>🤲 2. Elfogadó viszonyulás</h4><p>A nehéz élmények, gondolatok és érzések elfogadása ítélkezés nélkül, a küzdelem elengedése (Hayes et al., 2006).</p></div>
-  <div class="content-card"><h4>🎯 3. Értékek és célok</h4><p>Személyes értékek tisztázása és értékvezérelt viselkedés, hosszú távú célok meghatározása.</p></div>
-  <div class="content-card"><h4>🤝 4. Támogató kapcsolatok</h4><p>Pozitív kapcsolatok fenntartása, társas támogatás keresése és elfogadása, közösségi részvétel (Werner & Smith, 1992).</p></div>
-  <div class="content-card"><h4>🧩 5. Problémamegoldó készségek</h4><p>Strukturált problémamegoldás, kreatív megoldások keresése, rugalmas gondolkodás fejlesztése (Garmezy, 1993).</p></div>
+  <div class="content-card"><h4>🧘 1. Kapcsolat a jelen pillanattal</h4><p><span data-lang="hu">A tudatos jelenlét gyakorlása, a figyelem irányítása, az "itt és most"-ban való létezés képessége (Kabat-Zinn, 2003).</span><span data-lang="en">The practice of mindful presence, directing attention, the ability to exist in the "here and now" (Kabat-Zinn, 2003).</span><span data-lang="ro">Exersarea prezenței conștiente, controlul atenției, capacitatea de a exista în „aici și acum” (Kabat-Zinn, 2003).</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">🤲 2. Elfogadó viszonyulás</span><span data-lang="en">🤲 2. Accepting Attitude</span><span data-lang="ro">🤲 2. Atitudine de acceptare</span></h4><p><span data-lang="hu">A nehéz élmények, gondolatok és érzések elfogadása ítélkezés nélkül, a küzdelem elengedése (Hayes et al., 2006).</span><span data-lang="en">Accepting difficult experiences, thoughts, and feelings without judgment, letting go of struggle (Hayes et al., 2006).</span><span data-lang="ro">Acceptarea experiențelor dificile, gândurilor și sentimentelor fără judecată, renunțarea la luptă (Hayes et al., 2006).</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">🎯 3. Értékek és célok</span><span data-lang="en">🎯 3. Values and Goals</span><span data-lang="ro">🎯 3. Valori și scopuri</span></h4><p><span data-lang="hu">Személyes értékek tisztázása és értékvezérelt viselkedés, hosszú távú célok meghatározása.</span><span data-lang="en">Clarifying personal values and value-driven behavior, setting long-term goals.</span><span data-lang="ro">Clarificarea valorilor personale și comportamentul ghidat de acestea, stabilirea obiectivelor pe termen lung.</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">🤝 4. Támogató kapcsolatok</span><span data-lang="en">🤝 4. Supportive Relationships</span><span data-lang="ro">🤝 4. Relații de sprijin</span></h4><p><span data-lang="hu">Pozitív kapcsolatok fenntartása, társas támogatás keresése és elfogadása, közösségi részvétel (Werner & Smith, 1992).</span><span data-lang="en">Maintaining positive relationships, seeking and accepting social support, community participation (Werner & Smith, 1992).</span><span data-lang="ro">Menținerea relațiilor pozitive, căutarea și acceptarea sprijinului social, participarea în comunitate (Werner & Smith, 1992).</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">🧩 5. Problémamegoldó készségek</span><span data-lang="en">🧩 5. Problem-Solving Skills</span><span data-lang="ro">🧩 5. Abilități de rezolvare a problemelor</span></h4><p><span data-lang="hu">Strukturált problémamegoldás, kreatív megoldások keresése, rugalmas gondolkodás fejlesztése (Garmezy, 1993).</span><span data-lang="en">Structured problem-solving, seeking creative solutions, developing flexible thinking (Garmezy, 1993).</span><span data-lang="ro">Rezolvarea structurată a problemelor, căutarea soluțiilor creative, dezvoltarea gândirii flexibile (Garmezy, 1993).</span></p></div>
 </div>
       </div>
     </section>
@@ -265,63 +343,63 @@
       <div class="section-header">
         <span class="section-icon">🪞</span>
         <div>
-          <h2>Önreflexió – Rezilienciám</h2>
-          <p class="section-subtitle">Saját megküzdési erőforrások feltérképezése</p>
+          <h2><span data-lang="hu">Önreflexió – Rezilienciám</span><span data-lang="en">Self-Reflection – My Resilience</span><span data-lang="ro">Auto-reflecție – Reziliența mea</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Saját megküzdési erőforrások feltérképezése</span><span data-lang="en">Mapping Your Own Coping Resources</span><span data-lang="ro">Cartografierea propriilor resurse de coping</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #880E4F, transparent);"></div>
-      <p class="section-intro">Az alábbi kérdőív segít feltérképezni a rezilienciádat és azonosítani azokat a területeket, ahol erősítheted a belső rugalmasságodat.</p>
+      <p class="section-intro"><span data-lang="hu">Az alábbi kérdőív segít feltérképezni a rezilienciádat és azonosítani azokat a területeket, ahol erősítheted a belső rugalmasságodat.</span><span data-lang="en">The following questionnaire helps you map your resilience and identify areas where you can strengthen your inner flexibility.</span><span data-lang="ro">Chestionarul de mai jos te ajută să-ți cartografiezi reziliența și să identifici domeniile în care îți poți întări flexibilitatea internă.</span></p>
 
       <div class="interactive-box" style="background:#fce4ec; border-left: 4px solid #880E4F;">
-        <h3>🧩 Önértékelő kérdőív – Rezilienciám</h3>
-        <p>Töltsd ki az alábbi kérdőívet, hogy képet kapj jelenlegi szokásaidról és fejlesztési lehetőségeidről!</p>
+        <h3><span data-lang="hu">🧩 Önértékelő kérdőív – Rezilienciám</span><span data-lang="en">🧩 Self-Assessment Questionnaire – My Resilience</span><span data-lang="ro">🧩 Chestionar de autoevaluare – Reziliența mea</span></h3>
+        <p><span data-lang="hu">Töltsd ki az alábbi kérdőívet, hogy képet kapj jelenlegi szokásaidról és fejlesztési lehetőségeidről!</span><span data-lang="en">Fill out the questionnaire below to get an overview of your current habits and development opportunities!</span><span data-lang="ro">Completează chestionarul de mai jos pentru a-ți face o imagine asupra obiceiurilor tale actuale și a oportunităților de dezvoltare!</span></p>
         <div class="reflection-form" id="reflectionForm">
 
     <div class="reflection-question" id="q1">
-      <label class="q-label">Mennyire rugalmasan alkalmazkodom a váratlan változásokhoz?</label>
+      <label class="q-label"><span data-lang="hu">Mennyire rugalmasan alkalmazkodom a váratlan változásokhoz?</span><span data-lang="en">How flexibly do I adapt to unexpected changes?</span><span data-lang="ro">Cât de flexibil mă adaptez la schimbările neașteptate?</span></label>
       <div class="scale-container">
-        <span class="scale-label">Egyáltalán nem</span>
+        <span class="scale-label"><span data-lang="hu">Egyáltalán nem</span><span data-lang="en">Not at all</span><span data-lang="ro">Deloc</span></span>
         <div class="scale-buttons">
           <button class="scale-btn" onclick="selectScale(this, 1)">1</button><button class="scale-btn" onclick="selectScale(this, 1)">2</button><button class="scale-btn" onclick="selectScale(this, 1)">3</button><button class="scale-btn" onclick="selectScale(this, 1)">4</button><button class="scale-btn" onclick="selectScale(this, 1)">5</button>
         </div>
-        <span class="scale-label">Teljes mértékben</span>
+        <span class="scale-label"><span data-lang="hu">Teljes mértékben</span><span data-lang="en">Completely</span><span data-lang="ro">Complet</span></span>
       </div>
     </div>
     <div class="reflection-question" id="q2">
-      <label class="q-label">Mennyire hatékonyan kezelem a stresszt és a nehézségeket?</label>
+      <label class="q-label"><span data-lang="hu">Mennyire hatékonyan kezelem a stresszt és a nehézségeket?</span><span data-lang="en">How effectively do I manage stress and difficulties?</span><span data-lang="ro">Cât de eficient gestionez stresul și dificultățile?</span></label>
       <div class="scale-container">
-        <span class="scale-label">Egyáltalán nem</span>
+        <span class="scale-label"><span data-lang="hu">Egyáltalán nem</span><span data-lang="en">Not at all</span><span data-lang="ro">Deloc</span></span>
         <div class="scale-buttons">
           <button class="scale-btn" onclick="selectScale(this, 2)">1</button><button class="scale-btn" onclick="selectScale(this, 2)">2</button><button class="scale-btn" onclick="selectScale(this, 2)">3</button><button class="scale-btn" onclick="selectScale(this, 2)">4</button><button class="scale-btn" onclick="selectScale(this, 2)">5</button>
         </div>
-        <span class="scale-label">Teljes mértékben</span>
+        <span class="scale-label"><span data-lang="hu">Teljes mértékben</span><span data-lang="en">Completely</span><span data-lang="ro">Complet</span></span>
       </div>
     </div>
     <div class="reflection-question" id="q3">
-      <label class="q-label">Mennyire tudok segítséget kérni, amikor szükségem van rá?</label>
+      <label class="q-label"><span data-lang="hu">Mennyire tudok segítséget kérni, amikor szükségem van rá?</span><span data-lang="en">How well can I ask for help when I need it?</span><span data-lang="ro">Cât de bine pot cere ajutor atunci când am nevoie?</span></label>
       <div class="scale-container">
-        <span class="scale-label">Egyáltalán nem</span>
+        <span class="scale-label"><span data-lang="hu">Egyáltalán nem</span><span data-lang="en">Not at all</span><span data-lang="ro">Deloc</span></span>
         <div class="scale-buttons">
           <button class="scale-btn" onclick="selectScale(this, 3)">1</button><button class="scale-btn" onclick="selectScale(this, 3)">2</button><button class="scale-btn" onclick="selectScale(this, 3)">3</button><button class="scale-btn" onclick="selectScale(this, 3)">4</button><button class="scale-btn" onclick="selectScale(this, 3)">5</button>
         </div>
-        <span class="scale-label">Teljes mértékben</span>
+        <span class="scale-label"><span data-lang="hu">Teljes mértékben</span><span data-lang="en">Completely</span><span data-lang="ro">Complet</span></span>
       </div>
     </div>
     <div class="reflection-question" id="q4">
-      <label class="q-label">Mennyire tudatosan kerülöm a maladaptív megküzdési stratégiákat?</label>
+      <label class="q-label"><span data-lang="hu">Mennyire tudatosan kerülöm a maladaptív megküzdési stratégiákat?</span><span data-lang="en">How consciously do I avoid maladaptive coping strategies?</span><span data-lang="ro">Cât de conștient evit strategiile maladaptative de coping?</span></label>
       <div class="scale-container">
-        <span class="scale-label">Egyáltalán nem</span>
+        <span class="scale-label"><span data-lang="hu">Egyáltalán nem</span><span data-lang="en">Not at all</span><span data-lang="ro">Deloc</span></span>
         <div class="scale-buttons">
           <button class="scale-btn" onclick="selectScale(this, 4)">1</button><button class="scale-btn" onclick="selectScale(this, 4)">2</button><button class="scale-btn" onclick="selectScale(this, 4)">3</button><button class="scale-btn" onclick="selectScale(this, 4)">4</button><button class="scale-btn" onclick="selectScale(this, 4)">5</button>
         </div>
-        <span class="scale-label">Teljes mértékben</span>
+        <span class="scale-label"><span data-lang="hu">Teljes mértékben</span><span data-lang="en">Completely</span><span data-lang="ro">Complet</span></span>
       </div>
     </div>
     <div class="reflection-question" id="q5">
-      <label class="q-label">Írj le egy helyzetet, amelyben reziliens voltál – mit tettél jól?</label>
+      <label class="q-label"><span data-lang="hu">Írj le egy helyzetet, amelyben reziliens voltál – mit tettél jól?</span><span data-lang="en">Describe a situation where you were resilient – what did you do well?</span><span data-lang="ro">Descrie o situație în care ai fost rezilient – ce ai făcut bine?</span></label>
       <textarea class="reflection-textarea" rows="3" placeholder="Írd ide a válaszodat..."></textarea>
     </div>
-          <button class="submit-btn" onclick="submitReflection()">Visszajelzés megjelenítése</button>
+          <button class="submit-btn" onclick="submitReflection()"><span data-lang="hu">Visszajelzés megjelenítése</span><span data-lang="en">Display Feedback</span><span data-lang="ro">Afișează feedback-ul</span></button>
           <div class="feedback-box" id="feedbackBox" style="display:none;"></div>
         </div>
       </div>
@@ -331,35 +409,42 @@
       <div class="section-header">
         <span class="section-icon">📋</span>
         <div>
-          <h2>Összefoglalás</h2>
-          <p class="section-subtitle">Reziliencia és megküzdési stratégiák eszköztára</p>
+          <h2><span data-lang="hu">Összefoglalás</span><span data-lang="en">Summary</span><span data-lang="ro">Sumar</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Reziliencia és megküzdési stratégiák eszköztára</span><span data-lang="en">Resilience and Coping Strategies Toolbox</span><span data-lang="ro">Instrumentar pentru reziliență și strategii de coping</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #880E4F, transparent);"></div>
-      <p class="section-intro">A reziliencia fejleszthető – minden nehézség, amellyel megküzdesz, erősebbé tesz.</p>
+      <p class="section-intro"><span data-lang="hu">A reziliencia fejleszthető – minden nehézség, amellyel megküzdesz, erősebbé tesz.</span><span data-lang="en">Resilience can be developed – every challenge you overcome makes you stronger.</span><span data-lang="ro">Reziliența poate fi dezvoltată – fiecare dificultate pe care o depășești te face mai puternic.</span></p>
       <div class="section-content">
 <div class="summary-grid">
-  <div class="summary-card"><h4>🎋 Rugalmasság</h4><p>A reziliencia nem merevség, hanem hajlékonyság. Hajlíts, ne törj – mint a bambusz a viharban.</p></div>
-  <div class="summary-card"><h4>🛡️ Adaptív coping</h4><p>Válassz hosszú távon hatékony megküzdési stratégiákat – kerüld a "gyors megoldások" csapdáját.</p></div>
-  <div class="summary-card"><h4>🏗️ 5 pillér</h4><p>Jelenlét – Elfogadás – Értékek – Kapcsolatok – Problémamegoldás. Mindegyik rendszeres gyakorlást igényel.</p></div>
-  <div class="summary-card"><h4>🌱 Növekedés</h4><p>A nehézségek poszttraumatikus növekedés forrásai lehetnek – új értékek, mélyebb kapcsolatok, nagyobb bölcsesség.</p></div>
+  <div class="summary-card"><h4><span data-lang="hu">🎋 Rugalmasság</span><span data-lang="en">🎋 Flexibility</span><span data-lang="ro">🎋 Flexibilitate</span></h4><p><span data-lang="hu">A reziliencia nem merevség, hanem hajlékonyság. Hajlíts, ne törj – mint a bambusz a viharban.</span><span data-lang="en">Resilience is not rigidity, but flexibility. Bend, don’t break – like bamboo in the storm.</span><span data-lang="ro">Reziliența nu este rigiditate, ci flexibilitate. Îndoaie-te, nu te rupe – ca bambusul în furtună.</span></p></div>
+  <div class="summary-card"><h4><span data-lang="hu">🛡️ Adaptív coping</span><span data-lang="en">🛡️ Adaptive Coping</span><span data-lang="ro">🛡️ Coping adaptativ</span></h4><p><span data-lang="hu">Válassz hosszú távon hatékony megküzdési stratégiákat – kerüld a "gyors megoldások" csapdáját.</span><span data-lang="en">Choose long-term effective coping strategies – avoid the trap of "quick fixes."</span><span data-lang="ro">Alege strategii de coping eficiente pe termen lung – evită capcana „soluțiilor rapide”.</span></p></div>
+  <div class="summary-card"><h4><span data-lang="hu">🏗️ 5 pillér</span><span data-lang="en">🏗️ 5 Pillars</span><span data-lang="ro">🏗️ 5 piloni</span></h4><p><span data-lang="hu">Jelenlét – Elfogadás – Értékek – Kapcsolatok – Problémamegoldás. Mindegyik rendszeres gyakorlást igényel.</span><span data-lang="en">Presence – Acceptance – Values – Relationships – Problem-Solving. Each requires regular practice.</span><span data-lang="ro">Prezență – Acceptare – Valori – Relații – Rezolvarea problemelor. Fiecare necesită practică regulată.</span></p></div>
+  <div class="summary-card"><h4><span data-lang="hu">🌱 Növekedés</span><span data-lang="en">🌱 Growth</span><span data-lang="ro">🌱 Creștere</span></h4><p><span data-lang="hu">A nehézségek poszttraumatikus növekedés forrásai lehetnek – új értékek, mélyebb kapcsolatok, nagyobb bölcsesség.</span><span data-lang="en">Difficulties can be sources of post-traumatic growth – new values, deeper relationships, greater wisdom.</span><span data-lang="ro">Dificultățile pot fi surse de creștere post-traumatică – valori noi, relații mai profunde, înțelepciune mai mare.</span></p></div>
 </div>
       </div>
     </section>
 
 
     <div class="pdf-section">
-      <h3>📥 Fejezet letöltése PDF formátumban</h3>
-      <a href="https://drive.google.com/file/d/1Rvqzbihos4HZvTJc5dEI8DAT4k3m1GAI/view" target="_blank" class="pdf-btn">🇭🇺 Magyar PDF letöltése</a>
+      <h3><span data-lang="hu">📥 Fejezet letöltése PDF formátumban</span><span data-lang="en">📥 Download chapter in PDF format</span><span data-lang="ro">📥 Descarcă capitolul în format PDF</span></h3>
+      <a href="https://drive.google.com/file/d/1Rvqzbihos4HZvTJc5dEI8DAT4k3m1GAI/view" target="_blank" class="pdf-btn"><span data-lang="hu">🇭🇺 Magyar PDF letöltése</span><span data-lang="en">🇭🇺 Download Hungarian PDF</span><span data-lang="ro">🇭🇺 Descarcă PDF în maghiară</span></a>
       <a href="https://drive.google.com/file/d/1wRK8avzYQiuKN59Nm53clYMusiTzfmju/view" target="_blank" class="pdf-btn">🇬🇧 English PDF</a>
       <a href="https://drive.google.com/file/d/1kz0_3GTjX5KT6OEzV0gtZoAij6GXNuNP/view" target="_blank" class="pdf-btn">🇷🇴 PDF în română</a>
     </div>
   </main>
 </div>
 
+
+<div class="chapter-nav">
+  <a href="../chapter8/index.html">← <span data-lang="hu"><span data-lang="hu">8. fejezet</span><span data-lang="en">Chapter 8</span><span data-lang="ro">Capitolul 8</span></span><span data-lang="en">Chapter 8</span><span data-lang="ro">Capitolul 8</span></a>
+  <a href="../index.html" class="nav-home"><span data-lang="hu"><span data-lang="hu">🏠 Főoldal</span><span data-lang="en">🏠 Home</span><span data-lang="ro">🏠 Pagina principală</span></span><span data-lang="en">🏠 Home</span><span data-lang="ro">🏠 Acasă</span></a>
+  <a href="../chapter10/index.html"><span data-lang="hu"><span data-lang="hu">10. fejezet</span><span data-lang="en">Chapter 10</span><span data-lang="ro">Capitolul 10</span></span><span data-lang="en">Chapter 10</span><span data-lang="ro">Capitolul 10</span> →</a>
+</div>
+
 <footer class="chapter-footer">
   <p>IMELO – Identity Mosaic | Erasmus+ KA2 projekt | © 2024–2026</p>
-  <p>Az Európai Bizottság támogatásával készült. A tartalom kizárólag a szerzők álláspontját tükrözi.</p>
+  <p><span data-lang="hu">Az Európai Bizottság támogatásával készült. A tartalom kizárólag a szerzők álláspontját tükrözi.</span><span data-lang="en">Produced with the support of the European Commission. The content reflects the views of the authors only.</span><span data-lang="ro">Realizat cu sprijinul Comisiei Europene. Conținutul reflectă exclusiv punctul de vedere al autorilor.</span></p>
 </footer>
 
 <script>
@@ -399,6 +484,23 @@
       if (target) target.scrollIntoView({behavior: 'smooth', block: 'start'});
     });
   });
+
+  // Language switcher
+  (function() {
+    var stored = localStorage.getItem('imelo-lang') || 'hu';
+    document.body.setAttribute('data-active-lang', stored);
+    document.querySelectorAll('.lang-btn-sub').forEach(function(btn) {
+      if (btn.getAttribute('data-lang-switch') === stored) btn.classList.add('active');
+    });
+  })();
+  function switchLangSub(lang) {
+    document.body.setAttribute('data-active-lang', lang);
+    localStorage.setItem('imelo-lang', lang);
+    document.querySelectorAll('.lang-btn-sub').forEach(function(btn) {
+      btn.classList.toggle('active', btn.getAttribute('data-lang-switch') === lang);
+    });
+  }
+
 </script>
 </body>
 </html>

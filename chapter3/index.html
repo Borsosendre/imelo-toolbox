@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3. Fejezet – Mentális Egészség Eszközök | IMELO Toolbox</title>
+  <title><span data-lang="hu">3. Fejezet – Mentális Egészség Eszközök | IMELO Toolbox</span><span data-lang="en">Chapter 3 – Mental Health Tools | IMELO Toolbox</span><span data-lang="ro">Capitolul 3 – Instrumente pentru Sănătate Mintală | IMELO Toolbox</span></title>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -117,28 +117,106 @@
 
     /* FOOTER */
     .chapter-footer { background: #1a1a2e; color: white; text-align: center; padding: 1.5rem; font-size: 0.8rem; opacity: 0.8; }
+  
+    /* Chapter navigation */
+    .chapter-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 1.5rem;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      margin: 1.5rem 0;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .chapter-nav a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: linear-gradient(135deg, #1a7a4a 0%, #2ecc71 100%);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+      transition: opacity 0.2s;
+    }
+    .chapter-nav a:hover { opacity: 0.85; }
+    .chapter-nav .nav-home {
+      background: linear-gradient(135deg, #E8622A 0%, #f39c12 100%);
+    }
+    .chapter-nav .nav-center {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #888;
+      flex: 1;
+    }
+    @media (max-width: 600px) {
+      .chapter-nav { flex-direction: column; align-items: stretch; text-align: center; }
+      .chapter-nav a { justify-content: center; }
+    }
+
+  
+    [data-lang] { display: none; }
+    body[data-active-lang="hu"] [data-lang="hu"] { display: inline; }
+    body[data-active-lang="en"] [data-lang="en"] { display: inline; }
+    body[data-active-lang="ro"] [data-lang="ro"] { display: inline; }
+
+  
+    /* Language switching */
+    [data-lang] { display: none; }
+    body[data-active-lang="hu"] [data-lang="hu"],
+    body[data-active-lang="hu"] span[data-lang="hu"] { display: inline; }
+    body[data-active-lang="en"] [data-lang="en"],
+    body[data-active-lang="en"] span[data-lang="en"] { display: inline; }
+    body[data-active-lang="ro"] [data-lang="ro"],
+    body[data-active-lang="ro"] span[data-lang="ro"] { display: inline; }
+    body[data-active-lang="hu"] div[data-lang="hu"],
+    body[data-active-lang="en"] div[data-lang="en"],
+    body[data-active-lang="ro"] div[data-lang="ro"] { display: block; }
+    .lang-switcher-sub {
+      position: fixed; top: 12px; right: 16px; z-index: 9999;
+      display: flex; gap: 6px; background: rgba(255,255,255,0.95);
+      padding: 4px 8px; border-radius: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .lang-btn-sub {
+      background: none; border: none; cursor: pointer;
+      font-size: 1.2rem; padding: 2px 4px; border-radius: 6px;
+      opacity: 0.6; transition: opacity 0.2s;
+    }
+    .lang-btn-sub:hover, .lang-btn-sub.active { opacity: 1; }
+
   </style>
 </head>
-<body>
+<body data-active-lang="hu">
+<div class="lang-switcher-sub">
+  <button class="lang-btn-sub" data-lang-switch="hu" onclick="switchLangSub('hu')" title="Magyar">🇭🇺</button>
+  <button class="lang-btn-sub" data-lang-switch="en" onclick="switchLangSub('en')" title="English">🇬🇧</button>
+  <button class="lang-btn-sub" data-lang-switch="ro" onclick="switchLangSub('ro')" title="Română">🇷🇴</button>
+</div>
 
 <nav class="topbar">
   <a href="../index.html" class="topbar-logo">
     <img src="imelo_logo.png" alt="Identity Mosaic logó">
   </a>
-  <a href="../index.html" class="back-btn">← Vissza az Eszköztárhoz</a>
+  <a href="../index.html" class="back-btn"><span data-lang="hu">← Vissza az Eszköztárhoz</span><span data-lang="en">← Back to Toolbox</span><span data-lang="ro">← Înapoi la Instrumentar</span></a>
 </nav>
 
 <div class="chapter-hero">
-  <div class="chapter-num">3. Fejezet</div>
-  <h1>Mentális Egészség Eszközök</h1>
-  <p class="subtitle">Lelki egyensúly és öngondoskodás</p>
-  <div class="tags"><span class="tag">🧠 Mentális egészség</span> <span class="tag">😌 Stresszkezelés</span> <span class="tag">🌿 Mindfulness</span></div>
+  <div class="chapter-num"><span data-lang="hu">3. Fejezet</span><span data-lang="en">Chapter 3</span><span data-lang="ro">Capitolul 3</span></div>
+  <h1><span data-lang="hu">Mentális Egészség Eszközök</span><span data-lang="en">Mental Health Tools</span><span data-lang="ro">Instrumente pentru Sănătate Mintală</span></h1>
+  <p class="subtitle"><span data-lang="hu">Lelki egyensúly és öngondoskodás</span><span data-lang="en">Emotional Balance and Self-Care</span><span data-lang="ro">Echilibru sufletesc și autoîngrijire</span></p>
+  <div class="tags"><span class="tag"><span data-lang="hu">🧠 Mentális egészség</span><span data-lang="en">🧠 Mental Health</span><span data-lang="ro">🧠 Sănătate mintală</span></span> <span class="tag"><span data-lang="hu">😌 Stresszkezelés</span><span data-lang="en">😌 Stress Management</span><span data-lang="ro">😌 Gestionarea stresului</span></span> <span class="tag">🌿 Mindfulness</span></div>
 </div>
 
 <div class="page-layout">
   <aside class="sidebar">
-    <h3>Tartalomjegyzék</h3>
-    <a href="#miert" class="toc-item">Miért fontos a mentális egészség?</a><a href="#stressz" class="toc-item">Stresszkezelés Alapjai</a><a href="#legzes" class="toc-item">Légzéstechnikák és Relaxáció</a><a href="#onismeret" class="toc-item">Önismeret és Érzelmi Intelligencia</a><a href="#mindfulness" class="toc-item">Mindfulness – Tudatos Jelenlét</a><a href="#onreflexio" class="toc-item">Önreflexió – Mentális Jóllétem</a><a href="#osszefoglalas" class="toc-item">Összefoglalás</a>
+    <h3><span data-lang="hu">Tartalomjegyzék</span><span data-lang="en">Table of Contents</span><span data-lang="ro">Cuprins</span></h3>
+    <a href="#miert" class="toc-item"><span data-lang="hu">Miért fontos a mentális egészség?</span><span data-lang="en">Why is Mental Health Important?</span><span data-lang="ro">De ce este importantă sănătatea mintală?</span></a><a href="#stressz" class="toc-item"><span data-lang="hu">Stresszkezelés Alapjai</span><span data-lang="en">Basics of Stress Management</span><span data-lang="ro">Bazele gestionării stresului</span></a><a href="#legzes" class="toc-item"><span data-lang="hu">Légzéstechnikák és Relaxáció</span><span data-lang="en">Breathing Techniques and Relaxation</span><span data-lang="ro">Tehnici de respirație și relaxare</span></a><a href="#onismeret" class="toc-item"><span data-lang="hu">Önismeret és Érzelmi Intelligencia</span><span data-lang="en">Self-Awareness and Emotional Intelligence</span><span data-lang="ro">Autocunoaștere și inteligență emoțională</span></a><a href="#mindfulness" class="toc-item"><span data-lang="hu">Mindfulness – Tudatos Jelenlét</span><span data-lang="en">Mindfulness – Conscious Presence</span><span data-lang="ro">Mindfulness – Prezență conștientă</span></a><a href="#onreflexio" class="toc-item"><span data-lang="hu">Önreflexió – Mentális Jóllétem</span><span data-lang="en">Self-Reflection – My Mental Well-being</span><span data-lang="ro">Auto-reflecție – Starea mea mentală</span></a><a href="#osszefoglalas" class="toc-item"><span data-lang="hu">Összefoglalás</span><span data-lang="en">Summary</span><span data-lang="ro">Rezumat</span></a>
   </aside>
 
   <main>
@@ -147,21 +225,21 @@
       <div class="section-header">
         <span class="section-icon">🧠</span>
         <div>
-          <h2>Miért fontos a mentális egészség?</h2>
-          <p class="section-subtitle">A lelki jóllét alapjai</p>
+          <h2><span data-lang="hu">Miért fontos a mentális egészség?</span><span data-lang="en">Why is Mental Health Important?</span><span data-lang="ro">De ce este importantă sănătatea mintală?</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">A lelki jóllét alapjai</span><span data-lang="en">The Foundations of Emotional Well-being</span><span data-lang="ro">Bazele bunăstării sufletești</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #1565C0, transparent);"></div>
-      <p class="section-intro">A mentális egészség a pszichológiai, érzelmi és szociális jóllét állapota, amelyben az egyén képes megbirkózni az élet normális stresszhelyzeteivel, produktívan dolgozni és hozzájárulni a közösséghez.</p>
+      <p class="section-intro"><span data-lang="hu">A mentális egészség a pszichológiai, érzelmi és szociális jóllét állapota, amelyben az egyén képes megbirkózni az élet normális stresszhelyzeteivel, produktívan dolgozni és hozzájárulni a közösséghez.</span><span data-lang="en">Mental health is a state of psychological, emotional, and social well-being in which an individual can cope with the normal stresses of life, work productively, and contribute to their community.</span><span data-lang="ro">Sănătatea mintală este o stare de bunăstare psihologică, emoțională și socială, în care individul este capabil să facă față stresului normal al vieții, să lucreze productiv și să contribuie la comunitate.</span></p>
       <div class="stats-row">
-        <div class="stat-card"><div class="stat-value" style="color:#1565C0">1/4</div><div class="stat-label">Minden negyedik ember küzd mentális problémával élete során</div></div>
-        <div class="stat-card"><div class="stat-value" style="color:#2ecc71">80%</div><div class="stat-label">A mentális problémák kezelhetők megfelelő eszközökkel</div></div>
-        <div class="stat-card"><div class="stat-value" style="color:#E65100">50%</div><div class="stat-label">A mentális betegségek 50%-a 14 éves kor előtt kezdődik</div></div>
+        <div class="stat-card"><div class="stat-value" style="color:#1565C0">1/4</div><div class="stat-label"><span data-lang="hu">Minden negyedik ember küzd mentális problémával élete során</span><span data-lang="en">One in four people experience mental health issues during their lifetime</span><span data-lang="ro">Un din patru oameni se confruntă cu probleme mintale pe parcursul vieții</span></div></div>
+        <div class="stat-card"><div class="stat-value" style="color:#2ecc71">80%</div><div class="stat-label"><span data-lang="hu">A mentális problémák kezelhetők megfelelő eszközökkel</span><span data-lang="en">Mental health problems can be managed with the right tools</span><span data-lang="ro">Problemele mintale pot fi gestionate cu instrumentele potrivite</span></div></div>
+        <div class="stat-card"><div class="stat-value" style="color:#E65100">50%</div><div class="stat-label"><span data-lang="hu">A mentális betegségek 50%-a 14 éves kor előtt kezdődik</span><span data-lang="en">50% of mental illnesses begin before the age of 14</span><span data-lang="ro">50% din bolile mintale încep înainte de vârsta de 14 ani</span></div></div>
       </div>
       <div class="section-content">
 <div class="content-grid">
-  <div class="content-card"><h4>🔍 A mentális egészség definíciója</h4><p>A mentális egészség nem csupán a betegség hiánya – hanem a képesség arra, hogy <strong>felismerjük saját képességeinket</strong>, megbirkózzunk a stresszel, produktívan dolgozzunk és hozzájáruljunk a közösséghez.</p></div>
-  <div class="content-card"><h4>🎯 Az eszköztár célja</h4><ul><li>Stresszkezelési technikák elsajátítása</li><li>Önelfogadás és önbizalom erősítése</li><li>Mindfulness gyakorlatok beépítése</li><li>Támogató szokások kialakítása</li></ul></div>
+  <div class="content-card"><h4><span data-lang="hu">🔍 A mentális egészség definíciója</span><span data-lang="en">🔍 Definition of Mental Health</span><span data-lang="ro">🔍 Definiția sănătății mintale</span></h4><p><span data-lang="hu">A mentális egészség nem csupán a betegség hiánya – hanem a képesség arra, hogy</span><span data-lang="en">Mental health is not just the absence of illness – it is the ability to</span><span data-lang="ro">Sănătatea mintală nu este doar absența bolii – ci capacitatea de a</span> <strong><span data-lang="hu">felismerjük saját képességeinket</span><span data-lang="en">recognize our own abilities</span><span data-lang="ro">recunoaște propriile abilități</span></strong><span data-lang="hu">, megbirkózzunk a stresszel, produktívan dolgozzunk és hozzájáruljunk a közösséghez.</span><span data-lang="en">, cope with stress, work productively, and contribute to the community.</span><span data-lang="ro">, a face față stresului, a lucra productiv și a contribui la comunitate.</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">🎯 Az eszköztár célja</span><span data-lang="en">🎯 Purpose of the Toolbox</span><span data-lang="ro">🎯 Scopul instrumentarului</span></h4><ul><li><span data-lang="hu">Stresszkezelési technikák elsajátítása</span><span data-lang="en">Learning stress management techniques</span><span data-lang="ro">Dobândirea tehnicilor de gestionare a stresului</span></li><li><span data-lang="hu">Önelfogadás és önbizalom erősítése</span><span data-lang="en">Strengthening self-acceptance and self-confidence</span><span data-lang="ro">Consolidarea acceptării de sine și a încrederii în sine</span></li><li><span data-lang="hu">Mindfulness gyakorlatok beépítése</span><span data-lang="en">Incorporating mindfulness practices</span><span data-lang="ro">Includerea exercițiilor de mindfulness</span></li><li><span data-lang="hu">Támogató szokások kialakítása</span><span data-lang="en">Developing supportive habits</span><span data-lang="ro">Dezvoltarea obiceiurilor de susținere</span></li></ul></div>
 </div>
       </div>
 
@@ -177,25 +255,25 @@
           allowfullscreen>
         </iframe>
       </div>
-      <p class="video-caption">A videó gyakorlati, azonnal alkalmazható eszközöket mutat be a stressz kezelésére és a mentális egyensúly megőrzésére, ifjúságsegítők és fiatalok számára egyaránt.</p>
+      <p class="video-caption"><span data-lang="hu">A videó gyakorlati, azonnal alkalmazható eszközöket mutat be a stressz kezelésére és a mentális egyensúly megőrzésére, ifjúságsegítők és fiatalok számára egyaránt.</span><span data-lang="en">The video presents practical, immediately applicable tools for managing stress and maintaining mental balance, designed for youth workers and young people alike.</span><span data-lang="ro">Videoclipul prezintă instrumente practice, imediat aplicabile pentru gestionarea stresului și menținerea echilibrului mental, atât pentru lucrătorii de tineret, cât și pentru tineri.</span></p>
     </section>
 
     <section class="chapter-section" id="stressz">
       <div class="section-header">
         <span class="section-icon">⚡</span>
         <div>
-          <h2>Stresszkezelés Alapjai</h2>
-          <p class="section-subtitle">A stressz természete és hatásai</p>
+          <h2><span data-lang="hu">Stresszkezelés Alapjai</span><span data-lang="en">Basics of Stress Management</span><span data-lang="ro">Bazele gestionării stresului</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">A stressz természete és hatásai</span><span data-lang="en">The Nature and Effects of Stress</span><span data-lang="ro">Natura și efectele stresului</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #1565C0, transparent);"></div>
-      <p class="section-intro">A stressz az élet természetes része, de a túlzott vagy krónikus stressz káros hatással lehet a mentális és fizikai egészségünkre. A stresszkezelés technikái segítenek az egyensúly megtalálásában.</p>
+      <p class="section-intro"><span data-lang="hu">A stressz az élet természetes része, de a túlzott vagy krónikus stressz káros hatással lehet a mentális és fizikai egészségünkre. A stresszkezelés technikái segítenek az egyensúly megtalálásában.</span><span data-lang="en">Stress is a natural part of life, but excessive or chronic stress can harm our mental and physical health. Stress management techniques help us find balance.</span><span data-lang="ro">Stresul este o parte naturală a vieții, dar stresul excesiv sau cronic poate afecta negativ sănătatea noastră mentală și fizică. Tehnicile de gestionare a stresului ajută la găsirea echilibrului.</span></p>
       <div class="section-content">
 <div class="content-grid">
-  <div class="content-card"><h4>✅ Egészséges stressz (Eustressz)</h4><ul><li>Rövid távú, motiváló hatású</li><li>Fokozza a teljesítményt</li><li>Segít a kihívások leküzdésében</li><li>Növeli az éberséget</li></ul></div>
-  <div class="content-card"><h4>⚠️ Káros stressz (Distressz)</h4><ul><li>Hosszú távú, kimerítő</li><li>Csökkenti a teljesítményt</li><li>Egészségügyi problémákat okoz</li><li>Érzelmi kimerüléshez vezet</li></ul></div>
-  <div class="content-card"><h4>🔍 Felismerési technikák</h4><ul><li>Testi jelzések figyelése</li><li>Érzelmi állapot tudatosítása</li><li>Stressznaplózás</li><li>Kiváltó okok azonosítása</li></ul></div>
-  <div class="content-card"><h4>⚡ Azonnali stresszoldás</h4><ul><li>Mély légzés gyakorlatok</li><li>5-4-3-2-1 érzékelési technika</li><li>Rövid testmozgás vagy nyújtás</li><li>Tudatos jelenlét gyakorlása</li></ul></div>
+  <div class="content-card"><h4><span data-lang="hu">✅ Egészséges stressz (Eustressz)</span><span data-lang="en">✅ Healthy Stress (Eustress)</span><span data-lang="ro">✅ Stres sănătos (Eustres)</span></h4><ul><li><span data-lang="hu">Rövid távú, motiváló hatású</span><span data-lang="en">Short-term, motivating effect</span><span data-lang="ro">Efect pe termen scurt, motivant</span></li><li><span data-lang="hu">Fokozza a teljesítményt</span><span data-lang="en">Enhances performance</span><span data-lang="ro">Crește performanța</span></li><li><span data-lang="hu">Segít a kihívások leküzdésében</span><span data-lang="en">Helps overcome challenges</span><span data-lang="ro">Ajută la depășirea provocărilor</span></li><li><span data-lang="hu">Növeli az éberséget</span><span data-lang="en">Increases alertness</span><span data-lang="ro">Sporește vigilența</span></li></ul></div>
+  <div class="content-card"><h4><span data-lang="hu">⚠️ Káros stressz (Distressz)</span><span data-lang="en">⚠️ Harmful Stress (Distress)</span><span data-lang="ro">⚠️ Stres dăunător (Distres)</span></h4><ul><li><span data-lang="hu">Hosszú távú, kimerítő</span><span data-lang="en">Long-term, exhausting</span><span data-lang="ro">Pe termen lung, epuizant</span></li><li><span data-lang="hu">Csökkenti a teljesítményt</span><span data-lang="en">Reduces performance</span><span data-lang="ro">Scade performanța</span></li><li><span data-lang="hu">Egészségügyi problémákat okoz</span><span data-lang="en">Causes health problems</span><span data-lang="ro">Cauzează probleme de sănătate</span></li><li><span data-lang="hu">Érzelmi kimerüléshez vezet</span><span data-lang="en">Leads to emotional exhaustion</span><span data-lang="ro">Conduce la epuizare emoțională</span></li></ul></div>
+  <div class="content-card"><h4><span data-lang="hu">🔍 Felismerési technikák</span><span data-lang="en">🔍 Recognition Techniques</span><span data-lang="ro">🔍 Tehnici de recunoaștere</span></h4><ul><li><span data-lang="hu">Testi jelzések figyelése</span><span data-lang="en">Monitoring physical signals</span><span data-lang="ro">Observarea semnalelor corporale</span></li><li><span data-lang="hu">Érzelmi állapot tudatosítása</span><span data-lang="en">Becoming aware of emotional state</span><span data-lang="ro">Conștientizarea stării emoționale</span></li><li><span data-lang="hu">Stressznaplózás</span><span data-lang="en">Keeping a stress diary</span><span data-lang="ro">Jurnal de stres</span></li><li><span data-lang="hu">Kiváltó okok azonosítása</span><span data-lang="en">Identifying triggers</span><span data-lang="ro">Identificarea factorilor declanșatori</span></li></ul></div>
+  <div class="content-card"><h4><span data-lang="hu">⚡ Azonnali stresszoldás</span><span data-lang="en">⚡ Immediate Stress Relief</span><span data-lang="ro">⚡ Relaxare imediată a stresului</span></h4><ul><li><span data-lang="hu">Mély légzés gyakorlatok</span><span data-lang="en">Deep Breathing Exercises</span><span data-lang="ro">Exerciții de respirație profundă</span></li><li><span data-lang="hu">5-4-3-2-1 érzékelési technika</span><span data-lang="en">5-4-3-2-1 Sensory Technique</span><span data-lang="ro">Tehnica de percepție 5-4-3-2-1</span></li><li><span data-lang="hu">Rövid testmozgás vagy nyújtás</span><span data-lang="en">Short Exercise or Stretching</span><span data-lang="ro">Exercițiu scurt de mișcare sau întindere</span></li><li><span data-lang="hu">Tudatos jelenlét gyakorlása</span><span data-lang="en">Practicing Mindfulness</span><span data-lang="ro">Practicarea prezenței conștiente</span></li></ul></div>
 </div>
       </div>
     </section>
@@ -204,18 +282,18 @@
       <div class="section-header">
         <span class="section-icon">🌬️</span>
         <div>
-          <h2>Légzéstechnikák és Relaxáció</h2>
-          <p class="section-subtitle">Tudatos légzés a stressz csökkentéséhez</p>
+          <h2><span data-lang="hu">Légzéstechnikák és Relaxáció</span><span data-lang="en">Breathing Techniques and Relaxation</span><span data-lang="ro">Tehnici de respirație și relaxare</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Tudatos légzés a stressz csökkentéséhez</span><span data-lang="en">Conscious Breathing to Reduce Stress</span><span data-lang="ro">Respirația conștientă pentru reducerea stresului</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #1565C0, transparent);"></div>
-      <p class="section-intro">A tudatos légzés és relaxációs technikák hatékony eszközök a stressz csökkentésére és a mentális egyensúly megteremtésére. Ezek a gyakorlatok bárhol, bármikor elvégezhetők.</p>
+      <p class="section-intro"><span data-lang="hu">A tudatos légzés és relaxációs technikák hatékony eszközök a stressz csökkentésére és a mentális egyensúly megteremtésére. Ezek a gyakorlatok bárhol, bármikor elvégezhetők.</span><span data-lang="en">Conscious breathing and relaxation techniques are effective tools for reducing stress and creating mental balance. These exercises can be done anywhere, anytime.</span><span data-lang="ro">Respirația conștientă și tehnicile de relaxare sunt instrumente eficiente pentru reducerea stresului și crearea echilibrului mental. Aceste exerciții pot fi realizate oriunde și oricând.</span></p>
       <div class="section-content">
 <div class="steps-list">
-  <div class="step"><span class="step-num">1</span><div><strong>4-7-8 légzés</strong><p>Lélegezz be 4 másodpercig, tartsd bent 7 másodpercig, majd fújd ki 8 másodperc alatt. Ez aktiválja a paraszimpatikus idegrendszert és csökkenti a stresszt.</p></div></div>
-  <div class="step"><span class="step-num">2</span><div><strong>Négyzet légzés</strong><p>Egyenlő idejű be- és kilégzés, tartással: 4 mp be – 4 mp tartás – 4 mp ki – 4 mp tartás. Kiváló koncentrációhoz és megnyugváshoz.</p></div></div>
-  <div class="step"><span class="step-num">3</span><div><strong>Hasi légzés</strong><p>A has kitágul belégzéskor, összehúzódik kilégzéskor. Ez a természetes, mély légzés aktiválja a relaxációs választ.</p></div></div>
-  <div class="step"><span class="step-num">4</span><div><strong>Progresszív izomrelaxáció</strong><p>Az izomcsoportokat először megfeszítjük, majd ellazítjuk – így megtanuljuk felismerni a feszültség és ellazulás közötti különbséget.</p></div></div>
+  <div class="step"><span class="step-num">1</span><div><strong><span data-lang="hu">4-7-8 légzés</span><span data-lang="en">4-7-8 Breathing</span><span data-lang="ro">Respirația 4-7-8</span></strong><p><span data-lang="hu">Lélegezz be 4 másodpercig, tartsd bent 7 másodpercig, majd fújd ki 8 másodperc alatt. Ez aktiválja a paraszimpatikus idegrendszert és csökkenti a stresszt.</span><span data-lang="en">Breathe in for 4 seconds, hold for 7 seconds, then exhale over 8 seconds. This activates the parasympathetic nervous system and reduces stress.</span><span data-lang="ro">Inspiră timp de 4 secunde, ține-ți respirația 7 secunde, apoi expiră timp de 8 secunde. Aceasta activează sistemul nervos parasimpatic și reduce stresul.</span></p></div></div>
+  <div class="step"><span class="step-num">2</span><div><strong><span data-lang="hu">Négyzet légzés</span><span data-lang="en">Box Breathing</span><span data-lang="ro">Respirația pătrată</span></strong><p><span data-lang="hu">Egyenlő idejű be- és kilégzés, tartással: 4 mp be – 4 mp tartás – 4 mp ki – 4 mp tartás. Kiváló koncentrációhoz és megnyugváshoz.</span><span data-lang="en">Equal time inhaling and exhaling with holds: 4 sec inhale – 4 sec hold – 4 sec exhale – 4 sec hold. Excellent for concentration and calming.</span><span data-lang="ro">Inspiră și expiră în timp egal, cu pauze: 4 secunde inspirație – 4 secunde pauză – 4 secunde expirație – 4 secunde pauză. Excelentă pentru concentrare și calm.</span></p></div></div>
+  <div class="step"><span class="step-num">3</span><div><strong><span data-lang="hu">Hasi légzés</span><span data-lang="en">Abdominal Breathing</span><span data-lang="ro">Respirația abdominală</span></strong><p><span data-lang="hu">A has kitágul belégzéskor, összehúzódik kilégzéskor. Ez a természetes, mély légzés aktiválja a relaxációs választ.</span><span data-lang="en">The abdomen expands on inhalation and contracts on exhalation. This natural, deep breathing activates the relaxation response.</span><span data-lang="ro">Abdomenul se extinde la inspirație și se contractă la expirație. Aceasta este respirația naturală, profundă, care activează răspunsul de relaxare.</span></p></div></div>
+  <div class="step"><span class="step-num">4</span><div><strong><span data-lang="hu">Progresszív izomrelaxáció</span><span data-lang="en">Progressive Muscle Relaxation</span><span data-lang="ro">Relaxarea musculară progresivă</span></strong><p><span data-lang="hu">Az izomcsoportokat először megfeszítjük, majd ellazítjuk – így megtanuljuk felismerni a feszültség és ellazulás közötti különbséget.</span><span data-lang="en">Muscle groups are first tensed, then relaxed – helping to recognize the difference between tension and relaxation.</span><span data-lang="ro">Grupurile musculare sunt mai întâi tensionate, apoi relaxate – astfel învățăm să recunoaștem diferența dintre tensiune și relaxare.</span></p></div></div>
 </div>
       </div>
 
@@ -231,25 +309,25 @@
           allowfullscreen>
         </iframe>
       </div>
-      <p class="video-caption">A videó lépésről lépésre vezeti végig a nézőt a 4-7-8 légzéstechnikán és a progressív izomrelaxáción, amelyek hatékonyan alkalmazhatók stressz- és szorogáskezelésre.</p>
+      <p class="video-caption"><span data-lang="hu">A videó lépésről lépésre vezeti végig a nézőt a 4-7-8 légzéstechnikán és a progressív izomrelaxáción, amelyek hatékonyan alkalmazhatók stressz- és szorogáskezelésre.</span><span data-lang="en">The video guides the viewer step-by-step through the 4-7-8 breathing technique and progressive muscle relaxation, which can be effectively used for stress and anxiety management.</span><span data-lang="ro">Videoclipul ghidează pas cu pas privitorul prin tehnica de respirație 4-7-8 și relaxarea musculară progresivă, care pot fi aplicate eficient în gestionarea stresului și anxietății.</span></p>
     </section>
 
     <section class="chapter-section" id="onismeret">
       <div class="section-header">
         <span class="section-icon">🪞</span>
         <div>
-          <h2>Önismeret és Érzelmi Intelligencia</h2>
-          <p class="section-subtitle">Belső világ megismerése</p>
+          <h2><span data-lang="hu">Önismeret és Érzelmi Intelligencia</span><span data-lang="en">Self-awareness and Emotional Intelligence</span><span data-lang="ro">Autocunoaștere și Inteligență Emoțională</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Belső világ megismerése</span><span data-lang="en">Exploring the Inner World</span><span data-lang="ro">Descoperirea lumii interioare</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #1565C0, transparent);"></div>
-      <p class="section-intro">Az önismeret az érzelmi intelligencia alapja. Minél jobban ismerjük saját érzelmeinket, annál hatékonyabban tudunk bánni velük és a kapcsolatainkkal.</p>
+      <p class="section-intro"><span data-lang="hu">Az önismeret az érzelmi intelligencia alapja. Minél jobban ismerjük saját érzelmeinket, annál hatékonyabban tudunk bánni velük és a kapcsolatainkkal.</span><span data-lang="en">Self-awareness is the foundation of emotional intelligence. The better we understand our own emotions, the more effectively we can manage them and our relationships.</span><span data-lang="ro">Autocunoașterea este baza inteligenței emoționale. Cu cât ne cunoaștem mai bine propriile emoții, cu atât le putem gestiona mai eficient pe acestea și relațiile noastre.</span></p>
       <div class="section-content">
 <div class="content-grid">
-  <div class="content-card"><h4>😊 Érzelmek felismerése</h4><p>Az érzelmek azonosítása és megnevezése az első lépés a kezelésük felé. Vezess érzelmi naplót – figyeld meg, mikor és miért érzed magad egy bizonyos módon.</p></div>
-  <div class="content-card"><h4>🎛️ Érzelmek szabályozása</h4><p>Az érzelmek nem elnyomandók, hanem kezelendők. A STOP technika segít: Állj meg – Vegyél levegőt – Figyelj – Folytasd tudatosan.</p></div>
-  <div class="content-card"><h4>🤝 Szociális készségek</h4><p>Az érzelmi intelligencia társas dimenziója: empátia, hatékony kommunikáció, konfliktuskezelés és kapcsolatépítés.</p></div>
-  <div class="content-card"><h4>💡 Motiváció</h4><p>A belső motiváció fenntartása: értékek azonosítása, célok kitűzése, és a haladás ünneplése – még a kis lépéseké is.</p></div>
+  <div class="content-card"><h4><span data-lang="hu">😊 Érzelmek felismerése</span><span data-lang="en">😊 Recognizing Emotions</span><span data-lang="ro">😊 Recunoașterea emoțiilor</span></h4><p><span data-lang="hu">Az érzelmek azonosítása és megnevezése az első lépés a kezelésük felé. Vezess érzelmi naplót – figyeld meg, mikor és miért érzed magad egy bizonyos módon.</span><span data-lang="en">Identifying and naming emotions is the first step toward managing them. Keep an emotional journal – observe when and why you feel a certain way.</span><span data-lang="ro">Identificarea și denumirea emoțiilor este primul pas spre gestionarea lor. Ține un jurnal emoțional – observă când și de ce te simți într-un anumit fel.</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">🎛️ Érzelmek szabályozása</span><span data-lang="en">🎛️ Regulating Emotions</span><span data-lang="ro">🎛️ Reglarea emoțiilor</span></h4><p><span data-lang="hu">Az érzelmek nem elnyomandók, hanem kezelendők. A STOP technika segít: Állj meg – Vegyél levegőt – Figyelj – Folytasd tudatosan.</span><span data-lang="en">Emotions are not to be suppressed but managed. The STOP technique helps: Stop – Take a breath – Observe – Proceed mindfully.</span><span data-lang="ro">Emoțiile nu trebuie reprimate, ci gestionate. Tehnica STOP ajută: Stai – Trage aer – Observă – Continuă conștient.</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">🤝 Szociális készségek</span><span data-lang="en">🤝 Social Skills</span><span data-lang="ro">🤝 Abilități sociale</span></h4><p><span data-lang="hu">Az érzelmi intelligencia társas dimenziója: empátia, hatékony kommunikáció, konfliktuskezelés és kapcsolatépítés.</span><span data-lang="en">The social dimension of emotional intelligence: empathy, effective communication, conflict resolution, and relationship building.</span><span data-lang="ro">Dimensiunea socială a inteligenței emoționale: empatie, comunicare eficientă, gestionarea conflictelor și construirea relațiilor.</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">💡 Motiváció</span><span data-lang="en">💡 Motivation</span><span data-lang="ro">💡 Motivație</span></h4><p><span data-lang="hu">A belső motiváció fenntartása: értékek azonosítása, célok kitűzése, és a haladás ünneplése – még a kis lépéseké is.</span><span data-lang="en">Maintaining internal motivation: identifying values, setting goals, and celebrating progress – even small steps.</span><span data-lang="ro">Menținerea motivației interioare: identificarea valorilor, stabilirea obiectivelor și sărbătorirea progresului – chiar și a pașilor mici.</span></p></div>
 </div>
       </div>
 
@@ -265,25 +343,25 @@
           allowfullscreen>
         </iframe>
       </div>
-      <p class="video-caption">Bedő Imre szakmai interjúja az érzelmi intelligencia szerepéről a mentális egészség megőrzésében, amely elméleti alapozást nyújt a fejezet gyakorlati tartalmaihoz.</p>
+      <p class="video-caption"><span data-lang="hu">Bedő Imre szakmai interjúja az érzelmi intelligencia szerepéről a mentális egészség megőrzésében, amely elméleti alapozást nyújt a fejezet gyakorlati tartalmaihoz.</span><span data-lang="en">Professional interview with Imre Bedő on the role of emotional intelligence in maintaining mental health, providing theoretical grounding for the chapter’s practical content.</span><span data-lang="ro">Interviu profesional cu Imre Bedő despre rolul inteligenței emoționale în menținerea sănătății mentale, oferind fundament teoretic pentru conținutul practic al capitolului.</span></p>
     </section>
 
     <section class="chapter-section" id="mindfulness">
       <div class="section-header">
         <span class="section-icon">🧘</span>
         <div>
-          <h2>Mindfulness – Tudatos Jelenlét</h2>
-          <p class="section-subtitle">Az itt és most ereje</p>
+          <h2><span data-lang="hu">Mindfulness – Tudatos Jelenlét</span><span data-lang="en">Mindfulness – Conscious Presence</span><span data-lang="ro">Mindfulness – Prezență Conștientă</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Az itt és most ereje</span><span data-lang="en">The Power of Here and Now</span><span data-lang="ro">Puterea aici și acum</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #1565C0, transparent);"></div>
-      <p class="section-intro">A mindfulness azt jelenti, hogy teljes figyelemmel a jelen pillanatra koncentrálsz, ítélkezés nélkül. Ez a gyakorlat csökkenti a stresszt, javítja a koncentrációt és erősíti az érzelmi egyensúlyt.</p>
+      <p class="section-intro"><span data-lang="hu">A mindfulness azt jelenti, hogy teljes figyelemmel a jelen pillanatra koncentrálsz, ítélkezés nélkül. Ez a gyakorlat csökkenti a stresszt, javítja a koncentrációt és erősíti az érzelmi egyensúlyt.</span><span data-lang="en">Mindfulness means focusing your full attention on the present moment without judgment. This practice reduces stress, improves concentration, and strengthens emotional balance.</span><span data-lang="ro">Mindfulness înseamnă să te concentrezi cu atenție deplină asupra momentului prezent, fără judecată. Această practică reduce stresul, îmbunătățește concentrarea și întărește echilibrul emoțional.</span></p>
       <div class="section-content">
 <div class="steps-list">
-  <div class="step"><span class="step-num">1</span><div><strong>5 perces reggeli mindfulness</strong><p>Ébredés után, még mielőtt megnyúlnál a telefonodhoz, ülj kényelmesen és figyelj 5 percig a légzésedre. Ez megalapozza a napot.</p></div></div>
-  <div class="step"><span class="step-num">2</span><div><strong>5-4-3-2-1 érzékelési technika</strong><p>Stressz esetén: nevezz meg 5 dolgot, amit látsz – 4 dolgot, amit érintesz – 3 hangot, amit hallasz – 2 illatot – 1 ízt. Ez visszahoz a jelenbe.</p></div></div>
-  <div class="step"><span class="step-num">3</span><div><strong>Tudatos étkezés</strong><p>Étkezés közben tedd le a telefont, figyelj az ízekre, illatokra, textúrákra. Ez az egyszerű gyakorlat erősíti a jelenlét képességét.</p></div></div>
-  <div class="step"><span class="step-num">4</span><div><strong>Esti levezetés</strong><p>Lefekvés előtt írj le 3 dolgot, amiért hálás vagy a napból. Ez a hálagyakorlat pozitív irányba tereli a gondolatokat.</p></div></div>
+  <div class="step"><span class="step-num">1</span><div><strong>5 perces reggeli mindfulness</strong><p><span data-lang="hu">Ébredés után, még mielőtt megnyúlnál a telefonodhoz, ülj kényelmesen és figyelj 5 percig a légzésedre. Ez megalapozza a napot.</span><span data-lang="en">After waking up, before reaching for your phone, sit comfortably and focus on your breath for 5 minutes. This sets the tone for the day.</span><span data-lang="ro">După trezire, înainte să întinzi mâna spre telefon, așază-te confortabil și observă-ți respirația timp de 5 minute. Aceasta pune bazele zilei.</span></p></div></div>
+  <div class="step"><span class="step-num">2</span><div><strong><span data-lang="hu">5-4-3-2-1 érzékelési technika</span><span data-lang="en">5-4-3-2-1 Sensory Technique</span><span data-lang="ro">Tehnica de percepție 5-4-3-2-1</span></strong><p><span data-lang="hu">Stressz esetén: nevezz meg 5 dolgot, amit látsz – 4 dolgot, amit érintesz – 3 hangot, amit hallasz – 2 illatot – 1 ízt. Ez visszahoz a jelenbe.</span><span data-lang="en">In case of stress: name 5 things you see – 4 things you touch – 3 sounds you hear – 2 smells – 1 taste. This brings you back to the present.</span><span data-lang="ro">În caz de stres: numește 5 lucruri pe care le vezi – 4 lucruri pe care le atingi – 3 sunete pe care le auzi – 2 mirosuri – 1 gust. Aceasta te readuce în prezent.</span></p></div></div>
+  <div class="step"><span class="step-num">3</span><div><strong><span data-lang="hu">Tudatos étkezés</span><span data-lang="en">Mindful Eating</span><span data-lang="ro">Mâncat conștient</span></strong><p><span data-lang="hu">Étkezés közben tedd le a telefont, figyelj az ízekre, illatokra, textúrákra. Ez az egyszerű gyakorlat erősíti a jelenlét képességét.</span><span data-lang="en">Put down your phone while eating, pay attention to flavors, smells, textures. This simple exercise strengthens your ability to be present.</span><span data-lang="ro">În timpul mesei pune telefonul deoparte, observă aromele, mirosurile, texturile. Acest exercițiu simplu întărește abilitatea de a fi prezent.</span></p></div></div>
+  <div class="step"><span class="step-num">4</span><div><strong><span data-lang="hu">Esti levezetés</span><span data-lang="en">Evening Wind-down</span><span data-lang="ro">Relaxare de seară</span></strong><p><span data-lang="hu">Lefekvés előtt írj le 3 dolgot, amiért hálás vagy a napból. Ez a hálagyakorlat pozitív irányba tereli a gondolatokat.</span><span data-lang="en">Before going to bed, write down 3 things you are grateful for from the day. This gratitude practice shifts your thoughts in a positive direction.</span><span data-lang="ro">Înainte de culcare notează 3 lucruri pentru care ești recunoscător în ziua respectivă. Această practică a recunoștinței direcționează gândurile spre pozitiv.</span></p></div></div>
 </div>
       </div>
     </section>
@@ -292,63 +370,63 @@
       <div class="section-header">
         <span class="section-icon">📝</span>
         <div>
-          <h2>Önreflexió – Mentális Jóllétem</h2>
-          <p class="section-subtitle">Saját mentális egészségi állapotom felmérése</p>
+          <h2><span data-lang="hu">Önreflexió – Mentális Jóllétem</span><span data-lang="en">Self-reflection – My Mental Well-being</span><span data-lang="ro">Auto-reflecție – Starea mea mentală de bine</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Saját mentális egészségi állapotom felmérése</span><span data-lang="en">Assessing My Own Mental Health</span><span data-lang="ro">Evaluarea propriei stări mentale de sănătate</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #1565C0, transparent);"></div>
-      <p class="section-intro">Az alábbi kérdőív segít feltérképezni jelenlegi mentális jólléted és azonosítani azokat a területeket, ahol fejlődni szeretnél.</p>
+      <p class="section-intro"><span data-lang="hu">Az alábbi kérdőív segít feltérképezni jelenlegi mentális jólléted és azonosítani azokat a területeket, ahol fejlődni szeretnél.</span><span data-lang="en">The questionnaire below helps map your current mental well-being and identify areas where you want to improve.</span><span data-lang="ro">Chestionarul de mai jos te ajută să îți cartografiezi starea actuală de bine mental și să identifici ariile în care dorești să te dezvolți.</span></p>
 
       <div class="interactive-box" style="background:#e3f0fd; border-left: 4px solid #1565C0;">
-        <h3>🧩 Önértékelő kérdőív – Mentális jóllétem</h3>
-        <p>Töltsd ki az alábbi kérdőívet, hogy képet kapj jelenlegi szokásaidról és fejlesztési lehetőségeidről!</p>
+        <h3><span data-lang="hu">🧩 Önértékelő kérdőív – Mentális jóllétem</span><span data-lang="en">🧩 Self-assessment Questionnaire – My Mental Well-being</span><span data-lang="ro">🧩 Chestionar de autoevaluare – Starea mea mentală de bine</span></h3>
+        <p><span data-lang="hu">Töltsd ki az alábbi kérdőívet, hogy képet kapj jelenlegi szokásaidról és fejlesztési lehetőségeidről!</span><span data-lang="en">Fill out the questionnaire below to get an overview of your current habits and development opportunities!</span><span data-lang="ro">Completează chestionarul de mai jos pentru a obține o imagine asupra obiceiurilor tale actuale și a oportunităților de dezvoltare!</span></p>
         <div class="reflection-form" id="reflectionForm">
 
     <div class="reflection-question" id="q1">
-      <label class="q-label">Mennyire hatékonyan kezelem a stresszt a mindennapokban?</label>
+      <label class="q-label"><span data-lang="hu">Mennyire hatékonyan kezelem a stresszt a mindennapokban?</span><span data-lang="en">How effectively do I manage stress in daily life?</span><span data-lang="ro">Cât de eficient gestionez stresul în viața de zi cu zi?</span></label>
       <div class="scale-container">
-        <span class="scale-label">Egyáltalán nem</span>
+        <span class="scale-label"><span data-lang="hu">Egyáltalán nem</span><span data-lang="en">Not at all</span><span data-lang="ro">Deloc</span></span>
         <div class="scale-buttons">
           <button class="scale-btn" onclick="selectScale(this, 1)">1</button><button class="scale-btn" onclick="selectScale(this, 1)">2</button><button class="scale-btn" onclick="selectScale(this, 1)">3</button><button class="scale-btn" onclick="selectScale(this, 1)">4</button><button class="scale-btn" onclick="selectScale(this, 1)">5</button>
         </div>
-        <span class="scale-label">Teljes mértékben</span>
+        <span class="scale-label"><span data-lang="hu">Teljes mértékben</span><span data-lang="en">Completely</span><span data-lang="ro">Complet</span></span>
       </div>
     </div>
     <div class="reflection-question" id="q2">
-      <label class="q-label">Mennyire tudatosan figyelem és kezelem az érzelmeimet?</label>
+      <label class="q-label"><span data-lang="hu">Mennyire tudatosan figyelem és kezelem az érzelmeimet?</span><span data-lang="en">How consciously do I observe and manage my emotions?</span><span data-lang="ro">Cât de conștient urmăresc și gestionez emoțiile mele?</span></label>
       <div class="scale-container">
-        <span class="scale-label">Egyáltalán nem</span>
+        <span class="scale-label"><span data-lang="hu">Egyáltalán nem</span><span data-lang="en">Not at all</span><span data-lang="ro">Deloc</span></span>
         <div class="scale-buttons">
           <button class="scale-btn" onclick="selectScale(this, 2)">1</button><button class="scale-btn" onclick="selectScale(this, 2)">2</button><button class="scale-btn" onclick="selectScale(this, 2)">3</button><button class="scale-btn" onclick="selectScale(this, 2)">4</button><button class="scale-btn" onclick="selectScale(this, 2)">5</button>
         </div>
-        <span class="scale-label">Teljes mértékben</span>
+        <span class="scale-label"><span data-lang="hu">Teljes mértékben</span><span data-lang="en">Completely</span><span data-lang="ro">Complet</span></span>
       </div>
     </div>
     <div class="reflection-question" id="q3">
-      <label class="q-label">Mennyire rendszeresen végzek relaxációs vagy mindfulness gyakorlatokat?</label>
+      <label class="q-label"><span data-lang="hu">Mennyire rendszeresen végzek relaxációs vagy mindfulness gyakorlatokat?</span><span data-lang="en">How regularly do I practice relaxation or mindfulness exercises?</span><span data-lang="ro">Cât de regulat practic exerciții de relaxare sau mindfulness?</span></label>
       <div class="scale-container">
-        <span class="scale-label">Egyáltalán nem</span>
+        <span class="scale-label"><span data-lang="hu">Egyáltalán nem</span><span data-lang="en">Not at all</span><span data-lang="ro">Deloc</span></span>
         <div class="scale-buttons">
           <button class="scale-btn" onclick="selectScale(this, 3)">1</button><button class="scale-btn" onclick="selectScale(this, 3)">2</button><button class="scale-btn" onclick="selectScale(this, 3)">3</button><button class="scale-btn" onclick="selectScale(this, 3)">4</button><button class="scale-btn" onclick="selectScale(this, 3)">5</button>
         </div>
-        <span class="scale-label">Teljes mértékben</span>
+        <span class="scale-label"><span data-lang="hu">Teljes mértékben</span><span data-lang="en">Completely</span><span data-lang="ro">Complet</span></span>
       </div>
     </div>
     <div class="reflection-question" id="q4">
-      <label class="q-label">Mennyire tartom fontosnak az öngondoskodást?</label>
+      <label class="q-label"><span data-lang="hu">Mennyire tartom fontosnak az öngondoskodást?</span><span data-lang="en">How important do I consider self-care?</span><span data-lang="ro">Cât de importantă consider îngrijirea de sine?</span></label>
       <div class="scale-container">
-        <span class="scale-label">Egyáltalán nem</span>
+        <span class="scale-label"><span data-lang="hu">Egyáltalán nem</span><span data-lang="en">Not at all</span><span data-lang="ro">Deloc</span></span>
         <div class="scale-buttons">
           <button class="scale-btn" onclick="selectScale(this, 4)">1</button><button class="scale-btn" onclick="selectScale(this, 4)">2</button><button class="scale-btn" onclick="selectScale(this, 4)">3</button><button class="scale-btn" onclick="selectScale(this, 4)">4</button><button class="scale-btn" onclick="selectScale(this, 4)">5</button>
         </div>
-        <span class="scale-label">Teljes mértékben</span>
+        <span class="scale-label"><span data-lang="hu">Teljes mértékben</span><span data-lang="en">Completely</span><span data-lang="ro">Complet</span></span>
       </div>
     </div>
     <div class="reflection-question" id="q5">
-      <label class="q-label">Milyen területen szeretnél leginkább fejlődni a mentális egészséged terén?</label>
+      <label class="q-label"><span data-lang="hu">Milyen területen szeretnél leginkább fejlődni a mentális egészséged terén?</span><span data-lang="en">In which area would you most like to develop your mental health?</span><span data-lang="ro">În ce domeniu ai dori să te dezvolți cel mai mult în ceea ce privește sănătatea ta mentală?</span></label>
       <textarea class="reflection-textarea" rows="3" placeholder="Írd ide a válaszodat..."></textarea>
     </div>
-          <button class="submit-btn" onclick="submitReflection()">Visszajelzés megjelenítése</button>
+          <button class="submit-btn" onclick="submitReflection()"><span data-lang="hu">Visszajelzés megjelenítése</span><span data-lang="en">Show feedback</span><span data-lang="ro">Afișează feedback-ul</span></button>
           <div class="feedback-box" id="feedbackBox" style="display:none;"></div>
         </div>
       </div>
@@ -358,35 +436,42 @@
       <div class="section-header">
         <span class="section-icon">📋</span>
         <div>
-          <h2>Összefoglalás</h2>
-          <p class="section-subtitle">A mentális egészség eszköztára</p>
+          <h2><span data-lang="hu">Összefoglalás</span><span data-lang="en">Summary</span><span data-lang="ro">Rezumat</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">A mentális egészség eszköztára</span><span data-lang="en">The mental health toolbox</span><span data-lang="ro">Trusa de instrumente pentru sănătatea mentală</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #1565C0, transparent);"></div>
-      <p class="section-intro">A mentális egészség megőrzése folyamatos, tudatos munka. Az alábbi eszközök segítenek a mindennapi lelki egyensúly fenntartásában.</p>
+      <p class="section-intro"><span data-lang="hu">A mentális egészség megőrzése folyamatos, tudatos munka. Az alábbi eszközök segítenek a mindennapi lelki egyensúly fenntartásában.</span><span data-lang="en">Maintaining mental health is a continuous, conscious effort. The following tools help maintain daily emotional balance.</span><span data-lang="ro">Menținerea sănătății mentale este un proces continuu și conștient. Instrumentele de mai jos te ajută să păstrezi echilibrul emoțional zilnic.</span></p>
       <div class="section-content">
 <div class="summary-grid">
-  <div class="summary-card"><h4>🌬️ Légzéstechnikák</h4><p>4-7-8 légzés, négyzet légzés, hasi légzés – bárhol, bármikor alkalmazható azonnali stresszoldók.</p></div>
-  <div class="summary-card"><h4>🧘 Mindfulness</h4><p>Napi 5-10 perces tudatos jelenlét gyakorlás – reggeli meditáció, tudatos étkezés, esti hálagyakorlat.</p></div>
-  <div class="summary-card"><h4>📔 Érzelmi napló</h4><p>Rendszeres önreflexió az érzelmekről és tapasztalatokról – az önismeret és a fejlődés alapja.</p></div>
-  <div class="summary-card"><h4>🤝 Segítségkérés</h4><p>Ha a stressz vagy a nehézségek meghaladják a kezelési képességedet, kérj segítséget – ez erő, nem gyengeség.</p></div>
+  <div class="summary-card"><h4><span data-lang="hu">🌬️ Légzéstechnikák</span><span data-lang="en">🌬️ Breathing techniques</span><span data-lang="ro">🌬️ Tehnici de respirație</span></h4><p><span data-lang="hu">4-7-8 légzés, négyzet légzés, hasi légzés – bárhol, bármikor alkalmazható azonnali stresszoldók.</span><span data-lang="en">4-7-8 breathing, box breathing, abdominal breathing – instant stress relievers that can be used anywhere, anytime.</span><span data-lang="ro">Respirația 4-7-8, respirația pătrată, respirația abdominală – tehnici anti-stres imediate, aplicabile oriunde și oricând.</span></p></div>
+  <div class="summary-card"><h4>🧘 Mindfulness</h4><p><span data-lang="hu">Napi 5-10 perces tudatos jelenlét gyakorlás – reggeli meditáció, tudatos étkezés, esti hálagyakorlat.</span><span data-lang="en">Daily 5-10 minute mindfulness practice – morning meditation, mindful eating, evening gratitude exercise.</span><span data-lang="ro">Practică zilnică de 5-10 minute de mindfulness – meditație de dimineață, alimentație conștientă, exercițiu de recunoștință seara.</span></p></div>
+  <div class="summary-card"><h4><span data-lang="hu">📔 Érzelmi napló</span><span data-lang="en">📔 Emotional journal</span><span data-lang="ro">📔 Jurnal emoțional</span></h4><p><span data-lang="hu">Rendszeres önreflexió az érzelmekről és tapasztalatokról – az önismeret és a fejlődés alapja.</span><span data-lang="en">Regular self-reflection on emotions and experiences – the foundation of self-awareness and growth.</span><span data-lang="ro">Auto-reflecție regulată asupra emoțiilor și experiențelor – baza autocunoașterii și dezvoltării personale.</span></p></div>
+  <div class="summary-card"><h4><span data-lang="hu">🤝 Segítségkérés</span><span data-lang="en">🤝 Asking for help</span><span data-lang="ro">🤝 Cerere de ajutor</span></h4><p><span data-lang="hu">Ha a stressz vagy a nehézségek meghaladják a kezelési képességedet, kérj segítséget – ez erő, nem gyengeség.</span><span data-lang="en">If stress or difficulties exceed your coping abilities, ask for help – it is strength, not weakness.</span><span data-lang="ro">Dacă stresul sau dificultățile depășesc capacitatea ta de gestionare, cere ajutor – aceasta este putere, nu slăbiciune.</span></p></div>
 </div>
       </div>
     </section>
 
 
     <div class="pdf-section">
-      <h3>📥 Fejezet letöltése PDF formátumban</h3>
-      <a href="https://drive.google.com/file/d/138rrUBTPkyfh3ufgjkfSqsEgYJDIV2id/view" target="_blank" class="pdf-btn">🇭🇺 Magyar PDF letöltése</a>
+      <h3><span data-lang="hu">📥 Fejezet letöltése PDF formátumban</span><span data-lang="en">📥 Download chapter in PDF format</span><span data-lang="ro">📥 Descarcă capitolul în format PDF</span></h3>
+      <a href="https://drive.google.com/file/d/138rrUBTPkyfh3ufgjkfSqsEgYJDIV2id/view" target="_blank" class="pdf-btn"><span data-lang="hu">🇭🇺 Magyar PDF letöltése</span><span data-lang="en">🇭🇺 Download Hungarian PDF</span><span data-lang="ro">🇭🇺 Descarcă PDF în maghiară</span></a>
       <a href="https://drive.google.com/file/d/1lTIXTCZDeF3LqAQqrcPZCj6Yw78edyGY/view" target="_blank" class="pdf-btn">🇬🇧 English PDF</a>
       <a href="https://drive.google.com/file/d/1fcNpxCDaPRQJysCWcOiANHnPyx7k0dFU/view" target="_blank" class="pdf-btn">🇷🇴 PDF în română</a>
     </div>
   </main>
 </div>
 
+
+<div class="chapter-nav">
+  <a href="../chapter2/index.html">← <span data-lang="hu"><span data-lang="hu">2. fejezet</span><span data-lang="en">Chapter 2</span><span data-lang="ro">Capitolul 2</span></span><span data-lang="en">Chapter 2</span><span data-lang="ro">Capitolul 2</span></a>
+  <a href="../index.html" class="nav-home"><span data-lang="hu"><span data-lang="hu">🏠 Főoldal</span><span data-lang="en">🏠 Home</span><span data-lang="ro">🏠 Pagina principală</span></span><span data-lang="en">🏠 Home</span><span data-lang="ro">🏠 Acasă</span></a>
+  <a href="../chapter4/index.html"><span data-lang="hu"><span data-lang="hu">4. fejezet</span><span data-lang="en">Chapter 4</span><span data-lang="ro">Capitolul 4</span></span><span data-lang="en">Chapter 4</span><span data-lang="ro">Capitolul 4</span> →</a>
+</div>
+
 <footer class="chapter-footer">
   <p>IMELO – Identity Mosaic | Erasmus+ KA2 projekt | © 2024–2026</p>
-  <p>Az Európai Bizottság támogatásával készült. A tartalom kizárólag a szerzők álláspontját tükrözi.</p>
+  <p><span data-lang="hu">Az Európai Bizottság támogatásával készült. A tartalom kizárólag a szerzők álláspontját tükrözi.</span><span data-lang="en">Prepared with the support of the European Commission. The content reflects the views of the authors only.</span><span data-lang="ro">Realizat cu sprijinul Comisiei Europene. Conținutul reflectă exclusiv punctul de vedere al autorilor.</span></p>
 </footer>
 
 <script>
@@ -426,6 +511,23 @@
       if (target) target.scrollIntoView({behavior: 'smooth', block: 'start'});
     });
   });
+
+  // Language switcher
+  (function() {
+    var stored = localStorage.getItem('imelo-lang') || 'hu';
+    document.body.setAttribute('data-active-lang', stored);
+    document.querySelectorAll('.lang-btn-sub').forEach(function(btn) {
+      if (btn.getAttribute('data-lang-switch') === stored) btn.classList.add('active');
+    });
+  })();
+  function switchLangSub(lang) {
+    document.body.setAttribute('data-active-lang', lang);
+    localStorage.setItem('imelo-lang', lang);
+    document.querySelectorAll('.lang-btn-sub').forEach(function(btn) {
+      btn.classList.toggle('active', btn.getAttribute('data-lang-switch') === lang);
+    });
+  }
+
 </script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>8. Fejezet – Önismeret és Személyes Hatékonyság Fejlesztése | IMELO Toolbox</title>
+  <title><span data-lang="hu">8. Fejezet – Önismeret és Személyes Hatékonyság Fejlesztése | IMELO Toolbox</span><span data-lang="en">Chapter 8 – Developing Self-Awareness and Personal Effectiveness | IMELO Toolbox</span><span data-lang="ro">Capitolul 8 – Dezvoltarea Autocunoașterii și a Eficienței Personale | IMELO Toolbox</span></title>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -117,28 +117,106 @@
 
     /* FOOTER */
     .chapter-footer { background: #1a1a2e; color: white; text-align: center; padding: 1.5rem; font-size: 0.8rem; opacity: 0.8; }
+  
+    /* Chapter navigation */
+    .chapter-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 1.5rem;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      margin: 1.5rem 0;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .chapter-nav a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: linear-gradient(135deg, #1a7a4a 0%, #2ecc71 100%);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+      transition: opacity 0.2s;
+    }
+    .chapter-nav a:hover { opacity: 0.85; }
+    .chapter-nav .nav-home {
+      background: linear-gradient(135deg, #E8622A 0%, #f39c12 100%);
+    }
+    .chapter-nav .nav-center {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #888;
+      flex: 1;
+    }
+    @media (max-width: 600px) {
+      .chapter-nav { flex-direction: column; align-items: stretch; text-align: center; }
+      .chapter-nav a { justify-content: center; }
+    }
+
+  
+    [data-lang] { display: none; }
+    body[data-active-lang="hu"] [data-lang="hu"] { display: inline; }
+    body[data-active-lang="en"] [data-lang="en"] { display: inline; }
+    body[data-active-lang="ro"] [data-lang="ro"] { display: inline; }
+
+  
+    /* Language switching */
+    [data-lang] { display: none; }
+    body[data-active-lang="hu"] [data-lang="hu"],
+    body[data-active-lang="hu"] span[data-lang="hu"] { display: inline; }
+    body[data-active-lang="en"] [data-lang="en"],
+    body[data-active-lang="en"] span[data-lang="en"] { display: inline; }
+    body[data-active-lang="ro"] [data-lang="ro"],
+    body[data-active-lang="ro"] span[data-lang="ro"] { display: inline; }
+    body[data-active-lang="hu"] div[data-lang="hu"],
+    body[data-active-lang="en"] div[data-lang="en"],
+    body[data-active-lang="ro"] div[data-lang="ro"] { display: block; }
+    .lang-switcher-sub {
+      position: fixed; top: 12px; right: 16px; z-index: 9999;
+      display: flex; gap: 6px; background: rgba(255,255,255,0.95);
+      padding: 4px 8px; border-radius: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .lang-btn-sub {
+      background: none; border: none; cursor: pointer;
+      font-size: 1.2rem; padding: 2px 4px; border-radius: 6px;
+      opacity: 0.6; transition: opacity 0.2s;
+    }
+    .lang-btn-sub:hover, .lang-btn-sub.active { opacity: 1; }
+
   </style>
 </head>
-<body>
+<body data-active-lang="hu">
+<div class="lang-switcher-sub">
+  <button class="lang-btn-sub" data-lang-switch="hu" onclick="switchLangSub('hu')" title="Magyar">🇭🇺</button>
+  <button class="lang-btn-sub" data-lang-switch="en" onclick="switchLangSub('en')" title="English">🇬🇧</button>
+  <button class="lang-btn-sub" data-lang-switch="ro" onclick="switchLangSub('ro')" title="Română">🇷🇴</button>
+</div>
 
 <nav class="topbar">
   <a href="../index.html" class="topbar-logo">
     <img src="imelo_logo.png" alt="Identity Mosaic logó">
   </a>
-  <a href="../index.html" class="back-btn">← Vissza az Eszköztárhoz</a>
+  <a href="../index.html" class="back-btn"><span data-lang="hu">← Vissza az Eszköztárhoz</span><span data-lang="en">← Back to Toolbox</span><span data-lang="ro">← Înapoi la Toolbox</span></a>
 </nav>
 
 <div class="chapter-hero">
-  <div class="chapter-num">8. Fejezet</div>
-  <h1>Önismeret és Személyes Hatékonyság Fejlesztése</h1>
-  <p class="subtitle">Belső erőforrások és személyes potenciál</p>
-  <div class="tags"><span class="tag">🪞 Önismeret</span> <span class="tag">⚡ Hatékonyság</span> <span class="tag">🎯 SMART célok</span></div>
+  <div class="chapter-num"><span data-lang="hu">8. Fejezet</span><span data-lang="en">Chapter 8</span><span data-lang="ro">Capitolul 8</span></div>
+  <h1><span data-lang="hu">Önismeret és Személyes Hatékonyság Fejlesztése</span><span data-lang="en">Developing Self-Awareness and Personal Effectiveness</span><span data-lang="ro">Dezvoltarea Autocunoașterii și a Eficienței Personale</span></h1>
+  <p class="subtitle"><span data-lang="hu">Belső erőforrások és személyes potenciál</span><span data-lang="en">Internal Resources and Personal Potential</span><span data-lang="ro">Resurse interne și potențial personal</span></p>
+  <div class="tags"><span class="tag"><span data-lang="hu">🪞 Önismeret</span><span data-lang="en">🪞 Self-Awareness</span><span data-lang="ro">🪞 Autocunoaștere</span></span> <span class="tag"><span data-lang="hu">⚡ Hatékonyság</span><span data-lang="en">⚡ Effectiveness</span><span data-lang="ro">⚡ Eficiență</span></span> <span class="tag"><span data-lang="hu">🎯 SMART célok</span><span data-lang="en">🎯 SMART Goals</span><span data-lang="ro">🎯 Obiective SMART</span></span></div>
 </div>
 
 <div class="page-layout">
   <aside class="sidebar">
-    <h3>Tartalomjegyzék</h3>
-    <a href="#alapok" class="toc-item">Az Önismeret Alapjai</a><a href="#johari" class="toc-item">A Johari-ablak</a><a href="#idogazdalkodas" class="toc-item">Időgazdálkodás és Hatékonyság</a><a href="#komfortzóna" class="toc-item">Komfortzóna Bővítése</a><a href="#onreflexio" class="toc-item">Önreflexió – Személyes Hatékonyságom</a><a href="#osszefoglalas" class="toc-item">Összefoglalás</a>
+    <h3><span data-lang="hu">Tartalomjegyzék</span><span data-lang="en">Table of Contents</span><span data-lang="ro">Cuprins</span></h3>
+    <a href="#alapok" class="toc-item"><span data-lang="hu">Az Önismeret Alapjai</span><span data-lang="en">The Basics of Self-Awareness</span><span data-lang="ro">Bazele Autocunoașterii</span></a><a href="#johari" class="toc-item">A Johari-ablak</a><a href="#idogazdalkodas" class="toc-item"><span data-lang="hu">Időgazdálkodás és Hatékonyság</span><span data-lang="en">Time Management and Effectiveness</span><span data-lang="ro">Managementul timpului și eficiența</span></a><a href="#komfortzóna" class="toc-item"><span data-lang="hu">Komfortzóna Bővítése</span><span data-lang="en">Expanding the Comfort Zone</span><span data-lang="ro">Extinderea zonei de confort</span></a><a href="#onreflexio" class="toc-item"><span data-lang="hu">Önreflexió – Személyes Hatékonyságom</span><span data-lang="en">Self-Reflection – My Personal Effectiveness</span><span data-lang="ro">Auto-reflecție – Eficiența mea personală</span></a><a href="#osszefoglalas" class="toc-item"><span data-lang="hu">Összefoglalás</span><span data-lang="en">Summary</span><span data-lang="ro">Rezumat</span></a>
   </aside>
 
   <main>
@@ -147,21 +225,21 @@
       <div class="section-header">
         <span class="section-icon">🪞</span>
         <div>
-          <h2>Az Önismeret Alapjai</h2>
-          <p class="section-subtitle">Ki vagyok valójában?</p>
+          <h2><span data-lang="hu">Az Önismeret Alapjai</span><span data-lang="en">The Basics of Self-Awareness</span><span data-lang="ro">Bazele Autocunoașterii</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Ki vagyok valójában?</span><span data-lang="en">Who am I really?</span><span data-lang="ro">Cine sunt cu adevărat?</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #37474F, transparent);"></div>
-      <p class="section-intro">Az önismeret a személyes fejlődés alapköve. Minél jobban ismerjük magunkat – erősségeinket, gyengeségeinket, értékeinket és mintáinkat – annál tudatosabban irányíthatjuk az életünket.</p>
+      <p class="section-intro"><span data-lang="hu">Az önismeret a személyes fejlődés alapköve. Minél jobban ismerjük magunkat – erősségeinket, gyengeségeinket, értékeinket és mintáinkat – annál tudatosabban irányíthatjuk az életünket.</span><span data-lang="en">Self-awareness is the cornerstone of personal development. The better we know ourselves – our strengths, weaknesses, values, and patterns – the more consciously we can steer our lives.</span><span data-lang="ro">Autocunoașterea este piatra de temelie a dezvoltării personale. Cu cât ne cunoaștem mai bine – punctele forte, slăbiciunile, valorile și tiparele noastre – cu atât putem conduce viața noastră mai conștient.</span></p>
       <div class="stats-row">
-        <div class="stat-card"><div class="stat-value" style="color:#37474F">85%</div><div class="stat-label">A sikeres emberek magas önismerettel rendelkeznek</div></div>
-        <div class="stat-card"><div class="stat-value" style="color:#90A4AE">4×</div><div class="stat-label">Hatékonyabb döntéshozatal erős önismerettel</div></div>
-        <div class="stat-card"><div class="stat-value" style="color:#1565C0">360°</div><div class="stat-label">A teljes önismeret belső és külső visszajelzésből épül</div></div>
+        <div class="stat-card"><div class="stat-value" style="color:#37474F">85%</div><div class="stat-label"><span data-lang="hu">A sikeres emberek magas önismerettel rendelkeznek</span><span data-lang="en">Successful people have high self-awareness</span><span data-lang="ro">Oamenii de succes au un nivel ridicat de autocunoaștere</span></div></div>
+        <div class="stat-card"><div class="stat-value" style="color:#90A4AE">4×</div><div class="stat-label"><span data-lang="hu">Hatékonyabb döntéshozatal erős önismerettel</span><span data-lang="en">More effective decision-making with strong self-awareness</span><span data-lang="ro">Luarea deciziilor mai eficientă prin autocunoaștere puternică</span></div></div>
+        <div class="stat-card"><div class="stat-value" style="color:#1565C0">360°</div><div class="stat-label"><span data-lang="hu">A teljes önismeret belső és külső visszajelzésből épül</span><span data-lang="en">Complete self-awareness is built from internal and external feedback</span><span data-lang="ro">Autocunoașterea completă se construiește pe baza feedback-ului intern și extern</span></div></div>
       </div>
       <div class="section-content">
 <div class="content-grid">
-  <div class="content-card"><h4>🔍 Mit jelent az önismeret?</h4><p>Az önismeret nem csupán a saját tulajdonságok listázása – hanem a <strong>viselkedési minták, érzelmi reakciók, értékek és motivációk</strong> mélyebb megértése.</p></div>
-  <div class="content-card"><h4>🎯 Az eszköztár célja</h4><ul><li>Önismeret mélyítése különböző módszerekkel</li><li>Személyes értékek azonosítása</li><li>Időgazdálkodás és hatékonyság javítása</li><li>Szokások tudatos alakítása</li></ul></div>
+  <div class="content-card"><h4><span data-lang="hu">🔍 Mit jelent az önismeret?</span><span data-lang="en">🔍 What does self-awareness mean?</span><span data-lang="ro">🔍 Ce înseamnă autocunoașterea?</span></h4><p><span data-lang="hu">Az önismeret nem csupán a saját tulajdonságok listázása – hanem a</span><span data-lang="en">Self-awareness is not just listing your own traits – but</span><span data-lang="ro">Autocunoașterea nu este doar enumerarea trăsăturilor proprii – ci</span> <strong><span data-lang="hu">viselkedési minták, érzelmi reakciók, értékek és motivációk</span><span data-lang="en">a deeper understanding of behavioral patterns, emotional reactions, values, and motivations.</span><span data-lang="ro">înțelegerea profundă a</span></strong> <span data-lang="hu">mélyebb megértése.</span><span data-lang="en">🎯 The aim of the toolbox</span><span data-lang="ro">tiparelor comportamentale, reacțiilor emoționale, valorilor și motivațiilor.</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">🎯 Az eszköztár célja</span><span data-lang="en">Deepening self-awareness through various methods</span><span data-lang="ro">🎯 Scopul toolbox-ului</span></h4><ul><li><span data-lang="hu">Önismeret mélyítése különböző módszerekkel</span><span data-lang="en">Identifying personal values</span><span data-lang="ro">Adâncirea autocunoașterii prin metode diverse</span></li><li><span data-lang="hu">Személyes értékek azonosítása</span><span data-lang="en">Improving time management and effectiveness</span><span data-lang="ro">Identificarea valorilor personale</span></li><li><span data-lang="hu">Időgazdálkodás és hatékonyság javítása</span><span data-lang="en">Conscious shaping of habits</span><span data-lang="ro">Îmbunătățirea managementului timpului și a eficienței</span></li><li><span data-lang="hu">Szokások tudatos alakítása</span><span data-lang="en">The video demonstrates how young people can uncover their true potential using a specific self-awareness toolbox, supporting the strengthening of personal effectiveness and conscious self-development.</span><span data-lang="ro">Modelarea conștientă a obiceiurilor</span></li></ul></div>
 </div>
       </div>
 
@@ -177,7 +255,7 @@
           allowfullscreen>
         </iframe>
       </div>
-      <p class="video-caption">A videó bemutatja, hogyan tárhatják fel a fiatalok a bennük rejlő valódi potenciált egy konkrét önismereti eszköztár segítségével, elősegítve a személyes hatékonyság és a tudatos önfejlesztés erősítését.</p>
+      <p class="video-caption"><span data-lang="hu">A videó bemutatja, hogyan tárhatják fel a fiatalok a bennük rejlő valódi potenciált egy konkrét önismereti eszköztár segítségével, elősegítve a személyes hatékonyság és a tudatos önfejlesztés erősítését.</span><span data-lang="en">Uncovering blind spots and hidden areas</span><span data-lang="ro">Videoclipul prezintă cum tinerii pot descoperi potențialul lor real cu ajutorul unui toolbox concret de autocunoaștere, sprijinind dezvoltarea eficienței personale și a auto-dezvoltării conștiente.</span></p>
     </section>
 
     <section class="chapter-section" id="johari">
@@ -185,17 +263,17 @@
         <span class="section-icon">🪟</span>
         <div>
           <h2>A Johari-ablak</h2>
-          <p class="section-subtitle">Vakfoltok és rejtett területek feltárása</p>
+          <p class="section-subtitle"><span data-lang="hu">Vakfoltok és rejtett területek feltárása</span><span data-lang="en">The Johari Window (Luft & Ingham, 1955) is a square model illustrating the relationship between self-awareness and how others perceive us.</span><span data-lang="ro">Descoperirea punctelor oarbe și a zonelor ascunse</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #37474F, transparent);"></div>
-      <p class="section-intro">A Johari-ablak (Luft & Ingham, 1955) egy négyzetes modell, amely az önismeret és a mások által rólunk alkotott kép viszonyát ábrázolja.</p>
+      <p class="section-intro"><span data-lang="hu">A Johari-ablak (Luft & Ingham, 1955) egy négyzetes modell, amely az önismeret és a mások által rólunk alkotott kép viszonyát ábrázolja.</span><span data-lang="en">🟢 Open Area</span><span data-lang="ro">Fereastra Johari (Luft & Ingham, 1955) este un model pătrat care ilustrează relația dintre autocunoaștere și imaginea pe care ceilalți o au despre noi.</span></p>
       <div class="section-content">
 <div class="content-grid">
-  <div class="content-card" style="border-left: 4px solid #4CAF50;"><h4>🟢 Nyílt terület</h4><p>Amit én is tudok magamról, és mások is tudnak rólam. Minél nagyobb ez a terület, annál autentikusabb a kommunikációnk.</p></div>
-  <div class="content-card" style="border-left: 4px solid #FF9800;"><h4>🟡 Vak folt</h4><p>Amit mások látnak bennem, de én nem látok magamban. Visszajelzések kérésével csökkenthetjük ezt a területet.</p></div>
-  <div class="content-card" style="border-left: 4px solid #2196F3;"><h4>🔵 Rejtett terület</h4><p>Amit én tudok magamról, de mások nem. Az önfeltárás és a bizalom növelésével csökkenthetjük ezt a területet.</p></div>
-  <div class="content-card" style="border-left: 4px solid #9C27B0;"><h4>🟣 Ismeretlen terület</h4><p>Amit sem én, sem mások nem tudnak rólam. Új tapasztalatok, terápia és mély önreflexió tárhatja fel.</p></div>
+  <div class="content-card" style="border-left: 4px solid #4CAF50;"><h4><span data-lang="hu">🟢 Nyílt terület</span><span data-lang="en">What I know about myself and others also know about me. The larger this area, the more authentic our communication.</span><span data-lang="ro">🟢 Zona deschisă</span></h4><p><span data-lang="hu">Amit én is tudok magamról, és mások is tudnak rólam. Minél nagyobb ez a terület, annál autentikusabb a kommunikációnk.</span><span data-lang="en">What others see in me, but I do not see in myself. We can reduce this area by asking for feedback.</span><span data-lang="ro">Ce știu eu despre mine și ce știu și ceilalți despre mine. Cu cât această zonă este mai mare, cu atât comunicarea noastră este mai autentică.</span></p></div>
+  <div class="content-card" style="border-left: 4px solid #FF9800;"><h4>🟡 Vak folt</h4><p><span data-lang="hu">Amit mások látnak bennem, de én nem látok magamban. Visszajelzések kérésével csökkenthetjük ezt a területet.</span><span data-lang="en">🔵 Hidden Area</span><span data-lang="ro">Ce văd ceilalți în mine, dar eu nu văd în mine. Putem reduce această zonă cerând feedback.</span></p></div>
+  <div class="content-card" style="border-left: 4px solid #2196F3;"><h4><span data-lang="hu">🔵 Rejtett terület</span><span data-lang="en">What I know about myself but others do not. We can reduce this area through self-disclosure and building trust.</span><span data-lang="ro">🔵 Zona ascunsă</span></h4><p><span data-lang="hu">Amit én tudok magamról, de mások nem. Az önfeltárás és a bizalom növelésével csökkenthetjük ezt a területet.</span><span data-lang="en">🟣 Unknown Area</span><span data-lang="ro">Ce știu eu despre mine, dar ceilalți nu știu. Putem reduce această zonă prin auto-dezvăluire și creșterea încrederii.</span></p></div>
+  <div class="content-card" style="border-left: 4px solid #9C27B0;"><h4><span data-lang="hu">🟣 Ismeretlen terület</span><span data-lang="en">What neither I nor others know about me. New experiences, therapy, and deep self-reflection can reveal this.</span><span data-lang="ro">🟣 Zona necunoscută</span></h4><p><span data-lang="hu">Amit sem én, sem mások nem tudnak rólam. Új tapasztalatok, terápia és mély önreflexió tárhatja fel.</span><span data-lang="en">Time Management and Effectiveness</span><span data-lang="ro">Ce nu știu nici eu, nici ceilalți despre mine. Experiențe noi, terapie și auto-reflecție profundă pot descoperi această zonă.</span></p></div>
 </div>
       </div>
     </section>
@@ -204,18 +282,18 @@
       <div class="section-header">
         <span class="section-icon">⏰</span>
         <div>
-          <h2>Időgazdálkodás és Hatékonyság</h2>
-          <p class="section-subtitle">Az Eisenhower-mátrix és a SMART célok</p>
+          <h2><span data-lang="hu">Időgazdálkodás és Hatékonyság</span><span data-lang="en">The Eisenhower Matrix and SMART Goals</span><span data-lang="ro">Managementul timpului și eficiența</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Az Eisenhower-mátrix és a SMART célok</span><span data-lang="en">Time management is not about controlling time – but about dedicating the available time to the most important things.</span><span data-lang="ro">Matricea Eisenhower și obiectivele SMART</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #37474F, transparent);"></div>
-      <p class="section-intro">Az időgazdálkodás nem az idő kontrollálásáról szól – hanem arról, hogy a rendelkezésre álló időt a legfontosabb dolgokra fordítsuk.</p>
+      <p class="section-intro"><span data-lang="hu">Az időgazdálkodás nem az idő kontrollálásáról szól – hanem arról, hogy a rendelkezésre álló időt a legfontosabb dolgokra fordítsuk.</span><span data-lang="en">📊 Eisenhower Matrix</span><span data-lang="ro">Managementul timpului nu înseamnă controlul timpului – ci alocarea timpului disponibil celor mai importante lucruri.</span></p>
       <div class="section-content">
 <div class="content-grid">
-  <div class="content-card"><h4>📊 Eisenhower-mátrix</h4><p>Sürgős + Fontos: <strong>Csináld most!</strong><br>Nem sürgős + Fontos: <strong>Tervezd be!</strong><br>Sürgős + Nem fontos: <strong>Delegáld!</strong><br>Nem sürgős + Nem fontos: <strong>Töröld!</strong></p></div>
-  <div class="content-card"><h4>🎯 SMART célkitűzés</h4><p>Specifikus – Mérhető – Akciótervvel rendelkező – Reális – Időhöz kötött. A SMART célok konkrét irányt adnak és mérhetővé teszik a haladást.</p></div>
-  <div class="content-card"><h4>🔄 GROW coaching modell</h4><p><strong>G</strong>oal (Cél) – <strong>R</strong>eality (Valóság) – <strong>O</strong>ptions (Lehetőségek) – <strong>W</strong>ill (Akarat/Cselekvés). Hatékony keret a célok elérésének tervezéséhez.</p></div>
-  <div class="content-card"><h4>🔁 Szokás hurok</h4><p>Jelzés → Rutin → Jutalom. A szokások megváltoztatásához azonosítsd a jelzést, módosítsd a rutint, és tartsd meg a jutalmat (Charles Duhigg).</p></div>
+  <div class="content-card"><h4><span data-lang="hu">📊 Eisenhower-mátrix</span><span data-lang="en">Urgent + Important:</span><span data-lang="ro">📊 Matricea Eisenhower</span></h4><p><span data-lang="hu">Sürgős + Fontos:</span><span data-lang="en">Do it now!</span><span data-lang="ro">Urgent + Important:</span> <strong><span data-lang="hu">Csináld most!</span><span data-lang="en">Not Urgent + Important:</span><span data-lang="ro">Fă acum!</span></strong><br><span data-lang="hu">Nem sürgős + Fontos:</span><span data-lang="en">Schedule it!</span><span data-lang="ro">Nu urgent + Important:</span> <strong><span data-lang="hu">Tervezd be!</span><span data-lang="en">Urgent + Not Important:</span><span data-lang="ro">Planifică!</span></strong><br><span data-lang="hu">Sürgős + Nem fontos:</span><span data-lang="en">Delegate it!</span><span data-lang="ro">Urgent + Nu important:</span> <strong><span data-lang="hu">Delegáld!</span><span data-lang="en">Not Urgent + Not Important:</span><span data-lang="ro">Deleagă!</span></strong><br><span data-lang="hu">Nem sürgős + Nem fontos:</span><span data-lang="en">Nem sürgős + Nem fontos:</span><span data-lang="ro">Nu urgent + Nu important:</span> <strong><span data-lang="hu">Töröld!</span><span data-lang="en">Delete!</span><span data-lang="ro">Șterge!</span></strong></p></div>
+  <div class="content-card"><h4><span data-lang="hu">🎯 SMART célkitűzés</span><span data-lang="en">🎯 SMART goal setting</span><span data-lang="ro">🎯 Obiectiv SMART</span></h4><p><span data-lang="hu">Specifikus – Mérhető – Akciótervvel rendelkező – Reális – Időhöz kötött. A SMART célok konkrét irányt adnak és mérhetővé teszik a haladást.</span><span data-lang="en">Specific – Measurable – Action-planned – Realistic – Time-bound. SMART goals provide clear direction and make progress measurable.</span><span data-lang="ro">Specific – Măsurabil – Cu plan de acțiune – Realist – Limitat în timp. Obiectivele SMART oferă o direcție clară și fac progresul măsurabil.</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">🔄 GROW coaching modell</span><span data-lang="en">🔄 GROW coaching model</span><span data-lang="ro">🔄 Modelul de coaching GROW</span></h4><p><strong>G</strong><span data-lang="hu">oal (Cél) –</span><span data-lang="en">Goal –</span><span data-lang="ro">Obiectiv (Goal) –</span> <strong>R</strong><span data-lang="hu">eality (Valóság) –</span><span data-lang="en">Reality –</span><span data-lang="ro">Realitate (Reality) –</span> <strong>O</strong><span data-lang="hu">ptions (Lehetőségek) –</span><span data-lang="en">Options –</span><span data-lang="ro">Opțiuni (Options) –</span> <strong>W</strong><span data-lang="hu">ill (Akarat/Cselekvés). Hatékony keret a célok elérésének tervezéséhez.</span><span data-lang="en">Will (Will/Action). An effective framework for planning goal achievement.</span><span data-lang="ro">Voință (Will). Un cadru eficient pentru planificarea atingerii obiectivelor.</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">🔁 Szokás hurok</span><span data-lang="en">🔁 Habit loop</span><span data-lang="ro">🔁 Bucla obiceiului</span></h4><p><span data-lang="hu">Jelzés → Rutin → Jutalom. A szokások megváltoztatásához azonosítsd a jelzést, módosítsd a rutint, és tartsd meg a jutalmat (Charles Duhigg).</span><span data-lang="en">Cue → Routine → Reward. To change habits, identify the cue, modify the routine, and keep the reward (Charles Duhigg).</span><span data-lang="ro">Semnal → Rutina → Recompensă. Pentru a schimba obiceiurile, identifică semnalul, modifică rutina și păstrează recompensa (Charles Duhigg).</span></p></div>
 </div>
       </div>
     </section>
@@ -224,18 +302,18 @@
       <div class="section-header">
         <span class="section-icon">🚀</span>
         <div>
-          <h2>Komfortzóna Bővítése</h2>
-          <p class="section-subtitle">Növekedés a kényelmetlenségen keresztül</p>
+          <h2><span data-lang="hu">Komfortzóna Bővítése</span><span data-lang="en">Expanding the Comfort Zone</span><span data-lang="ro">Extinderea zonei de confort</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Növekedés a kényelmetlenségen keresztül</span><span data-lang="en">Growth through discomfort</span><span data-lang="ro">Creștere prin disconfort</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #37474F, transparent);"></div>
-      <p class="section-intro">A komfortzóna az a terület, ahol biztonságban érezzük magunkat – de a fejlődés mindig a határain kívül történik. A tudatos komfortzóna-bővítés a személyes fejlődés egyik leghatékonyabb eszköze.</p>
+      <p class="section-intro"><span data-lang="hu">A komfortzóna az a terület, ahol biztonságban érezzük magunkat – de a fejlődés mindig a határain kívül történik. A tudatos komfortzóna-bővítés a személyes fejlődés egyik leghatékonyabb eszköze.</span><span data-lang="en">The comfort zone is the area where we feel safe – but growth always happens outside its boundaries. Conscious comfort zone expansion is one of the most effective tools for personal development.</span><span data-lang="ro">Zona de confort este acea zonă în care ne simțim în siguranță – dar dezvoltarea are loc întotdeauna dincolo de limitele ei. Extinderea conștientă a zonei de confort este unul dintre cele mai eficiente instrumente pentru dezvoltarea personală.</span></p>
       <div class="section-content">
 <div class="steps-list">
-  <div class="step"><span class="step-num">1</span><div><strong>Azonosítsd a határaidat</strong><p>Mik azok a helyzetek, amelyeket kerülsz? Mik azok a dolgok, amelyeket "egyszer majd" szeretnél megcsinálni? Ezek a komfortzóna határai.</p></div></div>
-  <div class="step"><span class="step-num">2</span><div><strong>Kis lépések</strong><p>Ne ugorj azonnal a mélyvízbe – tegyél kis lépéseket a határok felé. Minden kis győzelem önbizalmat épít és tágítja a komfortzónát.</p></div></div>
-  <div class="step"><span class="step-num">3</span><div><strong>Növekedési szemlélet</strong><p>A kudarcok tanulási lehetőségek, nem végső ítéletek. A "még nem tudom" szemlélet (Carol Dweck) nyitottá tesz a fejlődésre.</p></div></div>
-  <div class="step"><span class="step-num">4</span><div><strong>30 napos kihívás</strong><p>Minden nap csinálj valami kis újdonságot – szólalj fel egy csoportban, próbálj ki egy új ételt, csatlakozz egy új közösséghez.</p></div></div>
+  <div class="step"><span class="step-num">1</span><div><strong><span data-lang="hu">Azonosítsd a határaidat</span><span data-lang="en">Identify your limits</span><span data-lang="ro">Identifică-ți limitele</span></strong><p><span data-lang="hu">Mik azok a helyzetek, amelyeket kerülsz? Mik azok a dolgok, amelyeket "egyszer majd" szeretnél megcsinálni? Ezek a komfortzóna határai.</span><span data-lang="en">What situations do you avoid? What are the things you’d like to do "someday"? These are the boundaries of your comfort zone.</span><span data-lang="ro">Care sunt situațiile pe care le eviți? Care sunt lucrurile pe care „odată” ai vrea să le faci? Acestea sunt limitele zonei tale de confort.</span></p></div></div>
+  <div class="step"><span class="step-num">2</span><div><strong><span data-lang="hu">Kis lépések</span><span data-lang="en">Small steps</span><span data-lang="ro">Pași mici</span></strong><p><span data-lang="hu">Ne ugorj azonnal a mélyvízbe – tegyél kis lépéseket a határok felé. Minden kis győzelem önbizalmat épít és tágítja a komfortzónát.</span><span data-lang="en">Don’t jump into the deep end immediately – take small steps toward the boundaries. Every small victory builds confidence and expands the comfort zone.</span><span data-lang="ro">Nu sări imediat în apa adâncă – fă pași mici către limite. Fiecare mică victorie construiește încredere și extinde zona de confort.</span></p></div></div>
+  <div class="step"><span class="step-num">3</span><div><strong><span data-lang="hu">Növekedési szemlélet</span><span data-lang="en">Growth mindset</span><span data-lang="ro">Mentalitate de creștere</span></strong><p><span data-lang="hu">A kudarcok tanulási lehetőségek, nem végső ítéletek. A "még nem tudom" szemlélet (Carol Dweck) nyitottá tesz a fejlődésre.</span><span data-lang="en">Failures are learning opportunities, not final judgments. The "not yet" mindset (Carol Dweck) opens you up to development.</span><span data-lang="ro">Eșecurile sunt oportunități de învățare, nu judecăți finale. Mentalitatea „încă nu știu” (Carol Dweck) deschide calea către dezvoltare.</span></p></div></div>
+  <div class="step"><span class="step-num">4</span><div><strong><span data-lang="hu">30 napos kihívás</span><span data-lang="en">30-day challenge</span><span data-lang="ro">Provocare de 30 de zile</span></strong><p><span data-lang="hu">Minden nap csinálj valami kis újdonságot – szólalj fel egy csoportban, próbálj ki egy új ételt, csatlakozz egy új közösséghez.</span><span data-lang="en">Do something new every day – speak up in a group, try a new food, join a new community.</span><span data-lang="ro">În fiecare zi fă ceva nou – exprimă-te într-un grup, încearcă o mâncare nouă, alătură-te unei comunități noi.</span></p></div></div>
 </div>
       </div>
     </section>
@@ -244,63 +322,63 @@
       <div class="section-header">
         <span class="section-icon">📝</span>
         <div>
-          <h2>Önreflexió – Személyes Hatékonyságom</h2>
-          <p class="section-subtitle">Saját erőforrások és fejlesztési területek</p>
+          <h2><span data-lang="hu">Önreflexió – Személyes Hatékonyságom</span><span data-lang="en">Self-reflection – My Personal Effectiveness</span><span data-lang="ro">Auto-reflecție – Eficiența mea personală</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Saját erőforrások és fejlesztési területek</span><span data-lang="en">Own resources and areas for development</span><span data-lang="ro">Resurse proprii și domenii de dezvoltare</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #37474F, transparent);"></div>
-      <p class="section-intro">Az alábbi kérdőív segít feltérképezni a személyes hatékonyságodat és azonosítani a fejlesztendő területeket.</p>
+      <p class="section-intro"><span data-lang="hu">Az alábbi kérdőív segít feltérképezni a személyes hatékonyságodat és azonosítani a fejlesztendő területeket.</span><span data-lang="en">The questionnaire below helps map your personal effectiveness and identify areas for improvement.</span><span data-lang="ro">Chestionarul de mai jos te ajută să-ți cartografiezi eficiența personală și să identifici ariile de îmbunătățit.</span></p>
 
       <div class="interactive-box" style="background:#eceff1; border-left: 4px solid #37474F;">
-        <h3>🧩 Önértékelő kérdőív – Személyes hatékonyságom</h3>
-        <p>Töltsd ki az alábbi kérdőívet, hogy képet kapj jelenlegi szokásaidról és fejlesztési lehetőségeidről!</p>
+        <h3><span data-lang="hu">🧩 Önértékelő kérdőív – Személyes hatékonyságom</span><span data-lang="en">🧩 Self-assessment questionnaire – My Personal Effectiveness</span><span data-lang="ro">🧩 Chestionar de autoevaluare – Eficiența mea personală</span></h3>
+        <p><span data-lang="hu">Töltsd ki az alábbi kérdőívet, hogy képet kapj jelenlegi szokásaidról és fejlesztési lehetőségeidről!</span><span data-lang="en">Fill out the questionnaire below to get an overview of your current habits and development opportunities!</span><span data-lang="ro">Completează chestionarul de mai jos pentru a-ți face o imagine asupra obiceiurilor și oportunităților tale de dezvoltare!</span></p>
         <div class="reflection-form" id="reflectionForm">
 
     <div class="reflection-question" id="q1">
-      <label class="q-label">Mennyire ismerem az erősségeimet és gyengeségeimet?</label>
+      <label class="q-label"><span data-lang="hu">Mennyire ismerem az erősségeimet és gyengeségeimet?</span><span data-lang="en">How well do I know my strengths and weaknesses?</span><span data-lang="ro">Cât de bine îmi cunosc punctele forte și slăbiciunile?</span></label>
       <div class="scale-container">
-        <span class="scale-label">Egyáltalán nem</span>
+        <span class="scale-label"><span data-lang="hu">Egyáltalán nem</span><span data-lang="en">Not at all</span><span data-lang="ro">Deloc</span></span>
         <div class="scale-buttons">
           <button class="scale-btn" onclick="selectScale(this, 1)">1</button><button class="scale-btn" onclick="selectScale(this, 1)">2</button><button class="scale-btn" onclick="selectScale(this, 1)">3</button><button class="scale-btn" onclick="selectScale(this, 1)">4</button><button class="scale-btn" onclick="selectScale(this, 1)">5</button>
         </div>
-        <span class="scale-label">Teljes mértékben</span>
+        <span class="scale-label"><span data-lang="hu">Teljes mértékben</span><span data-lang="en">Completely</span><span data-lang="ro">Complet</span></span>
       </div>
     </div>
     <div class="reflection-question" id="q2">
-      <label class="q-label">Mennyire hatékonyan gazdálkodom az időmmel?</label>
+      <label class="q-label"><span data-lang="hu">Mennyire hatékonyan gazdálkodom az időmmel?</span><span data-lang="en">How effectively do I manage my time?</span><span data-lang="ro">Cât de eficient îmi gestionez timpul?</span></label>
       <div class="scale-container">
-        <span class="scale-label">Egyáltalán nem</span>
+        <span class="scale-label"><span data-lang="hu">Egyáltalán nem</span><span data-lang="en">Not at all</span><span data-lang="ro">Deloc</span></span>
         <div class="scale-buttons">
           <button class="scale-btn" onclick="selectScale(this, 2)">1</button><button class="scale-btn" onclick="selectScale(this, 2)">2</button><button class="scale-btn" onclick="selectScale(this, 2)">3</button><button class="scale-btn" onclick="selectScale(this, 2)">4</button><button class="scale-btn" onclick="selectScale(this, 2)">5</button>
         </div>
-        <span class="scale-label">Teljes mértékben</span>
+        <span class="scale-label"><span data-lang="hu">Teljes mértékben</span><span data-lang="en">Completely</span><span data-lang="ro">Complet</span></span>
       </div>
     </div>
     <div class="reflection-question" id="q3">
-      <label class="q-label">Mennyire tudatosan alakítom a szokásaimat?</label>
+      <label class="q-label"><span data-lang="hu">Mennyire tudatosan alakítom a szokásaimat?</span><span data-lang="en">How consciously do I shape my habits?</span><span data-lang="ro">Cât de conștient îmi formez obiceiurile?</span></label>
       <div class="scale-container">
-        <span class="scale-label">Egyáltalán nem</span>
+        <span class="scale-label"><span data-lang="hu">Egyáltalán nem</span><span data-lang="en">Not at all</span><span data-lang="ro">Deloc</span></span>
         <div class="scale-buttons">
           <button class="scale-btn" onclick="selectScale(this, 3)">1</button><button class="scale-btn" onclick="selectScale(this, 3)">2</button><button class="scale-btn" onclick="selectScale(this, 3)">3</button><button class="scale-btn" onclick="selectScale(this, 3)">4</button><button class="scale-btn" onclick="selectScale(this, 3)">5</button>
         </div>
-        <span class="scale-label">Teljes mértékben</span>
+        <span class="scale-label"><span data-lang="hu">Teljes mértékben</span><span data-lang="en">Completely</span><span data-lang="ro">Complet</span></span>
       </div>
     </div>
     <div class="reflection-question" id="q4">
-      <label class="q-label">Mennyire aktívan bővítem a komfortzónámat?</label>
+      <label class="q-label"><span data-lang="hu">Mennyire aktívan bővítem a komfortzónámat?</span><span data-lang="en">How actively do I expand my comfort zone?</span><span data-lang="ro">Cât de activ îmi extind zona de confort?</span></label>
       <div class="scale-container">
-        <span class="scale-label">Egyáltalán nem</span>
+        <span class="scale-label"><span data-lang="hu">Egyáltalán nem</span><span data-lang="en">Not at all</span><span data-lang="ro">Deloc</span></span>
         <div class="scale-buttons">
           <button class="scale-btn" onclick="selectScale(this, 4)">1</button><button class="scale-btn" onclick="selectScale(this, 4)">2</button><button class="scale-btn" onclick="selectScale(this, 4)">3</button><button class="scale-btn" onclick="selectScale(this, 4)">4</button><button class="scale-btn" onclick="selectScale(this, 4)">5</button>
         </div>
-        <span class="scale-label">Teljes mértékben</span>
+        <span class="scale-label"><span data-lang="hu">Teljes mértékben</span><span data-lang="en">Completely</span><span data-lang="ro">Complet</span></span>
       </div>
     </div>
     <div class="reflection-question" id="q5">
-      <label class="q-label">Melyik területen szeretnél leginkább fejlődni a személyes hatékonyságod terén?</label>
+      <label class="q-label"><span data-lang="hu">Melyik területen szeretnél leginkább fejlődni a személyes hatékonyságod terén?</span><span data-lang="en">In which area would you most like to improve your personal effectiveness?</span><span data-lang="ro">În ce domeniu dorești să te dezvolți cel mai mult în eficiența personală?</span></label>
       <textarea class="reflection-textarea" rows="3" placeholder="Írd ide a válaszodat..."></textarea>
     </div>
-          <button class="submit-btn" onclick="submitReflection()">Visszajelzés megjelenítése</button>
+          <button class="submit-btn" onclick="submitReflection()"><span data-lang="hu">Visszajelzés megjelenítése</span><span data-lang="en">Show feedback</span><span data-lang="ro">Afișează feedback-ul</span></button>
           <div class="feedback-box" id="feedbackBox" style="display:none;"></div>
         </div>
       </div>
@@ -310,12 +388,12 @@
       <div class="section-header">
         <span class="section-icon">🎬</span>
         <div>
-          <h2>Tökéletes élet – Szituációs videó</h2>
-          <p class="section-subtitle">Az önelfogadás fontossága</p>
+          <h2><span data-lang="hu">Tökéletes élet – Szituációs videó</span><span data-lang="en">Perfect life – Situational video</span><span data-lang="ro">Viață perfectă – Video situațional</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Az önelfogadás fontossága</span><span data-lang="en">The importance of self-acceptance</span><span data-lang="ro">Importanța acceptării de sine</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #1A237E, transparent);"></div>
-      <p class="section-intro">Az alábbi szituációs videó az önelfogadás fontosságát illusztrálja. Ifjúságsegítők használhatják demonstrációs céllal foglalkozások közben.</p>
+      <p class="section-intro"><span data-lang="hu">Az alábbi szituációs videó az önelfogadás fontosságát illusztrálja. Ifjúságsegítők használhatják demonstrációs céllal foglalkozások közben.</span><span data-lang="en">The situational video below illustrates the importance of self-acceptance. Youth workers can use it for demonstration purposes during sessions.</span><span data-lang="ro">Videoclipul situațional de mai jos ilustrează importanța acceptării de sine. Lucrătorii de tineret îl pot folosi ca demonstrație în timpul sesiunilor.</span></p>
       <span id="video-2"></span>
       <div class="video-container">
         <iframe
@@ -328,42 +406,49 @@
           allowfullscreen>
         </iframe>
       </div>
-      <p class="video-caption">Szituációs videó az önelfogadás fontosságának illusztrálására. Ifjúságsegítők használhatják demonstrációs céllal foglalkozások közben.</p>
+      <p class="video-caption"><span data-lang="hu">Szituációs videó az önelfogadás fontosságának illusztrálására. Ifjúságsegítők használhatják demonstrációs céllal foglalkozások közben.</span><span data-lang="en">Situational video illustrating the importance of self-acceptance. Youth workers can use it for demonstration purposes during sessions.</span><span data-lang="ro">Videoclip situațional pentru a ilustra importanța acceptării de sine. Lucrătorii de tineret îl pot folosi ca demonstrație în timpul sesiunilor.</span></p>
     </section>
 
     <section class="chapter-section" id="osszefoglalas">
       <div class="section-header">
         <span class="section-icon">📋</span>
         <div>
-          <h2>Összefoglalás</h2>
-          <p class="section-subtitle">Önismeret és hatékonyság eszköztára</p>
+          <h2><span data-lang="hu">Összefoglalás</span><span data-lang="en">Summary</span><span data-lang="ro">Rezumat</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Önismeret és hatékonyság eszköztára</span><span data-lang="en">Toolkit for self-awareness and effectiveness</span><span data-lang="ro">Instrumentar pentru autocunoaștere și eficiență</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #37474F, transparent);"></div>
-      <p class="section-intro">Az önismeret és a személyes hatékonyság fejlesztése egy élethosszig tartó folyamat – de minden lépés számít.</p>
+      <p class="section-intro"><span data-lang="hu">Az önismeret és a személyes hatékonyság fejlesztése egy élethosszig tartó folyamat – de minden lépés számít.</span><span data-lang="en">Developing self-awareness and personal effectiveness is a lifelong process – but every step counts.</span><span data-lang="ro">Dezvoltarea autocunoașterii și a eficienței personale este un proces pe tot parcursul vieții – dar fiecare pas contează.</span></p>
       <div class="section-content">
 <div class="summary-grid">
-  <div class="summary-card"><h4>🪟 Johari-ablak</h4><p>Kérj visszajelzést, tárj fel rejtett területeket – a vakfoltok csökkentése növeli az önismeretet.</p></div>
-  <div class="summary-card"><h4>⏰ Eisenhower-mátrix</h4><p>Fókuszálj a fontos, de nem sürgős feladatokra – ezek hozzák a legnagyobb hosszú távú eredményeket.</p></div>
-  <div class="summary-card"><h4>🔁 Szokások</h4><p>A szokások automatikus viselkedések – tudatos alakításuk az egyik leghatékonyabb fejlődési eszköz.</p></div>
-  <div class="summary-card"><h4>🚀 Komfortzóna</h4><p>Minden nap tegyél egy kis lépést a határaidon túl – a fejlődés mindig ott kezdődik.</p></div>
+  <div class="summary-card"><h4>🪟 Johari-ablak</h4><p><span data-lang="hu">Kérj visszajelzést, tárj fel rejtett területeket – a vakfoltok csökkentése növeli az önismeretet.</span><span data-lang="en">Ask for feedback, uncover hidden areas – reducing blind spots increases self-awareness.</span><span data-lang="ro">Cere feedback, descoperă zone ascunse – reducerea punctelor oarbe crește autocunoașterea.</span></p></div>
+  <div class="summary-card"><h4><span data-lang="hu">⏰ Eisenhower-mátrix</span><span data-lang="en">⏰ Eisenhower matrix</span><span data-lang="ro">⏰ Matricea Eisenhower</span></h4><p><span data-lang="hu">Fókuszálj a fontos, de nem sürgős feladatokra – ezek hozzák a legnagyobb hosszú távú eredményeket.</span><span data-lang="en">Focus on important but not urgent tasks – these bring the greatest long-term results.</span><span data-lang="ro">Concentrează-te pe sarcinile importante, dar nu urgente – acestea aduc cele mai mari rezultate pe termen lung.</span></p></div>
+  <div class="summary-card"><h4><span data-lang="hu">🔁 Szokások</span><span data-lang="en">🔁 Habits</span><span data-lang="ro">🔁 Obiceiuri</span></h4><p><span data-lang="hu">A szokások automatikus viselkedések – tudatos alakításuk az egyik leghatékonyabb fejlődési eszköz.</span><span data-lang="en">Habits are automatic behaviors – consciously shaping them is one of the most effective tools for development.</span><span data-lang="ro">Obiceiurile sunt comportamente automate – modelarea lor conștientă este unul dintre cele mai eficiente instrumente de dezvoltare.</span></p></div>
+  <div class="summary-card"><h4><span data-lang="hu">🚀 Komfortzóna</span><span data-lang="en">🚀 Comfort Zone</span><span data-lang="ro">🚀 Zona de confort</span></h4><p><span data-lang="hu">Minden nap tegyél egy kis lépést a határaidon túl – a fejlődés mindig ott kezdődik.</span><span data-lang="en">Take a small step beyond your limits every day – growth always starts there.</span><span data-lang="ro">În fiecare zi fă un mic pas dincolo de limitele tale – dezvoltarea începe întotdeauna acolo.</span></p></div>
 </div>
       </div>
     </section>
 
 
     <div class="pdf-section">
-      <h3>📥 Fejezet letöltése PDF formátumban</h3>
-      <a href="https://drive.google.com/file/d/1qM1CWZvPyX21UhhMTXc-vv4uQJ5kh-ey/view" target="_blank" class="pdf-btn">🇭🇺 Magyar PDF letöltése</a>
+      <h3><span data-lang="hu">📥 Fejezet letöltése PDF formátumban</span><span data-lang="en">📥 Download chapter in PDF format</span><span data-lang="ro">📥 Descarcă capitolul în format PDF</span></h3>
+      <a href="https://drive.google.com/file/d/1qM1CWZvPyX21UhhMTXc-vv4uQJ5kh-ey/view" target="_blank" class="pdf-btn"><span data-lang="hu">🇭🇺 Magyar PDF letöltése</span><span data-lang="en">🇭🇺 Download Hungarian PDF</span><span data-lang="ro">🇭🇺 Descarcă PDF în maghiară</span></a>
       <a href="https://drive.google.com/file/d/1eaON3ypcAFZ6CfP9D0isZ804xfDgLWkA/view" target="_blank" class="pdf-btn">🇬🇧 English PDF</a>
       <a href="https://drive.google.com/file/d/1kLGX_W4Eo3utsRnChuem9CZBF3WZ0R0u/view" target="_blank" class="pdf-btn">🇷🇴 PDF în română</a>
     </div>
   </main>
 </div>
 
+
+<div class="chapter-nav">
+  <a href="../chapter7/index.html">← <span data-lang="hu"><span data-lang="hu">7. fejezet</span><span data-lang="en">Chapter 7</span><span data-lang="ro">Capitolul 7</span></span><span data-lang="en">Chapter 7</span><span data-lang="ro">Capitolul 7</span></a>
+  <a href="../index.html" class="nav-home"><span data-lang="hu"><span data-lang="hu">🏠 Főoldal</span><span data-lang="en">🏠 Home</span><span data-lang="ro">🏠 Pagina principală</span></span><span data-lang="en">🏠 Home</span><span data-lang="ro">🏠 Acasă</span></a>
+  <a href="../chapter9/index.html"><span data-lang="hu"><span data-lang="hu">9. fejezet</span><span data-lang="en">Chapter 9</span><span data-lang="ro">Capitolul 9</span></span><span data-lang="en">Chapter 9</span><span data-lang="ro">Capitolul 9</span> →</a>
+</div>
+
 <footer class="chapter-footer">
   <p>IMELO – Identity Mosaic | Erasmus+ KA2 projekt | © 2024–2026</p>
-  <p>Az Európai Bizottság támogatásával készült. A tartalom kizárólag a szerzők álláspontját tükrözi.</p>
+  <p><span data-lang="hu">Az Európai Bizottság támogatásával készült. A tartalom kizárólag a szerzők álláspontját tükrözi.</span><span data-lang="en">Produced with the support of the European Commission. The content reflects the views of the authors only.</span><span data-lang="ro">Realizat cu sprijinul Comisiei Europene. Conținutul reflectă exclusiv punctul de vedere al autorilor.</span></p>
 </footer>
 
 <script>
@@ -403,6 +488,23 @@
       if (target) target.scrollIntoView({behavior: 'smooth', block: 'start'});
     });
   });
+
+  // Language switcher
+  (function() {
+    var stored = localStorage.getItem('imelo-lang') || 'hu';
+    document.body.setAttribute('data-active-lang', stored);
+    document.querySelectorAll('.lang-btn-sub').forEach(function(btn) {
+      if (btn.getAttribute('data-lang-switch') === stored) btn.classList.add('active');
+    });
+  })();
+  function switchLangSub(lang) {
+    document.body.setAttribute('data-active-lang', lang);
+    localStorage.setItem('imelo-lang', lang);
+    document.querySelectorAll('.lang-btn-sub').forEach(function(btn) {
+      btn.classList.toggle('active', btn.getAttribute('data-lang-switch') === lang);
+    });
+  }
+
 </script>
 </body>
 </html>

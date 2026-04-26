@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2. Fejezet – Kapcsolati Eszközök | IMELO Toolbox</title>
+  <title><span data-lang="hu">2. Fejezet – Kapcsolati Eszközök | IMELO Toolbox</span><span data-lang="en">Chapter 2 – Relationship Tools | IMELO Toolbox</span><span data-lang="ro">Capitolul 2 – Instrumente de Relaționare | IMELO Toolbox</span></title>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -117,28 +117,106 @@
 
     /* FOOTER */
     .chapter-footer { background: #1a1a2e; color: white; text-align: center; padding: 1.5rem; font-size: 0.8rem; opacity: 0.8; }
+  
+    /* Chapter navigation */
+    .chapter-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 1.5rem;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      margin: 1.5rem 0;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .chapter-nav a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: linear-gradient(135deg, #1a7a4a 0%, #2ecc71 100%);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+      transition: opacity 0.2s;
+    }
+    .chapter-nav a:hover { opacity: 0.85; }
+    .chapter-nav .nav-home {
+      background: linear-gradient(135deg, #E8622A 0%, #f39c12 100%);
+    }
+    .chapter-nav .nav-center {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #888;
+      flex: 1;
+    }
+    @media (max-width: 600px) {
+      .chapter-nav { flex-direction: column; align-items: stretch; text-align: center; }
+      .chapter-nav a { justify-content: center; }
+    }
+
+  
+    [data-lang] { display: none; }
+    body[data-active-lang="hu"] [data-lang="hu"] { display: inline; }
+    body[data-active-lang="en"] [data-lang="en"] { display: inline; }
+    body[data-active-lang="ro"] [data-lang="ro"] { display: inline; }
+
+  
+    /* Language switching */
+    [data-lang] { display: none; }
+    body[data-active-lang="hu"] [data-lang="hu"],
+    body[data-active-lang="hu"] span[data-lang="hu"] { display: inline; }
+    body[data-active-lang="en"] [data-lang="en"],
+    body[data-active-lang="en"] span[data-lang="en"] { display: inline; }
+    body[data-active-lang="ro"] [data-lang="ro"],
+    body[data-active-lang="ro"] span[data-lang="ro"] { display: inline; }
+    body[data-active-lang="hu"] div[data-lang="hu"],
+    body[data-active-lang="en"] div[data-lang="en"],
+    body[data-active-lang="ro"] div[data-lang="ro"] { display: block; }
+    .lang-switcher-sub {
+      position: fixed; top: 12px; right: 16px; z-index: 9999;
+      display: flex; gap: 6px; background: rgba(255,255,255,0.95);
+      padding: 4px 8px; border-radius: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .lang-btn-sub {
+      background: none; border: none; cursor: pointer;
+      font-size: 1.2rem; padding: 2px 4px; border-radius: 6px;
+      opacity: 0.6; transition: opacity 0.2s;
+    }
+    .lang-btn-sub:hover, .lang-btn-sub.active { opacity: 1; }
+
   </style>
 </head>
-<body>
+<body data-active-lang="hu">
+<div class="lang-switcher-sub">
+  <button class="lang-btn-sub" data-lang-switch="hu" onclick="switchLangSub('hu')" title="Magyar">🇭🇺</button>
+  <button class="lang-btn-sub" data-lang-switch="en" onclick="switchLangSub('en')" title="English">🇬🇧</button>
+  <button class="lang-btn-sub" data-lang-switch="ro" onclick="switchLangSub('ro')" title="Română">🇷🇴</button>
+</div>
 
 <nav class="topbar">
   <a href="../index.html" class="topbar-logo">
     <img src="imelo_logo.png" alt="Identity Mosaic logó">
   </a>
-  <a href="../index.html" class="back-btn">← Vissza az Eszköztárhoz</a>
+  <a href="../index.html" class="back-btn"><span data-lang="hu">← Vissza az Eszköztárhoz</span><span data-lang="en">← Back to Toolbox</span><span data-lang="ro">← Înapoi la Instrumentar</span></a>
 </nav>
 
 <div class="chapter-hero">
-  <div class="chapter-num">2. Fejezet</div>
-  <h1>Kapcsolati Eszközök</h1>
-  <p class="subtitle">Egészséges kapcsolatok építése és fenntartása</p>
-  <div class="tags"><span class="tag">💬 Kommunikáció</span> <span class="tag">🤝 Kapcsolatépítés</span> <span class="tag">🌐 Digitális kapcsolatok</span></div>
+  <div class="chapter-num"><span data-lang="hu">2. Fejezet</span><span data-lang="en">Chapter 2</span><span data-lang="ro">Capitolul 2</span></div>
+  <h1><span data-lang="hu">Kapcsolati Eszközök</span><span data-lang="en">Relationship Tools</span><span data-lang="ro">Instrumente de Relaționare</span></h1>
+  <p class="subtitle"><span data-lang="hu">Egészséges kapcsolatok építése és fenntartása</span><span data-lang="en">Building and Maintaining Healthy Relationships</span><span data-lang="ro">Construirea și menținerea relațiilor sănătoase</span></p>
+  <div class="tags"><span class="tag"><span data-lang="hu">💬 Kommunikáció</span><span data-lang="en">💬 Communication</span><span data-lang="ro">💬 Comunicare</span></span> <span class="tag"><span data-lang="hu">🤝 Kapcsolatépítés</span><span data-lang="en">🤝 Relationship Building</span><span data-lang="ro">🤝 Construirea relațiilor</span></span> <span class="tag"><span data-lang="hu">🌐 Digitális kapcsolatok</span><span data-lang="en">🌐 Digital Relationships</span><span data-lang="ro">🌐 Relații digitale</span></span></div>
 </div>
 
 <div class="page-layout">
   <aside class="sidebar">
-    <h3>Tartalomjegyzék</h3>
-    <a href="#miert" class="toc-item">Miért fontosak az egészséges kapcsolatok?</a><a href="#kommunikacio" class="toc-item">Kommunikációs Alapok</a><a href="#aktiv-hallgatas" class="toc-item">Aktív Hallgatás</a><a href="#empátia" class="toc-item">Empátia Fejlesztése</a><a href="#hatarok" class="toc-item">Határok a Kapcsolatokban</a><a href="#digitalis" class="toc-item">Digitális Kapcsolatok Kezelése</a><a href="#kulturalis" class="toc-item">Kulturális Identitás és Kapcsolatok</a><a href="#onreflexio" class="toc-item">Önreflexió – Kapcsolati Szokásaim</a><a href="#osszefoglalas" class="toc-item">Összefoglalás és Következő Lépések</a>
+    <h3><span data-lang="hu">Tartalomjegyzék</span><span data-lang="en">Table of Contents</span><span data-lang="ro">Cuprins</span></h3>
+    <a href="#miert" class="toc-item"><span data-lang="hu">Miért fontosak az egészséges kapcsolatok?</span><span data-lang="en">Why Are Healthy Relationships Important?</span><span data-lang="ro">De ce sunt importante relațiile sănătoase?</span></a><a href="#kommunikacio" class="toc-item"><span data-lang="hu">Kommunikációs Alapok</span><span data-lang="en">Communication Basics</span><span data-lang="ro">Bazele comunicării</span></a><a href="#aktiv-hallgatas" class="toc-item"><span data-lang="hu">Aktív Hallgatás</span><span data-lang="en">Active Listening</span><span data-lang="ro">Ascultare activă</span></a><a href="#empátia" class="toc-item"><span data-lang="hu">Empátia Fejlesztése</span><span data-lang="en">Developing Empathy</span><span data-lang="ro">Dezvoltarea empatiei</span></a><a href="#hatarok" class="toc-item"><span data-lang="hu">Határok a Kapcsolatokban</span><span data-lang="en">Boundaries in Relationships</span><span data-lang="ro">Granițe în relații</span></a><a href="#digitalis" class="toc-item"><span data-lang="hu">Digitális Kapcsolatok Kezelése</span><span data-lang="en">Managing Digital Relationships</span><span data-lang="ro">Gestionarea relațiilor digitale</span></a><a href="#kulturalis" class="toc-item"><span data-lang="hu">Kulturális Identitás és Kapcsolatok</span><span data-lang="en">Cultural Identity and Relationships</span><span data-lang="ro">Identitate culturală și relații</span></a><a href="#onreflexio" class="toc-item"><span data-lang="hu">Önreflexió – Kapcsolati Szokásaim</span><span data-lang="en">Self-Reflection – My Relationship Habits</span><span data-lang="ro">Auto-reflecție – Obiceiurile mele relaționale</span></a><a href="#osszefoglalas" class="toc-item"><span data-lang="hu">Összefoglalás és Következő Lépések</span><span data-lang="en">Summary and Next Steps</span><span data-lang="ro">Rezumat și pașii următori</span></a>
   </aside>
 
   <main>
@@ -147,23 +225,23 @@
       <div class="section-header">
         <span class="section-icon">💬</span>
         <div>
-          <h2>Miért fontosak az egészséges kapcsolatok?</h2>
-          <p class="section-subtitle">A kapcsolatok hatása jóllétünkre</p>
+          <h2><span data-lang="hu">Miért fontosak az egészséges kapcsolatok?</span><span data-lang="en">Why Are Healthy Relationships Important?</span><span data-lang="ro">De ce sunt importante relațiile sănătoase?</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">A kapcsolatok hatása jóllétünkre</span><span data-lang="en">The Impact of Relationships on Our Well-being</span><span data-lang="ro">Impactul relațiilor asupra bunăstării noastre</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #1a7a4a, transparent);"></div>
-      <p class="section-intro">Az egészséges kapcsolatok az emberi jóllét egyik legfontosabb pillérét alkotják. A kutatások szerint az erős szociális kapcsolatok 50%-kal növelik a hosszú élet esélyét, és döntő szerepet játszanak a mentális egészség megőrzésében.</p>
+      <p class="section-intro"><span data-lang="hu">Az egészséges kapcsolatok az emberi jóllét egyik legfontosabb pillérét alkotják. A kutatások szerint az erős szociális kapcsolatok 50%-kal növelik a hosszú élet esélyét, és döntő szerepet játszanak a mentális egészség megőrzésében.</span><span data-lang="en">Healthy relationships form one of the most important pillars of human well-being. Research shows that strong social connections increase the chances of a long life by 50% and play a crucial role in maintaining mental health.</span><span data-lang="ro">Relațiile sănătoase reprezintă unul dintre cei mai importanți piloni ai bunăstării umane. Cercetările arată că relațiile sociale puternice cresc șansele unei vieți lungi cu 50% și joacă un rol esențial în menținerea sănătății mentale.</span></p>
       <div class="stats-row">
-        <div class="stat-card"><div class="stat-value" style="color:#1a7a4a">50%</div><div class="stat-label">Hosszabb élet esélye erős kapcsolatokkal</div></div>
-        <div class="stat-card"><div class="stat-value" style="color:#2ecc71">80%</div><div class="stat-label">Boldogságunk kapcsolatokból fakad</div></div>
-        <div class="stat-card"><div class="stat-value" style="color:#1565C0">3×</div><div class="stat-label">Kisebb depresszió kockázat aktív szociális élettel</div></div>
+        <div class="stat-card"><div class="stat-value" style="color:#1a7a4a">50%</div><div class="stat-label"><span data-lang="hu">Hosszabb élet esélye erős kapcsolatokkal</span><span data-lang="en">Longer Life Expectancy with Strong Relationships</span><span data-lang="ro">Șanse mai mari de viață lungă prin relații puternice</span></div></div>
+        <div class="stat-card"><div class="stat-value" style="color:#2ecc71">80%</div><div class="stat-label"><span data-lang="hu">Boldogságunk kapcsolatokból fakad</span><span data-lang="en">Our Happiness Comes from Relationships</span><span data-lang="ro">Fericirea noastră provine din relații</span></div></div>
+        <div class="stat-card"><div class="stat-value" style="color:#1565C0">3×</div><div class="stat-label"><span data-lang="hu">Kisebb depresszió kockázat aktív szociális élettel</span><span data-lang="en">Lower Risk of Depression with an Active Social Life</span><span data-lang="ro">Risc redus de depresie printr-o viață socială activă</span></div></div>
       </div>
       <div class="section-content">
 <div class="content-grid">
-  <div class="content-card"><h4>🧠 Mentális egészség</h4><p>Az erős kapcsolatok csökkentik a stresszt, szorongást és depressziót. A biztonságos kötődés érzelmi stabilitást nyújt.</p></div>
-  <div class="content-card"><h4>💪 Fizikai egészség</h4><p>A társas kapcsolatok erősítik az immunrendszert, csökkentik a vérnyomást és javítják az általános egészségi állapotot.</p></div>
-  <div class="content-card"><h4>🎯 Személyes fejlődés</h4><p>A kapcsolatok visszajelzést, motivációt és támogatást nyújtanak a személyes célok eléréséhez.</p></div>
-  <div class="content-card"><h4>🌍 Közösségi jóllét</h4><p>Az egészséges kapcsolatok hálózata erős közösségeket épít, amelyek a nehézségekben is támaszt nyújtanak.</p></div>
+  <div class="content-card"><h4><span data-lang="hu">🧠 Mentális egészség</span><span data-lang="en">🧠 Mental Health</span><span data-lang="ro">🧠 Sănătate mentală</span></h4><p><span data-lang="hu">Az erős kapcsolatok csökkentik a stresszt, szorongást és depressziót. A biztonságos kötődés érzelmi stabilitást nyújt.</span><span data-lang="en">Strong relationships reduce stress, anxiety, and depression. Secure attachments provide emotional stability.</span><span data-lang="ro">Relațiile puternice reduc stresul, anxietatea și depresia. Atașamentul sigur oferă stabilitate emoțională.</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">💪 Fizikai egészség</span><span data-lang="en">💪 Physical Health</span><span data-lang="ro">💪 Sănătate fizică</span></h4><p><span data-lang="hu">A társas kapcsolatok erősítik az immunrendszert, csökkentik a vérnyomást és javítják az általános egészségi állapotot.</span><span data-lang="en">Social connections strengthen the immune system, lower blood pressure, and improve overall health.</span><span data-lang="ro">Relațiile sociale întăresc sistemul imunitar, scad tensiunea arterială și îmbunătățesc starea generală de sănătate.</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">🎯 Személyes fejlődés</span><span data-lang="en">🎯 Personal Development</span><span data-lang="ro">🎯 Dezvoltare personală</span></h4><p><span data-lang="hu">A kapcsolatok visszajelzést, motivációt és támogatást nyújtanak a személyes célok eléréséhez.</span><span data-lang="en">Relationships provide feedback, motivation, and support to achieve personal goals.</span><span data-lang="ro">Relațiile oferă feedback, motivație și sprijin pentru atingerea obiectivelor personale.</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">🌍 Közösségi jóllét</span><span data-lang="en">🌍 Community Well-being</span><span data-lang="ro">🌍 Bunăstare comunitară</span></h4><p><span data-lang="hu">Az egészséges kapcsolatok hálózata erős közösségeket épít, amelyek a nehézségekben is támaszt nyújtanak.</span><span data-lang="en">A network of healthy relationships builds strong communities that offer support during difficult times.</span><span data-lang="ro">Rețeaua de relații sănătoase construiește comunități puternice care oferă sprijin în momente dificile.</span></p></div>
 </div>
       </div>
 
@@ -179,24 +257,24 @@
           allowfullscreen>
         </iframe>
       </div>
-      <p class="video-caption">A videó a hatékony és támogató kommunikáció alapjait mutatja be, különös hangsúlyt fektetve a jó beszélgetés készségére, amelyet az ifjúságsegítők a fiatalokkal való napi munkában alkalmazhatnak.</p>
+      <p class="video-caption"><span data-lang="hu">A videó a hatékony és támogató kommunikáció alapjait mutatja be, különös hangsúlyt fektetve a jó beszélgetés készségére, amelyet az ifjúságsegítők a fiatalokkal való napi munkában alkalmazhatnak.</span><span data-lang="en">The video introduces the basics of effective and supportive communication, with a special focus on good conversation skills that youth workers can apply in their daily work with young people.</span><span data-lang="ro">Videoclipul prezintă bazele comunicării eficiente și susținătoare, punând accent pe abilitățile bune de conversație pe care lucrătorii de tineret le pot folosi în munca zilnică cu tinerii.</span></p>
     </section>
 
     <section class="chapter-section" id="kommunikacio">
       <div class="section-header">
         <span class="section-icon">🗣️</span>
         <div>
-          <h2>Kommunikációs Alapok</h2>
-          <p class="section-subtitle">A hatékony kommunikáció elemei</p>
+          <h2><span data-lang="hu">Kommunikációs Alapok</span><span data-lang="en">Communication Basics</span><span data-lang="ro">Bazele comunicării</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">A hatékony kommunikáció elemei</span><span data-lang="en">Elements of Effective Communication</span><span data-lang="ro">Elementele comunicării eficiente</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #1a7a4a, transparent);"></div>
-      <p class="section-intro">A hatékony kommunikáció nem csupán szavakból áll – a testbeszéd, a hangszín és az érzelmi jelzések egyaránt fontos szerepet játszanak az üzenetek átadásában és fogadásában.</p>
+      <p class="section-intro"><span data-lang="hu">A hatékony kommunikáció nem csupán szavakból áll – a testbeszéd, a hangszín és az érzelmi jelzések egyaránt fontos szerepet játszanak az üzenetek átadásában és fogadásában.</span><span data-lang="en">Effective communication is more than just words – body language, tone of voice, and emotional cues all play important roles in sending and receiving messages.</span><span data-lang="ro">Comunicarea eficientă nu constă doar în cuvinte – limbajul corporal, tonul vocii și semnalele emoționale joacă un rol important în transmiterea și recepția mesajelor.</span></p>
       <div class="section-content">
 <div class="content-grid">
-  <div class="content-card"><h4>👁️ Verbális kommunikáció</h4><ul><li>Egyértelmű és konkrét fogalmazás</li><li>Én-üzenetek használata</li><li>Kérdések feltevése</li><li>Visszajelzés adása és kérése</li></ul></div>
-  <div class="content-card"><h4>🤲 Non-verbális kommunikáció</h4><ul><li>Szemkontaktus fenntartása</li><li>Nyitott testtartás</li><li>Hangszín és tempó tudatossága</li><li>Személyes tér tiszteletben tartása</li></ul></div>
-  <div class="content-card"><h4>💡 Ifjúságsegítői tipp</h4><p>Kérd meg a fiatalokat, hogy egy héten át figyeljék meg saját kommunikációs mintáikat – mikor érzik magukat megértettnek, és mikor nem? Ez az egyszerű megfigyelési feladat tudatosságot épít.</p></div>
+  <div class="content-card"><h4><span data-lang="hu">👁️ Verbális kommunikáció</span><span data-lang="en">👁️ Verbal Communication</span><span data-lang="ro">👁️ Comunicare verbală</span></h4><ul><li><span data-lang="hu">Egyértelmű és konkrét fogalmazás</span><span data-lang="en">Clear and Concrete Expression</span><span data-lang="ro">Formulare clară și concretă</span></li><li><span data-lang="hu">Én-üzenetek használata</span><span data-lang="en">Using "I" Messages</span><span data-lang="ro">Utilizarea mesajelor „eu”</span></li><li><span data-lang="hu">Kérdések feltevése</span><span data-lang="en">Asking Questions</span><span data-lang="ro">Adresarea întrebărilor</span></li><li><span data-lang="hu">Visszajelzés adása és kérése</span><span data-lang="en">Giving and Requesting Feedback</span><span data-lang="ro">Oferirea și solicitarea de feedback</span></li></ul></div>
+  <div class="content-card"><h4><span data-lang="hu">🤲 Non-verbális kommunikáció</span><span data-lang="en">🤲 Non-Verbal Communication</span><span data-lang="ro">🤲 Comunicare non-verbală</span></h4><ul><li><span data-lang="hu">Szemkontaktus fenntartása</span><span data-lang="en">Maintaining Eye Contact</span><span data-lang="ro">Menținerea contactului vizual</span></li><li><span data-lang="hu">Nyitott testtartás</span><span data-lang="en">Open Posture</span><span data-lang="ro">Postură deschisă</span></li><li><span data-lang="hu">Hangszín és tempó tudatossága</span><span data-lang="en">Awareness of Tone and Pace</span><span data-lang="ro">Conștientizarea tonului și ritmului</span></li><li><span data-lang="hu">Személyes tér tiszteletben tartása</span><span data-lang="en">Respecting Personal Space</span><span data-lang="ro">Respectarea spațiului personal</span></li></ul></div>
+  <div class="content-card"><h4><span data-lang="hu">💡 Ifjúságsegítői tipp</span><span data-lang="en">💡 Youth Worker Tip</span><span data-lang="ro">💡 Sfat pentru lucrătorii de tineret</span></h4><p><span data-lang="hu">Kérd meg a fiatalokat, hogy egy héten át figyeljék meg saját kommunikációs mintáikat – mikor érzik magukat megértettnek, és mikor nem? Ez az egyszerű megfigyelési feladat tudatosságot épít.</span><span data-lang="en">Ask young people to observe their own communication patterns for a week – when do they feel understood, and when not? This simple observation exercise builds awareness.</span><span data-lang="ro">Rugați tinerii să observe timp de o săptămână propriile modele de comunicare – când se simt înțeleși și când nu? Această simplă sarcină de observare construiește conștientizare.</span></p></div>
 </div>
       </div>
     </section>
@@ -205,18 +283,18 @@
       <div class="section-header">
         <span class="section-icon">👂</span>
         <div>
-          <h2>Aktív Hallgatás</h2>
-          <p class="section-subtitle">A megértés és kapcsolódás alapja</p>
+          <h2><span data-lang="hu">Aktív Hallgatás</span><span data-lang="en">Active Listening</span><span data-lang="ro">Ascultare activă</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">A megértés és kapcsolódás alapja</span><span data-lang="en">The Foundation of Understanding and Connection</span><span data-lang="ro">Baza înțelegerii și conectării</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #1a7a4a, transparent);"></div>
-      <p class="section-intro">Az aktív hallgatás az egyik legfontosabb kapcsolati készség. Nem csupán a szavak meghallgatásáról szól, hanem a mögöttes érzelmek, szükségletek és szándékok megértéséről is.</p>
+      <p class="section-intro"><span data-lang="hu">Az aktív hallgatás az egyik legfontosabb kapcsolati készség. Nem csupán a szavak meghallgatásáról szól, hanem a mögöttes érzelmek, szükségletek és szándékok megértéséről is.</span><span data-lang="en">Active listening is one of the most important relational skills. It is not just about hearing the words, but also about understanding the underlying emotions, needs, and intentions.</span><span data-lang="ro">Ascultarea activă este una dintre cele mai importante abilități relaționale. Nu este vorba doar despre a auzi cuvintele, ci și despre a înțelege emoțiile, nevoile și intențiile din spatele lor.</span></p>
       <div class="section-content">
 <div class="steps-list">
-  <div class="step"><span class="step-num">1</span><div><strong>Teljes figyelem</strong><p>Tedd le a telefont, fordulj a másik felé, tartsd a szemkontaktust. A fizikai jelenlét az érdeklődés első jele.</p></div></div>
-  <div class="step"><span class="step-num">2</span><div><strong>Visszatükrözés</strong><p>Foglald össze saját szavaiddal, amit hallottál: "Ha jól értem, azt mondod, hogy..." Ez megerősíti a megértést.</p></div></div>
-  <div class="step"><span class="step-num">3</span><div><strong>Érzelmek elismerése</strong><p>Ismerd el a másik érzelmeit: "Értem, hogy ez nehéz számodra." Az érzelmek validálása biztonságot teremt.</p></div></div>
-  <div class="step"><span class="step-num">4</span><div><strong>Nyitott kérdések</strong><p>Kérdezz nyitott kérdésekkel: "Mesélj erről bővebben!" A zárt kérdések lezárják, a nyitottak megnyitják a párbeszédet.</p></div></div>
+  <div class="step"><span class="step-num">1</span><div><strong>Teljes figyelem</strong><p><span data-lang="hu">Tedd le a telefont, fordulj a másik felé, tartsd a szemkontaktust. A fizikai jelenlét az érdeklődés első jele.</span><span data-lang="en">Put down your phone, turn towards the other person, maintain eye contact. Physical presence is the first sign of interest.</span><span data-lang="ro">Pune telefonul jos, întoarce-te către celălalt, menține contactul vizual. Prezența fizică este primul semn al interesului.</span></p></div></div>
+  <div class="step"><span class="step-num">2</span><div><strong><span data-lang="hu">Visszatükrözés</span><span data-lang="en">Reflection</span><span data-lang="ro">Reflectare</span></strong><p><span data-lang="hu">Foglald össze saját szavaiddal, amit hallottál: "Ha jól értem, azt mondod, hogy..." Ez megerősíti a megértést.</span><span data-lang="en">Summarize in your own words what you heard: "If I understand correctly, you are saying that..." This confirms understanding.</span><span data-lang="ro">Rezuma cu propriile tale cuvinte ceea ce ai auzit: „Dacă am înțeles bine, spui că...”. Aceasta confirmă înțelegerea.</span></p></div></div>
+  <div class="step"><span class="step-num">3</span><div><strong><span data-lang="hu">Érzelmek elismerése</span><span data-lang="en">Acknowledging Emotions</span><span data-lang="ro">Recunoașterea emoțiilor</span></strong><p><span data-lang="hu">Ismerd el a másik érzelmeit: "Értem, hogy ez nehéz számodra." Az érzelmek validálása biztonságot teremt.</span><span data-lang="en">Acknowledge the other person's emotions: "I understand that this is difficult for you." Validating emotions creates safety.</span><span data-lang="ro">Recunoaște emoțiile celuilalt: „Înțeleg că este dificil pentru tine.” Validarea emoțiilor creează siguranță.</span></p></div></div>
+  <div class="step"><span class="step-num">4</span><div><strong><span data-lang="hu">Nyitott kérdések</span><span data-lang="en">Open Questions</span><span data-lang="ro">Întrebări deschise</span></strong><p><span data-lang="hu">Kérdezz nyitott kérdésekkel: "Mesélj erről bővebben!" A zárt kérdések lezárják, a nyitottak megnyitják a párbeszédet.</span><span data-lang="en">Ask open questions: "Tell me more about this!" Closed questions shut down, open ones open up the dialogue.</span><span data-lang="ro">Pune întrebări deschise: „Povestește-mi mai multe despre asta!” Întrebările închise închid dialogul, cele deschise îl deschid.</span></p></div></div>
 </div>
       </div>
     </section>
@@ -225,18 +303,18 @@
       <div class="section-header">
         <span class="section-icon">❤️</span>
         <div>
-          <h2>Empátia Fejlesztése</h2>
-          <p class="section-subtitle">Belehelyezkedés mások perspektívájába</p>
+          <h2><span data-lang="hu">Empátia Fejlesztése</span><span data-lang="en">Developing Empathy</span><span data-lang="ro">Dezvoltarea empatiei</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Belehelyezkedés mások perspektívájába</span><span data-lang="en">Putting yourself in others' perspectives</span><span data-lang="ro">Punerea în locul altora</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #1a7a4a, transparent);"></div>
-      <p class="section-intro">Az empátia a másik szemszögéből való látás és érzés képessége. Ez nem azt jelenti, hogy egyet kell érteni a másikkal, hanem hogy megértjük az ő nézőpontját és érzelmeit.</p>
+      <p class="section-intro"><span data-lang="hu">Az empátia a másik szemszögéből való látás és érzés képessége. Ez nem azt jelenti, hogy egyet kell érteni a másikkal, hanem hogy megértjük az ő nézőpontját és érzelmeit.</span><span data-lang="en">Empathy is the ability to see and feel from another's point of view. It does not mean agreeing with them, but understanding their perspective and emotions.</span><span data-lang="ro">Empatia este capacitatea de a vedea și simți din perspectiva celuilalt. Nu înseamnă să fii de acord cu celălalt, ci să înțelegi punctul său de vedere și emoțiile sale.</span></p>
       <div class="section-content">
 <div class="content-grid">
-  <div class="content-card"><h4>🧠 Kognitív empátia</h4><p>A másik gondolatainak, nézőpontjának és szándékainak megértése. "Mit gondolhat most a másik?"</p></div>
-  <div class="content-card"><h4>💗 Érzelmi empátia</h4><p>A másik érzéseinek átérzése, rezonálás az érzelmi állapotára. "Mit érezhet most a másik?"</p></div>
-  <div class="content-card"><h4>🤝 Együttérző empátia</h4><p>Az empátia cselekvéssé alakítása – segítség nyújtása, támogatás felajánlása a megértés alapján.</p></div>
-  <div class="content-card"><h4>⚠️ Empátia vs. Szimpátia</h4><p>A szimpátia sajnálatot fejez ki ("Szegény!"), az empátia kapcsolódást teremt ("Megértem, hogyan érzed magad").</p></div>
+  <div class="content-card"><h4><span data-lang="hu">🧠 Kognitív empátia</span><span data-lang="en">🧠 Cognitive Empathy</span><span data-lang="ro">🧠 Empatie cognitivă</span></h4><p><span data-lang="hu">A másik gondolatainak, nézőpontjának és szándékainak megértése. "Mit gondolhat most a másik?"</span><span data-lang="en">Understanding the other’s thoughts, viewpoints, and intentions. "What might the other person be thinking right now?"</span><span data-lang="ro">Înțelegerea gândurilor, perspectivelor și intențiilor celuilalt. „Ce ar putea gândi acum celălalt?”</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">💗 Érzelmi empátia</span><span data-lang="en">💗 Emotional Empathy</span><span data-lang="ro">💗 Empatie emoțională</span></h4><p><span data-lang="hu">A másik érzéseinek átérzése, rezonálás az érzelmi állapotára. "Mit érezhet most a másik?"</span><span data-lang="en">Feeling the other’s emotions, resonating with their emotional state. "What might the other person be feeling right now?"</span><span data-lang="ro">Simțirea emoțiilor celuilalt, rezonarea cu starea sa emoțională. „Ce ar putea simți acum celălalt?”</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">🤝 Együttérző empátia</span><span data-lang="en">🤝 Compassionate Empathy</span><span data-lang="ro">🤝 Empatie compasională</span></h4><p><span data-lang="hu">Az empátia cselekvéssé alakítása – segítség nyújtása, támogatás felajánlása a megértés alapján.</span><span data-lang="en">Turning empathy into action – offering help and support based on understanding.</span><span data-lang="ro">Transformarea empatiei în acțiune – oferirea de ajutor, sprijin bazat pe înțelegere.</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">⚠️ Empátia vs. Szimpátia</span><span data-lang="en">⚠️ Empathy vs. Sympathy</span><span data-lang="ro">⚠️ Empatie vs. Simpatie</span></h4><p><span data-lang="hu">A szimpátia sajnálatot fejez ki ("Szegény!"), az empátia kapcsolódást teremt ("Megértem, hogyan érzed magad").</span><span data-lang="en">Sympathy expresses pity ("Poor thing!"), empathy creates connection ("I understand how you feel").</span><span data-lang="ro">Simpatia exprimă milă („Săracul!”), empatia creează conexiune („Înțeleg cum te simți”).</span></p></div>
 </div>
       </div>
     </section>
@@ -245,18 +323,18 @@
       <div class="section-header">
         <span class="section-icon">🚧</span>
         <div>
-          <h2>Határok a Kapcsolatokban</h2>
-          <p class="section-subtitle">Egészséges korlátok kialakítása</p>
+          <h2><span data-lang="hu">Határok a Kapcsolatokban</span><span data-lang="en">Boundaries in Relationships</span><span data-lang="ro">Granițe în relații</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Egészséges korlátok kialakítása</span><span data-lang="en">Establishing healthy boundaries</span><span data-lang="ro">Stabilirea unor limite sănătoase</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #1a7a4a, transparent);"></div>
-      <p class="section-intro">A határok nem falak, amelyek elválasztanak másoktól, hanem keretek, amelyek meghatározzák, hogyan szeretnénk, hogy bánjanak velünk. Az egészséges határok a tisztelet alapjai.</p>
+      <p class="section-intro"><span data-lang="hu">A határok nem falak, amelyek elválasztanak másoktól, hanem keretek, amelyek meghatározzák, hogyan szeretnénk, hogy bánjanak velünk. Az egészséges határok a tisztelet alapjai.</span><span data-lang="en">Boundaries are not walls that separate us from others, but frameworks that define how we want to be treated. Healthy boundaries are the foundation of respect.</span><span data-lang="ro">Granițele nu sunt ziduri care ne separă de ceilalți, ci cadre care definesc cum dorim să fim tratați. Limitele sănătoase sunt baza respectului.</span></p>
       <div class="section-content">
 <div class="content-grid">
-  <div class="content-card"><h4>🟢 Fizikai határok</h4><p>Személyes tér, testi érintés, magánszféra. Mindenkinek joga van meghatározni, ki és hogyan közeledhet hozzá fizikailag.</p></div>
-  <div class="content-card"><h4>🔵 Érzelmi határok</h4><p>Felelősség az érzelmekért: nem vagyunk felelősek mások érzelmeiért, és nem kell átvennünk mások problémáit.</p></div>
-  <div class="content-card"><h4>🟡 Időbeli határok</h4><p>Az idő és energia tudatos beosztása. Nemet mondani az egyik leghasznosabb készség az egészséges kapcsolatokban.</p></div>
-  <div class="content-card"><h4>🔴 Digitális határok</h4><p>Online elérhetőség, válaszadási idő, közösségi média megosztás – ezek mind tudatos döntések lehetnek.</p></div>
+  <div class="content-card"><h4><span data-lang="hu">🟢 Fizikai határok</span><span data-lang="en">🟢 Physical Boundaries</span><span data-lang="ro">🟢 Granițe fizice</span></h4><p><span data-lang="hu">Személyes tér, testi érintés, magánszféra. Mindenkinek joga van meghatározni, ki és hogyan közeledhet hozzá fizikailag.</span><span data-lang="en">Personal space, physical touch, privacy. Everyone has the right to decide who and how can approach them physically.</span><span data-lang="ro">Spațiu personal, contact fizic, intimitate. Fiecare are dreptul să decidă cine și cum se apropie fizic de el.</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">🔵 Érzelmi határok</span><span data-lang="en">🔵 Emotional Boundaries</span><span data-lang="ro">🔵 Granițe emoționale</span></h4><p><span data-lang="hu">Felelősség az érzelmekért: nem vagyunk felelősek mások érzelmeiért, és nem kell átvennünk mások problémáit.</span><span data-lang="en">Responsibility for emotions: we are not responsible for others’ feelings, nor do we have to take on their problems.</span><span data-lang="ro">Responsabilitatea pentru emoții: nu suntem responsabili pentru emoțiile altora și nu trebuie să preluăm problemele lor.</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">🟡 Időbeli határok</span><span data-lang="en">🟡 Time Boundaries</span><span data-lang="ro">🟡 Granițe temporale</span></h4><p><span data-lang="hu">Az idő és energia tudatos beosztása. Nemet mondani az egyik leghasznosabb készség az egészséges kapcsolatokban.</span><span data-lang="en">Conscious allocation of time and energy. Saying no is one of the most useful skills in healthy relationships.</span><span data-lang="ro">Gestionarea conștientă a timpului și energiei. A spune „nu” este una dintre cele mai utile abilități în relații sănătoase.</span></p></div>
+  <div class="content-card"><h4><span data-lang="hu">🔴 Digitális határok</span><span data-lang="en">🔴 Digital Boundaries</span><span data-lang="ro">🔴 Granițe digitale</span></h4><p><span data-lang="hu">Online elérhetőség, válaszadási idő, közösségi média megosztás – ezek mind tudatos döntések lehetnek.</span><span data-lang="en">Online availability, response time, social media sharing – these can all be conscious choices.</span><span data-lang="ro">Disponibilitate online, timpul de răspuns, partajarea pe rețele sociale – toate pot fi decizii conștiente.</span></p></div>
 </div>
       </div>
     </section>
@@ -265,17 +343,17 @@
       <div class="section-header">
         <span class="section-icon">📱</span>
         <div>
-          <h2>Digitális Kapcsolatok Kezelése</h2>
-          <p class="section-subtitle">Online és offline egyensúly</p>
+          <h2><span data-lang="hu">Digitális Kapcsolatok Kezelése</span><span data-lang="en">Managing Digital Relationships</span><span data-lang="ro">Gestionarea relațiilor digitale</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Online és offline egyensúly</span><span data-lang="en">Online and offline balance</span><span data-lang="ro">Echilibrul între online și offline</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #1a7a4a, transparent);"></div>
-      <p class="section-intro">A digitális tér ma már szerves része a kapcsolatainknak. Az egészséges online kommunikáció ugyanolyan készségeket igényel, mint az offline – sőt, néhány extra figyelmet is.</p>
+      <p class="section-intro"><span data-lang="hu">A digitális tér ma már szerves része a kapcsolatainknak. Az egészséges online kommunikáció ugyanolyan készségeket igényel, mint az offline – sőt, néhány extra figyelmet is.</span><span data-lang="en">The digital space is now an integral part of our relationships. Healthy online communication requires the same skills as offline – and even some extra attention.</span><span data-lang="ro">Spațiul digital este acum o parte integrantă a relațiilor noastre. Comunicarea sănătoasă online necesită aceleași abilități ca și cea offline – plus o atenție suplimentară.</span></p>
       <div class="section-content">
 <div class="content-grid">
-  <div class="content-card"><h4>💬 Egészséges online kommunikáció</h4><ul><li>Világos és egyértelmű üzenetek</li><li>Félreértések azonnali tisztázása</li><li>Érzelmi tartalom kifejezése (emojik)</li><li>Aktív online jelenlét és válaszadás</li></ul></div>
-  <div class="content-card"><h4>🔗 Online-offline egyensúly</h4><ul><li>Rendszeres személyes találkozások</li><li>Videóhívások a távolság áthidalására</li><li>Közös online-offline tevékenységek</li><li>Digitális emlékek megosztása</li></ul></div>
-  <div class="content-card"><h4>🚫 Határok megvonása</h4><ul><li>Képernyőmentes időszakok bevezetése</li><li>Értesítések tudatos kezelése</li><li>Digitális jelenlét időbeli korlátozása</li><li>Személyes adatok védelme</li></ul></div>
+  <div class="content-card"><h4><span data-lang="hu">💬 Egészséges online kommunikáció</span><span data-lang="en">💬 Healthy Online Communication</span><span data-lang="ro">💬 Comunicare sănătoasă online</span></h4><ul><li><span data-lang="hu">Világos és egyértelmű üzenetek</span><span data-lang="en">Clear and unambiguous messages</span><span data-lang="ro">Mesaje clare și concise</span></li><li><span data-lang="hu">Félreértések azonnali tisztázása</span><span data-lang="en">Immediate clarification of misunderstandings</span><span data-lang="ro">Clarificarea imediată a neînțelegerilor</span></li><li><span data-lang="hu">Érzelmi tartalom kifejezése (emojik)</span><span data-lang="en">Expressing emotional content (emojis)</span><span data-lang="ro">Exprimarea conținutului emoțional (emoji)</span></li><li><span data-lang="hu">Aktív online jelenlét és válaszadás</span><span data-lang="en">Active online presence and responsiveness</span><span data-lang="ro">Prezență activă online și răspuns prompt</span></li></ul></div>
+  <div class="content-card"><h4><span data-lang="hu">🔗 Online-offline egyensúly</span><span data-lang="en">🔗 Online-offline Balance</span><span data-lang="ro">🔗 Echilibru online-offline</span></h4><ul><li><span data-lang="hu">Rendszeres személyes találkozások</span><span data-lang="en">Regular in-person meetings</span><span data-lang="ro">Întâlniri personale regulate</span></li><li><span data-lang="hu">Videóhívások a távolság áthidalására</span><span data-lang="en">Video calls to bridge distance</span><span data-lang="ro">Apeluri video pentru a depăși distanța</span></li><li><span data-lang="hu">Közös online-offline tevékenységek</span><span data-lang="en">Shared online-offline activities</span><span data-lang="ro">Activități comune online și offline</span></li><li><span data-lang="hu">Digitális emlékek megosztása</span><span data-lang="en">Sharing digital memories</span><span data-lang="ro">Partajarea amintirilor digitale</span></li></ul></div>
+  <div class="content-card"><h4><span data-lang="hu">🚫 Határok megvonása</span><span data-lang="en">🚫 Setting Boundaries</span><span data-lang="ro">🚫 Stabilirea limitelor</span></h4><ul><li><span data-lang="hu">Képernyőmentes időszakok bevezetése</span><span data-lang="en">Introducing screen-free periods</span><span data-lang="ro">Introducerea perioadelor fără ecran</span></li><li><span data-lang="hu">Értesítések tudatos kezelése</span><span data-lang="en">Conscious management of notifications</span><span data-lang="ro">Gestionarea conștientă a notificărilor</span></li><li><span data-lang="hu">Digitális jelenlét időbeli korlátozása</span><span data-lang="en">Time limits on digital presence</span><span data-lang="ro">Limitarea timpului petrecut online</span></li><li><span data-lang="hu">Személyes adatok védelme</span><span data-lang="en">Protecting personal data</span><span data-lang="ro">Protejarea datelor personale</span></li></ul></div>
 </div>
       </div>
     </section>
@@ -284,17 +362,17 @@
       <div class="section-header">
         <span class="section-icon">🌍</span>
         <div>
-          <h2>Kulturális Identitás és Kapcsolatok</h2>
-          <p class="section-subtitle">Kulturális sokszínűség a kapcsolatokban</p>
+          <h2><span data-lang="hu">Kulturális Identitás és Kapcsolatok</span><span data-lang="en">Cultural Identity and Relationships</span><span data-lang="ro">Identitate culturală și relații</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Kulturális sokszínűség a kapcsolatokban</span><span data-lang="en">Cultural diversity in relationships</span><span data-lang="ro">Diversitate culturală în relații</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #1a7a4a, transparent);"></div>
-      <p class="section-intro">A kulturális háttér meghatározza kommunikációs stílusunkat, értékeinket és kapcsolati mintáinkat. A kulturális tudatosság elősegíti az autentikus és tiszteletteljes kapcsolatokat.</p>
+      <p class="section-intro"><span data-lang="hu">A kulturális háttér meghatározza kommunikációs stílusunkat, értékeinket és kapcsolati mintáinkat. A kulturális tudatosság elősegíti az autentikus és tiszteletteljes kapcsolatokat.</span><span data-lang="en">Cultural background defines our communication style, values, and relationship patterns. Cultural awareness promotes authentic and respectful connections.</span><span data-lang="ro">Contextul cultural determină stilul nostru de comunicare, valorile și modelele noastre relaționale. Conștientizarea culturală promovează relații autentice și respectuoase.</span></p>
       <div class="section-content">
 <div class="content-grid">
-  <div class="content-card"><h4>🌉 Kulturális híd szerep</h4><ul><li>Két kultúra értékeinek közvetítése</li><li>Kulturális félreértések tisztázása</li><li>Sztereotípiák lebontása</li><li>Nyelvi közvetítés és fordítás</li></ul></div>
-  <div class="content-card"><h4>🤝 Vegyes kapcsolatok kezelése</h4><ul><li>Kulturális különbségek tisztelete</li><li>Közös értékek megtalálása</li><li>Ünnepek és hagyományok megosztása</li><li>Nyitott kommunikáció a különbségekről</li></ul></div>
-  <div class="content-card"><h4>🏘️ Közösségi integráció</h4><ul><li>Magyar közösségi események szervezése</li><li>Többségi társadalom eseményein részvétel</li><li>Kulturális cserekapcsolatok építése</li><li>Interkulturális projektek kezdeményezése</li></ul></div>
+  <div class="content-card"><h4><span data-lang="hu">🌉 Kulturális híd szerep</span><span data-lang="en">🌉 Role as a Cultural Bridge</span><span data-lang="ro">🌉 Rolul de punte culturală</span></h4><ul><li><span data-lang="hu">Két kultúra értékeinek közvetítése</span><span data-lang="en">Mediating the values of two cultures</span><span data-lang="ro">Transmiterea valorilor a două culturi</span></li><li><span data-lang="hu">Kulturális félreértések tisztázása</span><span data-lang="en">Clarifying cultural misunderstandings</span><span data-lang="ro">Clarificarea neînțelegerilor culturale</span></li><li><span data-lang="hu">Sztereotípiák lebontása</span><span data-lang="en">Breaking down stereotypes</span><span data-lang="ro">Demontarea stereotipurilor</span></li><li><span data-lang="hu">Nyelvi közvetítés és fordítás</span><span data-lang="en">Linguistic mediation and translation</span><span data-lang="ro">Medierea lingvistică și traducerea</span></li></ul></div>
+  <div class="content-card"><h4><span data-lang="hu">🤝 Vegyes kapcsolatok kezelése</span><span data-lang="en">🤝 Managing Mixed Relationships</span><span data-lang="ro">🤝 Gestionarea relațiilor mixte</span></h4><ul><li><span data-lang="hu">Kulturális különbségek tisztelete</span><span data-lang="en">Respecting cultural differences</span><span data-lang="ro">Respectarea diferențelor culturale</span></li><li><span data-lang="hu">Közös értékek megtalálása</span><span data-lang="en">Finding common values</span><span data-lang="ro">Găsirea valorilor comune</span></li><li><span data-lang="hu">Ünnepek és hagyományok megosztása</span><span data-lang="en">Sharing holidays and traditions</span><span data-lang="ro">Împărtășirea sărbătorilor și tradițiilor</span></li><li><span data-lang="hu">Nyitott kommunikáció a különbségekről</span><span data-lang="en">Open communication about differences</span><span data-lang="ro">Comunicare deschisă despre diferențe</span></li></ul></div>
+  <div class="content-card"><h4><span data-lang="hu">🏘️ Közösségi integráció</span><span data-lang="en">🏘️ Community Integration</span><span data-lang="ro">🏘️ Integrare comunitară</span></h4><ul><li><span data-lang="hu">Magyar közösségi események szervezése</span><span data-lang="en">Organizing Hungarian community events</span><span data-lang="ro">Organizarea de evenimente comunitare maghiare</span></li><li><span data-lang="hu">Többségi társadalom eseményein részvétel</span><span data-lang="en">Participating in majority society events</span><span data-lang="ro">Participarea la evenimentele societății majoritare</span></li><li><span data-lang="hu">Kulturális cserekapcsolatok építése</span><span data-lang="en">Building cultural exchange relationships</span><span data-lang="ro">Construirea schimburilor culturale</span></li><li><span data-lang="hu">Interkulturális projektek kezdeményezése</span><span data-lang="en">Initiating intercultural projects</span><span data-lang="ro">Inițierea proiectelor interculturale</span></li></ul></div>
 </div>
       </div>
     </section>
@@ -303,63 +381,63 @@
       <div class="section-header">
         <span class="section-icon">🪞</span>
         <div>
-          <h2>Önreflexió – Kapcsolati Szokásaim</h2>
-          <p class="section-subtitle">Saját kapcsolati minták feltérképezése</p>
+          <h2><span data-lang="hu">Önreflexió – Kapcsolati Szokásaim</span><span data-lang="en">Self-reflection – My Relationship Habits</span><span data-lang="ro">Auto-reflecție – Obiceiurile mele relaționale</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">Saját kapcsolati minták feltérképezése</span><span data-lang="en">Mapping your own relationship patterns</span><span data-lang="ro">Cartografierea propriilor modele relaționale</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #1a7a4a, transparent);"></div>
-      <p class="section-intro">A kapcsolati szokásaink tudatosítása az első lépés a fejlődés felé. Az alábbi kérdőív segít feltérképezni erősségeidet és fejlesztendő területeidet.</p>
+      <p class="section-intro"><span data-lang="hu">A kapcsolati szokásaink tudatosítása az első lépés a fejlődés felé. Az alábbi kérdőív segít feltérképezni erősségeidet és fejlesztendő területeidet.</span><span data-lang="en">Becoming aware of our relationship habits is the first step towards growth. The questionnaire below helps you identify your strengths and areas for development.</span><span data-lang="ro">Conștientizarea obiceiurilor noastre relaționale este primul pas spre dezvoltare. Chestionarul de mai jos te ajută să identifici punctele tale forte și ariile de îmbunătățit.</span></p>
 
       <div class="interactive-box" style="background:#e8f8ef; border-left: 4px solid #1a7a4a;">
-        <h3>🧩 Önértékelő kérdőív – Kapcsolati készségeim</h3>
-        <p>Töltsd ki az alábbi kérdőívet, hogy képet kapj jelenlegi szokásaidról és fejlesztési lehetőségeidről!</p>
+        <h3><span data-lang="hu">🧩 Önértékelő kérdőív – Kapcsolati készségeim</span><span data-lang="en">🧩 Self-assessment Questionnaire – My Relationship Skills</span><span data-lang="ro">🧩 Chestionar de autoevaluare – Abilitățile mele relaționale</span></h3>
+        <p><span data-lang="hu">Töltsd ki az alábbi kérdőívet, hogy képet kapj jelenlegi szokásaidról és fejlesztési lehetőségeidről!</span><span data-lang="en">Fill out the questionnaire below to get an overview of your current habits and development opportunities!</span><span data-lang="ro">Completează chestionarul de mai jos pentru a-ți face o imagine asupra obiceiurilor tale actuale și a posibilităților de dezvoltare!</span></p>
         <div class="reflection-form" id="reflectionForm">
 
     <div class="reflection-question" id="q1">
-      <label class="q-label">Mennyire érzem magam képesnek aktívan meghallgatni másokat?</label>
+      <label class="q-label"><span data-lang="hu">Mennyire érzem magam képesnek aktívan meghallgatni másokat?</span><span data-lang="en">How capable do I feel of actively listening to others?</span><span data-lang="ro">Cât de capabil mă simt să ascult activ pe ceilalți?</span></label>
       <div class="scale-container">
-        <span class="scale-label">Egyáltalán nem</span>
+        <span class="scale-label"><span data-lang="hu">Egyáltalán nem</span><span data-lang="en">Not at all</span><span data-lang="ro">Deloc</span></span>
         <div class="scale-buttons">
           <button class="scale-btn" onclick="selectScale(this, 1)">1</button><button class="scale-btn" onclick="selectScale(this, 1)">2</button><button class="scale-btn" onclick="selectScale(this, 1)">3</button><button class="scale-btn" onclick="selectScale(this, 1)">4</button><button class="scale-btn" onclick="selectScale(this, 1)">5</button>
         </div>
-        <span class="scale-label">Teljes mértékben</span>
+        <span class="scale-label"><span data-lang="hu">Teljes mértékben</span><span data-lang="en">Completely</span><span data-lang="ro">Complet</span></span>
       </div>
     </div>
     <div class="reflection-question" id="q2">
-      <label class="q-label">Mennyire könnyen fejezem ki érzelmeimet a kapcsolataimban?</label>
+      <label class="q-label"><span data-lang="hu">Mennyire könnyen fejezem ki érzelmeimet a kapcsolataimban?</span><span data-lang="en">How easily do I express my emotions in my relationships?</span><span data-lang="ro">Cât de ușor îmi exprim emoțiile în relațiile mele?</span></label>
       <div class="scale-container">
-        <span class="scale-label">Egyáltalán nem</span>
+        <span class="scale-label"><span data-lang="hu">Egyáltalán nem</span><span data-lang="en">Not at all</span><span data-lang="ro">Deloc</span></span>
         <div class="scale-buttons">
           <button class="scale-btn" onclick="selectScale(this, 2)">1</button><button class="scale-btn" onclick="selectScale(this, 2)">2</button><button class="scale-btn" onclick="selectScale(this, 2)">3</button><button class="scale-btn" onclick="selectScale(this, 2)">4</button><button class="scale-btn" onclick="selectScale(this, 2)">5</button>
         </div>
-        <span class="scale-label">Teljes mértékben</span>
+        <span class="scale-label"><span data-lang="hu">Teljes mértékben</span><span data-lang="en">Completely</span><span data-lang="ro">Complet</span></span>
       </div>
     </div>
     <div class="reflection-question" id="q3">
-      <label class="q-label">Mennyire tudok határokat felállítani és nemet mondani?</label>
+      <label class="q-label"><span data-lang="hu">Mennyire tudok határokat felállítani és nemet mondani?</span><span data-lang="en">How well can I set boundaries and say no?</span><span data-lang="ro">Cât de bine pot stabili limite și pot spune nu?</span></label>
       <div class="scale-container">
-        <span class="scale-label">Egyáltalán nem</span>
+        <span class="scale-label"><span data-lang="hu">Egyáltalán nem</span><span data-lang="en">Not at all</span><span data-lang="ro">Deloc</span></span>
         <div class="scale-buttons">
           <button class="scale-btn" onclick="selectScale(this, 3)">1</button><button class="scale-btn" onclick="selectScale(this, 3)">2</button><button class="scale-btn" onclick="selectScale(this, 3)">3</button><button class="scale-btn" onclick="selectScale(this, 3)">4</button><button class="scale-btn" onclick="selectScale(this, 3)">5</button>
         </div>
-        <span class="scale-label">Teljes mértékben</span>
+        <span class="scale-label"><span data-lang="hu">Teljes mértékben</span><span data-lang="en">Completely</span><span data-lang="ro">Complet</span></span>
       </div>
     </div>
     <div class="reflection-question" id="q4">
-      <label class="q-label">Mennyire vagyok tudatos a digitális kommunikációmban?</label>
+      <label class="q-label"><span data-lang="hu">Mennyire vagyok tudatos a digitális kommunikációmban?</span><span data-lang="en">How conscious am I of my digital communication?</span><span data-lang="ro">Cât de conștient sunt în comunicarea mea digitală?</span></label>
       <div class="scale-container">
-        <span class="scale-label">Egyáltalán nem</span>
+        <span class="scale-label"><span data-lang="hu">Egyáltalán nem</span><span data-lang="en">Not at all</span><span data-lang="ro">Deloc</span></span>
         <div class="scale-buttons">
           <button class="scale-btn" onclick="selectScale(this, 4)">1</button><button class="scale-btn" onclick="selectScale(this, 4)">2</button><button class="scale-btn" onclick="selectScale(this, 4)">3</button><button class="scale-btn" onclick="selectScale(this, 4)">4</button><button class="scale-btn" onclick="selectScale(this, 4)">5</button>
         </div>
-        <span class="scale-label">Teljes mértékben</span>
+        <span class="scale-label"><span data-lang="hu">Teljes mértékben</span><span data-lang="en">Completely</span><span data-lang="ro">Complet</span></span>
       </div>
     </div>
     <div class="reflection-question" id="q5">
-      <label class="q-label">Mit szeretnék leginkább fejleszteni a kapcsolataimban?</label>
+      <label class="q-label"><span data-lang="hu">Mit szeretnék leginkább fejleszteni a kapcsolataimban?</span><span data-lang="en">What would I most like to improve in my relationships?</span><span data-lang="ro">Ce aș dori să dezvolt cel mai mult în relațiile mele?</span></label>
       <textarea class="reflection-textarea" rows="3" placeholder="Írd ide a válaszodat..."></textarea>
     </div>
-          <button class="submit-btn" onclick="submitReflection()">Visszajelzés megjelenítése</button>
+          <button class="submit-btn" onclick="submitReflection()"><span data-lang="hu">Visszajelzés megjelenítése</span><span data-lang="en">Show feedback</span><span data-lang="ro">Afișează feedback-ul</span></button>
           <div class="feedback-box" id="feedbackBox" style="display:none;"></div>
         </div>
       </div>
@@ -369,35 +447,42 @@
       <div class="section-header">
         <span class="section-icon">📋</span>
         <div>
-          <h2>Összefoglalás és Következő Lépések</h2>
-          <p class="section-subtitle">A tanultak alkalmazása a mindennapokban</p>
+          <h2><span data-lang="hu">Összefoglalás és Következő Lépések</span><span data-lang="en">Summary and Next Steps</span><span data-lang="ro">Rezumat și Pașii Următori</span></h2>
+          <p class="section-subtitle"><span data-lang="hu">A tanultak alkalmazása a mindennapokban</span><span data-lang="en">Applying what you’ve learned in everyday life</span><span data-lang="ro">Aplicarea celor învățate în viața de zi cu zi</span></p>
         </div>
       </div>
       <div class="section-divider" style="background: linear-gradient(90deg, #1a7a4a, transparent);"></div>
-      <p class="section-intro">A kapcsolati eszközök elsajátítása folyamatos gyakorlást és fejlődést igényel. Az alábbi lépések segítenek a tanultak mindennapi alkalmazásában.</p>
+      <p class="section-intro"><span data-lang="hu">A kapcsolati eszközök elsajátítása folyamatos gyakorlást és fejlődést igényel. Az alábbi lépések segítenek a tanultak mindennapi alkalmazásában.</span><span data-lang="en">Mastering relationship tools requires ongoing practice and development. The steps below help you apply what you’ve learned daily.</span><span data-lang="ro">Stăpânirea instrumentelor relaționale necesită practică continuă și dezvoltare. Pașii de mai jos te ajută să aplici zilnic ceea ce ai învățat.</span></p>
       <div class="section-content">
 <div class="summary-grid">
-  <div class="summary-card"><h4>✅ Önértékelés</h4><p>Készíts leltárt jelenlegi kapcsolataidról és kommunikációs mintáidról. Azonosítsd erősségeidet és fejlesztendő területeidet.</p></div>
-  <div class="summary-card"><h4>🎯 SMART célok</h4><p>Válassz 1-2 konkrét területet, amelyen fejlődni szeretnél. Határozz meg mérhető eredményeket (pl. "Hetente egy mély beszélgetés").</p></div>
-  <div class="summary-card"><h4>📔 Napló</h4><p>Vezess naplót a kapcsolati tapasztalataidról és tanulságokról. Rendszeresen értékeld haladásodat a kitűzött célok felé.</p></div>
-  <div class="summary-card"><h4>🤝 Közösség</h4><p>Csatlakozz az IMELO közösséghez további támogatásért. Találj gyakorlópartnert a technikák begyakorlásához.</p></div>
+  <div class="summary-card"><h4><span data-lang="hu">✅ Önértékelés</span><span data-lang="en">✅ Self-assessment</span><span data-lang="ro">✅ Autoevaluare</span></h4><p><span data-lang="hu">Készíts leltárt jelenlegi kapcsolataidról és kommunikációs mintáidról. Azonosítsd erősségeidet és fejlesztendő területeidet.</span><span data-lang="en">Take stock of your current relationships and communication patterns. Identify your strengths and areas for improvement.</span><span data-lang="ro">Fă un inventar al relațiilor și modelelor tale de comunicare actuale. Identifică-ți punctele forte și ariile de îmbunătățit.</span></p></div>
+  <div class="summary-card"><h4><span data-lang="hu">🎯 SMART célok</span><span data-lang="en">🎯 SMART Goals</span><span data-lang="ro">🎯 Obiective SMART</span></h4><p><span data-lang="hu">Válassz 1-2 konkrét területet, amelyen fejlődni szeretnél. Határozz meg mérhető eredményeket (pl. "Hetente egy mély beszélgetés").</span><span data-lang="en">Choose 1-2 specific areas you want to develop. Define measurable outcomes (e.g., "One deep conversation per week").</span><span data-lang="ro">Alege 1-2 domenii concrete în care dorești să te dezvolți. Stabilește rezultate măsurabile (ex. „O conversație profundă pe săptămână”).</span></p></div>
+  <div class="summary-card"><h4><span data-lang="hu">📔 Napló</span><span data-lang="en">📔 Journal</span><span data-lang="ro">📔 Jurnal</span></h4><p><span data-lang="hu">Vezess naplót a kapcsolati tapasztalataidról és tanulságokról. Rendszeresen értékeld haladásodat a kitűzött célok felé.</span><span data-lang="en">Keep a journal of your relationship experiences and lessons learned. Regularly evaluate your progress toward your goals.</span><span data-lang="ro">Ține un jurnal al experiențelor și lecțiilor tale relaționale. Evaluează-ți progresul regulat în direcția obiectivelor stabilite.</span></p></div>
+  <div class="summary-card"><h4><span data-lang="hu">🤝 Közösség</span><span data-lang="en">🤝 Community</span><span data-lang="ro">🤝 Comunitate</span></h4><p><span data-lang="hu">Csatlakozz az IMELO közösséghez további támogatásért. Találj gyakorlópartnert a technikák begyakorlásához.</span><span data-lang="en">Join the IMELO community for additional support. Find a practice partner to rehearse techniques.</span><span data-lang="ro">Alătură-te comunității IMELO pentru suport suplimentar. Găsește un partener de practică pentru exersarea tehnicilor.</span></p></div>
 </div>
       </div>
     </section>
 
 
     <div class="pdf-section">
-      <h3>📥 Fejezet letöltése PDF formátumban</h3>
-      <a href="https://drive.google.com/file/d/1oVUE21IHOFWUjvdVW4x6Z-QklQO3ZZ4G/view" target="_blank" class="pdf-btn">🇭🇺 Magyar PDF letöltése</a>
+      <h3><span data-lang="hu">📥 Fejezet letöltése PDF formátumban</span><span data-lang="en">📥 Download Chapter as PDF</span><span data-lang="ro">📥 Descarcă capitolul în format PDF</span></h3>
+      <a href="https://drive.google.com/file/d/1oVUE21IHOFWUjvdVW4x6Z-QklQO3ZZ4G/view" target="_blank" class="pdf-btn"><span data-lang="hu">🇭🇺 Magyar PDF letöltése</span><span data-lang="en">🇭🇺 Download Hungarian PDF</span><span data-lang="ro">🇭🇺 Descarcă PDF în maghiară</span></a>
       <a href="https://drive.google.com/file/d/1nQ6j1_L3Ka3mCtypibBiNJT5PVaQ8h8W/view" target="_blank" class="pdf-btn">🇬🇧 English PDF</a>
       <a href="https://drive.google.com/file/d/1kuZ5I0HxfPxW1MpE6vPfHIyAfQKh6EJa/view" target="_blank" class="pdf-btn">🇷🇴 PDF în română</a>
     </div>
   </main>
 </div>
 
+
+<div class="chapter-nav">
+  <a href="../chapter1/index.html">← <span data-lang="hu"><span data-lang="hu">1. fejezet</span><span data-lang="en">Chapter 1</span><span data-lang="ro">Capitolul 1</span></span><span data-lang="en">Chapter 1</span><span data-lang="ro">Capitolul 1</span></a>
+  <a href="../index.html" class="nav-home"><span data-lang="hu"><span data-lang="hu">🏠 Főoldal</span><span data-lang="en">🏠 Home</span><span data-lang="ro">🏠 Pagina principală</span></span><span data-lang="en">🏠 Home</span><span data-lang="ro">🏠 Acasă</span></a>
+  <a href="../chapter3/index.html"><span data-lang="hu"><span data-lang="hu">3. fejezet</span><span data-lang="en">Chapter 3</span><span data-lang="ro">Capitolul 3</span></span><span data-lang="en">Chapter 3</span><span data-lang="ro">Capitolul 3</span> →</a>
+</div>
+
 <footer class="chapter-footer">
   <p>IMELO – Identity Mosaic | Erasmus+ KA2 projekt | © 2024–2026</p>
-  <p>Az Európai Bizottság támogatásával készült. A tartalom kizárólag a szerzők álláspontját tükrözi.</p>
+  <p><span data-lang="hu">Az Európai Bizottság támogatásával készült. A tartalom kizárólag a szerzők álláspontját tükrözi.</span><span data-lang="en">Developed with the support of the European Commission. The content reflects the views of the authors only.</span><span data-lang="ro">Realizat cu sprijinul Comisiei Europene. Conținutul reflectă exclusiv poziția autorilor.</span></p>
 </footer>
 
 <script>
@@ -437,6 +522,23 @@
       if (target) target.scrollIntoView({behavior: 'smooth', block: 'start'});
     });
   });
+
+  // Language switcher
+  (function() {
+    var stored = localStorage.getItem('imelo-lang') || 'hu';
+    document.body.setAttribute('data-active-lang', stored);
+    document.querySelectorAll('.lang-btn-sub').forEach(function(btn) {
+      if (btn.getAttribute('data-lang-switch') === stored) btn.classList.add('active');
+    });
+  })();
+  function switchLangSub(lang) {
+    document.body.setAttribute('data-active-lang', lang);
+    localStorage.setItem('imelo-lang', lang);
+    document.querySelectorAll('.lang-btn-sub').forEach(function(btn) {
+      btn.classList.toggle('active', btn.getAttribute('data-lang-switch') === lang);
+    });
+  }
+
 </script>
 </body>
 </html>

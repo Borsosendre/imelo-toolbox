@@ -21,6 +21,12 @@
 
     /* ===== LANGUAGE HIDDEN ===== */
     [data-lang] { display: none; }
+    /* Language-aware PDF and video buttons */
+    [data-lang-show] { display: none !important; }
+    body[data-active-lang="hu"] [data-lang-show="hu"] { display: inline-flex !important; }
+    body[data-active-lang="en"] [data-lang-show="en"] { display: inline-flex !important; }
+    body[data-active-lang="ro"] [data-lang-show="ro"] { display: inline-flex !important; }
+
     body[data-active-lang="hu"] [data-lang="hu"] { display: block; }
     body[data-active-lang="en"] [data-lang="en"] { display: block; }
     body[data-active-lang="ro"] [data-lang="ro"] { display: block; }
@@ -654,10 +660,16 @@
           <a href="chapter1/index.html" class="btn-open" style="display:inline-flex;align-items:center;gap:0.4rem;background:linear-gradient(135deg,#4B2D8B,#2196F3);color:#fff;font-weight:800;font-size:0.82rem;padding:0.45rem 1rem;border-radius:20px;text-decoration:none;margin-bottom:0.5rem;">
             🌐 <span data-lang="hu">Fejezet megnyitása</span><span data-lang="en">Open Chapter</span><span data-lang="ro">Deschide capitolul</span>
           </a>
-          <a href="https://drive.google.com/file/d/1Yz0XwTy1bobdl6B81DLR8A_mhUPwKAVb/view" target="_blank" rel="noopener" class="btn-pdf">
-            📄 <span data-lang="hu">PDF letöltés</span><span data-lang="en">Download PDF</span><span data-lang="ro">Descarcă PDF</span>
+          <a href="https://drive.google.com/file/d/1Yz0XwTy1bobdl6B81DLR8A_mhUPwKAVb/view" target="_blank" rel="noopener" class="btn-pdf" data-lang-show="hu" style="display:none;">
+            📄 <span>PDF letöltés</span>
           </a>
-          <a href="chapter1/index.html#video-3" class="btn-video available" title="Digitális jóllét és egészséges online egyensúly">
+          <a href="https://drive.google.com/file/d/1GZEgg02oUdT-YKS6DSga3KF5__zZ9Gzh/view" target="_blank" rel="noopener" class="btn-pdf" data-lang-show="en" style="display:none;">
+            📄 <span>Download PDF</span>
+          </a>
+          <a href="https://drive.google.com/file/d/18EFl-11NUxpKrG-3TH_hu9H4p2vdg2qY/view" target="_blank" rel="noopener" class="btn-pdf" data-lang-show="ro" style="display:none;">
+            📄 <span>Descarcă PDF</span>
+          </a>
+          <a href="chapter1/index.html#video-3" class="btn-video available" data-lang-show="hu" title="Digitális jóllét és egészséges online egyensúly">
             🎬 <span data-lang="hu">Videó megtekintése</span><span data-lang="en">Watch video</span><span data-lang="ro">Vezi videoclipul</span>
           </a>
         </div>
@@ -689,10 +701,16 @@
           <a href="chapter2/index.html" class="btn-open" style="display:inline-flex;align-items:center;gap:0.4rem;background:linear-gradient(135deg,#4B2D8B,#2196F3);color:#fff;font-weight:800;font-size:0.82rem;padding:0.45rem 1rem;border-radius:20px;text-decoration:none;margin-bottom:0.5rem;">
             🌐 <span data-lang="hu">Fejezet megnyitása</span><span data-lang="en">Open Chapter</span><span data-lang="ro">Deschide capitolul</span>
           </a>
-                    <a href="https://drive.google.com/file/d/1oVUE21IHOFWUjvdVW4x6Z-QklQO3ZZ4G/view" target="_blank" rel="noopener" class="btn-pdf">
-            📄 <span data-lang="hu">PDF letöltés</span><span data-lang="en">Download PDF</span><span data-lang="ro">Descarcă PDF</span>
+                    <a href="https://drive.google.com/file/d/1oVUE21IHOFWUjvdVW4x6Z-QklQO3ZZ4G/view" target="_blank" rel="noopener" class="btn-pdf" data-lang-show="hu" style="display:none;">
+            📄 <span>PDF letöltés</span>
           </a>
-          <a href="chapter2/index.html#video-1" class="btn-video available" title="Egészséges kapcsolatok és támogató kommunikáció">
+          <a href="https://drive.google.com/file/d/1nQ6j1_L3Ka3mCtypibBiNJT5PVaQ8h8W/view" target="_blank" rel="noopener" class="btn-pdf" data-lang-show="en" style="display:none;">
+            📄 <span>Download PDF</span>
+          </a>
+          <a href="https://drive.google.com/file/d/1kuZ5I0HxfPxW1MpE6vPfHIyAfQKh6EJa/view" target="_blank" rel="noopener" class="btn-pdf" data-lang-show="ro" style="display:none;">
+            📄 <span>Descarcă PDF</span>
+          </a>
+          <a href="chapter2/index.html#video-1" class="btn-video available" data-lang-show="hu" title="Egészséges kapcsolatok és támogató kommunikáció">
             🎬 <span data-lang="hu">Videó megtekintése</span><span data-lang="en">Watch video</span><span data-lang="ro">Vezi videoclipul</span>
           </a>
         </div>
@@ -724,10 +742,16 @@
           <a href="chapter3/index.html" class="btn-open" style="display:inline-flex;align-items:center;gap:0.4rem;background:linear-gradient(135deg,#4B2D8B,#2196F3);color:#fff;font-weight:800;font-size:0.82rem;padding:0.45rem 1rem;border-radius:20px;text-decoration:none;margin-bottom:0.5rem;">
             🌐 <span data-lang="hu">Fejezet megnyitása</span><span data-lang="en">Open Chapter</span><span data-lang="ro">Deschide capitolul</span>
           </a>
-                    <a href="https://drive.google.com/file/d/138rrUBTPkyfh3ufgjkfSqsEgYJDIV2id/view" target="_blank" rel="noopener" class="btn-pdf">
-            📄 <span data-lang="hu">PDF letöltés</span><span data-lang="en">Download PDF</span><span data-lang="ro">Descarcă PDF</span>
+                    <a href="https://drive.google.com/file/d/138rrUBTPkyfh3ufgjkfSqsEgYJDIV2id/view" target="_blank" rel="noopener" class="btn-pdf" data-lang-show="hu" style="display:none;">
+            📄 <span>PDF letöltés</span>
           </a>
-          <a href="chapter3/index.html#video-1" class="btn-video available" title="Mentális jóllét és öngondoskodási alapok">
+          <a href="https://drive.google.com/file/d/1lTIXTCZDeF3LqAQqrcPZCj6Yw78Xk9Oa/view" target="_blank" rel="noopener" class="btn-pdf" data-lang-show="en" style="display:none;">
+            📄 <span>Download PDF</span>
+          </a>
+          <a href="https://drive.google.com/file/d/1fcNpxCDaPRQJysCWcOiANHnPyx7Mf6Xm/view" target="_blank" rel="noopener" class="btn-pdf" data-lang-show="ro" style="display:none;">
+            📄 <span>Descarcă PDF</span>
+          </a>
+          <a href="chapter3/index.html#video-1" class="btn-video available" data-lang-show="hu" title="Mentális jóllét és öngondoskodási alapok">
             🎬 <span data-lang="hu">Videó megtekintése</span><span data-lang="en">Watch video</span><span data-lang="ro">Vezi videoclipul</span>
           </a>
         </div>
@@ -759,10 +783,16 @@
           <a href="chapter4/index.html" class="btn-open" style="display:inline-flex;align-items:center;gap:0.4rem;background:linear-gradient(135deg,#4B2D8B,#2196F3);color:#fff;font-weight:800;font-size:0.82rem;padding:0.45rem 1rem;border-radius:20px;text-decoration:none;margin-bottom:0.5rem;">
             🌐 <span data-lang="hu">Fejezet megnyitása</span><span data-lang="en">Open Chapter</span><span data-lang="ro">Deschide capitolul</span>
           </a>
-                    <a href="https://drive.google.com/file/d/1FuFM4eIGDn3B4CNTATnKQ8Eb1YV__SZR/view" target="_blank" rel="noopener" class="btn-pdf">
-            📄 <span data-lang="hu">PDF letöltés</span><span data-lang="en">Download PDF</span><span data-lang="ro">Descarcă PDF</span>
+                    <a href="https://drive.google.com/file/d/1FuFM4eIGDn3B4CNTATnKQ8Eb1YV__SZR/view" target="_blank" rel="noopener" class="btn-pdf" data-lang-show="hu" style="display:none;">
+            📄 <span>PDF letöltés</span>
           </a>
-          <a href="chapter4/index.html#video-1" class="btn-video available" title="Tudatos célkitűzés és értékalapú döntéshozatal">
+          <a href="https://drive.google.com/file/d/1Zve1c5mmyLbGRVrQXCkoQ1fbeURfY3Aq/view" target="_blank" rel="noopener" class="btn-pdf" data-lang-show="en" style="display:none;">
+            📄 <span>Download PDF</span>
+          </a>
+          <a href="https://drive.google.com/file/d/13bhcOtIv0gFs9SjkFaILsZpCf0OhWxKn/view" target="_blank" rel="noopener" class="btn-pdf" data-lang-show="ro" style="display:none;">
+            📄 <span>Descarcă PDF</span>
+          </a>
+          <a href="chapter4/index.html#video-1" class="btn-video available" data-lang-show="hu" title="Tudatos célkitűzés és értékalapú döntéshozatal">
             🎬 <span data-lang="hu">Videó megtekintése</span><span data-lang="en">Watch video</span><span data-lang="ro">Vezi videoclipul</span>
           </a>
         </div>
@@ -794,10 +824,16 @@
           <a href="chapter5/index.html" class="btn-open" style="display:inline-flex;align-items:center;gap:0.4rem;background:linear-gradient(135deg,#4B2D8B,#2196F3);color:#fff;font-weight:800;font-size:0.82rem;padding:0.45rem 1rem;border-radius:20px;text-decoration:none;margin-bottom:0.5rem;">
             🌐 <span data-lang="hu">Fejezet megnyitása</span><span data-lang="en">Open Chapter</span><span data-lang="ro">Deschide capitolul</span>
           </a>
-                    <a href="https://drive.google.com/file/d/1cgAG-U8m31fpX9d9Zxu9CmnMIjdnYQs7/view" target="_blank" rel="noopener" class="btn-pdf">
-            📄 <span data-lang="hu">PDF letöltés</span><span data-lang="en">Download PDF</span><span data-lang="ro">Descarcă PDF</span>
+                    <a href="https://drive.google.com/file/d/1cgAG-U8m31fpX9d9Zxu9CmnMIjdnYQs7/view" target="_blank" rel="noopener" class="btn-pdf" data-lang-show="hu" style="display:none;">
+            📄 <span>PDF letöltés</span>
           </a>
-          <a href="chapter5/index.html#video-1" class="btn-video available" title="Konfliktuskezelés és asszertív kommunikáció">
+          <a href="https://drive.google.com/file/d/1z0oB61SOP7mhYVZHpm1hE6A3L9GpKjTw/view" target="_blank" rel="noopener" class="btn-pdf" data-lang-show="en" style="display:none;">
+            📄 <span>Download PDF</span>
+          </a>
+          <a href="https://drive.google.com/file/d/1m0FAyUvCv4AithtVgKIW9hNj9zxRbLqP/view" target="_blank" rel="noopener" class="btn-pdf" data-lang-show="ro" style="display:none;">
+            📄 <span>Descarcă PDF</span>
+          </a>
+          <a href="chapter5/index.html#video-1" class="btn-video available" data-lang-show="hu" title="Konfliktuskezelés és asszertív kommunikáció">
             🎬 <span data-lang="hu">Videó megtekintése</span><span data-lang="en">Watch video</span><span data-lang="ro">Vezi videoclipul</span>
           </a>
         </div>
@@ -829,10 +865,16 @@
           <a href="chapter6/index.html" class="btn-open" style="display:inline-flex;align-items:center;gap:0.4rem;background:linear-gradient(135deg,#4B2D8B,#2196F3);color:#fff;font-weight:800;font-size:0.82rem;padding:0.45rem 1rem;border-radius:20px;text-decoration:none;margin-bottom:0.5rem;">
             🌐 <span data-lang="hu">Fejezet megnyitása</span><span data-lang="en">Open Chapter</span><span data-lang="ro">Deschide capitolul</span>
           </a>
-                    <a href="https://drive.google.com/file/d/1W07Rh0rLaNViw4vfRNG2xy9vEBVXwehP/view" target="_blank" rel="noopener" class="btn-pdf">
-            📄 <span data-lang="hu">PDF letöltés</span><span data-lang="en">Download PDF</span><span data-lang="ro">Descarcă PDF</span>
+                    <a href="https://drive.google.com/file/d/1W07Rh0rLaNViw4vfRNG2xy9vEBVXwehP/view" target="_blank" rel="noopener" class="btn-pdf" data-lang-show="hu" style="display:none;">
+            📄 <span>PDF letöltés</span>
           </a>
-          <a href="chapter6/index.html#video-1" class="btn-video available" title="Struktúrált problémamegoldás és döntéshozatal">
+          <a href="https://drive.google.com/file/d/1VrJYHKlRuX_JU78IDZFS-N_9sXwQmTbE/view" target="_blank" rel="noopener" class="btn-pdf" data-lang-show="en" style="display:none;">
+            📄 <span>Download PDF</span>
+          </a>
+          <a href="https://drive.google.com/file/d/1LsNYFcmjuesBWznRqf08nK2chSpDvHxA/view" target="_blank" rel="noopener" class="btn-pdf" data-lang-show="ro" style="display:none;">
+            📄 <span>Descarcă PDF</span>
+          </a>
+          <a href="chapter6/index.html#video-1" class="btn-video available" data-lang-show="hu" title="Struktúrált problémamegoldás és döntéshozatal">
             🎬 <span data-lang="hu">Videó megtekintése</span><span data-lang="en">Watch video</span><span data-lang="ro">Vezi videoclipul</span>
           </a>
         </div>
@@ -864,10 +906,16 @@
           <a href="chapter7/index.html" class="btn-open" style="display:inline-flex;align-items:center;gap:0.4rem;background:linear-gradient(135deg,#4B2D8B,#2196F3);color:#fff;font-weight:800;font-size:0.82rem;padding:0.45rem 1rem;border-radius:20px;text-decoration:none;margin-bottom:0.5rem;">
             🌐 <span data-lang="hu">Fejezet megnyitása</span><span data-lang="en">Open Chapter</span><span data-lang="ro">Deschide capitolul</span>
           </a>
-                    <a href="https://drive.google.com/file/d/1Xf0NWoYaS1QV5Q4LSBnULb5kDzf0rWmN/view" target="_blank" rel="noopener" class="btn-pdf">
-            📄 <span data-lang="hu">PDF letöltés</span><span data-lang="en">Download PDF</span><span data-lang="ro">Descarcă PDF</span>
+                    <a href="https://drive.google.com/file/d/1Xf0NWoYaS1QV5Q4LSBnULb5kDzf0rWmN/view" target="_blank" rel="noopener" class="btn-pdf" data-lang-show="hu" style="display:none;">
+            📄 <span>PDF letöltés</span>
           </a>
-          <a href="chapter7/index.html#video-1" class="btn-video available" title="Tudatos pályaorientáció és karrierépítés">
+          <a href="https://drive.google.com/file/d/1G2jDxLBnCC8CkmzRsKekpRmyrAN_roCV/view" target="_blank" rel="noopener" class="btn-pdf" data-lang-show="en" style="display:none;">
+            📄 <span>Download PDF</span>
+          </a>
+          <a href="https://drive.google.com/file/d/1NMQjhHjcZbyJ40KrHXfc4ttgQoiUEtPR/view" target="_blank" rel="noopener" class="btn-pdf" data-lang-show="ro" style="display:none;">
+            📄 <span>Descarcă PDF</span>
+          </a>
+          <a href="chapter7/index.html#video-1" class="btn-video available" data-lang-show="hu" title="Tudatos pályaorientáció és karrierépítés">
             🎬 <span data-lang="hu">Videó megtekintése</span><span data-lang="en">Watch video</span><span data-lang="ro">Vezi videoclipul</span>
           </a>
         </div>
@@ -899,10 +947,16 @@
           <a href="chapter8/index.html" class="btn-open" style="display:inline-flex;align-items:center;gap:0.4rem;background:linear-gradient(135deg,#4B2D8B,#2196F3);color:#fff;font-weight:800;font-size:0.82rem;padding:0.45rem 1rem;border-radius:20px;text-decoration:none;margin-bottom:0.5rem;">
             🌐 <span data-lang="hu">Fejezet megnyitása</span><span data-lang="en">Open Chapter</span><span data-lang="ro">Deschide capitolul</span>
           </a>
-                    <a href="https://drive.google.com/file/d/1qM1CWZvPyX21UhhMTXc-vv4uQJ5kh-ey/view" target="_blank" rel="noopener" class="btn-pdf">
-            📄 <span data-lang="hu">PDF letöltés</span><span data-lang="en">Download PDF</span><span data-lang="ro">Descarcă PDF</span>
+                    <a href="https://drive.google.com/file/d/1qM1CWZvPyX21UhhMTXc-vv4uQJ5kh-ey/view" target="_blank" rel="noopener" class="btn-pdf" data-lang-show="hu" style="display:none;">
+            📄 <span>PDF letöltés</span>
           </a>
-          <a href="chapter8/index.html#video-1" class="btn-video available" title="Önismeret és személyes hatékonyság fejlesztése">
+          <a href="https://drive.google.com/file/d/1eaON3ypcAFZ6CfP9D0isZ804xfDgLWkA/view" target="_blank" rel="noopener" class="btn-pdf" data-lang-show="en" style="display:none;">
+            📄 <span>Download PDF</span>
+          </a>
+          <a href="https://drive.google.com/file/d/1kLGX_W4Eo3utsRnChuem9CZBF3WZ0R0u/view" target="_blank" rel="noopener" class="btn-pdf" data-lang-show="ro" style="display:none;">
+            📄 <span>Descarcă PDF</span>
+          </a>
+          <a href="chapter8/index.html#video-1" class="btn-video available" data-lang-show="hu" title="Önismeret és személyes hatékonyság fejlesztése">
             🎬 <span data-lang="hu">Videó megtekintése</span><span data-lang="en">Watch video</span><span data-lang="ro">Vezi videoclipul</span>
           </a>
         </div>
@@ -934,10 +988,16 @@
           <a href="chapter9/index.html" class="btn-open" style="display:inline-flex;align-items:center;gap:0.4rem;background:linear-gradient(135deg,#4B2D8B,#2196F3);color:#fff;font-weight:800;font-size:0.82rem;padding:0.45rem 1rem;border-radius:20px;text-decoration:none;margin-bottom:0.5rem;">
             🌐 <span data-lang="hu">Fejezet megnyitása</span><span data-lang="en">Open Chapter</span><span data-lang="ro">Deschide capitolul</span>
           </a>
-                    <a href="https://drive.google.com/file/d/1Rvqzbihos4HZvTJc5dEI8DAT4k3m1GAI/view" target="_blank" rel="noopener" class="btn-pdf">
-            📄 <span data-lang="hu">PDF letöltés</span><span data-lang="en">Download PDF</span><span data-lang="ro">Descarcă PDF</span>
+                    <a href="https://drive.google.com/file/d/1Rvqzbihos4HZvTJc5dEI8DAT4k3m1GAI/view" target="_blank" rel="noopener" class="btn-pdf" data-lang-show="hu" style="display:none;">
+            📄 <span>PDF letöltés</span>
           </a>
-          <a href="chapter9/index.html#video-1" class="btn-video available" title="Reziliencia és megküzdési stratégiák">
+          <a href="https://drive.google.com/file/d/1wRK8avzYQiuKN59Nm53clYMusiTzfmju/view" target="_blank" rel="noopener" class="btn-pdf" data-lang-show="en" style="display:none;">
+            📄 <span>Download PDF</span>
+          </a>
+          <a href="https://drive.google.com/file/d/1kz0_3GTjX5KT6OEzV0gtZoAij6GXNuNP/view" target="_blank" rel="noopener" class="btn-pdf" data-lang-show="ro" style="display:none;">
+            📄 <span>Descarcă PDF</span>
+          </a>
+          <a href="chapter9/index.html#video-1" class="btn-video available" data-lang-show="hu" title="Reziliencia és megküzdési stratégiák">
             🎬 <span data-lang="hu">Videó megtekintése</span><span data-lang="en">Watch video</span><span data-lang="ro">Vezi videoclipul</span>
           </a>
         </div>
@@ -969,10 +1029,16 @@
           <a href="chapter10/index.html" class="btn-open" style="display:inline-flex;align-items:center;gap:0.4rem;background:linear-gradient(135deg,#4B2D8B,#2196F3);color:#fff;font-weight:800;font-size:0.82rem;padding:0.45rem 1rem;border-radius:20px;text-decoration:none;margin-bottom:0.5rem;">
             🌐 <span data-lang="hu">Fejezet megnyitása</span><span data-lang="en">Open Chapter</span><span data-lang="ro">Deschide capitolul</span>
           </a>
-                    <a href="https://drive.google.com/file/d/1xb4n2ZYYVV-D5xJXKcgGxrJeOyGcyhuG/view" target="_blank" rel="noopener" class="btn-pdf">
-            📄 <span data-lang="hu">PDF letöltés</span><span data-lang="en">Download PDF</span><span data-lang="ro">Descarcă PDF</span>
+                    <a href="https://drive.google.com/file/d/1xb4n2ZYYVV-D5xJXKcgGxrJeOyGcyhuG/view" target="_blank" rel="noopener" class="btn-pdf" data-lang-show="hu" style="display:none;">
+            📄 <span>PDF letöltés</span>
           </a>
-          <a href="chapter10/index.html#video-1" class="btn-video available" title="A Z generáció támogatása a felnőtté válás útján">
+          <a href="https://drive.google.com/file/d/1GQLVPmq1mpX2Fyqeu5ANyLgb2mApy0Ej/view" target="_blank" rel="noopener" class="btn-pdf" data-lang-show="en" style="display:none;">
+            📄 <span>Download PDF</span>
+          </a>
+          <a href="https://drive.google.com/file/d/1bd7fuXdnVHxyxxAE-crI9jdUbcnnq7Qq/view" target="_blank" rel="noopener" class="btn-pdf" data-lang-show="ro" style="display:none;">
+            📄 <span>Descarcă PDF</span>
+          </a>
+          <a href="chapter10/index.html#video-1" class="btn-video available" data-lang-show="hu" title="A Z generáció támogatása a felnőtté válás útján">
             🎬 <span data-lang="hu">Videó megtekintése</span><span data-lang="en">Watch video</span><span data-lang="ro">Vezi videoclipul</span>
           </a>
         </div>
@@ -1020,16 +1086,22 @@
           <span data-lang="ro">Bazele abordării de coaching, construirea unei relații de încredere și instrumente pentru comunicarea orientată spre obiective.</span>
         </div>
         <div class="chapter-actions">
-          <a href="https://drive.google.com/file/d/17M0B-2eMS6gkDwz97Z0_oLaNm_d5HRzM/view" target="_blank" rel="noopener" class="btn-pdf">
-            📄 <span data-lang="hu">PDF letöltés</span><span data-lang="en">Download PDF</span><span data-lang="ro">Descarcă PDF</span>
+          <a href="https://drive.google.com/file/d/17M0B-2eMS6gkDwz97Z0_oLaNm_d5HRzM/view" target="_blank" rel="noopener" class="btn-pdf" data-lang-show="hu" style="display:none;">
+            📄 <span>PDF letöltés</span>
+          </a>
+          <a href="https://drive.google.com/file/d/1I3TxZoSUKdwr5o_elWPop5T0xhta0tHV/view" target="_blank" rel="noopener" class="btn-pdf" data-lang-show="en" style="display:none;">
+            📄 <span>Download PDF</span>
+          </a>
+          <a href="https://drive.google.com/file/d/1oAA1SUgzV_6E_eHh-KeNniIL8HXlK1Vv/view" target="_blank" rel="noopener" class="btn-pdf" data-lang-show="ro" style="display:none;">
+            📄 <span>Descarcă PDF</span>
           </a>
           <a href="coaching1/index.html" class="btn-open">
             📖 <span data-lang="hu">Modul megnyitása</span><span data-lang="en">Open Module</span><span data-lang="ro">Deschide Modulul</span>
           </a>
-          <a href="coaching1/index.html#video-1" class="btn-video available" title="Coaching szemlélet alapjai az ifjúságsegítésben">
+          <a href="coaching1/index.html#video-1" class="btn-video available" data-lang-show="hu" title="Coaching szemlélet alapjai az ifjúságsegítésben">
             🎬 <span data-lang="hu">1. videó</span><span data-lang="en">Video 1</span><span data-lang="ro">Video 1</span>
           </a>
-          <a href="coaching1/index.html#video-2" class="btn-video available" title="A GROW modell rugalmas alkalmazása a gyakorlatban">
+          <a href="coaching1/index.html#video-2" class="btn-video available" data-lang-show="hu" title="A GROW modell rugalmas alkalmazása a gyakorlatban">
             🎬 <span data-lang="hu">2. videó</span><span data-lang="en">Video 2</span><span data-lang="ro">Video 2</span>
           </a>
         </div>
@@ -1053,16 +1125,22 @@
           <span data-lang="ro">Ascultare profundă, întrebări puternice și tehnici de feedback reflectiv în munca eficientă cu tinerii.</span>
         </div>
         <div class="chapter-actions">
-          <a href="https://drive.google.com/file/d/11Blyzh9BWTXMCpTZlIpBB9vlixSG0Ceu/view" target="_blank" rel="noopener" class="btn-pdf">
-            📄 <span data-lang="hu">PDF letöltés</span><span data-lang="en">Download PDF</span><span data-lang="ro">Descarcă PDF</span>
+          <a href="https://drive.google.com/file/d/11Blyzh9BWTXMCpTZlIpBB9vlixSG0Ceu/view" target="_blank" rel="noopener" class="btn-pdf" data-lang-show="hu" style="display:none;">
+            📄 <span>PDF letöltés</span>
+          </a>
+          <a href="https://drive.google.com/file/d/1B0pDQmzH7t2cQpLp7xVXGSxL7XrVGzo-/view" target="_blank" rel="noopener" class="btn-pdf" data-lang-show="en" style="display:none;">
+            📄 <span>Download PDF</span>
+          </a>
+          <a href="https://drive.google.com/file/d/1TPSeYzIzaEw6Xbu_64HVCeSd3AKhnPtq/view" target="_blank" rel="noopener" class="btn-pdf" data-lang-show="ro" style="display:none;">
+            📄 <span>Descarcă PDF</span>
           </a>
           <a href="coaching2/index.html" class="btn-open">
             📖 <span data-lang="hu">Modul megnyitása</span><span data-lang="en">Open Module</span><span data-lang="ro">Deschide Modulul</span>
           </a>
-          <a href="coaching2/index.html#video-1" class="btn-video available" title="Aktív hallgatás kulcstechnikái">
+          <a href="coaching2/index.html#video-1" class="btn-video available" data-lang-show="hu" title="Aktív hallgatás kulcstechnikái">
             🎬 <span data-lang="hu">1. videó</span><span data-lang="en">Video 1</span><span data-lang="ro">Video 1</span>
           </a>
-          <a href="coaching2/index.html#video-2" class="btn-video available" title="Kérdezési technikák ifjúságsegítőknek">
+          <a href="coaching2/index.html#video-2" class="btn-video available" data-lang-show="hu" title="Kérdezési technikák ifjúságsegítőknek">
             🎬 <span data-lang="hu">2. videó</span><span data-lang="en">Video 2</span><span data-lang="ro">Video 2</span>
           </a>
         </div>
@@ -1086,16 +1164,22 @@
           <span data-lang="ro">Metode de stabilire a obiectivelor (SMART, GROW), întărirea motivației intrinseci și sprijinirea luării deciziilor independente ale tinerilor.</span>
         </div>
         <div class="chapter-actions">
-          <a href="https://drive.google.com/file/d/1fa0aF_JwTvHeRrroHGKhRSIwBRBxK0gp/view" target="_blank" rel="noopener" class="btn-pdf">
-            📄 <span data-lang="hu">PDF letöltés</span><span data-lang="en">Download PDF</span><span data-lang="ro">Descarcă PDF</span>
+          <a href="https://drive.google.com/file/d/1fa0aF_JwTvHeRrroHGKhRSIwBRBxK0gp/view" target="_blank" rel="noopener" class="btn-pdf" data-lang-show="hu" style="display:none;">
+            📄 <span>PDF letöltés</span>
+          </a>
+          <a href="https://drive.google.com/file/d/1jXvGMnFkMBJfFMSJMkIe1KJfFMSJMkI/view" target="_blank" rel="noopener" class="btn-pdf" data-lang-show="en" style="display:none;">
+            📄 <span>Download PDF</span>
+          </a>
+          <a href="https://drive.google.com/file/d/1kYwHNolKBJgGNTKJgGNTKJgGNTKJgGN/view" target="_blank" rel="noopener" class="btn-pdf" data-lang-show="ro" style="display:none;">
+            📄 <span>Descarcă PDF</span>
           </a>
           <a href="coaching3/index.html" class="btn-open">
             📖 <span data-lang="hu">Modul megnyitása</span><span data-lang="en">Open Module</span><span data-lang="ro">Deschide Modulul</span>
           </a>
-          <a href="coaching3/index.html#video-1" class="btn-video available" title="SMART célok és belső motiváció">
+          <a href="coaching3/index.html#video-1" class="btn-video available" data-lang-show="hu" title="SMART célok és belső motiváció">
             🎬 <span data-lang="hu">1. videó</span><span data-lang="en">Video 1</span><span data-lang="ro">Video 1</span>
           </a>
-          <a href="coaching3/index.html#video-2" class="btn-video available" title="Cselekvési terv és motivációfenntartás">
+          <a href="coaching3/index.html#video-2" class="btn-video available" data-lang-show="hu" title="Cselekvési terv és motivációfenntartás">
             🎬 <span data-lang="hu">2. videó</span><span data-lang="en">Video 2</span><span data-lang="ro">Video 2</span>
           </a>
         </div>

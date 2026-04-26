@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Coaching 1 – Coaching Alapok és Kommunikációs Készségek | IMELO Toolbox</title>
+  <title><span data-lang="hu">Coaching 1 – Coaching Alapok és Kommunikációs Készségek | IMELO Toolbox</span><span data-lang="en">Coaching 1 – Coaching Basics and Communication Skills | IMELO Toolbox</span><span data-lang="ro">Coaching 1 – Bazele coachingului și abilități de comunicare | IMELO Toolbox</span></title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
@@ -132,33 +132,111 @@
     .eu-footer { background: #2c2c54; color: rgba(255,255,255,0.7); text-align: center; padding: 1.5rem 2rem; font-size: 0.8rem; line-height: 1.6; }
 
     @media (max-width: 640px) { .topbar { padding: 0 1rem; } .main-content { padding: 1.5rem 1rem 3rem; } .grow-grid { grid-template-columns: 1fr 1fr; } }
+  
+    /* Chapter navigation */
+    .chapter-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 1.5rem;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      margin: 1.5rem 0;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .chapter-nav a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: linear-gradient(135deg, #1a7a4a 0%, #2ecc71 100%);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+      transition: opacity 0.2s;
+    }
+    .chapter-nav a:hover { opacity: 0.85; }
+    .chapter-nav .nav-home {
+      background: linear-gradient(135deg, #E8622A 0%, #f39c12 100%);
+    }
+    .chapter-nav .nav-center {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #888;
+      flex: 1;
+    }
+    @media (max-width: 600px) {
+      .chapter-nav { flex-direction: column; align-items: stretch; text-align: center; }
+      .chapter-nav a { justify-content: center; }
+    }
+
+  
+    [data-lang] { display: none; }
+    body[data-active-lang="hu"] [data-lang="hu"] { display: inline; }
+    body[data-active-lang="en"] [data-lang="en"] { display: inline; }
+    body[data-active-lang="ro"] [data-lang="ro"] { display: inline; }
+
+  
+    /* Language switching */
+    [data-lang] { display: none; }
+    body[data-active-lang="hu"] [data-lang="hu"],
+    body[data-active-lang="hu"] span[data-lang="hu"] { display: inline; }
+    body[data-active-lang="en"] [data-lang="en"],
+    body[data-active-lang="en"] span[data-lang="en"] { display: inline; }
+    body[data-active-lang="ro"] [data-lang="ro"],
+    body[data-active-lang="ro"] span[data-lang="ro"] { display: inline; }
+    body[data-active-lang="hu"] div[data-lang="hu"],
+    body[data-active-lang="en"] div[data-lang="en"],
+    body[data-active-lang="ro"] div[data-lang="ro"] { display: block; }
+    .lang-switcher-sub {
+      position: fixed; top: 12px; right: 16px; z-index: 9999;
+      display: flex; gap: 6px; background: rgba(255,255,255,0.95);
+      padding: 4px 8px; border-radius: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .lang-btn-sub {
+      background: none; border: none; cursor: pointer;
+      font-size: 1.2rem; padding: 2px 4px; border-radius: 6px;
+      opacity: 0.6; transition: opacity 0.2s;
+    }
+    .lang-btn-sub:hover, .lang-btn-sub.active { opacity: 1; }
+
   </style>
 </head>
-<body>
+<body data-active-lang="hu">
+<div class="lang-switcher-sub">
+  <button class="lang-btn-sub" data-lang-switch="hu" onclick="switchLangSub('hu')" title="Magyar">🇭🇺</button>
+  <button class="lang-btn-sub" data-lang-switch="en" onclick="switchLangSub('en')" title="English">🇬🇧</button>
+  <button class="lang-btn-sub" data-lang-switch="ro" onclick="switchLangSub('ro')" title="Română">🇷🇴</button>
+</div>
 
 <!-- TOPBAR -->
 <nav class="topbar">
   <div class="topbar-left">
     <a href="../index.html" class="back-btn">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-      Vissza az Eszköztárhoz
+      <span data-lang="hu">Vissza az Eszköztárhoz</span><span data-lang="en">Back to Toolbox</span><span data-lang="ro">Înapoi la Toolbox</span>
     </a>
     <a href="../index.html" class="topbar-logo">
       <img src="imelo_logo.png" alt="Identity Mosaic" />
     </a>
   </div>
-  <span class="chapter-badge">🎓 Coaching Modul – 1. rész</span>
+  <span class="chapter-badge"><span data-lang="hu">🎓 Coaching Modul – 1. rész</span><span data-lang="en">🎓 Coaching Module – Part 1</span><span data-lang="ro">🎓 Modul Coaching – Partea 1</span></span>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-tag">COACHING MODUL · 1. RÉSZ</div>
-  <h1>Coaching Alapok és Kommunikációs Készségek</h1>
-  <p class="subtitle">A hatékony coaching lényege, a GROW modell és az alapvető kommunikációs készségek ifjúságsegítők számára</p>
+  <div class="hero-tag"><span data-lang="hu">COACHING MODUL · 1. RÉSZ</span><span data-lang="en">COACHING MODULE · PART 1</span><span data-lang="ro">MODUL COACHING · PARTEA 1</span></div>
+  <h1><span data-lang="hu">Coaching Alapok és Kommunikációs Készségek</span><span data-lang="en">Coaching Basics and Communication Skills</span><span data-lang="ro">Bazele coachingului și abilități de comunicare</span></h1>
+  <p class="subtitle"><span data-lang="hu">A hatékony coaching lényege, a GROW modell és az alapvető kommunikációs készségek ifjúságsegítők számára</span><span data-lang="en">The essence of effective coaching, the GROW model, and fundamental communication skills for youth workers</span><span data-lang="ro">Esenta coachingului eficient, modelul GROW și abilitățile de comunicare de bază pentru lucrătorii de tineret</span></p>
   <div class="hero-meta">
-    <span>🎯 Célcsoport: Ifjúságsegítők</span>
-    <span>⏱️ Olvasási idő: ~15 perc</span>
-    <span>📚 Coaching Modul 1/3</span>
+    <span><span data-lang="hu">🎯 Célcsoport: Ifjúságsegítők</span><span data-lang="en">🎯 Target group: Youth workers</span><span data-lang="ro">🎯 Grup țintă: Lucrători de tineret</span></span>
+    <span><span data-lang="hu">⏱️ Olvasási idő: ~15 perc</span><span data-lang="en">⏱️ Reading time: ~15 minutes</span><span data-lang="ro">⏱️ Timp de citire: ~15 minute</span></span>
+    <span><span data-lang="hu">📚 Coaching Modul 1/3</span><span data-lang="en">📚 Coaching Module 1/3</span><span data-lang="ro">📚 Modul Coaching 1/3</span></span>
   </div>
 </div>
 
@@ -167,12 +245,12 @@
   <div class="toc-inner">
     <div class="toc-title">Tartalom</div>
     <div class="toc-links">
-      <a href="#mi-a-coaching">Mi a coaching?</a>
-      <a href="#kulcskeszségek">Kulcskészségek</a>
+      <a href="#mi-a-coaching"><span data-lang="hu">Mi a coaching?</span><span data-lang="en">What is coaching?</span><span data-lang="ro">Ce este coachingul?</span></a>
+      <a href="#kulcskeszségek"><span data-lang="hu">Kulcskészségek</span><span data-lang="en">Key skills</span><span data-lang="ro">Abilități cheie</span></a>
       <a href="#grow-modell">GROW Modell</a>
-      <a href="#ifjusagi-munka">Alkalmazás ifjúsági munkában</a>
-      <a href="#onreflexio">Önreflexió</a>
-      <a href="#osszefoglalas">Összefoglalás</a>
+      <a href="#ifjusagi-munka"><span data-lang="hu">Alkalmazás ifjúsági munkában</span><span data-lang="en">Application in youth work</span><span data-lang="ro">Aplicare în munca cu tinerii</span></a>
+      <a href="#onreflexio"><span data-lang="hu">Önreflexió</span><span data-lang="en">Self-reflection</span><span data-lang="ro">Auto-reflecție</span></a>
+      <a href="#osszefoglalas"><span data-lang="hu">Összefoglalás</span><span data-lang="en">Summary</span><span data-lang="ro">Rezumat</span></a>
     </div>
   </div>
 </div>
@@ -184,19 +262,19 @@
   <div class="stat-grid">
     <div class="stat-card" style="border-color:#1a7a4a;">
       <div class="stat-num" style="color:#1a7a4a;">3</div>
-      <div class="stat-label">Coaching modul összesen</div>
+      <div class="stat-label"><span data-lang="hu">Coaching modul összesen</span><span data-lang="en">Coaching module total</span><span data-lang="ro">Modul coaching în total</span></div>
     </div>
     <div class="stat-card" style="border-color:#2ecc71;">
       <div class="stat-num" style="color:#2ecc71;">GROW</div>
-      <div class="stat-label">Strukturált coaching keret</div>
+      <div class="stat-label"><span data-lang="hu">Strukturált coaching keret</span><span data-lang="en">Structured coaching framework</span><span data-lang="ro">Cadru structurat de coaching</span></div>
     </div>
     <div class="stat-card" style="border-color:#4B2D8B;">
       <div class="stat-num" style="color:#4B2D8B;">16–20</div>
-      <div class="stat-label">Célcsoport életkora (év)</div>
+      <div class="stat-label"><span data-lang="hu">Célcsoport életkora (év)</span><span data-lang="en">Target group age (years)</span><span data-lang="ro">Vârsta grupului țintă (ani)</span></div>
     </div>
     <div class="stat-card" style="border-color:#E8622A;">
       <div class="stat-num" style="color:#E8622A;">5</div>
-      <div class="stat-label">Kulcskommunikációs készség</div>
+      <div class="stat-label"><span data-lang="hu">Kulcskommunikációs készség</span><span data-lang="en">Key communication skill</span><span data-lang="ro">Abilitate cheie de comunicare</span></div>
     </div>
   </div>
 
@@ -205,42 +283,42 @@
     <div class="section-header">
       <div class="section-icon" style="background:#e8f5e9;">🎯</div>
       <div>
-        <h2>Mi a coaching?</h2>
-        <div class="section-sub">A coaching lényege és alapelvei</div>
+        <h2><span data-lang="hu">Mi a coaching?</span><span data-lang="en">What is coaching?</span><span data-lang="ro">Ce este coachingul?</span></h2>
+        <div class="section-sub"><span data-lang="hu">A coaching lényege és alapelvei</span><span data-lang="en">The essence and principles of coaching</span><span data-lang="ro">Esența și principiile coachingului</span></div>
       </div>
     </div>
     <div class="intro-box">
-      A coaching egy <strong>együttműködésen alapuló, nem-direktív folyamat</strong>, amelynek során a coach kérdésekkel segíti az ügyfelet saját megoldásai megtalálásában. Nem tanácsadás, nem terápia – hanem a belső erőforrások és potenciál feltárásának eszköze.
+      <span data-lang="hu">A coaching egy</span><span data-lang="en">Coaching is a</span><span data-lang="ro">Coachingul este un</span> <strong><span data-lang="hu">együttműködésen alapuló, nem-direktív folyamat</span><span data-lang="en">collaborative, non-directive process</span><span data-lang="ro">proces colaborativ, non-directiv</span></strong><span data-lang="hu">, amelynek során a coach kérdésekkel segíti az ügyfelet saját megoldásai megtalálásában. Nem tanácsadás, nem terápia – hanem a belső erőforrások és potenciál feltárásának eszköze.</span><span data-lang="en">in which the coach helps the client find their own solutions through questions. It is not advice, not therapy – but a tool for uncovering inner resources and potential.</span><span data-lang="ro">, în care coach-ul ajută clientul prin întrebări să își găsească propriile soluții. Nu este consiliere, nu este terapie – ci un instrument pentru descoperirea resurselor și potențialului interior.</span>
     </div>
     <div class="feature-grid">
       <div class="feature-card" style="border-color:#1a7a4a;">
-        <h3>✅ A coaching jellemzői</h3>
+        <h3><span data-lang="hu">✅ A coaching jellemzői</span><span data-lang="en">✅ Characteristics of coaching</span><span data-lang="ro">✅ Caracteristicile coachingului</span></h3>
         <ul>
-          <li>Nem-direktív megközelítés</li>
-          <li>Kérdéseken alapuló párbeszéd</li>
-          <li>Az ügyfél saját megoldásait keresi</li>
-          <li>Jövőorientált, cselekvésre fókuszál</li>
-          <li>Egyenlő partnerségen alapul</li>
+          <li><span data-lang="hu">Nem-direktív megközelítés</span><span data-lang="en">Non-directive approach</span><span data-lang="ro">Abordare non-directivă</span></li>
+          <li><span data-lang="hu">Kérdéseken alapuló párbeszéd</span><span data-lang="en">Dialogue based on questions</span><span data-lang="ro">Dialog bazat pe întrebări</span></li>
+          <li><span data-lang="hu">Az ügyfél saját megoldásait keresi</span><span data-lang="en">The client seeks their own solutions</span><span data-lang="ro">Clientul caută propriile soluții</span></li>
+          <li><span data-lang="hu">Jövőorientált, cselekvésre fókuszál</span><span data-lang="en">Future-oriented, action-focused</span><span data-lang="ro">Orientat spre viitor, axat pe acțiune</span></li>
+          <li><span data-lang="hu">Egyenlő partnerségen alapul</span><span data-lang="en">Based on equal partnership</span><span data-lang="ro">Bazat pe parteneriat egal</span></li>
         </ul>
       </div>
       <div class="feature-card" style="border-color:#E8622A;">
-        <h3>❌ Mi NEM coaching?</h3>
+        <h3><span data-lang="hu">❌ Mi NEM coaching?</span><span data-lang="en">❌ What is NOT coaching?</span><span data-lang="ro">❌ Ce NU este coaching?</span></h3>
         <ul>
-          <li>Tanácsadás (megoldást adni)</li>
-          <li>Terápia (múlt feldolgozása)</li>
-          <li>Mentorálás (tapasztalat átadása)</li>
-          <li>Oktatás (tudás átadása)</li>
-          <li>Problémamegoldás a kliens helyett</li>
+          <li><span data-lang="hu">Tanácsadás (megoldást adni)</span><span data-lang="en">Advising (giving solutions)</span><span data-lang="ro">Consiliere (a oferi soluții)</span></li>
+          <li><span data-lang="hu">Terápia (múlt feldolgozása)</span><span data-lang="en">Therapy (processing the past)</span><span data-lang="ro">Terapie (procesarea trecutului)</span></li>
+          <li><span data-lang="hu">Mentorálás (tapasztalat átadása)</span><span data-lang="en">Mentoring (sharing experience)</span><span data-lang="ro">Mentorat (transfer de experiență)</span></li>
+          <li><span data-lang="hu">Oktatás (tudás átadása)</span><span data-lang="en">Teaching (transferring knowledge)</span><span data-lang="ro">Predare (transmiterea de cunoștințe)</span></li>
+          <li><span data-lang="hu">Problémamegoldás a kliens helyett</span><span data-lang="en">Solving problems instead of the client</span><span data-lang="ro">Rezolvarea problemelor în locul clientului</span></li>
         </ul>
       </div>
       <div class="feature-card" style="border-color:#2196F3;">
-        <h3>🎯 A coaching célja</h3>
+        <h3><span data-lang="hu">🎯 A coaching célja</span><span data-lang="en">🎯 The goal of coaching</span><span data-lang="ro">🎯 Scopul coachingului</span></h3>
         <ul>
-          <li>Önállóság és felelősségvállalás növelése</li>
-          <li>Belső erőforrások feltárása</li>
-          <li>Célok tisztázása és elérése</li>
-          <li>Döntéshozatali képesség fejlesztése</li>
-          <li>Önbizalom és kompetenciaérzés erősítése</li>
+          <li><span data-lang="hu">Önállóság és felelősségvállalás növelése</span><span data-lang="en">Increasing independence and responsibility</span><span data-lang="ro">Creșterea autonomiei și responsabilității</span></li>
+          <li><span data-lang="hu">Belső erőforrások feltárása</span><span data-lang="en">Uncovering inner resources</span><span data-lang="ro">Descoperirea resurselor interioare</span></li>
+          <li><span data-lang="hu">Célok tisztázása és elérése</span><span data-lang="en">Clarifying and achieving goals</span><span data-lang="ro">Clarificarea și atingerea obiectivelor</span></li>
+          <li><span data-lang="hu">Döntéshozatali képesség fejlesztése</span><span data-lang="en">Developing decision-making skills</span><span data-lang="ro">Dezvoltarea abilității de luare a deciziilor</span></li>
+          <li><span data-lang="hu">Önbizalom és kompetenciaérzés erősítése</span><span data-lang="en">Strengthening confidence and sense of competence</span><span data-lang="ro">Consolidarea încrederii în sine și a sentimentului de competență</span></li>
         </ul>
       </div>
     </div>
@@ -256,7 +334,7 @@
         allowfullscreen>
       </iframe>
     </div>
-    <p class="video-caption">A videó bemutatja a coaching-szemlélet alapjait az ifjúságsegítésben: az egyenrangú, nem-direktív megközelítést, a bizalmi kapcsolat tudatos felépítésének módszereit, valamint az empátia és a teljes figyelem szerepét a fiatalokkal való hatékony munkában.</p>
+    <p class="video-caption"><span data-lang="hu">A videó bemutatja a coaching-szemlélet alapjait az ifjúságsegítésben: az egyenrangú, nem-direktív megközelítést, a bizalmi kapcsolat tudatos felépítésének módszereit, valamint az empátia és a teljes figyelem szerepét a fiatalokkal való hatékony munkában.</span><span data-lang="en">The video introduces the basics of the coaching mindset in youth work: the equal, non-directive approach, methods for consciously building a trusting relationship, and the role of empathy and full attention in effective work with young people.</span><span data-lang="ro">Videoclipul prezintă bazele mentalității de coaching în munca cu tinerii: abordarea egalitară, non-directivă, metodele conștiente de construire a relației de încredere, precum și rolul empatiei și al atenției complete în lucrul eficient cu tinerii.</span></p>
   </div>
 
   <!-- SECTION 2: KULCSKÉSZSÉGEK -->
@@ -264,48 +342,48 @@
     <div class="section-header">
       <div class="section-icon" style="background:#e8f5e9;">💬</div>
       <div>
-        <h2>Kulcskommunikációs Készségek</h2>
-        <div class="section-sub">A hatékony coaching alapjai</div>
+        <h2><span data-lang="hu">Kulcskommunikációs Készségek</span><span data-lang="en">Key Communication Skills</span><span data-lang="ro">Abilități cheie de comunicare</span></h2>
+        <div class="section-sub"><span data-lang="hu">A hatékony coaching alapjai</span><span data-lang="en">Foundations of effective coaching</span><span data-lang="ro">Bazele coachingului eficient</span></div>
       </div>
     </div>
-    <p style="margin-bottom:1.25rem;">A hatékony coaching öt alapvető kommunikációs készségen nyugszik. Ezek együttes alkalmazása teszi lehetővé a bizalmi kapcsolat kiépítését és a valódi változás elindítását.</p>
+    <p style="margin-bottom:1.25rem;"><span data-lang="hu">A hatékony coaching öt alapvető kommunikációs készségen nyugszik. Ezek együttes alkalmazása teszi lehetővé a bizalmi kapcsolat kiépítését és a valódi változás elindítását.</span><span data-lang="en">Effective coaching rests on five fundamental communication skills. Their combined use enables building trust and initiating real change.</span><span data-lang="ro">Coachingul eficient se bazează pe cinci abilități fundamentale de comunicare. Aplicarea lor combinată permite construirea unei relații de încredere și inițierea unei schimbări reale.</span></p>
     <ol class="step-list">
       <li>
         <div class="step-text">
-          <strong>Aktív hallgatás</strong><br>
-          Teljes figyelem, szemkontaktus, nyitott testtartás. Nem csak a szavakat hallgatjuk, hanem az érzelmeket és szándékokat is megértjük. A csend értékes eszköz – adj időt a gondolkodásra.
+          <strong><span data-lang="hu">Aktív hallgatás</span><span data-lang="en">Active listening</span><span data-lang="ro">Ascultare activă</span></strong><br>
+          <span data-lang="hu">Teljes figyelem, szemkontaktus, nyitott testtartás. Nem csak a szavakat hallgatjuk, hanem az érzelmeket és szándékokat is megértjük. A csend értékes eszköz – adj időt a gondolkodásra.</span><span data-lang="en">Full attention, eye contact, open posture. We don’t just listen to words, but also understand emotions and intentions. Silence is a valuable tool – give time for reflection.</span><span data-lang="ro">Atenție completă, contact vizual, postură deschisă. Nu doar ascultăm cuvintele, ci înțelegem și emoțiile și intențiile. Tăcerea este un instrument valoros – oferă timp pentru reflecție.</span>
         </div>
       </li>
       <li>
         <div class="step-text">
-          <strong>Hatékony kérdezéstechnika</strong><br>
-          Nyitott kérdések alkalmazása, amelyek gondolkodásra ösztönöznek. Kerüljük a "miért" kérdéseket (védekezést válthatnak ki), helyette: "Hogyan?", "Mit?", "Mi segítene?"
+          <strong><span data-lang="hu">Hatékony kérdezéstechnika</span><span data-lang="en">Effective questioning techniques</span><span data-lang="ro">Tehnici eficiente de adresare a întrebărilor</span></strong><br>
+          <span data-lang="hu">Nyitott kérdések alkalmazása, amelyek gondolkodásra ösztönöznek. Kerüljük a "miért" kérdéseket (védekezést válthatnak ki), helyette: "Hogyan?", "Mit?", "Mi segítene?"</span><span data-lang="en">Using open questions that encourage thinking. Avoid "why" questions (they can trigger defensiveness), instead use: "How?", "What?", "What would help?"</span><span data-lang="ro">Folosirea întrebărilor deschise care stimulează gândirea. Evităm întrebările „de ce” (pot provoca defensivă), în schimb: „Cum?”, „Ce?”, „Ce te-ar ajuta?”</span>
         </div>
       </li>
       <li>
         <div class="step-text">
-          <strong>Empátia és bizalomépítés</strong><br>
-          Az ügyfél érzéseinek elismerése és validálása ítélkezés nélkül. A bizalmi kapcsolat az alapja minden hatékony coaching folyamatnak.
+          <strong><span data-lang="hu">Empátia és bizalomépítés</span><span data-lang="en">Empathy and trust-building</span><span data-lang="ro">Empatie și construire de încredere</span></strong><br>
+          <span data-lang="hu">Az ügyfél érzéseinek elismerése és validálása ítélkezés nélkül. A bizalmi kapcsolat az alapja minden hatékony coaching folyamatnak.</span><span data-lang="en">Acknowledging and validating the client's feelings without judgment. Trust is the foundation of every effective coaching process.</span><span data-lang="ro">Recunoașterea și validarea sentimentelor clientului fără judecată. Relația de încredere este baza oricărui proces eficient de coaching.</span>
         </div>
       </li>
       <li>
         <div class="step-text">
-          <strong>Visszatükrözés és összefoglalás</strong><br>
-          Az elhangzottak saját szavainkkal való visszamondása a megértés ellenőrzésére. "Ha jól értem, azt mondod, hogy..." – ez megerősíti az ügyfelet és tisztázza a félreértéseket.
+          <strong><span data-lang="hu">Visszatükrözés és összefoglalás</span><span data-lang="en">Reflection and summarization</span><span data-lang="ro">Reflectare și rezumat</span></strong><br>
+          <span data-lang="hu">Az elhangzottak saját szavainkkal való visszamondása a megértés ellenőrzésére. "Ha jól értem, azt mondod, hogy..." – ez megerősíti az ügyfelet és tisztázza a félreértéseket.</span><span data-lang="en">Repeating what was said in your own words to check understanding. "If I understand correctly, you are saying that..." – this reassures the client and clarifies misunderstandings.</span><span data-lang="ro">Redarea celor auzite cu propriile cuvinte pentru a verifica înțelegerea. „Dacă am înțeles bine, spui că...” – acest lucru întărește clientul și clarifică eventualele neînțelegeri.</span>
         </div>
       </li>
       <li>
         <div class="step-text">
-          <strong>Nem-direktív megközelítés</strong><br>
-          Tartózkodás a tanácsadástól és a megoldások kínálásától. Az ügyfél maga találja meg a saját megoldásait – a coach csak a folyamatot vezeti, nem a tartalmat.
+          <strong><span data-lang="hu">Nem-direktív megközelítés</span><span data-lang="en">Non-directive approach</span><span data-lang="ro">Abordare nedirectivă</span></strong><br>
+          <span data-lang="hu">Tartózkodás a tanácsadástól és a megoldások kínálásától. Az ügyfél maga találja meg a saját megoldásait – a coach csak a folyamatot vezeti, nem a tartalmat.</span><span data-lang="en">Refraining from giving advice and offering solutions. The client finds their own solutions – the coach only guides the process, not the content.</span><span data-lang="ro">Abținerea de la consiliere și oferirea de soluții. Clientul își găsește singur propriile soluții – coach-ul doar ghidează procesul, nu conținutul.</span>
         </div>
       </li>
     </ol>
     <div class="callout tip">
       <span class="callout-icon">💡</span>
       <div class="callout-text">
-        <strong>Tipp ifjúságsegítőknek</strong>
-        <p>A coaching beszélgetések során adj időt a fiataloknak a gondolkodásra. A csend nem üres idő, hanem értékes lehetőség a belső folyamatok elindulására. Ne siess kitölteni a szüneteket!</p>
+        <strong><span data-lang="hu">Tipp ifjúságsegítőknek</span><span data-lang="en">Tip for youth workers</span><span data-lang="ro">Sfat pentru lucrătorii de tineret</span></strong>
+        <p><span data-lang="hu">A coaching beszélgetések során adj időt a fiataloknak a gondolkodásra. A csend nem üres idő, hanem értékes lehetőség a belső folyamatok elindulására. Ne siess kitölteni a szüneteket!</span><span data-lang="en">During coaching conversations, give young people time to think. Silence is not empty time but a valuable opportunity for internal processes to begin. Don’t rush to fill the pauses!</span><span data-lang="ro">În timpul conversațiilor de coaching, oferă tinerilor timp pentru reflecție. Tăcerea nu este un timp gol, ci o oportunitate valoroasă pentru declanșarea proceselor interioare. Nu te grăbi să umpli pauzele!</span></p>
       </div>
     </div>
   </div>
@@ -316,39 +394,39 @@
       <div class="section-icon" style="background:#e8f5e9;">🌱</div>
       <div>
         <h2>A GROW Modell</h2>
-        <div class="section-sub">Strukturált keret a coaching beszélgetésekhez</div>
+        <div class="section-sub"><span data-lang="hu">Strukturált keret a coaching beszélgetésekhez</span><span data-lang="en">Structured framework for coaching conversations</span><span data-lang="ro">Cadru structurat pentru conversațiile de coaching</span></div>
       </div>
     </div>
     <div class="intro-box">
-      A <strong>GROW modell</strong> a coaching egyik legelterjedtebb strukturált kerete. Négy fázisból áll, amelyek logikusan követik egymást, és segítik az ügyfelet a céltól a konkrét cselekvési tervig eljutni.
+      A <strong>GROW modell</strong> <span data-lang="hu">a coaching egyik legelterjedtebb strukturált kerete. Négy fázisból áll, amelyek logikusan követik egymást, és segítik az ügyfelet a céltól a konkrét cselekvési tervig eljutni.</span><span data-lang="en">one of the most widespread structured frameworks in coaching. It consists of four phases that logically follow each other and help the client move from the goal to a concrete action plan.</span><span data-lang="ro">unul dintre cele mai răspândite cadre structurate de coaching. Este format din patru faze care urmează logic una după alta și ajută clientul să treacă de la obiectiv la un plan concret de acțiune.</span>
     </div>
     <div class="grow-grid">
       <div class="grow-card" style="border-color:#1a7a4a;">
         <div class="grow-letter" style="color:#1a7a4a;">G</div>
-        <div class="grow-word">Goal (Cél)</div>
-        <div class="grow-desc">Mit szeretnél elérni? Mi lenne számodra a legjobb kimenetel? Hogyan tudnád, hogy elérted a célodat?</div>
+        <div class="grow-word"><span data-lang="hu">Goal (Cél)</span><span data-lang="en">Goal</span><span data-lang="ro">Goal (Obiectiv)</span></div>
+        <div class="grow-desc"><span data-lang="hu">Mit szeretnél elérni? Mi lenne számodra a legjobb kimenetel? Hogyan tudnád, hogy elérted a célodat?</span><span data-lang="en">What do you want to achieve? What would be the best outcome for you? How will you know you have reached your goal?</span><span data-lang="ro">Ce dorești să realizezi? Care ar fi cel mai bun rezultat pentru tine? Cum vei ști că ți-ai atins obiectivul?</span></div>
       </div>
       <div class="grow-card" style="border-color:#2196F3;">
         <div class="grow-letter" style="color:#2196F3;">R</div>
-        <div class="grow-word">Reality (Valóság)</div>
-        <div class="grow-desc">Hol tartasz most? Mi történik jelenleg? Milyen tényezők befolyásolják a helyzetedet?</div>
+        <div class="grow-word"><span data-lang="hu">Reality (Valóság)</span><span data-lang="en">Reality</span><span data-lang="ro">Reality (Realitate)</span></div>
+        <div class="grow-desc"><span data-lang="hu">Hol tartasz most? Mi történik jelenleg? Milyen tényezők befolyásolják a helyzetedet?</span><span data-lang="en">Where are you now? What is happening currently? What factors influence your situation?</span><span data-lang="ro">Unde te afli acum? Ce se întâmplă în prezent? Ce factori îți influențează situația?</span></div>
       </div>
       <div class="grow-card" style="border-color:#E8622A;">
         <div class="grow-letter" style="color:#E8622A;">O</div>
-        <div class="grow-word">Options (Lehetőségek)</div>
-        <div class="grow-desc">Milyen lehetőségeid vannak? Milyen alternatív utak vezethetnek a célhoz? Mit tehetnél még?</div>
+        <div class="grow-word"><span data-lang="hu">Options (Lehetőségek)</span><span data-lang="en">Options</span><span data-lang="ro">Options (Opțiuni)</span></div>
+        <div class="grow-desc"><span data-lang="hu">Milyen lehetőségeid vannak? Milyen alternatív utak vezethetnek a célhoz? Mit tehetnél még?</span><span data-lang="en">What options do you have? What alternative paths could lead to the goal? What else could you do?</span><span data-lang="ro">Ce opțiuni ai? Ce căi alternative te pot conduce la obiectiv? Ce ai mai putea face?</span></div>
       </div>
       <div class="grow-card" style="border-color:#9C27B0;">
         <div class="grow-letter" style="color:#9C27B0;">W</div>
-        <div class="grow-word">Will (Szándék/Cselekvés)</div>
-        <div class="grow-desc">Mit fogsz tenni? Mikor? Hogyan fogod mérni a haladást? Ki vagy mi segíthet?</div>
+        <div class="grow-word"><span data-lang="hu">Will (Szándék/Cselekvés)</span><span data-lang="en">Will</span><span data-lang="ro">Will (Voință/Acțiune)</span></div>
+        <div class="grow-desc"><span data-lang="hu">Mit fogsz tenni? Mikor? Hogyan fogod mérni a haladást? Ki vagy mi segíthet?</span><span data-lang="en">What will you do? When? How will you measure progress? Who or what can help?</span><span data-lang="ro">Ce vei face? Când? Cum vei măsura progresul? Cine sau ce te poate ajuta?</span></div>
       </div>
     </div>
     <div class="callout info">
       <span class="callout-icon">ℹ️</span>
       <div class="callout-text">
         <strong>A GROW modell rugalmas</strong>
-        <p>A fázisok nem feltétlenül lineárisan követik egymást. Egy-egy coaching beszélgetés során visszatérhetünk korábbi fázisokhoz, ha új információ kerül elő. A modell keret, nem merev séma.</p>
+        <p><span data-lang="hu">A fázisok nem feltétlenül lineárisan követik egymást. Egy-egy coaching beszélgetés során visszatérhetünk korábbi fázisokhoz, ha új információ kerül elő. A modell keret, nem merev séma.</span><span data-lang="en">The phases do not necessarily follow each other linearly. During a coaching conversation, we may return to earlier phases if new information arises. The model is a framework, not a rigid scheme.</span><span data-lang="ro">Fazele nu urmează neapărat o succesiune liniară. În timpul unei conversații de coaching, putem reveni la faze anterioare dacă apar informații noi. Modelul este un cadru, nu o schemă rigidă.</span></p>
       </div>
     </div>
     <span id="video-2"></span>
@@ -363,7 +441,7 @@
         allowfullscreen>
       </iframe>
     </div>
-    <p class="video-caption">A videó a GROW modell rugalmas, gyakorlati alkalmazását mutatja be fiatalokkal való munkában, kitérve a fázisok közötti tipikus elakadásokra és azok áthidalására konkrét ifjúságsegítői példamondatok segítségével.</p>
+    <p class="video-caption"><span data-lang="hu">A videó a GROW modell rugalmas, gyakorlati alkalmazását mutatja be fiatalokkal való munkában, kitérve a fázisok közötti tipikus elakadásokra és azok áthidalására konkrét ifjúságsegítői példamondatok segítségével.</span><span data-lang="en">The video demonstrates the flexible, practical application of the GROW model in working with young people, addressing typical blockages between phases and how to overcome them with concrete youth work example sentences.</span><span data-lang="ro">Videoclipul prezintă aplicarea flexibilă și practică a modelului GROW în lucrul cu tinerii, abordând blocajele tipice dintre faze și modalitățile de depășire a acestora prin exemple concrete pentru lucrătorii de tineret.</span></p>
   </div>
 
   <!-- SECTION 4: IFJÚSÁGI MUNKA -->
@@ -371,43 +449,43 @@
     <div class="section-header">
       <div class="section-icon" style="background:#e8f5e9;">👥</div>
       <div>
-        <h2>Alkalmazás az Ifjúsági Munkában</h2>
-        <div class="section-sub">Coaching a 16–20 éves fiatalokkal való munkában</div>
+        <h2><span data-lang="hu">Alkalmazás az Ifjúsági Munkában</span><span data-lang="en">Application in Youth Work</span><span data-lang="ro">Aplicare în Munca cu Tinerii</span></h2>
+        <div class="section-sub"><span data-lang="hu">Coaching a 16–20 éves fiatalokkal való munkában</span><span data-lang="en">Coaching in work with 16–20-year-olds</span><span data-lang="ro">Coaching în lucrul cu tinerii între 16 și 20 de ani</span></div>
       </div>
     </div>
-    <p style="margin-bottom:1.25rem;">A coaching megközelítés különösen hatékony a 16–20 éves fiatalokkal való munkában, ahol az önállóság, a döntéshozatal és az identitáskeresés kulcsfontosságú témák.</p>
+    <p style="margin-bottom:1.25rem;"><span data-lang="hu">A coaching megközelítés különösen hatékony a 16–20 éves fiatalokkal való munkában, ahol az önállóság, a döntéshozatal és az identitáskeresés kulcsfontosságú témák.</span><span data-lang="en">The coaching approach is especially effective in working with 16–20-year-olds, where independence, decision-making, and identity exploration are key topics.</span><span data-lang="ro">Abordarea de coaching este deosebit de eficientă în lucrul cu tinerii între 16 și 20 de ani, unde autonomia, luarea deciziilor și căutarea identității sunt teme cheie.</span></p>
     <div class="feature-grid">
       <div class="feature-card" style="border-color:#1a7a4a;">
-        <h3>🌟 Önállóság támogatása</h3>
+        <h3><span data-lang="hu">🌟 Önállóság támogatása</span><span data-lang="en">🌟 Supporting independence</span><span data-lang="ro">🌟 Susținerea autonomiei</span></h3>
         <ul>
-          <li>Saját megoldások megtalálása</li>
-          <li>Felelősségvállalás erősítése</li>
-          <li>Belső motiváció fejlesztése</li>
-          <li>Önbizalom növelése</li>
+          <li><span data-lang="hu">Saját megoldások megtalálása</span><span data-lang="en">Finding own solutions</span><span data-lang="ro">Găsirea propriilor soluții</span></li>
+          <li><span data-lang="hu">Felelősségvállalás erősítése</span><span data-lang="en">Strengthening responsibility</span><span data-lang="ro">Consolidarea asumării responsabilității</span></li>
+          <li><span data-lang="hu">Belső motiváció fejlesztése</span><span data-lang="en">Developing intrinsic motivation</span><span data-lang="ro">Dezvoltarea motivației interioare</span></li>
+          <li><span data-lang="hu">Önbizalom növelése</span><span data-lang="en">Increasing self-confidence</span><span data-lang="ro">Creșterea încrederii în sine</span></li>
         </ul>
       </div>
       <div class="feature-card" style="border-color:#2196F3;">
-        <h3>🧠 Döntéshozatal fejlesztése</h3>
+        <h3><span data-lang="hu">🧠 Döntéshozatal fejlesztése</span><span data-lang="en">🧠 Developing decision-making</span><span data-lang="ro">🧠 Dezvoltarea luării deciziilor</span></h3>
         <ul>
-          <li>Következmények átgondolása</li>
-          <li>Tudatosabb döntések meghozatala</li>
-          <li>Értékek és prioritások tisztázása</li>
-          <li>Kockázatok mérlegelése</li>
+          <li><span data-lang="hu">Következmények átgondolása</span><span data-lang="en">Considering consequences</span><span data-lang="ro">Reflectarea asupra consecințelor</span></li>
+          <li><span data-lang="hu">Tudatosabb döntések meghozatala</span><span data-lang="en">Making more conscious decisions</span><span data-lang="ro">Luarea deciziilor mai conștiente</span></li>
+          <li><span data-lang="hu">Értékek és prioritások tisztázása</span><span data-lang="en">Clarifying values and priorities</span><span data-lang="ro">Clarificarea valorilor și priorităților</span></li>
+          <li><span data-lang="hu">Kockázatok mérlegelése</span><span data-lang="en">Weighing risks</span><span data-lang="ro">Evaluarea riscurilor</span></li>
         </ul>
       </div>
       <div class="feature-card" style="border-color:#E8622A;">
-        <h3>🎯 Célok tisztázása</h3>
+        <h3><span data-lang="hu">🎯 Célok tisztázása</span><span data-lang="en">🎯 Clarifying goals</span><span data-lang="ro">🎯 Clarificarea obiectivelor</span></h3>
         <ul>
-          <li>Konkrét lépések megfogalmazása</li>
-          <li>Rövid és hosszú távú célok</li>
-          <li>Akadályok azonosítása</li>
-          <li>Erőforrások feltárása</li>
+          <li><span data-lang="hu">Konkrét lépések megfogalmazása</span><span data-lang="en">Formulating concrete steps</span><span data-lang="ro">Formularea pașilor concreți</span></li>
+          <li><span data-lang="hu">Rövid és hosszú távú célok</span><span data-lang="en">Short- and long-term goals</span><span data-lang="ro">Obiective pe termen scurt și lung</span></li>
+          <li><span data-lang="hu">Akadályok azonosítása</span><span data-lang="en">Identifying obstacles</span><span data-lang="ro">Identificarea obstacolelor</span></li>
+          <li><span data-lang="hu">Erőforrások feltárása</span><span data-lang="en">Exploring resources</span><span data-lang="ro">Descoperirea resurselor</span></li>
         </ul>
       </div>
     </div>
     <div class="quote-box">
-      <blockquote>"A coaching megközelítés segíti a fiatalokat abban, hogy saját megoldásaikat találják meg, növelve ezzel önállóságukat és felelősségvállalásukat."</blockquote>
-      <cite>— IMELO Projekt, Coaching Modul</cite>
+      <blockquote><span data-lang="hu">"A coaching megközelítés segíti a fiatalokat abban, hogy saját megoldásaikat találják meg, növelve ezzel önállóságukat és felelősségvállalásukat."</span><span data-lang="en">"The coaching approach helps young people find their own solutions, thereby increasing their independence and responsibility."</span><span data-lang="ro">"Abordarea de coaching ajută tinerii să-și găsească propriile soluții, sporindu-le astfel autonomia și asumarea responsabilității."</span></blockquote>
+      <cite><span data-lang="hu">— IMELO Projekt, Coaching Modul</span><span data-lang="en">— IMELO Project, Coaching Module</span><span data-lang="ro">— Proiectul IMELO, Modul Coaching</span></cite>
     </div>
   </div>
 
@@ -416,59 +494,59 @@
     <div class="section-header">
       <div class="section-icon" style="background:#e8f5e9;">🔍</div>
       <div>
-        <h2>Önreflexió és Gyakorlat</h2>
-        <div class="section-sub">Értékeld saját coaching készségeidet</div>
+        <h2><span data-lang="hu">Önreflexió és Gyakorlat</span><span data-lang="en">Self-reflection and Practice</span><span data-lang="ro">Auto-reflecție și Practică</span></h2>
+        <div class="section-sub"><span data-lang="hu">Értékeld saját coaching készségeidet</span><span data-lang="en">Assess your own coaching skills</span><span data-lang="ro">Evaluează-ți propriile abilități de coaching</span></div>
       </div>
     </div>
     <div class="reflection-section">
-      <h3>🎯 Coaching Készségek Önértékelése</h3>
+      <h3><span data-lang="hu">🎯 Coaching Készségek Önértékelése</span><span data-lang="en">🎯 Coaching Skills Self-Assessment</span><span data-lang="ro">🎯 Autoevaluarea Abilităților de Coaching</span></h3>
 
       <div class="reflection-question">
-        <label>1. Mennyire érzed magad magabiztosnak az aktív hallgatás alkalmazásában?</label>
+        <label><span data-lang="hu">1. Mennyire érzed magad magabiztosnak az aktív hallgatás alkalmazásában?</span><span data-lang="en">1. How confident do you feel in applying active listening?</span><span data-lang="ro">1. Cât de încrezător te simți în aplicarea ascultării active?</span></label>
         <div class="scale-options">
-          <input type="radio" name="q1" id="q1_1" value="1"><label for="q1_1">1 – Kezdő</label>
+          <input type="radio" name="q1" id="q1_1" value="1"><label for="q1_1"><span data-lang="hu">1 – Kezdő</span><span data-lang="en">1 – Beginner</span><span data-lang="ro">1 – Începător</span></label>
           <input type="radio" name="q1" id="q1_2" value="2"><label for="q1_2">2</label>
-          <input type="radio" name="q1" id="q1_3" value="3"><label for="q1_3">3 – Közepes</label>
+          <input type="radio" name="q1" id="q1_3" value="3"><label for="q1_3"><span data-lang="hu">3 – Közepes</span><span data-lang="en">3 – Intermediate</span><span data-lang="ro">3 – Mediu</span></label>
           <input type="radio" name="q1" id="q1_4" value="4"><label for="q1_4">4</label>
           <input type="radio" name="q1" id="q1_5" value="5"><label for="q1_5">5 – Magabiztos</label>
         </div>
       </div>
 
       <div class="reflection-question">
-        <label>2. Milyen helyzetben volt már részed, ahol coaching megközelítést alkalmazhattál volna (akár tudatosan, akár nem)?</label>
+        <label><span data-lang="hu">2. Milyen helyzetben volt már részed, ahol coaching megközelítést alkalmazhattál volna (akár tudatosan, akár nem)?</span><span data-lang="en">2. In what situations have you experienced where you could have applied a coaching approach (consciously or unconsciously)?</span><span data-lang="ro">2. În ce situație ai fost implicat în care ai fi putut aplica o abordare de coaching (conștient sau nu)?</span></label>
         <textarea class="reflection-textarea" placeholder="Írj egy konkrét helyzetet..."></textarea>
       </div>
 
       <div class="reflection-question">
-        <label>3. Mi a legnagyobb kihívás számodra a nem-direktív megközelítés alkalmazásában?</label>
+        <label><span data-lang="hu">3. Mi a legnagyobb kihívás számodra a nem-direktív megközelítés alkalmazásában?</span><span data-lang="en">3. What is your biggest challenge in applying the non-directive approach?</span><span data-lang="ro">3. Care este cea mai mare provocare pentru tine în aplicarea abordării nedirective?</span></label>
         <div class="scale-options">
-          <input type="radio" name="q3" id="q3_a" value="a"><label for="q3_a">Tanácsot nem adni</label>
+          <input type="radio" name="q3" id="q3_a" value="a"><label for="q3_a"><span data-lang="hu">Tanácsot nem adni</span><span data-lang="en">Not giving advice</span><span data-lang="ro">Să nu oferi sfaturi</span></label>
           <input type="radio" name="q3" id="q3_b" value="b"><label for="q3_b">Csendben maradni</label>
-          <input type="radio" name="q3" id="q3_c" value="c"><label for="q3_c">Nyitott kérdések</label>
-          <input type="radio" name="q3" id="q3_d" value="d"><label for="q3_d">Türelem</label>
+          <input type="radio" name="q3" id="q3_c" value="c"><label for="q3_c"><span data-lang="hu">Nyitott kérdések</span><span data-lang="en">Open questions</span><span data-lang="ro">Întrebări deschise</span></label>
+          <input type="radio" name="q3" id="q3_d" value="d"><label for="q3_d"><span data-lang="hu">Türelem</span><span data-lang="en">Patience</span><span data-lang="ro">Răbdare</span></label>
         </div>
       </div>
 
       <div class="reflection-question">
-        <label>4. Hogyan tervezed alkalmazni a GROW modellt a következő hónapban?</label>
+        <label><span data-lang="hu">4. Hogyan tervezed alkalmazni a GROW modellt a következő hónapban?</span><span data-lang="en">4. How do you plan to apply the GROW model in the next month?</span><span data-lang="ro">4. Cum intenționezi să aplici modelul GROW în următoarea lună?</span></label>
         <textarea class="reflection-textarea" placeholder="Konkrét terved..."></textarea>
       </div>
 
       <div class="reflection-question">
-        <label>5. Mennyire érzed, hogy a coaching szemlélet illeszkedik a saját munkastílusodhoz?</label>
+        <label><span data-lang="hu">5. Mennyire érzed, hogy a coaching szemlélet illeszkedik a saját munkastílusodhoz?</span><span data-lang="en">5. How well do you feel the coaching approach fits your own working style?</span><span data-lang="ro">5. Cât de mult simți că abordarea coaching se potrivește stilului tău propriu de lucru?</span></label>
         <div class="scale-options">
-          <input type="radio" name="q5" id="q5_1" value="1"><label for="q5_1">1 – Nehéz</label>
+          <input type="radio" name="q5" id="q5_1" value="1"><label for="q5_1"><span data-lang="hu">1 – Nehéz</span><span data-lang="en">1 – Difficult</span><span data-lang="ro">1 – Dificil</span></label>
           <input type="radio" name="q5" id="q5_2" value="2"><label for="q5_2">2</label>
           <input type="radio" name="q5" id="q5_3" value="3"><label for="q5_3">3 – Semleges</label>
           <input type="radio" name="q5" id="q5_4" value="4"><label for="q5_4">4</label>
-          <input type="radio" name="q5" id="q5_5" value="5"><label for="q5_5">5 – Természetes</label>
+          <input type="radio" name="q5" id="q5_5" value="5"><label for="q5_5"><span data-lang="hu">5 – Természetes</span><span data-lang="en">5 – Natural</span><span data-lang="ro">5 – Natural</span></label>
         </div>
       </div>
 
-      <button class="reflection-btn" onclick="showReflectionResult()">Visszajelzés kérése</button>
+      <button class="reflection-btn" onclick="showReflectionResult()"><span data-lang="hu">Visszajelzés kérése</span><span data-lang="en">Requesting Feedback</span><span data-lang="ro">Cerere de feedback</span></button>
       <div class="reflection-result" id="reflectionResult">
-        <strong>🌟 Köszönöm a reflexiót!</strong><br>
-        A coaching készségek fejlesztése folyamatos gyakorlást igényel. Javasolt következő lépés: próbáld ki a GROW modellt egy valós helyzetben, és figyeld meg, hogyan reagál rá a fiatal. Folytasd a tanulást a 2. modullal: <em>Aktív Hallgatás és Kérdezési Technikák</em>.
+        <strong><span data-lang="hu">🌟 Köszönöm a reflexiót!</span><span data-lang="en">🌟 Thank you for your reflection!</span><span data-lang="ro">🌟 Mulțumesc pentru reflecție!</span></strong><br>
+        <span data-lang="hu">A coaching készségek fejlesztése folyamatos gyakorlást igényel. Javasolt következő lépés: próbáld ki a GROW modellt egy valós helyzetben, és figyeld meg, hogyan reagál rá a fiatal. Folytasd a tanulást a 2. modullal:</span><span data-lang="en">Developing coaching skills requires continuous practice. Suggested next step: try out the GROW model in a real situation and observe how the young person responds. Continue learning with Module 2:</span><span data-lang="ro">Dezvoltarea abilităților de coaching necesită practică continuă. Pasul următor recomandat: încearcă modelul GROW într-o situație reală și observă cum reacționează tânărul. Continuă învățarea cu modulul 2:</span> <em><span data-lang="hu">Aktív Hallgatás és Kérdezési Technikák</span><span data-lang="en">Active Listening and Questioning Techniques</span><span data-lang="ro">Ascultare activă și tehnici de întrebare</span></em>.
       </div>
     </div>
   </div>
@@ -478,52 +556,52 @@
     <div class="section-header">
       <div class="section-icon" style="background:#e8f5e9;">📋</div>
       <div>
-        <h2>Összefoglalás és Következő Lépések</h2>
-        <div class="section-sub">A legfontosabb tanulságok</div>
+        <h2><span data-lang="hu">Összefoglalás és Következő Lépések</span><span data-lang="en">Summary and Next Steps</span><span data-lang="ro">Rezumat și pași următori</span></h2>
+        <div class="section-sub"><span data-lang="hu">A legfontosabb tanulságok</span><span data-lang="en">Key Takeaways</span><span data-lang="ro">Cele mai importante lecții</span></div>
       </div>
     </div>
     <div class="feature-grid">
       <div class="feature-card" style="border-color:#1a7a4a;">
-        <h3>✅ A coaching alapjai</h3>
+        <h3><span data-lang="hu">✅ A coaching alapjai</span><span data-lang="en">✅ Coaching Basics</span><span data-lang="ro">✅ Bazele coaching-ului</span></h3>
         <ul>
-          <li>Együttműködésen alapuló folyamat</li>
-          <li>Nem-direktív megközelítés</li>
-          <li>Az ügyfél saját megoldásait keresi</li>
-          <li>Kérdéseken alapuló párbeszéd</li>
+          <li><span data-lang="hu">Együttműködésen alapuló folyamat</span><span data-lang="en">A collaboration-based process</span><span data-lang="ro">Proces bazat pe colaborare</span></li>
+          <li><span data-lang="hu">Nem-direktív megközelítés</span><span data-lang="en">Non-directive approach</span><span data-lang="ro">Abordare nedirectivă</span></li>
+          <li><span data-lang="hu">Az ügyfél saját megoldásait keresi</span><span data-lang="en">The client seeks their own solutions</span><span data-lang="ro">Clientul caută propriile soluții</span></li>
+          <li><span data-lang="hu">Kérdéseken alapuló párbeszéd</span><span data-lang="en">Dialogue based on questions</span><span data-lang="ro">Dialog bazat pe întrebări</span></li>
         </ul>
       </div>
       <div class="feature-card" style="border-color:#2196F3;">
-        <h3>💬 Kulcskészségek</h3>
+        <h3><span data-lang="hu">💬 Kulcskészségek</span><span data-lang="en">💬 Key Skills</span><span data-lang="ro">💬 Abilități cheie</span></h3>
         <ul>
-          <li>Aktív hallgatás</li>
-          <li>Hatékony kérdezéstechnika</li>
-          <li>Empátia és bizalomépítés</li>
-          <li>Visszatükrözés és összefoglalás</li>
+          <li><span data-lang="hu">Aktív hallgatás</span><span data-lang="en">Active listening</span><span data-lang="ro">Ascultare activă</span></li>
+          <li><span data-lang="hu">Hatékony kérdezéstechnika</span><span data-lang="en">Effective questioning techniques</span><span data-lang="ro">Tehnici eficiente de întrebare</span></li>
+          <li><span data-lang="hu">Empátia és bizalomépítés</span><span data-lang="en">Empathy and trust-building</span><span data-lang="ro">Empatie și construire de încredere</span></li>
+          <li><span data-lang="hu">Visszatükrözés és összefoglalás</span><span data-lang="en">Reflection and summarizing</span><span data-lang="ro">Reflectare și rezumat</span></li>
         </ul>
       </div>
       <div class="feature-card" style="border-color:#E8622A;">
         <h3>🌱 GROW Modell</h3>
         <ul>
-          <li>Goal – Cél meghatározása</li>
+          <li><span data-lang="hu">Goal – Cél meghatározása</span><span data-lang="en">Goal – Defining the objective</span><span data-lang="ro">Goal – Stabilirea obiectivului</span></li>
           <li>Reality – Jelenlegi helyzet</li>
-          <li>Options – Lehetőségek feltárása</li>
-          <li>Will – Cselekvési terv</li>
+          <li><span data-lang="hu">Options – Lehetőségek feltárása</span><span data-lang="en">Options – Exploring possibilities</span><span data-lang="ro">Options – Explorarea opțiunilor</span></li>
+          <li><span data-lang="hu">Will – Cselekvési terv</span><span data-lang="en">Will – Action plan</span><span data-lang="ro">Will – Plan de acțiune</span></li>
         </ul>
       </div>
     </div>
     <div class="callout tip">
       <span class="callout-icon">➡️</span>
       <div class="callout-text">
-        <strong>Következő lépések</strong>
-        <p>Gyakorold az aktív hallgatást és a hatékony kérdezéstechnikát mindennapi beszélgetéseidben. Alkalmazd a GROW modellt a fiatalokkal folytatott támogató beszélgetésekben. Folytasd a tanulást a 2. modullal: <strong>Aktív Hallgatás és Kérdezési Technikák</strong>.</p>
+        <strong><span data-lang="hu">Következő lépések</span><span data-lang="en">Next steps</span><span data-lang="ro">Pași următori</span></strong>
+        <p><span data-lang="hu">Gyakorold az aktív hallgatást és a hatékony kérdezéstechnikát mindennapi beszélgetéseidben. Alkalmazd a GROW modellt a fiatalokkal folytatott támogató beszélgetésekben. Folytasd a tanulást a 2. modullal:</span><span data-lang="en">Practice active listening and effective questioning techniques in your everyday conversations. Apply the GROW model in supportive talks with young people. Continue learning with Module 2:</span><span data-lang="ro">Exersează ascultarea activă și tehnicile eficiente de întrebare în conversațiile tale zilnice. Aplică modelul GROW în discuțiile de sprijin cu tinerii. Continuă învățarea cu modulul 2:</span> <strong><span data-lang="hu">Aktív Hallgatás és Kérdezési Technikák</span><span data-lang="en">Active Listening and Questioning Techniques</span><span data-lang="ro">Ascultare activă și tehnici de întrebare</span></strong>.</p>
       </div>
     </div>
     <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:1.5rem;">
       <a href="../coaching2/index.html" style="display:inline-flex; align-items:center; gap:0.5rem; background:linear-gradient(135deg,#1a7a4a,#2ecc71); color:#fff; font-weight:800; padding:0.75rem 1.5rem; border-radius:25px; text-decoration:none;">
-        ➡️ 2. Coaching Modul: Aktív Hallgatás
+        <span data-lang="hu">➡️ 2. Coaching Modul: Aktív Hallgatás</span><span data-lang="en">➡️ 2nd Coaching Module: Active Listening</span><span data-lang="ro">➡️ Modulul 2 Coaching: Ascultare activă</span>
       </a>
       <a href="../coaching3/index.html" style="display:inline-flex; align-items:center; gap:0.5rem; background:#f0ecfa; color:#4B2D8B; font-weight:800; padding:0.75rem 1.5rem; border-radius:25px; text-decoration:none;">
-        ➡️ 3. Coaching Modul: Célkitűzés
+        <span data-lang="hu">➡️ 3. Coaching Modul: Célkitűzés</span><span data-lang="en">➡️ 3rd Coaching Module: Goal Setting</span><span data-lang="ro">➡️ Modulul 3 Coaching: Stabilirea obiectivelor</span>
       </a>
     </div>
   </div>
@@ -533,8 +611,8 @@
 <!-- DOWNLOAD FOOTER -->
 <div class="download-footer">
   <div class="download-footer-inner">
-    <h3>📄 Modul letöltése PDF formátumban</h3>
-    <p>Töltsd le a Coaching Alapok modult PDF formátumban – elérhető magyar, angol és román nyelven.</p>
+    <h3><span data-lang="hu">📄 Modul letöltése PDF formátumban</span><span data-lang="en">📄 Download the module in PDF format</span><span data-lang="ro">📄 Descarcă modulul în format PDF</span></h3>
+    <p><span data-lang="hu">Töltsd le a Coaching Alapok modult PDF formátumban – elérhető magyar, angol és román nyelven.</span><span data-lang="en">Download the Coaching Basics module in PDF format – available in Hungarian, English, and Romanian.</span><span data-lang="ro">Descarcă modulul Bazele Coaching-ului în format PDF – disponibil în limbile maghiară, engleză și română.</span></p>
     <div class="download-btns">
       <a href="coach1_hu.pdf" class="dl-btn" download>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
@@ -554,7 +632,7 @@
 
 <!-- EU FOOTER -->
 <div class="eu-footer">
-  <p>Az Európai Unió finanszírozásával. Az itt szereplő információk és állítások a szerző(k) álláspontját képviselik, és nem feltétlenül tükrözik az Európai Unió vagy a Tempus Közalapítvány hivatalos véleményét.</p>
+  <p><span data-lang="hu">Az Európai Unió finanszírozásával. Az itt szereplő információk és állítások a szerző(k) álláspontját képviselik, és nem feltétlenül tükrözik az Európai Unió vagy a Tempus Közalapítvány hivatalos véleményét.</span><span data-lang="en">Funded by the European Union. The information and views expressed here represent the author(s)’ standpoint and do not necessarily reflect the official opinion of the European Union or the Tempus Public Foundation.</span><span data-lang="ro">Finanțat de Uniunea Europeană. Informațiile și opiniile prezentate aici reprezintă punctul de vedere al autorului/autorilor și nu reflectă neapărat opinia oficială a Uniunii Europene sau a Fundației Tempus.</span></p>
   <p style="margin-top:0.5rem;">IMELO Projekt · 2024-3-HU01-KA210-YOU-000290582</p>
 </div>
 
@@ -564,6 +642,31 @@ function showReflectionResult() {
   result.style.display = 'block';
   result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
+</script>
+
+<div class="chapter-nav">
+  <a href="../chapter10/index.html">← <span data-lang="hu"><span data-lang="hu">10. fejezet</span><span data-lang="en">Chapter 10</span><span data-lang="ro">Capitolul 10</span></span><span data-lang="en">Chapter 10</span><span data-lang="ro">Capitolul 10</span></a>
+  <a href="../index.html" class="nav-home"><span data-lang="hu"><span data-lang="hu">🏠 Főoldal</span><span data-lang="en">🏠 Home</span><span data-lang="ro">🏠 Pagina principală</span></span><span data-lang="en">🏠 Home</span><span data-lang="ro">🏠 Acasă</span></a>
+  <a href="../coaching2/index.html"><span data-lang="hu"><span data-lang="hu">Coaching 2</span><span data-lang="en">Coaching 2</span><span data-lang="ro">Coaching 2</span></span><span data-lang="en"><span data-lang="hu">Coaching 2</span><span data-lang="en">Coaching 2</span><span data-lang="ro">Coaching 2</span></span><span data-lang="ro"><span data-lang="hu">Coaching 2</span><span data-lang="en">Coaching 2</span><span data-lang="ro">Coaching 2</span></span> →</a>
+</div>
+
+<script>
+  // Language switcher
+  (function() {
+    var stored = localStorage.getItem('imelo-lang') || 'hu';
+    document.body.setAttribute('data-active-lang', stored);
+    document.querySelectorAll('.lang-btn-sub').forEach(function(btn) {
+      if (btn.getAttribute('data-lang-switch') === stored) btn.classList.add('active');
+    });
+  })();
+  function switchLangSub(lang) {
+    document.body.setAttribute('data-active-lang', lang);
+    localStorage.setItem('imelo-lang', lang);
+    document.querySelectorAll('.lang-btn-sub').forEach(function(btn) {
+      btn.classList.toggle('active', btn.getAttribute('data-lang-switch') === lang);
+    });
+  }
+
 </script>
 </body>
 </html>
