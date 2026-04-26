@@ -177,32 +177,46 @@
     body[data-active-lang="hu"] div[data-lang="hu"],
     body[data-active-lang="en"] div[data-lang="en"],
     body[data-active-lang="ro"] div[data-lang="ro"] { display: block; }
+
+    /* Language switcher in topbar */
     .lang-switcher-sub {
-      position: fixed; top: 12px; right: 16px; z-index: 9999;
-      display: flex; gap: 6px; background: rgba(255,255,255,0.95);
-      padding: 4px 8px; border-radius: 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin: 0 0.75rem;
     }
     .lang-btn-sub {
-      background: none; border: none; cursor: pointer;
-      font-size: 1.2rem; padding: 2px 4px; border-radius: 6px;
-      opacity: 0.6; transition: opacity 0.2s;
+      background: none;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.3rem;
+      padding: 2px 5px;
+      line-height: 1;
+      opacity: 0.65;
+      transition: border-color 0.2s, opacity 0.2s, transform 0.15s;
     }
-    .lang-btn-sub:hover, .lang-btn-sub.active { opacity: 1; }
+    .lang-btn-sub:hover { opacity: 1; transform: scale(1.12); }
+    .lang-btn-sub.active { opacity: 1; border-color: #4B2D8B; background: #f0eaff; }
+
+  
+    /* Hide video sections in non-Hungarian language views */
+    body:not([data-active-lang="hu"]) .video-section-hu { display: none !important; }
 
   </style>
 </head>
 <body data-active-lang="hu">
-<div class="lang-switcher-sub">
-  <button class="lang-btn-sub" data-lang-switch="hu" onclick="switchLangSub('hu')" title="Magyar">🇭🇺</button>
-  <button class="lang-btn-sub" data-lang-switch="en" onclick="switchLangSub('en')" title="English">🇬🇧</button>
-  <button class="lang-btn-sub" data-lang-switch="ro" onclick="switchLangSub('ro')" title="Română">🇷🇴</button>
-</div>
 
 <nav class="topbar">
   <a href="../index.html" class="topbar-logo">
     <img src="imelo_logo.png" alt="Identity Mosaic logó">
   </a>
+  
+  <div class="lang-switcher-sub">
+    <button class="lang-btn-sub" data-lang-switch="hu" onclick="switchLangSub('hu')" title="Magyar">🇭🇺</button>
+    <button class="lang-btn-sub" data-lang-switch="en" onclick="switchLangSub('en')" title="English">🇬🇧</button>
+    <button class="lang-btn-sub" data-lang-switch="ro" onclick="switchLangSub('ro')" title="Română">🇷🇴</button>
+  </div>
   <a href="../index.html" class="back-btn"><span data-lang="hu">← Vissza az Eszköztárhoz</span><span data-lang="en">← Back to the Toolbox</span><span data-lang="ro">← Înapoi la Toolbox</span></a>
 </nav>
 
@@ -244,7 +258,8 @@
       </div>
 
       <span id="video-1"></span>
-      <div class="video-container">
+      <div class="video-section-hu">
+<div class="video-container">
         <iframe
           width="100%"
           height="400"
@@ -256,6 +271,7 @@
         </iframe>
       </div>
       <p class="video-caption"><span data-lang="hu">A videó gyakorlati eszköztárat kínál ifjúságsegítők számára, amellyel magabiztosabban kalauzolhatják a fiatalokat a munkaerőpiaci tájékozódásban és a tudatos karriertervezésben.</span><span data-lang="en">The video offers a practical toolbox for youth workers to confidently guide young people in labour market orientation and conscious career planning.</span><span data-lang="ro">Videoclipul oferă un set practic de instrumente pentru lucrătorii de tineret, pentru a ghida cu mai multă încredere tinerii în informarea pe piața muncii și în planificarea conștientă a carierei.</span></p>
+</div>
     </section>
 
     <section class="chapter-section" id="erossesgek">
@@ -277,7 +293,8 @@
       </div>
 
       <span id="video-2"></span>
-      <div class="video-container">
+      <div class="video-section-hu">
+<div class="video-container">
         <iframe
           width="100%"
           height="400"
@@ -289,6 +306,7 @@
         </iframe>
       </div>
       <p class="video-caption"><span data-lang="hu">A pályaválasztási döntések dilemmáiról szóló helyzet-alapú videó. Ifjúságsegítők használhatják demonstrációs céllal a pályaorientációs döntések támogatására.</span><span data-lang="en">A situational video about the dilemmas of career choice decisions. Youth workers can use it for demonstration purposes to support career orientation decisions.</span><span data-lang="ro">Videoclip situațional despre dilemele deciziilor de orientare în carieră. Lucrătorii de tineret îl pot folosi ca demonstrație pentru a sprijini deciziile de orientare profesională.</span></p>
+</div>
     </section>
 
     <section class="chapter-section" id="celok">
@@ -331,7 +349,8 @@
       </div>
 
       <span id="video-3"></span>
-      <div class="video-container">
+      <div class="video-section-hu">
+<div class="video-container">
         <iframe
           width="100%"
           height="400"
@@ -343,6 +362,7 @@
         </iframe>
       </div>
       <p class="video-caption"><span data-lang="hu">A rajzos animációs videó szemléletesen mutatja be, hogyan segíthet az ifjúságsegítő a pályaorientációs bizonytalanságban lévő fiatalnak megtalálni a saját útját.</span><span data-lang="en">The illustrated animation video clearly shows how a youth worker can help a young person uncertain about career orientation find their own path.</span><span data-lang="ro">Videoclipul animat explicativ arată cum poate ajuta lucrătorul de tineret un tânăr cu incertitudini în orientarea profesională să-și găsească propriul drum.</span></p>
+</div>
     </section>
 
     <section class="chapter-section" id="onreflexio">

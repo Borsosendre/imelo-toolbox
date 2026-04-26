@@ -844,27 +844,35 @@
     body[data-active-lang="hu"] div[data-lang="hu"],
     body[data-active-lang="en"] div[data-lang="en"],
     body[data-active-lang="ro"] div[data-lang="ro"] { display: block; }
+
+    /* Language switcher in topbar */
     .lang-switcher-sub {
-      position: fixed; top: 12px; right: 16px; z-index: 9999;
-      display: flex; gap: 6px; background: rgba(255,255,255,0.95);
-      padding: 4px 8px; border-radius: 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin: 0 0.75rem;
     }
     .lang-btn-sub {
-      background: none; border: none; cursor: pointer;
-      font-size: 1.2rem; padding: 2px 4px; border-radius: 6px;
-      opacity: 0.6; transition: opacity 0.2s;
+      background: none;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.3rem;
+      padding: 2px 5px;
+      line-height: 1;
+      opacity: 0.65;
+      transition: border-color 0.2s, opacity 0.2s, transform 0.15s;
     }
-    .lang-btn-sub:hover, .lang-btn-sub.active { opacity: 1; }
+    .lang-btn-sub:hover { opacity: 1; transform: scale(1.12); }
+    .lang-btn-sub.active { opacity: 1; border-color: #4B2D8B; background: #f0eaff; }
+
+  
+    /* Hide video sections in non-Hungarian language views */
+    body:not([data-active-lang="hu"]) .video-section-hu { display: none !important; }
 
   </style>
 </head>
 <body data-active-lang="hu">
-<div class="lang-switcher-sub">
-  <button class="lang-btn-sub" data-lang-switch="hu" onclick="switchLangSub('hu')" title="Magyar">🇭🇺</button>
-  <button class="lang-btn-sub" data-lang-switch="en" onclick="switchLangSub('en')" title="English">🇬🇧</button>
-  <button class="lang-btn-sub" data-lang-switch="ro" onclick="switchLangSub('ro')" title="Română">🇷🇴</button>
-</div>
 
 <!-- ===== TOP NAV ===== -->
 <div class="topbar">
@@ -876,6 +884,11 @@
     <a href="../index.html" class="topbar-logo">
       <img src="imelo_logo.png" alt="Identity Mosaic" />
     </a>
+  </div>
+  <div class="lang-switcher-sub">
+    <button class="lang-btn-sub" data-lang-switch="hu" onclick="switchLangSub('hu')" title="Magyar">🇭🇺</button>
+    <button class="lang-btn-sub" data-lang-switch="en" onclick="switchLangSub('en')" title="English">🇬🇧</button>
+    <button class="lang-btn-sub" data-lang-switch="ro" onclick="switchLangSub('ro')" title="Română">🇷🇴</button>
   </div>
   <div class="chapter-badge"><span data-lang="hu">1. Fejezet · Digitális Jóllét</span><span data-lang="en">Chapter 1 · Digital Wellbeing</span><span data-lang="ro">Capitolul 1 · Bunăstare Digitală</span></div>
 </div>
@@ -957,7 +970,8 @@
     </div>
 
     <span id="video-1"></span>
-      <div class="video-container">
+      <div class="video-section-hu">
+<div class="video-container">
         <iframe
         width="100%"
         height="400"
@@ -969,6 +983,7 @@
       </iframe>
     </div>
     <p class="video-caption"><span data-lang="hu">A digitális jóllét kulcsfontosságú szerepét bemutató videó, amely az ifjúságsegítők, oktatók és szülők együttműködésének fontosságát hangsúlyozza a digitális világ kihívásaival szembenéző fiatalok támogatásában.</span><span data-lang="en">A video highlighting the key role of digital wellbeing, emphasizing the importance of cooperation between youth workers, educators, and parents in supporting young people facing the challenges of the digital world.</span><span data-lang="ro">Un videoclip care evidențiază rolul esențial al bunăstării digitale și subliniază importanța colaborării între lucrătorii de tineret, educatori și părinți pentru a sprijini tinerii în fața provocărilor lumii digitale.</span></p>
+</div>
   </section>
 
   <!-- 2. TUDATOS MÉDIAHASZNÁLAT -->
@@ -1196,7 +1211,8 @@
     </div>
 
     <span id="video-2"></span>
-      <div class="video-container">
+      <div class="video-section-hu">
+<div class="video-container">
         <iframe
         width="100%"
         height="400"
@@ -1208,6 +1224,7 @@
       </iframe>
     </div>
     <p class="video-caption"><span data-lang="hu">A videó bemutatja, hogyan aktivizálhatja az ifjúságsegítő a passzív, telefonba merülő csoportot öt konkrét, könnyen alkalmazható módszer segítségével.</span><span data-lang="en">The video demonstrates how youth workers can activate a passive, phone-absorbed group using five specific, easy-to-apply methods.</span><span data-lang="ro">Videoclipul arată cum poate un lucrător de tineret să activeze un grup pasiv, absorbit de telefon, folosind cinci metode concrete și ușor de aplicat.</span></p>
+</div>
   </section>
 
   <!-- 7. DIGITÁLIS BIZTONSÁG -->
@@ -1480,7 +1497,8 @@
     </div>
 
     <span id="video-3"></span>
-      <div class="video-container">
+      <div class="video-section-hu">
+<div class="video-container">
         <iframe
         width="100%"
         height="400"
@@ -1492,6 +1510,7 @@
       </iframe>
     </div>
     <p class="video-caption"><span data-lang="hu">A videó összefoglalja a digitális jóllét alapfogalmait, és áttekintést nyújt az egészséges online-offline egyensúly megteremtésének eszközeiről ifjúságsegítők és fiatalok számára.</span><span data-lang="en">The video summarizes the basic concepts of digital wellbeing and provides an overview of tools for creating a healthy online-offline balance for youth workers and young people.</span><span data-lang="ro">Videoclipul rezumă conceptele de bază ale bunăstării digitale și oferă o privire de ansamblu asupra instrumentelor pentru crearea unui echilibru sănătos online-offline, destinat lucrătorilor de tineret și tinerilor.</span></p>
+</div>
   </section>
 
 </div><!-- end main-content -->

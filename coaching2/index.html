@@ -154,31 +154,45 @@
     body[data-active-lang="hu"] div[data-lang="hu"],
     body[data-active-lang="en"] div[data-lang="en"],
     body[data-active-lang="ro"] div[data-lang="ro"] { display: block; }
+
+    /* Language switcher in topbar */
     .lang-switcher-sub {
-      position: fixed; top: 12px; right: 16px; z-index: 9999;
-      display: flex; gap: 6px; background: rgba(255,255,255,0.95);
-      padding: 4px 8px; border-radius: 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin: 0 0.75rem;
     }
     .lang-btn-sub {
-      background: none; border: none; cursor: pointer;
-      font-size: 1.2rem; padding: 2px 4px; border-radius: 6px;
-      opacity: 0.6; transition: opacity 0.2s;
+      background: none;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.3rem;
+      padding: 2px 5px;
+      line-height: 1;
+      opacity: 0.65;
+      transition: border-color 0.2s, opacity 0.2s, transform 0.15s;
     }
-    .lang-btn-sub:hover, .lang-btn-sub.active { opacity: 1; }
+    .lang-btn-sub:hover { opacity: 1; transform: scale(1.12); }
+    .lang-btn-sub.active { opacity: 1; border-color: #4B2D8B; background: #f0eaff; }
+
+  
+    /* Hide video sections in non-Hungarian language views */
+    body:not([data-active-lang="hu"]) .video-section-hu { display: none !important; }
 
   </style>
 </head>
 <body data-active-lang="hu">
-<div class="lang-switcher-sub">
-  <button class="lang-btn-sub" data-lang-switch="hu" onclick="switchLangSub('hu')" title="Magyar">🇭🇺</button>
-  <button class="lang-btn-sub" data-lang-switch="en" onclick="switchLangSub('en')" title="English">🇬🇧</button>
-  <button class="lang-btn-sub" data-lang-switch="ro" onclick="switchLangSub('ro')" title="Română">🇷🇴</button>
-</div>
 
 <nav class="topbar">
   <div class="topbar-left">
-    <a href="../index.html" class="back-btn">
+    
+  <div class="lang-switcher-sub">
+    <button class="lang-btn-sub" data-lang-switch="hu" onclick="switchLangSub('hu')" title="Magyar">🇭🇺</button>
+    <button class="lang-btn-sub" data-lang-switch="en" onclick="switchLangSub('en')" title="English">🇬🇧</button>
+    <button class="lang-btn-sub" data-lang-switch="ro" onclick="switchLangSub('ro')" title="Română">🇷🇴</button>
+  </div>
+  <a href="../index.html" class="back-btn">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
       <span data-lang="hu">Vissza az Eszköztárhoz</span><span data-lang="en">Back to Toolbox</span><span data-lang="ro">Înapoi la Trusă</span>
     </a>
@@ -278,7 +292,8 @@
       </div>
     </div>
     <span id="video-1"></span>
-    <div class="video-container">
+    <div class="video-section-hu">
+<div class="video-container">
         <iframe
         width="100%"
         height="400"
@@ -290,6 +305,7 @@
       </iframe>
     </div>
     <p class="video-caption"><span data-lang="hu">A videó az aktív hallgatás kulcstechnikáit mutatja be – a visszatükrözést, az érzelmek validálását és a tudatos csend alkalmazását –, valamint azonosítja a hatékony hallgatás belső és külső akadályait a fiatalokkal való kommunikációban.</span><span data-lang="en">The video presents key techniques of active listening – mirroring, validating emotions, and using conscious silence – and identifies internal and external barriers to effective listening in communication with young people.</span><span data-lang="ro">Videoclipul prezintă tehnicile cheie ale ascultării active – reflectarea, validarea emoțiilor și aplicarea tăcerii conștiente – și identifică obstacolele interne și externe ale ascultării eficiente în comunicarea cu tinerii.</span></p>
+</div>
   </div>
 
   <!-- SECTION 2: TECHNIKÁK -->
@@ -486,7 +502,8 @@
       </div>
     </div>
     <span id="video-2"></span>
-    <div class="video-container">
+    <div class="video-section-hu">
+<div class="video-container">
         <iframe
         width="100%"
         height="400"
@@ -498,6 +515,7 @@
       </iframe>
     </div>
     <p class="video-caption"><span data-lang="hu">A videó a nyitott és zárt kérdések közötti különbséget, az erőteljes kérdések megfogalmazásának elveit, valamint a „Miért?" kérdések kerülésének és hatékony helyettesítésének módszereit mutatja be ifjúságsegítői kontextusban.</span><span data-lang="en">The video presents the difference between open and closed questions, principles for formulating powerful questions, as well as methods for avoiding and effectively replacing "Why?" questions in a youth work context.</span><span data-lang="ro">Videoclipul prezintă diferența dintre întrebările deschise și cele închise, principiile formulării întrebărilor puternice, precum și metodele de evitare și înlocuire eficientă a întrebărilor „De ce?” în contextul lucrului cu tinerii.</span></p>
+</div>
   </div>
 
   <!-- ÖNREFLEXIÓ -->

@@ -161,31 +161,45 @@
     body[data-active-lang="hu"] div[data-lang="hu"],
     body[data-active-lang="en"] div[data-lang="en"],
     body[data-active-lang="ro"] div[data-lang="ro"] { display: block; }
+
+    /* Language switcher in topbar */
     .lang-switcher-sub {
-      position: fixed; top: 12px; right: 16px; z-index: 9999;
-      display: flex; gap: 6px; background: rgba(255,255,255,0.95);
-      padding: 4px 8px; border-radius: 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin: 0 0.75rem;
     }
     .lang-btn-sub {
-      background: none; border: none; cursor: pointer;
-      font-size: 1.2rem; padding: 2px 4px; border-radius: 6px;
-      opacity: 0.6; transition: opacity 0.2s;
+      background: none;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.3rem;
+      padding: 2px 5px;
+      line-height: 1;
+      opacity: 0.65;
+      transition: border-color 0.2s, opacity 0.2s, transform 0.15s;
     }
-    .lang-btn-sub:hover, .lang-btn-sub.active { opacity: 1; }
+    .lang-btn-sub:hover { opacity: 1; transform: scale(1.12); }
+    .lang-btn-sub.active { opacity: 1; border-color: #4B2D8B; background: #f0eaff; }
+
+  
+    /* Hide video sections in non-Hungarian language views */
+    body:not([data-active-lang="hu"]) .video-section-hu { display: none !important; }
 
   </style>
 </head>
 <body data-active-lang="hu">
-<div class="lang-switcher-sub">
-  <button class="lang-btn-sub" data-lang-switch="hu" onclick="switchLangSub('hu')" title="Magyar">🇭🇺</button>
-  <button class="lang-btn-sub" data-lang-switch="en" onclick="switchLangSub('en')" title="English">🇬🇧</button>
-  <button class="lang-btn-sub" data-lang-switch="ro" onclick="switchLangSub('ro')" title="Română">🇷🇴</button>
-</div>
 
 <nav class="topbar">
   <div class="topbar-left">
-    <a href="../index.html" class="back-btn">
+    
+  <div class="lang-switcher-sub">
+    <button class="lang-btn-sub" data-lang-switch="hu" onclick="switchLangSub('hu')" title="Magyar">🇭🇺</button>
+    <button class="lang-btn-sub" data-lang-switch="en" onclick="switchLangSub('en')" title="English">🇬🇧</button>
+    <button class="lang-btn-sub" data-lang-switch="ro" onclick="switchLangSub('ro')" title="Română">🇷🇴</button>
+  </div>
+  <a href="../index.html" class="back-btn">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
       <span data-lang="hu">Vissza az Eszköztárhoz</span><span data-lang="en">Back to Toolbox</span><span data-lang="ro">Înapoi la Trusă</span>
     </a>
@@ -289,7 +303,8 @@
       </div>
     </div>
     <span id="video-1"></span>
-    <div class="video-container">
+    <div class="video-section-hu">
+<div class="video-container">
         <iframe
         width="100%"
         height="400"
@@ -301,6 +316,7 @@
       </iframe>
     </div>
     <p class="video-caption"><span data-lang="hu">A videó a SMART célok ifjúsági munkára adaptált alkalmazását és a belső motiváció feltárásának módszereit mutatja be, hangsúlyozva a célok személyes értékekhez való kapcsolásának fontosságát a fiatalok elköteleződésének erősítése érdekében.</span><span data-lang="en">The video presents the adapted application of SMART goals for youth work and methods for uncovering intrinsic motivation, emphasizing the importance of linking goals to personal values to strengthen young people’s commitment.</span><span data-lang="ro">Videoclipul prezintă aplicarea adaptată a obiectivelor SMART în munca cu tineretul și metodele de descoperire a motivației interne, subliniind importanța conectării obiectivelor la valori personale pentru a întări angajamentul tinerilor.</span></p>
+</div>
   </div>
 
   <!-- SECTION 2: SMART CÉLOK -->
@@ -481,7 +497,8 @@
       </div>
     </div>
     <span id="video-2"></span>
-    <div class="video-container">
+    <div class="video-section-hu">
+<div class="video-container">
         <iframe
         width="100%"
         height="400"
@@ -493,6 +510,7 @@
       </iframe>
     </div>
     <p class="video-caption"><span data-lang="hu">A videó bemutatja, hogyan bonthatók le a nagy célok apró, kezelhető lépésekre, hogyan azonosíthatók az akadályok előre, és hogyan tartható fenn a fiatalok motivációja rendszeres visszajelzéssel és a kis sikerek megünneplésével.</span><span data-lang="en">The video demonstrates how large goals can be broken down into small, manageable steps, how obstacles can be anticipated, and how young people’s motivation can be maintained through regular feedback and celebrating small successes.</span><span data-lang="ro">Videoclipul arată cum pot fi împărțite obiectivele mari în pași mici și gestionabili, cum pot fi identificate obstacolele din timp și cum poate fi menținută motivația tinerilor prin feedback regulat și sărbătorirea micilor succese.</span></p>
+</div>
   </div>
 
   <!-- SECTION 6: ELSZÁMOLTATHATÓSÁG -->

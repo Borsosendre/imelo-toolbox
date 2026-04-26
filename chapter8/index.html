@@ -177,32 +177,46 @@
     body[data-active-lang="hu"] div[data-lang="hu"],
     body[data-active-lang="en"] div[data-lang="en"],
     body[data-active-lang="ro"] div[data-lang="ro"] { display: block; }
+
+    /* Language switcher in topbar */
     .lang-switcher-sub {
-      position: fixed; top: 12px; right: 16px; z-index: 9999;
-      display: flex; gap: 6px; background: rgba(255,255,255,0.95);
-      padding: 4px 8px; border-radius: 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin: 0 0.75rem;
     }
     .lang-btn-sub {
-      background: none; border: none; cursor: pointer;
-      font-size: 1.2rem; padding: 2px 4px; border-radius: 6px;
-      opacity: 0.6; transition: opacity 0.2s;
+      background: none;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.3rem;
+      padding: 2px 5px;
+      line-height: 1;
+      opacity: 0.65;
+      transition: border-color 0.2s, opacity 0.2s, transform 0.15s;
     }
-    .lang-btn-sub:hover, .lang-btn-sub.active { opacity: 1; }
+    .lang-btn-sub:hover { opacity: 1; transform: scale(1.12); }
+    .lang-btn-sub.active { opacity: 1; border-color: #4B2D8B; background: #f0eaff; }
+
+  
+    /* Hide video sections in non-Hungarian language views */
+    body:not([data-active-lang="hu"]) .video-section-hu { display: none !important; }
 
   </style>
 </head>
 <body data-active-lang="hu">
-<div class="lang-switcher-sub">
-  <button class="lang-btn-sub" data-lang-switch="hu" onclick="switchLangSub('hu')" title="Magyar">🇭🇺</button>
-  <button class="lang-btn-sub" data-lang-switch="en" onclick="switchLangSub('en')" title="English">🇬🇧</button>
-  <button class="lang-btn-sub" data-lang-switch="ro" onclick="switchLangSub('ro')" title="Română">🇷🇴</button>
-</div>
 
 <nav class="topbar">
   <a href="../index.html" class="topbar-logo">
     <img src="imelo_logo.png" alt="Identity Mosaic logó">
   </a>
+  
+  <div class="lang-switcher-sub">
+    <button class="lang-btn-sub" data-lang-switch="hu" onclick="switchLangSub('hu')" title="Magyar">🇭🇺</button>
+    <button class="lang-btn-sub" data-lang-switch="en" onclick="switchLangSub('en')" title="English">🇬🇧</button>
+    <button class="lang-btn-sub" data-lang-switch="ro" onclick="switchLangSub('ro')" title="Română">🇷🇴</button>
+  </div>
   <a href="../index.html" class="back-btn"><span data-lang="hu">← Vissza az Eszköztárhoz</span><span data-lang="en">← Back to Toolbox</span><span data-lang="ro">← Înapoi la Toolbox</span></a>
 </nav>
 
@@ -244,7 +258,8 @@
       </div>
 
       <span id="video-1"></span>
-      <div class="video-container">
+      <div class="video-section-hu">
+<div class="video-container">
         <iframe
           width="100%"
           height="400"
@@ -256,6 +271,7 @@
         </iframe>
       </div>
       <p class="video-caption"><span data-lang="hu">A videó bemutatja, hogyan tárhatják fel a fiatalok a bennük rejlő valódi potenciált egy konkrét önismereti eszköztár segítségével, elősegítve a személyes hatékonyság és a tudatos önfejlesztés erősítését.</span><span data-lang="en">Uncovering blind spots and hidden areas</span><span data-lang="ro">Videoclipul prezintă cum tinerii pot descoperi potențialul lor real cu ajutorul unui toolbox concret de autocunoaștere, sprijinind dezvoltarea eficienței personale și a auto-dezvoltării conștiente.</span></p>
+</div>
     </section>
 
     <section class="chapter-section" id="johari">
@@ -395,7 +411,8 @@
       <div class="section-divider" style="background: linear-gradient(90deg, #1A237E, transparent);"></div>
       <p class="section-intro"><span data-lang="hu">Az alábbi szituációs videó az önelfogadás fontosságát illusztrálja. Ifjúságsegítők használhatják demonstrációs céllal foglalkozások közben.</span><span data-lang="en">The situational video below illustrates the importance of self-acceptance. Youth workers can use it for demonstration purposes during sessions.</span><span data-lang="ro">Videoclipul situațional de mai jos ilustrează importanța acceptării de sine. Lucrătorii de tineret îl pot folosi ca demonstrație în timpul sesiunilor.</span></p>
       <span id="video-2"></span>
-      <div class="video-container">
+      <div class="video-section-hu">
+<div class="video-container">
         <iframe
           width="100%"
           height="400"
@@ -407,6 +424,7 @@
         </iframe>
       </div>
       <p class="video-caption"><span data-lang="hu">Szituációs videó az önelfogadás fontosságának illusztrálására. Ifjúságsegítők használhatják demonstrációs céllal foglalkozások közben.</span><span data-lang="en">Situational video illustrating the importance of self-acceptance. Youth workers can use it for demonstration purposes during sessions.</span><span data-lang="ro">Videoclip situațional pentru a ilustra importanța acceptării de sine. Lucrătorii de tineret îl pot folosi ca demonstrație în timpul sesiunilor.</span></p>
+</div>
     </section>
 
     <section class="chapter-section" id="osszefoglalas">
