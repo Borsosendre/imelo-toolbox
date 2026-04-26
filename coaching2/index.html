@@ -92,7 +92,7 @@
     .dl-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.4); color: #fff; font-weight: 700; font-size: 0.9rem; padding: 0.7rem 1.5rem; border-radius: 25px; text-decoration: none; transition: background 0.2s; }
     .dl-btn:hover { background: rgba(255,255,255,0.3); }
     .dl-btn svg { width: 18px; height: 18px; }
-    .eu-footer { background: #2c2c54; color: rgba(255,255,255,0.7); text-align: center; padding: 1.5rem 2rem; font-size: 0.8rem; line-height: 1.6; }
+    .eu-footer { background: #f8f7ff; border-top: 2px solid #e0d8f5; padding: 1.5rem 2rem; text-align: center; }
     @media (max-width: 640px) { .topbar { padding: 0 1rem; } .main-content { padding: 1.5rem 1rem 3rem; } }
   
     /* Chapter navigation */
@@ -593,11 +593,6 @@
   </div>
 </div>
 
-<div class="eu-footer">
-  <p><span data-lang="hu">Az Európai Unió finanszírozásával. Az itt szereplő információk és állítások a szerző(k) álláspontját képviselik, és nem feltétlenül tükrözik az Európai Unió vagy a Tempus Közalapítvány hivatalos véleményét.</span><span data-lang="en">Funded by the European Union. The information and views expressed here represent the author(s)’ views and do not necessarily reflect the official opinion of the European Union or the Tempus Public Foundation.</span><span data-lang="ro">Finanțat de Uniunea Europeană. Informațiile și opiniile prezentate aici reflectă punctul de vedere al autorului/autorilor și nu reflectă neapărat opinia oficială a Uniunii Europene sau a Fundației Tempus.</span></p>
-  <p style="margin-top:0.5rem;">IMELO Projekt · 2024-3-HU01-KA210-YOU-000290582</p>
-</div>
-
 <script>
 function showResult() {
   const r = document.getElementById('reflResult');
@@ -630,5 +625,16 @@ function showResult() {
   }
 
 </script>
+<footer class="eu-footer">
+  <div class="eu-footer-inner">
+    <img src="../eu-funded-logo.jpg" alt="Funded by the European Union" class="eu-footer-logo" />
+    <div class="eu-footer-text">
+      <span data-lang="hu">Az Európai Unió finanszírozásával. Az itt szereplő információk és állítások a szerző(k) álláspontját képviselik, és nem feltétlenül tükrözik az Európai Unió vagy a Tempus Közalapítvány hivatalos véleményét. Sem az Európai Unió, sem a támogatást nyújtó hatóság nem vonható felelősségre miattuk.</span><span data-lang="en">Funded by the European Union. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or Tempus Public Foundation. Neither the European Union nor the granting authority can be held responsible for them.</span><span data-lang="ro">Finanțat de Uniunea Europeană. Opiniile și punctele de vedere exprimate aparțin exclusiv autorului (autorilor) și nu reflectă neapărat cele ale Uniunii Europene sau ale Fundației Publice Tempus. Nici Uniunea Europeană, nici autoritatea finanțatoare nu pot fi considerate responsabile pentru acestea.</span>
+      <br><small>Projekt azonosító / Project ID: 2024-3-HU01-KA210-YOU-000290582</small>
+    </div>
+  </div>
+  <p class="eu-footer-copy">IMELO – Identity Mosaic | Erasmus+ KA210-YOU | © 2024–2026</p>
+</footer>
+
 </body>
 </html>

@@ -203,6 +203,46 @@
     /* Hide video sections in non-Hungarian language views */
     body:not([data-active-lang="hu"]) .video-section-hu { display: none !important; }
 
+  
+    /* EU disclaimer footer */
+    .eu-footer {
+      background: #f8f7ff;
+      border-top: 2px solid #e0d8f5;
+      padding: 1.5rem 2rem;
+      text-align: center;
+    }
+    .eu-footer-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .eu-footer-logo {
+      height: 60px;
+      width: auto;
+      flex-shrink: 0;
+    }
+    .eu-footer-text {
+      font-size: 0.78rem;
+      color: #444;
+      line-height: 1.55;
+      text-align: left;
+      max-width: 640px;
+    }
+    .eu-footer-copy {
+      margin-top: 0.75rem;
+      font-size: 0.72rem;
+      color: #888;
+      text-align: center;
+    }
+    @media (max-width: 600px) {
+      .eu-footer-inner { flex-direction: column; }
+      .eu-footer-text { text-align: center; }
+    }
+
   </style>
 </head>
 <body data-active-lang="hu">
@@ -468,10 +508,17 @@
   <a href="../chapter8/index.html"><span data-lang="hu"><span data-lang="hu">8. fejezet</span><span data-lang="en">Chapter 8</span><span data-lang="ro">Capitolul 8</span></span><span data-lang="en">Chapter 8</span><span data-lang="ro">Capitolul 8</span> →</a>
 </div>
 
-<footer class="chapter-footer">
-  <p>IMELO – Identity Mosaic | Erasmus+ KA2 projekt | © 2024–2026</p>
-  <p><span data-lang="hu">Az Európai Bizottság támogatásával készült. A tartalom kizárólag a szerzők álláspontját tükrözi.</span><span data-lang="en">Produced with the support of the European Commission. The content reflects the views of the authors only.</span><span data-lang="ro">Realizat cu sprijinul Comisiei Europene. Conținutul reflectă exclusiv punctul de vedere al autorilor.</span></p>
+<footer class="eu-footer">
+  <div class="eu-footer-inner">
+    <img src="../eu-funded-logo.jpg" alt="Funded by the European Union" class="eu-footer-logo" />
+    <div class="eu-footer-text">
+      <span data-lang="hu">Az Európai Unió finanszírozásával. Az itt szereplő információk és állítások a szerző(k) álláspontját képviselik, és nem feltétlenül tükrözik az Európai Unió vagy a Tempus Közalapítvány hivatalos véleményét. Sem az Európai Unió, sem a támogatást nyújtó hatóság nem vonható felelősségre miattuk.</span><span data-lang="en">Funded by the European Union. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or Tempus Public Foundation. Neither the European Union nor the granting authority can be held responsible for them.</span><span data-lang="ro">Finanțat de Uniunea Europeană. Opiniile și punctele de vedere exprimate aparțin exclusiv autorului (autorilor) și nu reflectă neapărat cele ale Uniunii Europene sau ale Fundației Publice Tempus. Nici Uniunea Europeană, nici autoritatea finanțatoare nu pot fi considerate responsabile pentru acestea.</span>
+      <br><small>Projekt azonosító / Project ID: 2024-3-HU01-KA210-YOU-000290582</small>
+    </div>
+  </div>
+  <p class="eu-footer-copy">IMELO – Identity Mosaic | Erasmus+ KA210-YOU | © 2024–2026</p>
 </footer>
+
 
 <script>
   function selectScale(btn, qid) {
