@@ -3,97 +3,787 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title><span data-lang="hu">Coaching 2 – Aktív Hallgatás és Kérdezési Technikák | IMELO Toolbox</span><span data-lang="en">Coaching 2 – Active Listening and Questioning Techniques | IMELO Toolbox</span><span data-lang="ro">Coaching 2 – Ascultare Activă și Tehnici de Întrebare | IMELO Toolbox</span></title>
+  <title><span data-lang="hu">1. Fejezet – Digitális Jóllét Eszköztár | IMELO Toolbox</span><span data-lang="en">Chapter 1 – Digital Wellbeing Toolbox | IMELO Toolbox</span><span data-lang="ro">Capitolul 1 – Trusa de Instrumente pentru Bunăstarea Digitală | IMELO Toolbox</span></title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Nunito', sans-serif; background: #f7f7fb; color: #2c2c54; font-size: 16px; line-height: 1.7; }
-    .topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.97); backdrop-filter: blur(8px); box-shadow: 0 2px 16px rgba(75,45,139,0.10); padding: 0 2rem; height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-    .topbar-left { display: flex; align-items: center; gap: 1rem; }
-    .back-btn { display: inline-flex; align-items: center; gap: 0.4rem; background: #f0ecfa; color: #4B2D8B; font-weight: 700; font-size: 0.85rem; padding: 0.4rem 1rem; border-radius: 20px; text-decoration: none; transition: background 0.2s, color 0.2s; white-space: nowrap; }
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: #f7f7fb;
+      color: #2c2c54;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* ===== TOP NAV BAR ===== */
+    .topbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 16px rgba(75,45,139,0.10);
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #f0ecfa;
+      color: #4B2D8B;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
     .back-btn:hover { background: #4B2D8B; color: #fff; }
     .back-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+    .topbar-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+    }
     .topbar-logo img { height: 52px; width: auto; }
-    .chapter-badge { background: linear-gradient(135deg, #1565C0, #42A5F5); color: #fff; font-weight: 700; font-size: 0.75rem; padding: 0.3rem 0.8rem; border-radius: 20px; white-space: nowrap; }
-    .hero { margin-top: 64px; background: linear-gradient(135deg, #1565C0 0%, #42A5F5 50%, #1a7a4a 100%); padding: 3.5rem 2rem 3rem; text-align: center; color: #fff; position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; top: -60px; right: -60px; width: 220px; height: 220px; background: rgba(255,255,255,0.06); border-radius: 50%; }
-    .hero-tag { display: inline-block; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.35); border-radius: 20px; font-size: 0.8rem; font-weight: 700; padding: 0.3rem 1rem; margin-bottom: 1rem; letter-spacing: 0.05em; }
-    .hero h1 { font-size: clamp(1.6rem, 4vw, 2.6rem); font-weight: 800; margin-bottom: 0.5rem; line-height: 1.2; }
-    .hero .subtitle { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto 1.5rem; }
-    .hero-meta { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; font-size: 0.85rem; opacity: 0.85; }
-    .toc-section { background: #fff; border-bottom: 1px solid #e8e4f0; padding: 1.5rem 2rem; }
-    .toc-inner { max-width: 900px; margin: 0 auto; }
-    .toc-title { font-size: 0.8rem; font-weight: 700; color: #888; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem; }
-    .toc-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .toc-links a { background: #e3f2fd; color: #1565C0; font-size: 0.8rem; font-weight: 700; padding: 0.35rem 0.85rem; border-radius: 20px; text-decoration: none; transition: background 0.2s, color 0.2s; }
-    .toc-links a:hover { background: #1565C0; color: #fff; }
-    .main-content { max-width: 900px; margin: 0 auto; padding: 2.5rem 2rem 4rem; }
-    .content-section { margin-bottom: 3.5rem; scroll-margin-top: 80px; }
-    .section-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 3px solid #1565C0; }
-    .section-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex-shrink: 0; }
-    .section-header h2 { font-size: 1.35rem; font-weight: 800; color: #2c2c54; }
-    .section-header .section-sub { font-size: 0.85rem; color: #666; font-weight: 600; }
-    .intro-box { background: linear-gradient(135deg, #e3f2fd, #e8f5e9); border-left: 4px solid #1565C0; border-radius: 0 12px 12px 0; padding: 1.25rem 1.5rem; margin-bottom: 1.5rem; }
-    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
-    .stat-card { background: #fff; border-radius: 14px; padding: 1.25rem 1rem; text-align: center; box-shadow: 0 2px 12px rgba(21,101,192,0.1); border-top: 3px solid; }
-    .stat-card .stat-num { font-size: 2rem; font-weight: 800; line-height: 1; margin-bottom: 0.25rem; }
-    .stat-card .stat-label { font-size: 0.82rem; color: #666; font-weight: 600; }
-    .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin: 1.25rem 0; }
-    .feature-card { background: #fff; border-radius: 14px; padding: 1.25rem; box-shadow: 0 2px 12px rgba(21,101,192,0.07); border-top: 3px solid; }
-    .feature-card h3 { font-size: 1rem; font-weight: 800; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
-    .feature-card ul { list-style: none; padding: 0; }
-    .feature-card ul li { padding: 0.3rem 0; padding-left: 1.2rem; position: relative; font-size: 0.9rem; color: #444; }
-    .feature-card ul li::before { content: '→'; position: absolute; left: 0; color: #1565C0; font-weight: 700; }
-    .technique-card { background: #fff; border-radius: 14px; padding: 1.5rem; box-shadow: 0 2px 12px rgba(21,101,192,0.08); border-left: 4px solid #1565C0; margin-bottom: 1rem; }
-    .technique-card h3 { font-size: 1.05rem; font-weight: 800; color: #1565C0; margin-bottom: 0.5rem; }
-    .technique-card .example { background: #e3f2fd; border-radius: 8px; padding: 0.6rem 1rem; font-size: 0.88rem; color: #1565C0; font-style: italic; margin-top: 0.5rem; }
-    .question-type-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 1.25rem 0; }
-    .question-card { background: #fff; border-radius: 14px; padding: 1.25rem; box-shadow: 0 2px 12px rgba(21,101,192,0.07); border-top: 3px solid; }
-    .question-card h4 { font-size: 0.95rem; font-weight: 800; margin-bottom: 0.5rem; }
-    .question-card p { font-size: 0.85rem; color: #555; margin-bottom: 0.5rem; }
-    .question-card .q-example { font-size: 0.82rem; color: #1565C0; font-style: italic; background: #e3f2fd; padding: 0.4rem 0.75rem; border-radius: 8px; }
-    .obstacle-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.25rem 0; }
-    .obstacle-card { background: #fff; border-radius: 14px; padding: 1.25rem; box-shadow: 0 2px 8px rgba(21,101,192,0.06); border-top: 3px solid #ffb300; text-align: center; }
-    .obstacle-icon { font-size: 2rem; margin-bottom: 0.5rem; }
-    .obstacle-card h4 { font-size: 0.9rem; font-weight: 800; color: #2c2c54; margin-bottom: 0.4rem; }
-    .obstacle-card p { font-size: 0.82rem; color: #666; }
-    .callout { border-radius: 12px; padding: 1.25rem 1.5rem; margin: 1.25rem 0; display: flex; gap: 1rem; align-items: flex-start; }
-    .callout.tip { background: #e8f5e9; border-left: 4px solid #1a7a4a; }
+    .topbar-logo span {
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: #4B2D8B;
+    }
+    .chapter-badge {
+      background: linear-gradient(135deg, #4B2D8B, #2196F3);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.75rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      margin-top: 64px;
+      background: linear-gradient(135deg, #4B2D8B 0%, #2196F3 50%, #E8622A 100%);
+      padding: 3.5rem 2rem 3rem;
+      text-align: center;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 220px; height: 220px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; left: -40px;
+      width: 160px; height: 160px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.3rem 1rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+    }
+    .hero h1 {
+      font-size: clamp(1.6rem, 4vw, 2.6rem);
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+    .hero .subtitle {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+    }
+    .hero-meta {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      font-size: 0.85rem;
+      opacity: 0.85;
+    }
+    .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    /* ===== TABLE OF CONTENTS ===== */
+    .toc-section {
+      background: #fff;
+      border-bottom: 1px solid #e8e4f0;
+      padding: 1.5rem 2rem;
+    }
+    .toc-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .toc-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.75rem;
+    }
+    .toc-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .toc-links a {
+      background: #f0ecfa;
+      color: #4B2D8B;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.35rem 0.85rem;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .toc-links a:hover { background: #4B2D8B; color: #fff; }
+
+    /* ===== MAIN CONTENT ===== */
+    .main-content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 4rem;
+    }
+
+    /* ===== SECTION STYLES ===== */
+    .content-section {
+      margin-bottom: 3.5rem;
+      scroll-margin-top: 80px;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 3px solid #4B2D8B;
+    }
+    .section-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .section-header h2 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #2c2c54;
+    }
+    .section-header .section-sub {
+      font-size: 0.85rem;
+      color: #666;
+      font-weight: 600;
+    }
+
+    /* ===== INTRO BOX ===== */
+    .intro-box {
+      background: linear-gradient(135deg, #f0ecfa, #e8f4ff);
+      border-left: 4px solid #4B2D8B;
+      border-radius: 0 12px 12px 0;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+    }
+
+    /* ===== STAT CARDS ===== */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .stat-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 1.25rem 1rem;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(75,45,139,0.08);
+      border-top: 3px solid;
+    }
+    .stat-card .stat-num {
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .stat-card .stat-label {
+      font-size: 0.82rem;
+      color: #666;
+      font-weight: 600;
+    }
+
+    /* ===== FEATURE GRID ===== */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin: 1.25rem 0;
+    }
+    .feature-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 1.25rem;
+      box-shadow: 0 2px 12px rgba(75,45,139,0.07);
+      border-top: 3px solid;
+    }
+    .feature-card h3 {
+      font-size: 1rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .feature-card ul {
+      list-style: none;
+      padding: 0;
+    }
+    .feature-card ul li {
+      padding: 0.3rem 0;
+      padding-left: 1.2rem;
+      position: relative;
+      font-size: 0.9rem;
+      color: #444;
+    }
+    .feature-card ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: #4B2D8B;
+      font-weight: 700;
+    }
+
+    /* ===== HIGHLIGHT BADGE ===== */
+    .highlight-badge {
+      display: inline-block;
+      background: #fff3cd;
+      color: #856404;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 10px;
+      margin-left: 0.4rem;
+      vertical-align: middle;
+    }
+
+    /* ===== TWO-COL LAYOUT ===== */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin: 1.25rem 0;
+    }
+    @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
+
+    /* ===== IMAGE BLOCK ===== */
+    .image-block {
+      text-align: center;
+      margin: 1.5rem 0;
+    }
+    .image-block img {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .image-block.icon-block img {
+      max-width: 160px;
+      box-shadow: none;
+    }
+    .image-caption {
+      font-size: 0.82rem;
+      color: #888;
+      margin-top: 0.5rem;
+      font-style: italic;
+    }
+
+    /* ===== STEP LIST ===== */
+    .step-list {
+      counter-reset: steps;
+      list-style: none;
+      padding: 0;
+      margin: 1.25rem 0;
+    }
+    .step-list li {
+      counter-increment: steps;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 0.85rem 1rem;
+      background: #fff;
+      border-radius: 12px;
+      margin-bottom: 0.75rem;
+      box-shadow: 0 2px 8px rgba(75,45,139,0.06);
+    }
+    .step-list li::before {
+      content: counter(steps);
+      background: #4B2D8B;
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.85rem;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+    .step-list li .step-text { font-size: 0.93rem; color: #333; }
+    .step-list li strong { color: #2c2c54; }
+
+    /* ===== CALLOUT BOX ===== */
+    .callout {
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.25rem 0;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .callout.tip { background: #e8f5e9; border-left: 4px solid #43a047; }
     .callout.warning { background: #fff8e1; border-left: 4px solid #ffa000; }
-    .callout.info { background: #e3f2fd; border-left: 4px solid #1565C0; }
+    .callout.info { background: #e3f2fd; border-left: 4px solid #1976d2; }
     .callout-icon { font-size: 1.4rem; flex-shrink: 0; }
-    .callout-text strong { display: block; margin-bottom: 0.3rem; font-size: 0.95rem; }
-    .callout-text p { font-size: 0.9rem; color: #444; margin: 0; }
-    .video-placeholder-box { background: #fff; border: 2px dashed #90CAF9; border-radius: 14px; padding: 2rem; text-align: center; margin: 1.5rem 0; }
-    .video-placeholder-box .video-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
-    .video-placeholder-box p { color: #888; font-size: 0.9rem; margin: 0; }
-    .video-placeholder-box strong { display: block; color: #1565C0; font-size: 1rem; margin-bottom: 0.25rem; }
-    .reflection-section { background: linear-gradient(135deg, #e3f2fd, #e8f5e9); border-radius: 16px; padding: 2rem; margin: 2rem 0; }
-    .reflection-section h3 { font-size: 1.2rem; font-weight: 800; color: #1565C0; margin-bottom: 1rem; }
-    .reflection-question { background: #fff; border-radius: 12px; padding: 1.25rem; margin-bottom: 1rem; box-shadow: 0 2px 8px rgba(21,101,192,0.06); }
-    .reflection-question label { display: block; font-weight: 700; font-size: 0.95rem; color: #2c2c54; margin-bottom: 0.75rem; }
-    .scale-options { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+    .callout-text { font-size: 0.93rem; }
+    .callout-text strong { display: block; margin-bottom: 0.25rem; font-size: 0.95rem; }
+
+    /* ===== VIDEO CONTAINER ===== */
+    .video-container {
+      position: relative;
+      width: 100%;
+      margin: 1.5rem 0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    }
+    .video-container iframe {
+      display: block;
+      width: 100%;
+    }
+    .video-caption {
+      font-size: 0.85rem;
+      color: #555;
+      margin-top: 0.5rem;
+      text-align: center;
+      font-style: italic;
+    }
+
+    /* ===== VIDEO PLACEHOLDER ===== */
+    .video-placeholder {
+      background: linear-gradient(135deg, #2c2c54, #4B2D8B);
+      border-radius: 14px;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      color: #fff;
+      margin: 1.5rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .video-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .video-play-icon {
+      width: 64px;
+      height: 64px;
+      background: rgba(255,255,255,0.15);
+      border: 2px solid rgba(255,255,255,0.4);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 1.6rem;
+    }
+    .video-placeholder h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin-bottom: 0.4rem;
+    }
+    .video-placeholder p {
+      font-size: 0.85rem;
+      opacity: 0.75;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .video-coming-soon {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.3rem 1rem;
+      margin-top: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* ===== INTERACTIVE SELF-REFLECTION ===== */
+    .reflection-section {
+      background: linear-gradient(135deg, #f8f4ff, #f0f8ff);
+      border-radius: 16px;
+      padding: 2rem;
+      margin: 1.5rem 0;
+      border: 1px solid #e0d8f5;
+    }
+    .reflection-section h3 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #4B2D8B;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .reflection-section .reflection-intro {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 1.5rem;
+    }
+    .question-block {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 8px rgba(75,45,139,0.06);
+    }
+    .question-block label {
+      display: block;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #2c2c54;
+      margin-bottom: 0.75rem;
+    }
+    .question-block label span.q-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      background: #4B2D8B;
+      color: #fff;
+      border-radius: 50%;
+      font-size: 0.75rem;
+      font-weight: 800;
+      margin-right: 0.5rem;
+      flex-shrink: 0;
+    }
+    .scale-options {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.5rem;
+    }
     .scale-options input[type="radio"] { display: none; }
-    .scale-options label { cursor: pointer; background: #f0ecfa; color: #4B2D8B; font-weight: 700; font-size: 0.85rem; padding: 0.4rem 0.85rem; border-radius: 20px; transition: background 0.2s, color 0.2s; }
-    .scale-options input[type="radio"]:checked + label { background: #1565C0; color: #fff; }
-    .reflection-textarea { width: 100%; border: 2px solid #90CAF9; border-radius: 10px; padding: 0.75rem 1rem; font-family: 'Nunito', sans-serif; font-size: 0.9rem; resize: vertical; min-height: 80px; transition: border-color 0.2s; }
-    .reflection-textarea:focus { outline: none; border-color: #1565C0; }
-    .reflection-btn { background: linear-gradient(135deg, #1565C0, #42A5F5); color: #fff; border: none; padding: 0.75rem 2rem; border-radius: 25px; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.95rem; cursor: pointer; margin-top: 1rem; transition: opacity 0.2s; }
-    .reflection-btn:hover { opacity: 0.85; }
-    .reflection-result { display: none; background: #e3f2fd; border-left: 4px solid #1565C0; border-radius: 0 10px 10px 0; padding: 1rem 1.25rem; margin-top: 1rem; font-size: 0.9rem; }
-    .download-footer { background: linear-gradient(135deg, #1565C0, #42A5F5); padding: 2.5rem 2rem; margin-top: 3rem; }
-    .download-footer-inner { max-width: 900px; margin: 0 auto; text-align: center; }
-    .download-footer h3 { color: #fff; font-size: 1.3rem; font-weight: 800; margin-bottom: 0.5rem; }
-    .download-footer p { color: rgba(255,255,255,0.85); margin-bottom: 1.5rem; }
-    .download-btns { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-    .dl-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.4); color: #fff; font-weight: 700; font-size: 0.9rem; padding: 0.7rem 1.5rem; border-radius: 25px; text-decoration: none; transition: background 0.2s; }
-    .dl-btn:hover { background: rgba(255,255,255,0.3); }
+    .scale-options label {
+      cursor: pointer;
+      background: #f0ecfa;
+      color: #4B2D8B;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 20px;
+      transition: background 0.2s, color 0.2s;
+      border: 2px solid transparent;
+      margin: 0;
+    }
+    .scale-options input[type="radio"]:checked + label {
+      background: #4B2D8B;
+      color: #fff;
+      border-color: #4B2D8B;
+    }
+    .scale-options label:hover { background: #d8cef5; }
+    .text-answer {
+      width: 100%;
+      border: 2px solid #e0d8f5;
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.9rem;
+      color: #2c2c54;
+      resize: vertical;
+      min-height: 80px;
+      transition: border-color 0.2s;
+      background: #fafafa;
+    }
+    .text-answer:focus {
+      outline: none;
+      border-color: #4B2D8B;
+      background: #fff;
+    }
+    .checkbox-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.5rem;
+    }
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+    }
+    .checkbox-item input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: #4B2D8B;
+      cursor: pointer;
+    }
+    .checkbox-item span {
+      font-size: 0.88rem;
+      color: #444;
+    }
+    .reflection-result {
+      background: linear-gradient(135deg, #4B2D8B, #2196F3);
+      color: #fff;
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-top: 1.25rem;
+      display: none;
+    }
+    .reflection-result.visible { display: block; }
+    .reflection-result h4 { font-size: 1rem; margin-bottom: 0.5rem; }
+    .reflection-result p { font-size: 0.88rem; opacity: 0.9; }
+    .submit-reflection {
+      background: #4B2D8B;
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      padding: 0.75rem 2rem;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 0.95rem;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .submit-reflection:hover { background: #3a2070; transform: translateY(-1px); }
+
+    /* ===== DIGITAL DIARY ===== */
+    .diary-section {
+      background: #fff;
+      border-radius: 14px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 12px rgba(75,45,139,0.07);
+      margin: 1.25rem 0;
+    }
+    .diary-section h4 {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #2c2c54;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .diary-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+    @media (max-width: 600px) { .diary-row { grid-template-columns: 1fr; } }
+    .diary-field label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.3rem;
+    }
+    .diary-field input, .diary-field select {
+      width: 100%;
+      border: 2px solid #e0d8f5;
+      border-radius: 8px;
+      padding: 0.5rem 0.75rem;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.88rem;
+      color: #2c2c54;
+      background: #fafafa;
+      transition: border-color 0.2s;
+    }
+    .diary-field input:focus, .diary-field select:focus {
+      outline: none;
+      border-color: #4B2D8B;
+      background: #fff;
+    }
+    .add-diary-btn {
+      background: #f0ecfa;
+      color: #4B2D8B;
+      border: 2px dashed #c5b8e8;
+      border-radius: 10px;
+      padding: 0.6rem 1.25rem;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 0.5rem;
+    }
+    .add-diary-btn:hover { background: #e0d8f5; }
+
+    /* ===== SUMMARY / PRINCIPLES ===== */
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1.25rem 0;
+    }
+    .principle-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 1.25rem;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(75,45,139,0.07);
+      border-bottom: 3px solid;
+    }
+    .principle-card .p-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+    .principle-card h4 { font-size: 0.95rem; font-weight: 800; margin-bottom: 0.4rem; }
+    .principle-card p { font-size: 0.82rem; color: #666; }
+
+    /* ===== NEXT STEPS ===== */
+    .next-steps {
+      background: linear-gradient(135deg, #e8f5e9, #e3f2fd);
+      border-radius: 14px;
+      padding: 1.5rem;
+      margin: 1.25rem 0;
+    }
+    .next-steps h3 {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #2c2c54;
+      margin-bottom: 1rem;
+    }
+    .next-step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .next-step-item:last-child { border-bottom: none; }
+    .next-step-item .ns-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #4B2D8B;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+    .next-step-item .ns-text strong { display: block; font-size: 0.9rem; }
+    .next-step-item .ns-text span { font-size: 0.82rem; color: #555; }
+
+    /* ===== DOWNLOAD FOOTER ===== */
+    .download-footer {
+      background: #fff;
+      border-top: 1px solid #e8e4f0;
+      padding: 2rem;
+      text-align: center;
+    }
+    .download-footer-inner {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .download-footer h3 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #2c2c54;
+      margin-bottom: 0.5rem;
+    }
+    .download-footer p {
+      font-size: 0.88rem;
+      color: #666;
+      margin-bottom: 1.25rem;
+    }
+    .download-btns {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .dl-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.5rem;
+      border-radius: 25px;
+      font-weight: 800;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .dl-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+    .dl-btn.hu { background: linear-gradient(135deg, #4B2D8B, #6a3fc4); color: #fff; }
+    .dl-btn.en { background: linear-gradient(135deg, #1565c0, #2196F3); color: #fff; }
+    .dl-btn.ro { background: linear-gradient(135deg, #b71c1c, #e53935); color: #fff; }
     .dl-btn svg { width: 18px; height: 18px; }
-    .eu-footer { background: #f8f7ff; border-top: 2px solid #e0d8f5; padding: 1.5rem 2rem; text-align: center; }
-    @media (max-width: 640px) { .topbar { padding: 0 1rem; } .main-content { padding: 1.5rem 1rem 3rem; } }
+
+    /* ===== EU FOOTER ===== */
+    .eu-footer {
+      background: #2c2c54;
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 1.25rem 2rem;
+      font-size: 0.78rem;
+      line-height: 1.5;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .topbar { padding: 0 1rem; }
+      .main-content { padding: 2rem 1rem 3rem; }
+      .hero { padding: 2.5rem 1rem 2rem; }
+      .toc-section { padding: 1rem; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .chapter-badge { display: none; }
+    }
   
     /* Chapter navigation */
     .chapter-nav {
@@ -180,412 +870,681 @@
     /* Hide video sections in non-Hungarian language views */
     body:not([data-active-lang="hu"]) .video-section-hu { display: none !important; }
 
+  
+    .eu-footer-logo { max-width: 160px; height: auto; flex-shrink: 0; }
+    .eu-footer-inner { max-width: 860px; margin: 0 auto; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+    .eu-footer-text { font-size: 0.78rem; color: #444; line-height: 1.55; text-align: left; max-width: 640px; }
+    .eu-footer-copy { margin-top: 0.75rem; font-size: 0.72rem; color: #888; text-align: center; }
+  
+    .eu-footer-logo { max-width: 160px; height: auto; flex-shrink: 0; }
+    .eu-footer-inner { max-width: 860px; margin: 0 auto; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+    .eu-footer-text { font-size: 0.78rem; color: #444; line-height: 1.55; text-align: left; max-width: 640px; }
+    .eu-footer-copy { margin-top: 0.75rem; font-size: 0.72rem; color: #888; text-align: center; }
+  
+    .eu-footer-logo { max-width: 160px; height: auto; flex-shrink: 0; }
+    .eu-footer-inner { max-width: 860px; margin: 0 auto; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+    .eu-footer-text { font-size: 0.78rem; color: #444; line-height: 1.55; text-align: left; max-width: 640px; }
+    .eu-footer-copy { margin-top: 0.75rem; font-size: 0.72rem; color: #888; text-align: center; }
   </style>
 </head>
 <body data-active-lang="hu">
 
-<nav class="topbar">
+<!-- ===== TOP NAV ===== -->
+<div class="topbar">
   <div class="topbar-left">
-    
-  <div class="lang-switcher-sub">
-    <button class="lang-btn-sub" data-lang-switch="hu" onclick="switchLangSub('hu')" title="Magyar">🇭🇺</button>
-    <button class="lang-btn-sub" data-lang-switch="en" onclick="switchLangSub('en')" title="English">🇬🇧</button>
-    <button class="lang-btn-sub" data-lang-switch="ro" onclick="switchLangSub('ro')" title="Română">🇷🇴</button>
-  </div>
-  <a href="../index.html" class="back-btn">
+    <a href="../index.html" class="back-btn">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-      <span data-lang="hu">Vissza az Eszköztárhoz</span><span data-lang="en">Back to Toolbox</span><span data-lang="ro">Înapoi la Trusă</span>
+      <span data-lang="hu">Vissza az Eszköztárhoz</span><span data-lang="en">Back to Toolbox</span><span data-lang="ro">Înapoi la Trusa de Instrumente</span>
     </a>
     <a href="../index.html" class="topbar-logo">
       <img src="imelo_logo.png" alt="Identity Mosaic" />
     </a>
   </div>
-  <span class="chapter-badge"><span data-lang="hu">🎓 Coaching Modul – 2. rész</span><span data-lang="en">🎓 Coaching Module – Part 2</span><span data-lang="ro">🎓 Modul Coaching – Partea 2</span></span>
-</nav>
+  <div class="lang-switcher-sub">
+    <button class="lang-btn-sub" data-lang-switch="hu" onclick="switchLangSub('hu')" title="Magyar">🇭🇺</button>
+    <button class="lang-btn-sub" data-lang-switch="en" onclick="switchLangSub('en')" title="English">🇬🇧</button>
+    <button class="lang-btn-sub" data-lang-switch="ro" onclick="switchLangSub('ro')" title="Română">🇷🇴</button>
+  </div>
+  <div class="chapter-badge"><span data-lang="hu">1. Fejezet · Digitális Jóllét</span><span data-lang="en">Chapter 1 · Digital Wellbeing</span><span data-lang="ro">Capitolul 1 · Bunăstare Digitală</span></div>
+</div>
 
+<!-- ===== HERO ===== -->
 <div class="hero">
-  <div class="hero-tag"><span data-lang="hu">COACHING MODUL · 2. RÉSZ</span><span data-lang="en">COACHING MODULE · PART 2</span><span data-lang="ro">MODUL COACHING · PARTEA 2</span></div>
-  <h1><span data-lang="hu">Aktív Hallgatás és Kérdezési Technikák</span><span data-lang="en">Active Listening and Questioning Techniques</span><span data-lang="ro">Ascultare Activă și Tehnici de Întrebare</span></h1>
-  <p class="subtitle"><span data-lang="hu">A hatékony coaching legfontosabb eszközei: hogyan hallgassunk igazán, és hogyan kérdezzünk úgy, hogy valódi változást indítsunk el</span><span data-lang="en">The most important tools for effective coaching: how to truly listen and how to ask questions that spark real change</span><span data-lang="ro">Cele mai importante instrumente ale coachingului eficient: cum să ascultăm cu adevărat și cum să punem întrebări care să declanșeze o schimbare reală</span></p>
+  <div class="hero-tag"><span data-lang="hu">IMELO ESZKÖZTÁR · 1. FEJEZET</span><span data-lang="en">IMELO TOOLBOX · CHAPTER 1</span><span data-lang="ro">TRUSA IMELO · CAPITOLUL 1</span></div>
+  <h1><span data-lang="hu">Digitális Jóllét Eszköztár</span><span data-lang="en">Digital Wellbeing Toolbox</span><span data-lang="ro">Trusa de Instrumente pentru Bunăstarea Digitală</span></h1>
+  <p class="subtitle"><span data-lang="hu">Útmutató az egészséges digitális élethez ifjúságsegítők és fiatalok számára</span><span data-lang="en">Guide to a healthy digital life for youth workers and young people</span><span data-lang="ro">Ghid pentru o viață digitală sănătoasă destinat lucrătorilor de tineret și tinerilor</span></p>
   <div class="hero-meta">
-    <span><span data-lang="hu">🎯 Célcsoport: Ifjúságsegítők</span><span data-lang="en">🎯 Target Group: Youth Workers</span><span data-lang="ro">🎯 Grup țintă: Lucrători de tineret</span></span>
-    <span><span data-lang="hu">⏱️ Olvasási idő: ~15 perc</span><span data-lang="en">⏱️ Reading Time: ~15 minutes</span><span data-lang="ro">⏱️ Timp de citire: ~15 minute</span></span>
-    <span><span data-lang="hu">📚 Coaching Modul 2/3</span><span data-lang="en">📚 Coaching Module 2/3</span><span data-lang="ro">📚 Modul Coaching 2/3</span></span>
+    <span><span data-lang="hu">📱 Digitális egyensúly</span><span data-lang="en">📱 Digital balance</span><span data-lang="ro">📱 Echilibru digital</span></span>
+    <span><span data-lang="hu">🧠 Tudatos médiahasználat</span><span data-lang="en">🧠 Conscious media use</span><span data-lang="ro">🧠 Utilizare conștientă a media</span></span>
+    <span><span data-lang="hu">🌿 Offline életmód</span><span data-lang="en">🌿 Offline lifestyle</span><span data-lang="ro">🌿 Stil de viață offline</span></span>
   </div>
 </div>
 
+<!-- ===== TABLE OF CONTENTS ===== -->
 <div class="toc-section">
   <div class="toc-inner">
-    <div class="toc-title">Tartalom</div>
+    <div class="toc-title"><span data-lang="hu">Tartalomjegyzék</span><span data-lang="en">Table of contents</span><span data-lang="ro">Cuprins</span></div>
     <div class="toc-links">
-      <a href="#aktiv-hallgatas"><span data-lang="hu">Mi az aktív hallgatás?</span><span data-lang="en">What is active listening?</span><span data-lang="ro">Ce este ascultarea activă?</span></a>
-      <a href="#technikak"><span data-lang="hu">Aktív hallgatás technikái</span><span data-lang="en">Techniques of active listening</span><span data-lang="ro">Tehnici de ascultare activă</span></a>
-      <a href="#akadalyok"><span data-lang="hu">A hallgatás akadályai</span><span data-lang="en">Barriers to listening</span><span data-lang="ro">Obstacole în ascultare</span></a>
-      <a href="#kerdezes"><span data-lang="hu">Kérdezési technikák</span><span data-lang="en">Questioning techniques</span><span data-lang="ro">Tehnici de întrebare</span></a>
-      <a href="#kerdestipusok"><span data-lang="hu">Kérdéstípusok</span><span data-lang="en">Types of questions</span><span data-lang="ro">Tipuri de întrebări</span></a>
-      <a href="#eroteljes"><span data-lang="hu">Erőteljes kérdések</span><span data-lang="en">Powerful questions</span><span data-lang="ro">Întrebări puternice</span></a>
-      <a href="#onreflexio"><span data-lang="hu">Önreflexió</span><span data-lang="en">Self-reflection</span><span data-lang="ro">Auto-reflecție</span></a>
+      <a href="#sec-why"><span data-lang="hu">Miért fontos?</span><span data-lang="en">Why is it important?</span><span data-lang="ro">De ce este important?</span></a>
+      <a href="#sec-media"><span data-lang="hu">Tudatos médiahasználat</span><span data-lang="en">Conscious media use</span><span data-lang="ro">Utilizare conștientă a media</span></a>
+      <a href="#sec-boundaries"><span data-lang="hu">Digitális határok</span><span data-lang="en">Digital boundaries</span><span data-lang="ro">Granițe digitale</span></a>
+      <a href="#sec-offline"><span data-lang="hu">Offline tevékenységek</span><span data-lang="en">Offline activities</span><span data-lang="ro">Activități offline</span></a>
+      <a href="#sec-detox"><span data-lang="hu">Digitális detox</span><span data-lang="en">Digital detox</span><span data-lang="ro">Detox digital</span></a>
+      <a href="#sec-screentime"><span data-lang="hu">Képernyőidő</span><span data-lang="en">Screen time</span><span data-lang="ro">Timp petrecut în fața ecranului</span></a>
+      <a href="#sec-safety"><span data-lang="hu">Digitális biztonság</span><span data-lang="en">Digital safety</span><span data-lang="ro">Siguranță digitală</span></a>
+      <a href="#sec-community"><span data-lang="hu">Pozitív közösségek</span><span data-lang="en">Positive communities</span><span data-lang="ro">Comunități pozitive</span></a>
+      <a href="#sec-reflection"><span data-lang="hu">Önreflexió</span><span data-lang="en">Self-reflection</span><span data-lang="ro">Auto-reflecție</span></a>
+      <a href="#sec-summary"><span data-lang="hu">Összefoglalás</span><span data-lang="en">Summary</span><span data-lang="ro">Rezumat</span></a>
     </div>
   </div>
 </div>
 
+<!-- ===== MAIN CONTENT ===== -->
 <div class="main-content">
 
-  <div class="stat-grid">
-    <div class="stat-card" style="border-color:#1565C0;">
-      <div class="stat-num" style="color:#1565C0;">4</div>
-      <div class="stat-label"><span data-lang="hu">Aktív hallgatás technika</span><span data-lang="en">Active listening technique</span><span data-lang="ro">Tehnica ascultării active</span></div>
-    </div>
-    <div class="stat-card" style="border-color:#42A5F5;">
-      <div class="stat-num" style="color:#42A5F5;">5</div>
-      <div class="stat-label"><span data-lang="hu">Hallgatási akadály</span><span data-lang="en">Listening barrier</span><span data-lang="ro">Obstacol în ascultare</span></div>
-    </div>
-    <div class="stat-card" style="border-color:#1a7a4a;">
-      <div class="stat-num" style="color:#1a7a4a;">4</div>
-      <div class="stat-label"><span data-lang="hu">Kérdéstípus</span><span data-lang="en">Question type</span><span data-lang="ro">Tip de întrebare</span></div>
-    </div>
-    <div class="stat-card" style="border-color:#E8622A;">
-      <div class="stat-num" style="color:#E8622A;">∞</div>
-      <div class="stat-label"><span data-lang="hu">Erőteljes kérdés lehetőség</span><span data-lang="en">Powerful question opportunity</span><span data-lang="ro">Posibilitate de întrebare puternică</span></div>
-    </div>
-  </div>
-
-  <!-- SECTION 1: MI AZ AKTÍV HALLGATÁS -->
-  <div class="content-section" id="aktiv-hallgatas">
+  <!-- 1. MIÉRT FONTOS -->
+  <section class="content-section" id="sec-why">
     <div class="section-header">
-      <div class="section-icon" style="background:#e3f2fd;">👂</div>
+      <div class="section-icon" style="background:#e8f4ff;">🌐</div>
       <div>
-        <h2><span data-lang="hu">Mi az aktív hallgatás?</span><span data-lang="en">What is active listening?</span><span data-lang="ro">Ce este ascultarea activă?</span></h2>
-        <div class="section-sub"><span data-lang="hu">Több mint egyszerű hallás</span><span data-lang="en">More than just hearing</span><span data-lang="ro">Mai mult decât simpla auzire</span></div>
+        <h2><span data-lang="hu">Miért fontos a digitális jóllét?</span><span data-lang="en">Why is digital wellbeing important?</span><span data-lang="ro">De ce este importantă bunăstarea digitală?</span></h2>
+        <div class="section-sub"><span data-lang="hu">A digitális eszközök hatása mindennapi életünkre</span><span data-lang="en">The impact of digital devices on our daily lives</span><span data-lang="ro">Impactul dispozitivelor digitale asupra vieții noastre cotidiene</span></div>
       </div>
     </div>
+
     <div class="intro-box">
-      <span data-lang="hu">Az aktív hallgatás egy</span><span data-lang="en">Active listening is a</span><span data-lang="ro">Ascultarea activă este o</span> <strong><span data-lang="hu">tudatos kommunikációs technika</span><span data-lang="en">conscious communication technique</span><span data-lang="ro">tehnică conștientă de comunicare</span></strong><span data-lang="hu">, amelyben a hallgató teljes figyelmével, empátiával és megértéssel fordul a beszélő felé, és visszajelzésekkel segíti a kommunikációt. Nem csupán a szavak meghallása, hanem a mögöttes érzelmek, szándékok és jelentések megértése is.</span><span data-lang="en"> in which the listener turns to the speaker with full attention, empathy, and understanding, supporting communication with feedback. It is not only about hearing the words but also understanding the underlying emotions, intentions, and meanings.</span><span data-lang="ro">, în care ascultătorul se concentrează cu toată atenția, empatia și înțelegerea asupra vorbitorului și sprijină comunicarea prin feedback. Nu este doar auzirea cuvintelor, ci și înțelegerea emoțiilor, intențiilor și semnificațiilor din spatele acestora.</span>
+      <span data-lang="hu">A digitális eszközök mára életünk elválaszthatatlan részévé váltak, befolyásolva munkánkat, kapcsolatainkat és szabadidőnket. A</span><span data-lang="en">Digital devices have become an inseparable part of our lives, influencing our work, relationships, and leisure time. The</span><span data-lang="ro">Dispozitivele digitale au devenit o parte inseparabilă a vieții noastre, influențând munca, relațiile și timpul liber.</span> <strong><span data-lang="hu">tudatos használat kulcsfontosságú</span><span data-lang="en">conscious use is key</span><span data-lang="ro">utilizarea conștientă este esențială</span></strong> <span data-lang="hu">a mentális egészség megőrzéséhez és a digitális függőség elkerüléséhez.</span><span data-lang="en">to maintaining mental health and avoiding digital addiction.</span><span data-lang="ro">pentru menținerea sănătății mentale și evitarea dependenței digitale.</span>
     </div>
-    <div class="feature-grid">
-      <div class="feature-card" style="border-color:#1565C0;">
-        <h3><span data-lang="hu">👂 Több mint hallás</span><span data-lang="en">👂 More than hearing</span><span data-lang="ro">👂 Mai mult decât auzire</span></h3>
-        <ul>
-          <li><span data-lang="hu">Mögöttes érzelmek megértése</span><span data-lang="en">Understanding underlying emotions</span><span data-lang="ro">Înțelegerea emoțiilor ascunse</span></li>
-          <li><span data-lang="hu">Szándékok és jelentések feltárása</span><span data-lang="en">Uncovering intentions and meanings</span><span data-lang="ro">Descoperirea intențiilor și semnificațiilor</span></li>
-          <li><span data-lang="hu">Nem verbális jelzések figyelése</span><span data-lang="en">Observing non-verbal cues</span><span data-lang="ro">Observarea semnalelor non-verbale</span></li>
-          <li><span data-lang="hu">Teljes figyelem és jelenlét</span><span data-lang="en">Full attention and presence</span><span data-lang="ro">Atenție și prezență totală</span></li>
-        </ul>
+
+    <div class="stat-grid">
+      <div class="stat-card" style="border-color:#4B2D8B;">
+        <div class="stat-num" style="color:#4B2D8B;"><span data-lang="hu">4–5 óra</span><span data-lang="en">4–5 hours</span><span data-lang="ro">4–5 ore</span></div>
+        <div class="stat-label"><span data-lang="hu">Napi átlagos képernyőidő felnőtteknél</span><span data-lang="en">Average daily screen time for adults</span><span data-lang="ro">Timp mediu zilnic petrecut în fața ecranului la adulți</span></div>
       </div>
-      <div class="feature-card" style="border-color:#42A5F5;">
-        <h3><span data-lang="hu">🧠 Teljes jelenlét</span><span data-lang="en">🧠 Full presence</span><span data-lang="ro">🧠 Prezență completă</span></h3>
-        <ul>
-          <li><span data-lang="hu">Saját gondolatok félretétele</span><span data-lang="en">Putting aside own thoughts</span><span data-lang="ro">Lăsarea gândurilor proprii deoparte</span></li>
-          <li><span data-lang="hu">Ítéletek felfüggesztése</span><span data-lang="en">Suspending judgments</span><span data-lang="ro">Suspendarea judecăților</span></li>
-          <li><span data-lang="hu">Mentális és érzelmi jelenlét</span><span data-lang="en">Mental and emotional presence</span><span data-lang="ro">Prezență mentală și emoțională</span></li>
-          <li><span data-lang="hu">Zavaró tényezők kiiktatása</span><span data-lang="en">Eliminating distractions</span><span data-lang="ro">Eliminarea factorilor perturbatori</span></li>
-        </ul>
+      <div class="stat-card" style="border-color:#2196F3;">
+        <div class="stat-num" style="color:#2196F3;">70%</div>
+        <div class="stat-label"><span data-lang="hu">Fiatalok, akik este is nyomják a telefont</span><span data-lang="en">Young people who use their phones late into the evening</span><span data-lang="ro">Tinerii care folosesc telefonul și seara</span></div>
       </div>
-      <div class="feature-card" style="border-color:#1a7a4a;">
-        <h3>❤️ Bizalom alapja</h3>
-        <ul>
-          <li><span data-lang="hu">Bizalmi kapcsolat kiépítése</span><span data-lang="en">Building a trustful relationship</span><span data-lang="ro">Construirea unei relații de încredere</span></li>
-          <li><span data-lang="hu">Mélyebb megértés lehetővé tétele</span><span data-lang="en">Enabling deeper understanding</span><span data-lang="ro">Permitere înțelegerii mai profunde</span></li>
-          <li><span data-lang="hu">Rejtett problémák feltárása</span><span data-lang="en">Uncovering hidden issues</span><span data-lang="ro">Descoperirea problemelor ascunse</span></li>
-          <li><span data-lang="hu">Motivációk megismerése</span><span data-lang="en">Getting to know motivations</span><span data-lang="ro">Cunoașterea motivațiilor</span></li>
-        </ul>
+      <div class="stat-card" style="border-color:#E8622A;">
+        <div class="stat-num" style="color:#E8622A;">3×</div>
+        <div class="stat-label"><span data-lang="hu">Nagyobb a szorongás kockázata túlzott használatnál</span><span data-lang="en">Higher risk of anxiety with excessive use</span><span data-lang="ro">Riscul de anxietate este mai mare în cazul utilizării excesive</span></div>
       </div>
     </div>
+
+    <div class="image-block">
+      <img src="images/chart_screentime.png" alt="Napi átlagos képernyőidő eloszlása kategóriánként" />
+      <div class="image-caption"><span data-lang="hu">Napi átlagos képernyőidő eloszlása – Közösségi média, Videók/Streaming, Böngészés, Játékok, Munka/Tanulás</span><span data-lang="en">Distribution of average daily screen time – Social media, Videos/Streaming, Browsing, Games, Work/Study</span><span data-lang="ro">Distribuția timpului mediu zilnic petrecut în fața ecranului – Social media, Video/Streaming, Navigare, Jocuri, Muncă/Studii</span></div>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-icon">💡</div>
+      <div class="callout-text">
+        <strong><span data-lang="hu">Ez az eszköztár gyakorlati megoldásokat kínál</span><span data-lang="en">This toolbox offers practical solutions</span><span data-lang="ro">Această trusă de instrumente oferă soluții practice</span></strong>
+        <span data-lang="hu">a digitális egyensúly megteremtéséhez és fenntartásához – konkrét technikákkal, önreflexiós feladatokkal és napi rutinokkal.</span><span data-lang="en">for creating and maintaining digital balance – with concrete techniques, self-reflection tasks, and daily routines.</span><span data-lang="ro">pentru a crea și menține echilibrul digital – cu tehnici concrete, exerciții de auto-reflecție și rutine zilnice.</span>
+      </div>
+    </div>
+
     <span id="video-1"></span>
-    <div class="video-section-hu">
+      <div class="video-section-hu">
 <div class="video-container">
         <iframe
         width="100%"
         height="400"
-        src="https://www.youtube.com/embed/qY4_zsgYhQc?modestbranding=1"
-        title="Aktív hallgatás kulcstechnikái ifjúságsegítőknek"
+        src="https://www.youtube.com/embed/rLPZNaL6yKs?modestbranding=1"
+        title="A nagy áthuzalozás – Miért fontos a digitális jóllét?"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen>
       </iframe>
     </div>
-    <p class="video-caption"><span data-lang="hu">A videó az aktív hallgatás kulcstechnikáit mutatja be – a visszatükrözést, az érzelmek validálását és a tudatos csend alkalmazását –, valamint azonosítja a hatékony hallgatás belső és külső akadályait a fiatalokkal való kommunikációban.</span><span data-lang="en">The video presents key techniques of active listening – mirroring, validating emotions, and using conscious silence – and identifies internal and external barriers to effective listening in communication with young people.</span><span data-lang="ro">Videoclipul prezintă tehnicile cheie ale ascultării active – reflectarea, validarea emoțiilor și aplicarea tăcerii conștiente – și identifică obstacolele interne și externe ale ascultării eficiente în comunicarea cu tinerii.</span></p>
+    <p class="video-caption"><span data-lang="hu">A digitális jóllét kulcsfontosságú szerepét bemutató videó, amely az ifjúságsegítők, oktatók és szülők együttműködésének fontosságát hangsúlyozza a digitális világ kihívásaival szembenéző fiatalok támogatásában.</span><span data-lang="en">A video highlighting the key role of digital wellbeing, emphasizing the importance of cooperation between youth workers, educators, and parents in supporting young people facing the challenges of the digital world.</span><span data-lang="ro">Un videoclip care evidențiază rolul esențial al bunăstării digitale și subliniază importanța colaborării între lucrătorii de tineret, educatori și părinți pentru a sprijini tinerii în fața provocărilor lumii digitale.</span></p>
 </div>
-  </div>
+  </section>
 
-  <!-- SECTION 2: TECHNIKÁK -->
-  <div class="content-section" id="technikak">
+  <!-- 2. TUDATOS MÉDIAHASZNÁLAT -->
+  <section class="content-section" id="sec-media">
     <div class="section-header">
-      <div class="section-icon" style="background:#e3f2fd;">🛠️</div>
+      <div class="section-icon" style="background:#f0ecfa;">📱</div>
       <div>
-        <h2><span data-lang="hu">Az Aktív Hallgatás Technikái</span><span data-lang="en">Techniques of Active Listening</span><span data-lang="ro">Tehnicile Ascultării Active</span></h2>
-        <div class="section-sub"><span data-lang="hu">Konkrét eszközök és példák</span><span data-lang="en">Concrete tools and examples</span><span data-lang="ro">Instrumente și exemple concrete</span></div>
+        <h2><span data-lang="hu">Tudatos Médiahasználat</span><span data-lang="en">Conscious Media Use</span><span data-lang="ro">Utilizare Conștientă a Media</span></h2>
+        <div class="section-sub"><span data-lang="hu">Minőség a mennyiség helyett</span><span data-lang="en">Quality over quantity</span><span data-lang="ro">Calitate în loc de cantitate</span></div>
       </div>
     </div>
-    <div class="technique-card">
-      <h3>👁️ 1. Teljes figyelem</h3>
-      <p><span data-lang="hu">Szemkontaktus tartása, nyitott testtartás, zavaró tényezők kiiktatása (telefon, egyéb gondolatok). A testbeszéd jelzi a figyelmet.</span><span data-lang="en">Maintaining eye contact, open body posture, eliminating distractions (phone, other thoughts). Body language signals attention.</span><span data-lang="ro">Menținerea contactului vizual, postura deschisă, eliminarea factorilor perturbatori (telefon, alte gânduri). Limbajul corpului indică atenția.</span></p>
-      <div class="example"><span data-lang="hu">💬 Példa: "Látom, hogy ez fontos számodra."</span><span data-lang="en">💬 Example: "I see this is important to you."</span><span data-lang="ro">💬 Exemplu: „Văd că acest lucru este important pentru tine.”</span></div>
-    </div>
-    <div class="technique-card">
-      <h3><span data-lang="hu">🔄 2. Visszatükrözés</span><span data-lang="en">🔄 2. Mirroring</span><span data-lang="ro">🔄 2. Reflectare</span></h3>
-      <p><span data-lang="hu">Az elhangzottak saját szavainkkal történő visszamondása a megértés ellenőrzésére. Ez megerősíti az ügyfelet és tisztázza a félreértéseket.</span><span data-lang="en">Repeating what was said in our own words to check understanding. This reinforces the client and clarifies misunderstandings.</span><span data-lang="ro">Redarea cu propriile cuvinte a celor auzite pentru a verifica înțelegerea. Aceasta întărește clientul și clarifică neînțelegerile.</span></p>
-      <div class="example"><span data-lang="hu">💬 Példa: "Ha jól értem, azt mondod, hogy..."</span><span data-lang="en">💬 Example: "If I understand correctly, you are saying that..."</span><span data-lang="ro">💬 Exemplu: „Dacă am înțeles bine, spui că...“</span></div>
-    </div>
-    <div class="technique-card">
-      <h3><span data-lang="hu">❤️ 3. Érzelmek validálása</span><span data-lang="en">❤️ 3. Validating emotions</span><span data-lang="ro">❤️ 3. Validarea emoțiilor</span></h3>
-      <p><span data-lang="hu">Az ügyfél érzéseinek elismerése és normalizálása, ítélkezés nélkül. Az érzelmek validálása nem jelenti az egyetértést – csupán az elismerést.</span><span data-lang="en">Acknowledging and normalizing the client’s feelings without judgment. Validating emotions does not mean agreeing – just recognizing them.</span><span data-lang="ro">Recunoașterea și normalizarea sentimentelor clientului, fără judecată. Validarea emoțiilor nu înseamnă acord, ci doar recunoaștere.</span></p>
-      <div class="example"><span data-lang="hu">💬 Példa: "Érthető, hogy frusztrált vagy ebben a helyzetben."</span><span data-lang="en">💬 Example: "It’s understandable that you feel frustrated in this situation."</span><span data-lang="ro">💬 Exemplu: „Este de înțeles că te simți frustrat în această situație.”</span></div>
-    </div>
-    <div class="technique-card">
-      <h3><span data-lang="hu">🔇 4. Csend és összefoglalás</span><span data-lang="en">🔇 4. Silence and Summary</span><span data-lang="ro">🔇 4. Liniște și rezumat</span></h3>
-      <p><span data-lang="hu">Tudatos szünetek tartása és a beszélgetés főbb pontjainak összegzése. A csend értékes eszköz – adj időt a gondolkodásra!</span><span data-lang="en">Taking conscious pauses and summarizing the main points of the conversation. Silence is a valuable tool – give time for reflection!</span><span data-lang="ro">Pauze conștiente și rezumarea punctelor principale ale discuției. Liniștea este un instrument valoros – oferă timp pentru reflecție!</span></p>
-      <div class="example"><span data-lang="hu">💬 Példa: "Tehát a fő kihívások, amelyekkel szembesülsz..."</span><span data-lang="en">💬 Example: "So the main challenges you are facing..."</span><span data-lang="ro">💬 Exemplu: „Deci, principalele provocări cu care te confrunți...”</span></div>
-    </div>
-  </div>
 
-  <!-- SECTION 3: AKADÁLYOK -->
-  <div class="content-section" id="akadalyok">
-    <div class="section-header">
-      <div class="section-icon" style="background:#fff8e1;">⚠️</div>
-      <div>
-        <h2><span data-lang="hu">A Hallgatás Akadályai</span><span data-lang="en">Barriers to Listening</span><span data-lang="ro">Obstacolele ascultării</span></h2>
-        <div class="section-sub"><span data-lang="hu">Mik akadályozzák a hatékony hallgatást?</span><span data-lang="en">What hinders effective listening?</span><span data-lang="ro">Ce împiedică o ascultare eficientă?</span></div>
+    <div class="feature-grid">
+      <div class="feature-card" style="border-color:#4B2D8B;">
+        <h3><span data-lang="hu">🎯 Minőség a mennyiség helyett</span><span data-lang="en">🎯 Quality over quantity</span><span data-lang="ro">🎯 Calitate în loc de cantitate</span></h3>
+        <ul>
+          <li><span data-lang="hu">Válaszd ki tudatosan, mit követsz</span><span data-lang="en">Choose consciously what you follow</span><span data-lang="ro">Alege conștient ce urmărești</span></li>
+          <li><span data-lang="hu">Unfollow-old a negatív tartalmakat</span><span data-lang="en">Unfollow negative content</span><span data-lang="ro">Dă unfollow conținuturilor negative</span></li>
+          <li><span data-lang="hu">Keress inspiráló tartalmakat</span><span data-lang="en">Look for inspiring content</span><span data-lang="ro">Caută conținuturi inspiratoare</span></li>
+          <li><span data-lang="hu">Értékeld a tartalmak hasznosságát</span><span data-lang="en">Evaluate the usefulness of content</span><span data-lang="ro">Evaluează utilitatea conținuturilor</span></li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#2196F3;">
+        <h3><span data-lang="hu">⏱️ Időkorlátok beállítása</span><span data-lang="en">⏱️ Setting time limits</span><span data-lang="ro">⏱️ Setarea limitelor de timp</span></h3>
+        <ul>
+          <li><span data-lang="hu">Használj képernyőidő-korlátozást</span><span data-lang="en">Use screen time restrictions</span><span data-lang="ro">Folosește restricții pentru timpul petrecut în fața ecranului</span></li>
+          <li><span data-lang="hu">Állíts be napi limitet az appokhoz</span><span data-lang="en">Set daily limits for apps</span><span data-lang="ro">Setează un limită zilnică pentru aplicații</span></li>
+          <li><span data-lang="hu">Tervezd meg előre a használatot</span><span data-lang="en">Plan your usage in advance</span><span data-lang="ro">Planifică-ți utilizarea în avans</span></li>
+          <li><span data-lang="hu">Tarts rendszeres digitális szüneteket</span><span data-lang="en">Take regular digital breaks</span><span data-lang="ro">Ia pauze digitale regulate</span></li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#43a047;">
+        <h3><span data-lang="hu">🔍 Kritikus gondolkodás</span><span data-lang="en">🔍 Critical thinking</span><span data-lang="ro">🔍 Gândire critică</span></h3>
+        <ul>
+          <li><span data-lang="hu">Kérdőjelezd meg az információkat</span><span data-lang="en">Question the information</span><span data-lang="ro">Pune sub semnul întrebării informațiile</span></li>
+          <li><span data-lang="hu">Ellenőrizd a források hitelességét</span><span data-lang="en">Check the credibility of sources</span><span data-lang="ro">Verifică credibilitatea surselor</span></li>
+          <li><span data-lang="hu">Ne hidd el azonnal, amit látsz</span><span data-lang="en">Don’t believe everything you see immediately</span><span data-lang="ro">Nu crede imediat ce vezi</span></li>
+          <li><span data-lang="hu">Fejleszd a médiaműveltségedet</span><span data-lang="en">Develop your media literacy</span><span data-lang="ro">Dezvoltă-ți competențele media</span></li>
+        </ul>
       </div>
     </div>
-    <div class="obstacle-grid">
-      <div class="obstacle-card">
-        <div class="obstacle-icon">💭</div>
-        <h4><span data-lang="hu">Belső párbeszéd</span><span data-lang="en">Internal Dialogue</span><span data-lang="ro">Dialog interior</span></h4>
-        <p><span data-lang="hu">Saját gondolatainkkal való foglalkozás ahelyett, hogy a másikra figyelnénk.</span><span data-lang="en">Focusing on our own thoughts instead of paying attention to the other person.</span><span data-lang="ro">A te ocupa de propriile gânduri în loc să acorzi atenție celuilalt.</span></p>
-      </div>
-      <div class="obstacle-card">
-        <div class="obstacle-icon">🏷️</div>
-        <h4><span data-lang="hu">Előítéletek</span><span data-lang="en">Prejudices</span><span data-lang="ro">Prejudecăți</span></h4>
-        <p><span data-lang="hu">A beszélő vagy a téma előzetes megítélése, ami torzítja a hallottakat.</span><span data-lang="en">Prejudging the speaker or the topic, which distorts what is heard.</span><span data-lang="ro">Judecarea anticipată a vorbitorului sau a subiectului, care distorsionează ceea ce auzi.</span></p>
-      </div>
-      <div class="obstacle-card">
-        <div class="obstacle-icon">⏰</div>
-        <h4><span data-lang="hu">Türelmetlenség</span><span data-lang="en">Impatience</span><span data-lang="ro">Nerăbdare</span></h4>
-        <p><span data-lang="hu">Siettetés, a beszélő félbeszakítása vagy a válasz előre megfogalmazása.</span><span data-lang="en">Rushing, interrupting the speaker, or formulating the response in advance.</span><span data-lang="ro">Grăbirea, întreruperea vorbitorului sau formularea anticipată a răspunsului.</span></p>
-      </div>
-      <div class="obstacle-card">
-        <div class="obstacle-icon">📱</div>
-        <h4><span data-lang="hu">Figyelemelterelők</span><span data-lang="en">Distractions</span><span data-lang="ro">Distrageri</span></h4>
-        <p><span data-lang="hu">Külső zavaró tényezők (telefon, zaj) vagy belső elterelő gondolatok.</span><span data-lang="en">External disturbances (phone, noise) or internal distracting thoughts.</span><span data-lang="ro">Factori externi perturbatori (telefon, zgomot) sau gânduri interne care distrag atenția.</span></p>
-      </div>
-      <div class="obstacle-card">
-        <div class="obstacle-icon">🪞</div>
-        <h4><span data-lang="hu">Énközpontúság</span><span data-lang="en">Self-centeredness</span><span data-lang="ro">Egocentrism</span></h4>
-        <p><span data-lang="hu">A beszélgetés visszaterelése saját tapasztalatainkra, problémáinkra.</span><span data-lang="en">Redirecting the conversation back to our own experiences and problems.</span><span data-lang="ro">Redirecționarea conversației către propriile experiențe și probleme.</span></p>
-      </div>
-    </div>
+
     <div class="callout tip">
-      <span class="callout-icon">💡</span>
+      <div class="callout-icon">✅</div>
       <div class="callout-text">
-        <strong><span data-lang="hu">Tipp a tudatossághoz</span><span data-lang="en">Tip for Awareness</span><span data-lang="ro">Sfat pentru conștientizare</span></strong>
-        <p><span data-lang="hu">Gyakorold a tudatosságot! Figyeld meg, mikor kalandozik el a figyelmed, és gyengéden tereld vissza a beszélőre. Ez nem gyengeség – hanem a hallgatás mestersége.</span><span data-lang="en">Practice mindfulness! Notice when your attention wanders and gently bring it back to the speaker. This is not a weakness – it is the art of listening.</span><span data-lang="ro">Exersează conștientizarea! Observă când îți rătăcește atenția și readu-o cu blândețe către vorbitor. Aceasta nu este o slăbiciune – ci arta ascultării.</span></p>
+        <strong><span data-lang="hu">Ifjúságsegítői tipp</span><span data-lang="en">Youth Worker Tip</span><span data-lang="ro">Sfat pentru lucrătorii de tineret</span></strong>
+        <span data-lang="hu">Kérd meg a fiatalokat, hogy egy héten át vezessenek naplót arról, milyen tartalmakat fogyasztanak naponta. Ez az egyszerű gyakorlat önmagában is növeli a tudatosságot.</span><span data-lang="en">Ask young people to keep a diary for a week about the content they consume daily. This simple exercise alone increases awareness.</span><span data-lang="ro">Rugă tinerii să țină un jurnal timp de o săptămână despre ce conținut consumă zilnic. Această practică simplă crește conștientizarea de una singură.</span>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- SECTION 4: KÉRDEZÉSI TECHNIKÁK -->
-  <div class="content-section" id="kerdezes">
+  <!-- 3. DIGITÁLIS HATÁROK -->
+  <section class="content-section" id="sec-boundaries">
     <div class="section-header">
-      <div class="section-icon" style="background:#e3f2fd;">❓</div>
+      <div class="section-icon" style="background:#fff3e0;">🚧</div>
       <div>
-        <h2><span data-lang="hu">Kérdezési Technikák Alapjai</span><span data-lang="en">Basics of Questioning Techniques</span><span data-lang="ro">Bazele tehnicilor de întrebare</span></h2>
-        <div class="section-sub"><span data-lang="hu">A hatékony kérdezés elvei</span><span data-lang="en">Principles of effective questioning</span><span data-lang="ro">Principiile unei întrebări eficiente</span></div>
+        <h2><span data-lang="hu">Digitális Határok Megvonása</span><span data-lang="en">Setting Digital Boundaries</span><span data-lang="ro">Stabilirea limitelor digitale</span></h2>
+        <div class="section-sub"><span data-lang="hu">Eszköz-mentes zónák és időbeosztás</span><span data-lang="en">Device-free zones and scheduling</span><span data-lang="ro">Zone și program fără dispozitive</span></div>
       </div>
     </div>
-    <div class="intro-box">
-      <span data-lang="hu">A hatékony kérdezés a coaching egyik legfontosabb eszköze, amely segíti az ügyfelet a mélyebb önreflexióban és új felismerések megszületésében.</span><span data-lang="en">Effective questioning is one of the most important coaching tools, helping the client engage in deeper self-reflection and new insights.</span><span data-lang="ro">Întrebarea eficientă este unul dintre cele mai importante instrumente din coaching, care ajută clientul să se auto-reflecteze mai profund și să ajungă la noi descoperiri.</span>
-    </div>
-    <div class="feature-grid">
-      <div class="feature-card" style="border-color:#1565C0;">
-        <h3><span data-lang="hu">🎯 Célirányosság</span><span data-lang="en">🎯 Purposefulness</span><span data-lang="ro">🎯 Țintire</span></h3>
-        <ul>
-          <li><span data-lang="hu">Konkrét célt szolgálnak</span><span data-lang="en">Serve a specific purpose</span><span data-lang="ro">Servesc unui scop concret</span></li>
-          <li><span data-lang="hu">Tisztázás vagy mélyebb megértés</span><span data-lang="en">Clarification or deeper understanding</span><span data-lang="ro">Clarificare sau înțelegere mai profundă</span></li>
-          <li><span data-lang="hu">Új perspektívák feltárása</span><span data-lang="en">Exploring new perspectives</span><span data-lang="ro">Descoperirea unor perspective noi</span></li>
-          <li><span data-lang="hu">Cselekvésre ösztönzés</span><span data-lang="en">Encouraging action</span><span data-lang="ro">Încurajarea acțiunii</span></li>
-        </ul>
-      </div>
-      <div class="feature-card" style="border-color:#42A5F5;">
-        <h3><span data-lang="hu">🔓 Nyitottság</span><span data-lang="en">🔓 Openness</span><span data-lang="ro">🔓 Deschidere</span></h3>
-        <ul>
-          <li><span data-lang="hu">Teret adnak a gondolkodásnak</span><span data-lang="en">Allow space for thinking</span><span data-lang="ro">Oferă spațiu pentru gândire</span></li>
-          <li><span data-lang="hu">Önkifejezést lehetővé teszik</span><span data-lang="en">Enable self-expression</span><span data-lang="ro">Permite exprimarea de sine</span></li>
-          <li><span data-lang="hu">Nem sugallnak megoldást</span><span data-lang="en">Do not suggest solutions</span><span data-lang="ro">Nu sugerează soluții</span></li>
-          <li><span data-lang="hu">Nem igen/nem válaszok</span><span data-lang="en">Avoid yes/no answers</span><span data-lang="ro">Nu răspunsuri da/nu</span></li>
-        </ul>
-      </div>
-      <div class="feature-card" style="border-color:#1a7a4a;">
-        <h3><span data-lang="hu">⏱️ Időzítés és egyszerűség</span><span data-lang="en">⏱️ Timing and Simplicity</span><span data-lang="ro">⏱️ Timp și simplitate</span></h3>
-        <ul>
-          <li><span data-lang="hu">Megfelelő kérdés a megfelelő időben</span><span data-lang="en">The right question at the right time</span><span data-lang="ro">Întrebarea potrivită la momentul potrivit</span></li>
-          <li><span data-lang="hu">Egyszerű, érthető megfogalmazás</span><span data-lang="en">Simple, clear wording</span><span data-lang="ro">Formulare simplă și clară</span></li>
-          <li><span data-lang="hu">Kerüljük a szakzsargont</span><span data-lang="en">Avoid jargon</span><span data-lang="ro">Evită jargonul de specialitate</span></li>
-          <li><span data-lang="hu">Egy kérdés egyszerre</span><span data-lang="en">One question at a time</span><span data-lang="ro">O singură întrebare odată</span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
 
-  <!-- SECTION 5: KÉRDÉSTÍPUSOK -->
-  <div class="content-section" id="kerdestipusok">
-    <div class="section-header">
-      <div class="section-icon" style="background:#e3f2fd;">📋</div>
-      <div>
-        <h2><span data-lang="hu">Kérdéstípusok</span><span data-lang="en">Types of Questions</span><span data-lang="ro">Tipuri de întrebări</span></h2>
-        <div class="section-sub"><span data-lang="hu">A négy fő kérdéstípus és alkalmazásuk</span><span data-lang="en">The four main types of questions and their application</span><span data-lang="ro">Cele patru tipuri principale de întrebări și aplicarea lor</span></div>
-      </div>
-    </div>
-    <div class="question-type-grid">
-      <div class="question-card" style="border-color:#1565C0;">
-        <h4><span data-lang="hu">🔓 Nyitott kérdések</span><span data-lang="en">🔓 Open Questions</span><span data-lang="ro">🔓 Întrebări deschise</span></h4>
-        <p><span data-lang="hu">Bővebb kifejtést igényelnek, nem válaszolhatók meg egyszerű igennel vagy nemmel. Segítenek feltárni a gondolatokat és érzéseket.</span><span data-lang="en">Require elaboration, cannot be answered with a simple yes or no. Help uncover thoughts and feelings.</span><span data-lang="ro">Necesită o exprimare mai amplă, nu pot fi răspunse simplu cu da sau nu. Ajută la explorarea gândurilor și sentimentelor.</span></p>
-        <div class="q-example"><span data-lang="hu">"Mit gondolsz erről a helyzetről?"</span><span data-lang="en">"What do you think about this situation?"</span><span data-lang="ro">„Ce părere ai despre această situație?”</span><br><span data-lang="hu">"Hogyan érzed magad ezzel kapcsolatban?"</span><span data-lang="en">"How do you feel about this?"</span><span data-lang="ro">„Cum te simți în legătură cu asta?”</span></div>
-      </div>
-      <div class="question-card" style="border-color:#42A5F5;">
-        <h4><span data-lang="hu">🔒 Zárt kérdések</span><span data-lang="en">🔒 Closed Questions</span><span data-lang="ro">🔒 Întrebări închise</span></h4>
-        <p><span data-lang="hu">Konkrét, rövid válaszokat igényelnek. Tények tisztázására hasznos, de korlátozhatja a beszélgetést.</span><span data-lang="en">Require specific, brief answers. Useful for clarifying facts but can limit the conversation.</span><span data-lang="ro">Necesită răspunsuri scurte și concrete. Sunt utile pentru clarificarea faptelor, dar pot limita conversația.</span></p>
-        <div class="q-example"><span data-lang="hu">"Beszéltél már erről valakivel?"</span><span data-lang="en">"Have you talked about this with anyone?"</span><span data-lang="ro">„Ai vorbit deja cu cineva despre asta?”</span><br><span data-lang="hu">"Elkezdted már a feladatot?"</span><span data-lang="en">"Have you started the task yet?"</span><span data-lang="ro">„Ai început deja sarcina?”</span></div>
-      </div>
-      <div class="question-card" style="border-color:#1a7a4a;">
-        <h4><span data-lang="hu">🔍 Feltáró kérdések</span><span data-lang="en">🔍 Exploratory Questions</span><span data-lang="ro">🔍 Întrebări exploratorii</span></h4>
-        <p><span data-lang="hu">Mélyebb gondolkodásra ösztönöznek, segítenek a részletek és összefüggések feltárásában.</span><span data-lang="en">Encourage deeper thinking, help uncover details and connections.</span><span data-lang="ro">Încurajează o reflecție mai profundă, ajută la descoperirea detaliilor și conexiunilor.</span></p>
-        <div class="q-example"><span data-lang="hu">"Mi lehet ennek az oka?"</span><span data-lang="en">"What could be the reason for this?"</span><span data-lang="ro">„Care ar putea fi cauza acestui lucru?”</span><br><span data-lang="hu">"Hogyan kapcsolódik ez a korábbi tapasztalataidhoz?"</span><span data-lang="en">"How does this relate to your previous experiences?"</span><span data-lang="ro">„Cum se leagă asta de experiențele tale anterioare?”</span></div>
-      </div>
-      <div class="question-card" style="border-color:#9C27B0;">
-        <h4><span data-lang="hu">💭 Hipotetikus kérdések</span><span data-lang="en">💭 Hypothetical Questions</span><span data-lang="ro">💭 Întrebări ipotetice</span></h4>
-        <p><span data-lang="hu">Új perspektívákat nyitnak, segítenek elképzelni különböző lehetőségeket és következményeket.</span><span data-lang="en">They open new perspectives, helping to imagine different possibilities and consequences.</span><span data-lang="ro">Deschid perspective noi, ajută la imaginarea diferitelor posibilități și consecințe.</span></p>
-        <div class="q-example"><span data-lang="hu">"Mi történne, ha...?"</span><span data-lang="en">"What would happen if...?"</span><span data-lang="ro">"Ce s-ar întâmpla dacă...?"</span><br><span data-lang="hu">"Hogyan alakulna a helyzet, ha másképp közelítenéd meg?"</span><span data-lang="en">"How would the situation change if you approached it differently?"</span><span data-lang="ro">"Cum s-ar schimba situația dacă ai aborda-o altfel?"</span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- SECTION 6: ERŐTELJES KÉRDÉSEK -->
-  <div class="content-section" id="eroteljes">
-    <div class="section-header">
-      <div class="section-icon" style="background:#e3f2fd;">⚡</div>
-      <div>
-        <h2><span data-lang="hu">Erőteljes Kérdések</span><span data-lang="en">Powerful Questions</span><span data-lang="ro">Întrebări Puternice</span></h2>
-        <div class="section-sub"><span data-lang="hu">A coaching eszköztár leghatékonyabb elemei</span><span data-lang="en">The most effective elements of the coaching toolkit</span><span data-lang="ro">Cele mai eficiente elemente ale trusei de instrumente de coaching</span></div>
-      </div>
-    </div>
-    <div class="intro-box">
-      <span data-lang="hu">Az erőteljes kérdések a coaching eszköztár leghatékonyabb elemei, amelyek</span><span data-lang="en">Powerful questions are the most effective elements of the coaching toolkit, which</span><span data-lang="ro">Întrebările puternice sunt cele mai eficiente elemente ale trusei de instrumente de coaching, care</span> <strong><span data-lang="hu">új felismerésekhez, mélyebb megértéshez és valódi változáshoz</span><span data-lang="en">lead to new insights, deeper understanding, and real change</span><span data-lang="ro">conduc la noi descoperiri, înțelegere mai profundă și schimbare reală</span></strong> vezetnek.
-    </div>
-    <div class="feature-grid">
-      <div class="feature-card" style="border-color:#1565C0;">
-        <h3><span data-lang="hu">✅ Jellemzőik</span><span data-lang="en">✅ Characteristics</span><span data-lang="ro">✅ Caracteristicile lor</span></h3>
-        <ul>
-          <li><span data-lang="hu">Nyitottak, nem igen/nem válasz</span><span data-lang="en">They are open-ended, not yes/no answers</span><span data-lang="ro">Sunt deschise, nu răspunsuri da/nu</span></li>
-          <li><span data-lang="hu">Gondolkodásra ösztönöznek</span><span data-lang="en">They encourage reflection</span><span data-lang="ro">Încurajează gândirea</span></li>
-          <li><span data-lang="hu">Nem sugallnak megoldást</span><span data-lang="en">They do not suggest solutions</span><span data-lang="ro">Nu sugerează soluții</span></li>
-          <li><span data-lang="hu">Új perspektívákat nyitnak</span><span data-lang="en">They open new perspectives</span><span data-lang="ro">Deschid perspective noi</span></li>
-          <li><span data-lang="hu">Egyszerűek és világosak</span><span data-lang="en">Simple and clear</span><span data-lang="ro">Sunt simple și clare</span></li>
-        </ul>
-      </div>
+    <div class="two-col">
       <div class="feature-card" style="border-color:#E8622A;">
-        <h3><span data-lang="hu">⚡ Példák erőteljes kérdésekre</span><span data-lang="en">⚡ Examples of powerful questions</span><span data-lang="ro">⚡ Exemple de întrebări puternice</span></h3>
+        <h3><span data-lang="hu">🏠 Eszköz-mentes zónák</span><span data-lang="en">🏠 Device-free zones</span><span data-lang="ro">🏠 Zone fără dispozitive</span></h3>
         <ul>
-          <li><span data-lang="hu">"Mi lenne számodra a legjobb kimenetel?"</span><span data-lang="en">"What would be the best outcome for you?"</span><span data-lang="ro">"Care ar fi pentru tine cel mai bun rezultat?"</span></li>
-          <li><span data-lang="hu">"Mit tanultál ebből a tapasztalatból?"</span><span data-lang="en">"What have you learned from this experience?"</span><span data-lang="ro">"Ce ai învățat din această experiență?"</span></li>
-          <li><span data-lang="hu">"Ha minden lehetőséged megvolna, mit tennél?"</span><span data-lang="en">"If you had all the possibilities, what would you do?"</span><span data-lang="ro">"Dacă ai avea toate opțiunile disponibile, ce ai face?"</span></li>
-          <li><span data-lang="hu">"Mi tartja vissza a változástól?"</span><span data-lang="en">"What is holding you back from change?"</span><span data-lang="ro">"Ce te reține să faci schimbarea?"</span></li>
-          <li><span data-lang="hu">"Milyen erőforrásaid vannak már most?"</span><span data-lang="en">"What resources do you already have?"</span><span data-lang="ro">"Ce resurse ai deja?"</span></li>
+          <li><span data-lang="hu">Hálószoba = telefon-mentes terület</span><span data-lang="en">Bedroom = phone-free area</span><span data-lang="ro">Dormitor = zonă fără telefon</span></li>
+          <li><span data-lang="hu">Étkezések alatt nincs képernyő</span><span data-lang="en">No screens during meals</span><span data-lang="ro">Fără ecrane în timpul meselor</span></li>
+          <li><span data-lang="hu">Családi idő alatt offline mód</span><span data-lang="en">Offline mode during family time</span><span data-lang="ro">Mod offline în timpul timpului petrecut cu familia</span></li>
+          <li><span data-lang="hu">Kijelölt tech-mentes terek otthon</span><span data-lang="en">Designated tech-free spaces at home</span><span data-lang="ro">Spații desemnate fără tehnologie acasă</span></li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#9c27b0;">
+        <h3><span data-lang="hu">🔔 Értesítések kezelése</span><span data-lang="en">🔔 Managing Notifications</span><span data-lang="ro">🔔 Gestionarea notificărilor</span></h3>
+        <ul>
+          <li><span data-lang="hu">Kapcsold ki a nem fontos értesítéseket</span><span data-lang="en">Turn off non-essential notifications</span><span data-lang="ro">Dezactivează notificările neimportante</span></li>
+          <li><span data-lang="hu">Állíts be "Ne zavarj" időszakokat</span><span data-lang="en">Set "Do Not Disturb" periods</span><span data-lang="ro">Setează perioade „Nu deranja”</span></li>
+          <li><span data-lang="hu">Csak sürgős alkalmazások értesíthetnek</span><span data-lang="en">Only urgent apps can notify</span><span data-lang="ro">Doar aplicațiile urgente pot trimite notificări</span></li>
+          <li><span data-lang="hu">Csoportosítsd az értesítéseket</span><span data-lang="en">Group your notifications</span><span data-lang="ro">Grupează notificările</span></li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#00897b;">
+        <h3><span data-lang="hu">🕐 Időbeosztás</span><span data-lang="en">🕐 Scheduling</span><span data-lang="ro">🕐 Programare</span></h3>
+        <ul>
+          <li><span data-lang="hu">Reggeli és esti "digitális csendes órák"</span><span data-lang="en">Morning and evening "digital quiet hours"</span><span data-lang="ro">„Ore digitale de liniște” dimineața și seara</span></li>
+          <li><span data-lang="hu">Munkaidő alatt csak munka-appok</span><span data-lang="en">Work apps only during work hours</span><span data-lang="ro">Doar aplicații de muncă în timpul programului de lucru</span></li>
+          <li><span data-lang="hu">Hétvégi digitális szünet</span><span data-lang="en">Weekend digital break</span><span data-lang="ro">Pauză digitală în weekend</span></li>
+          <li><span data-lang="hu">Időblokkok kijelölése közösségi médiára</span><span data-lang="en">Time blocks allocated for social media</span><span data-lang="ro">Blocuri de timp dedicate rețelelor sociale</span></li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#1565c0;">
+        <h3><span data-lang="hu">💬 Határok kommunikálása</span><span data-lang="en">💬 Communicating Boundaries</span><span data-lang="ro">💬 Comunicarea limitelor</span></h3>
+        <ul>
+          <li><span data-lang="hu">Mondd el a szabályaidat másoknak</span><span data-lang="en">Share your rules with others</span><span data-lang="ro">Comunică regulile tale celorlalți</span></li>
+          <li><span data-lang="hu">Ne érezz kötelezettséget azonnali válaszra</span><span data-lang="en">Don’t feel obliged to respond immediately</span><span data-lang="ro">Nu te simți obligat să răspunzi imediat</span></li>
+          <li><span data-lang="hu">Tanítsd meg másoknak a határok tiszteletét</span><span data-lang="en">Teach others to respect boundaries</span><span data-lang="ro">Învață-i pe ceilalți să respecte limitele</span></li>
+          <li><span data-lang="hu">Állíts be automatikus válaszokat szükség esetén</span><span data-lang="en">Set up automatic replies if needed</span><span data-lang="ro">Setează răspunsuri automate dacă este necesar</span></li>
         </ul>
       </div>
     </div>
-    <div class="callout warning">
-      <span class="callout-icon">⚠️</span>
-      <div class="callout-text">
-        <strong><span data-lang="hu">Kerülendő: "Miért?" kérdések</span><span data-lang="en">To avoid: "Why?" questions</span><span data-lang="ro">De evitat: întrebările „De ce?”</span></strong>
-        <p><span data-lang="hu">A "Miért?" kérdések védekezést válthatnak ki, különösen fiataloknál. Helyette használj: "Mi az oka annak, hogy...?", "Hogyan jutottál erre a döntésre?", "Mi motivált ebben?"</span><span data-lang="en">"Why?" questions can trigger defensiveness, especially among young people. Instead, use: "What is the reason that...?", "How did you come to this decision?", "What motivated you in this?"</span><span data-lang="ro">Întrebările „De ce?” pot declanșa o reacție defensivă, mai ales în rândul tinerilor. În locul lor, folosește: „Care este motivul pentru care...?“, „Cum ai ajuns la această decizie?“, „Ce te-a motivat în acest sens?“</span></p>
+  </section>
+
+  <!-- 4. OFFLINE TEVÉKENYSÉGEK -->
+  <section class="content-section" id="sec-offline">
+    <div class="section-header">
+      <div class="section-icon" style="background:#e8f5e9;">🌿</div>
+      <div>
+        <h2><span data-lang="hu">Offline Tevékenységek Ösztönzése</span><span data-lang="en">Encouraging Offline Activities</span><span data-lang="ro">Încurajarea activităților offline</span></h2>
+        <div class="section-sub"><span data-lang="hu">Az egyensúly megteremtése az online és offline világ között</span><span data-lang="en">Creating balance between online and offline worlds</span><span data-lang="ro">Crearea unui echilibru între lumea online și cea offline</span></div>
       </div>
     </div>
+
+    <div class="feature-grid">
+      <div class="feature-card" style="border-color:#43a047;">
+        <h3><span data-lang="hu">🏃 Fizikai aktivitás</span><span data-lang="en">🏃 Physical activity</span><span data-lang="ro">🏃 Activitate fizică</span></h3>
+        <ul>
+          <li><span data-lang="hu">Napi séta a természetben</span><span data-lang="en">Daily walk in nature</span><span data-lang="ro">Plimbare zilnică în natură</span></li>
+          <li><span data-lang="hu">Sport vagy mozgás</span><span data-lang="en">Sports or exercise</span><span data-lang="ro">Sport sau mișcare</span></li>
+          <li><span data-lang="hu">Kertészkedés, háztartási munkák</span><span data-lang="en">Gardening, household chores</span><span data-lang="ro">Grădinărit, treburi casnice</span></li>
+          <li><span data-lang="hu">Kerékpározás, túrázás</span><span data-lang="en">Cycling, hiking</span><span data-lang="ro">Ciclism, drumeții</span></li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#f57c00;">
+        <h3><span data-lang="hu">🎨 Kreatív tevékenységek</span><span data-lang="en">🎨 Creative activities</span><span data-lang="ro">🎨 Activități creative</span></h3>
+        <ul>
+          <li><span data-lang="hu">Olvasás (fizikai könyvek)</span><span data-lang="en">Reading (physical books)</span><span data-lang="ro">Cititul (cărți fizice)</span></li>
+          <li><span data-lang="hu">Kézműves foglalkozások</span><span data-lang="en">Craft workshops</span><span data-lang="ro">Ateliere de lucru manual</span></li>
+          <li><span data-lang="hu">Zene, rajzolás, írás</span><span data-lang="en">Music, drawing, writing</span><span data-lang="ro">Muzică, desen, scris</span></li>
+          <li><span data-lang="hu">Főzés, sütés, új receptek kipróbálása</span><span data-lang="en">Cooking, baking, trying new recipes</span><span data-lang="ro">Gătit, copt, încercarea de rețete noi</span></li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#1565c0;">
+        <h3><span data-lang="hu">👥 Társas kapcsolatok</span><span data-lang="en">👥 Social connections</span><span data-lang="ro">👥 Relații sociale</span></h3>
+        <ul>
+          <li><span data-lang="hu">Személyes találkozók barátokkal</span><span data-lang="en">In-person meetings with friends</span><span data-lang="ro">Întâlniri personale cu prietenii</span></li>
+          <li><span data-lang="hu">Családi programok</span><span data-lang="en">Family programs</span><span data-lang="ro">Programe de familie</span></li>
+          <li><span data-lang="hu">Közösségi rendezvények</span><span data-lang="en">Community events</span><span data-lang="ro">Evenimente comunitare</span></li>
+          <li><span data-lang="hu">Társasjátékok, kártyajátékok</span><span data-lang="en">Board games, card games</span><span data-lang="ro">Jocuri de societate, jocuri de cărți</span></li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#7b1fa2;">
+        <h3>🧘 Mindfulness gyakorlatok</h3>
+        <ul>
+          <li><span data-lang="hu">Meditáció</span><span data-lang="en">Meditation</span><span data-lang="ro">Meditație</span></li>
+          <li><span data-lang="hu">Légzőgyakorlatok</span><span data-lang="en">Breathing exercises</span><span data-lang="ro">Exerciții de respirație</span></li>
+          <li><span data-lang="hu">Jóga vagy stretching</span><span data-lang="en">Yoga or stretching</span><span data-lang="ro">Yoga sau stretching</span></li>
+          <li><span data-lang="hu">Naplóírás, hálagyakorlatok</span><span data-lang="en">Journaling, gratitude exercises</span><span data-lang="ro">Jurnalizare, exerciții de recunoștință</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="two-col" style="margin-top:1.5rem;">
+      <div class="image-block icon-block">
+        <img src="images/icon_reading.png" alt="Olvasás ikon" />
+        <div class="image-caption"><span data-lang="hu">Offline olvasás – a digitális detox egyik legjobb módja</span><span data-lang="en">Offline reading – one of the best ways for a digital detox</span><span data-lang="ro">Cititul offline – una dintre cele mai bune metode de detox digital</span></div>
+      </div>
+      <div class="image-block icon-block">
+        <img src="images/icon_mindfulness.png" alt="Mindfulness ikon" />
+        <div class="image-caption"><span data-lang="hu">Meditáció és tudatos jelenlét</span><span data-lang="en">Meditation and mindfulness</span><span data-lang="ro">Meditație și conștientizare</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. DIGITÁLIS DETOX -->
+  <section class="content-section" id="sec-detox">
+    <div class="section-header">
+      <div class="section-icon" style="background:#fce4ec;">🔋</div>
+      <div>
+        <h2><span data-lang="hu">Digitális Detox Technikák</span><span data-lang="en">Digital Detox Techniques</span><span data-lang="ro">Tehnici de detox digital</span></h2>
+        <div class="section-sub"><span data-lang="hu">Fokozatos leválás és feltöltődés</span><span data-lang="en">Gradual disconnection and recharging</span><span data-lang="ro">Deconectare și reîncărcare graduală</span></div>
+      </div>
+    </div>
+
+    <ol class="step-list">
+      <li><div class="step-text"><strong><span data-lang="hu">Fokozatos csökkentés:</span><span data-lang="en">Gradual reduction:</span><span data-lang="ro">Reducere treptată:</span></strong> <span data-lang="hu">Ne próbálj meg azonnal teljesen leállni – csökkentsd naponta 15-30 perccel a képernyőidőt.</span><span data-lang="en">Don't try to stop completely right away – reduce screen time by 15-30 minutes daily.</span><span data-lang="ro">Nu încerca să renunți complet imediat – redu timpul petrecut în fața ecranului cu 15-30 de minute pe zi.</span></div></li>
+      <li><div class="step-text"><strong><span data-lang="hu">Digitális szombat:</span><span data-lang="en">Digital Saturday:</span><span data-lang="ro">Sâmbăta digitală:</span></strong> <span data-lang="hu">Hetente egy napot jelölj ki, amikor minimálisra csökkented az eszközhasználatot.</span><span data-lang="en">Choose one day a week to minimize device usage.</span><span data-lang="ro">Alege o zi pe săptămână în care să reduci la minim utilizarea dispozitivelor.</span></div></li>
+      <li><div class="step-text"><strong>Reggeli rutin:</strong> <span data-lang="hu">Az első 30 percben ne nyúlj a telefonodhoz – kezdd a napot tudatosan.</span><span data-lang="en">Don't touch your phone for the first 30 minutes – start your day mindfully.</span><span data-lang="ro">În primele 30 de minute nu atinge telefonul – începe ziua conștient.</span></div></li>
+      <li><div class="step-text"><strong><span data-lang="hu">Esti lekapcsolás:</span><span data-lang="en">Evening shutdown:</span><span data-lang="ro">Deconectarea de seară:</span></strong> <span data-lang="hu">Lefekvés előtt 1 órával tedd le az eszközöket – a kék fény zavarja az alvást.</span><span data-lang="en">Put down devices 1 hour before bedtime – blue light disrupts sleep.</span><span data-lang="ro">Cu o oră înainte de culcare pune deoparte dispozitivele – lumina albastră deranjează somnul.</span></div></li>
+      <li><div class="step-text"><strong><span data-lang="hu">Értesítések kikapcsolása:</span><span data-lang="en">Turn off notifications:</span><span data-lang="ro">Dezactivarea notificărilor:</span></strong> <span data-lang="hu">Kapcsold ki az összes nem sürgős értesítést – te döntsd el, mikor nézel rá a telefonra.</span><span data-lang="en">Disable all non-urgent notifications – you decide when to check your phone.</span><span data-lang="ro">Dezactivează toate notificările care nu sunt urgente – tu decizi când verifici telefonul.</span></div></li>
+      <li><div class="step-text"><strong><span data-lang="hu">Fizikai könyv:</span><span data-lang="en">Physical book:</span><span data-lang="ro">Carte fizică:</span></strong> <span data-lang="hu">Cseréld le az esti görgetést egy fizikai könyv olvasására.</span><span data-lang="en">Replace evening scrolling with reading a physical book.</span><span data-lang="ro">Înlocuiește scroll-ul de seară cu cititul unei cărți fizice.</span></div></li>
+    </ol>
+
+    <div class="callout warning">
+      <div class="callout-icon">⚠️</div>
+      <div class="callout-text">
+        <strong>Fontos tudni</strong>
+        <span data-lang="hu">A digitális detox nem azt jelenti, hogy teljesen le kell mondani a technológiáról. A cél a</span><span data-lang="en">Digital detox doesn't mean giving up technology completely. The goal is</span><span data-lang="ro">Detoxul digital nu înseamnă renunțarea completă la tehnologie. Scopul este</span> <em><span data-lang="hu">tudatos és kiegyensúlyozott</span><span data-lang="en">to develop a conscious and balanced</span><span data-lang="ro">dezvoltarea unui</span></em> <span data-lang="hu">használat kialakítása.</span><span data-lang="en">usage.</span><span data-lang="ro">mod de utilizare conștient și echilibrat.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. KÉPERNYŐIDŐ MENEDZSMENT -->
+  <section class="content-section" id="sec-screentime">
+    <div class="section-header">
+      <div class="section-icon" style="background:#e3f2fd;">⏰</div>
+      <div>
+        <h2><span data-lang="hu">Képernyőidő Menedzsment</span><span data-lang="en">Screen Time Management</span><span data-lang="ro">Managementul timpului petrecut în fața ecranului</span></h2>
+        <div class="section-sub"><span data-lang="hu">Eszközök és stratégiák a tudatos időgazdálkodáshoz</span><span data-lang="en">Tools and strategies for mindful time management</span><span data-lang="ro">Dispozitive și strategii pentru o gestionare conștientă a timpului</span></div>
+      </div>
+    </div>
+
+    <div class="image-block">
+      <img src="images/chart_daily.png" alt="Napi átlagos képernyőidő" />
+      <div class="image-caption"><span data-lang="hu">Napi átlagos képernyőidő (órában) – különböző tevékenységek szerint</span><span data-lang="en">Average daily screen time (in hours) – by different activities</span><span data-lang="ro">Timp mediu zilnic petrecut în fața ecranului (în ore) – pe diferite activități</span></div>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-card" style="border-color:#2196F3;">
+        <h3><span data-lang="hu">📊 Mérés és nyomon követés</span><span data-lang="en">📊 Measurement and tracking</span><span data-lang="ro">📊 Măsurare și monitorizare</span></h3>
+        <ul>
+          <li><span data-lang="hu">Telefonos képernyőidő funkció használata</span><span data-lang="en">Using phone screen time features</span><span data-lang="ro">Utilizarea funcției de timp petrecut pe ecran a telefonului</span></li>
+          <li><span data-lang="hu">Digitális jóllét alkalmazások telepítése</span><span data-lang="en">Installing digital wellbeing apps</span><span data-lang="ro">Instalarea aplicațiilor pentru bunăstare digitală</span></li>
+          <li><span data-lang="hu">Heti adatok rendszeres áttekintése</span><span data-lang="en">Regular weekly data review</span><span data-lang="ro">Revizuirea regulată a datelor săptămânale</span></li>
+          <li><span data-lang="hu">Produktív vs. szórakoztató használat megkülönböztetése</span><span data-lang="en">Distinguishing productive vs. entertainment use</span><span data-lang="ro">Distincția între utilizarea productivă și cea recreativă</span></li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#43a047;">
+        <h3><span data-lang="hu">🎯 Célok és korlátok</span><span data-lang="en">🎯 Goals and limits</span><span data-lang="ro">🎯 Obiective și limite</span></h3>
+        <ul>
+          <li><span data-lang="hu">Napi limit beállítása appokhoz</span><span data-lang="en">Setting daily app limits</span><span data-lang="ro">Setarea unui limită zilnică pentru aplicații</span></li>
+          <li><span data-lang="hu">Értesítés, ha elérted a limitet</span><span data-lang="en">Notification when limit is reached</span><span data-lang="ro">Notificare când atingi limita</span></li>
+          <li><span data-lang="hu">Grayscale mód bekapcsolása</span><span data-lang="en">Enabling grayscale mode</span><span data-lang="ro">Activarea modului grayscale</span></li>
+          <li><span data-lang="hu">Appok törlése, ha nem szükségesek</span><span data-lang="en">Deleting apps if unnecessary</span><span data-lang="ro">Ștergerea aplicațiilor dacă nu sunt necesare</span></li>
+        </ul>
+      </div>
+    </div>
+
     <span id="video-2"></span>
-    <div class="video-section-hu">
+      <div class="video-section-hu">
 <div class="video-container">
         <iframe
         width="100%"
         height="400"
-        src="https://www.youtube.com/embed/umXVAC3aOFw?modestbranding=1"
-        title="Kérdezési technikák ifjúságsegítőknek"
+        src="https://www.youtube.com/embed/hdrcGdVwXsY?modestbranding=1"
+        title="Kiút a digitális világból – Inaktív csoport kezelése"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen>
       </iframe>
     </div>
-    <p class="video-caption"><span data-lang="hu">A videó a nyitott és zárt kérdések közötti különbséget, az erőteljes kérdések megfogalmazásának elveit, valamint a „Miért?" kérdések kerülésének és hatékony helyettesítésének módszereit mutatja be ifjúságsegítői kontextusban.</span><span data-lang="en">The video presents the difference between open and closed questions, principles for formulating powerful questions, as well as methods for avoiding and effectively replacing "Why?" questions in a youth work context.</span><span data-lang="ro">Videoclipul prezintă diferența dintre întrebările deschise și cele închise, principiile formulării întrebărilor puternice, precum și metodele de evitare și înlocuire eficientă a întrebărilor „De ce?” în contextul lucrului cu tinerii.</span></p>
+    <p class="video-caption"><span data-lang="hu">A videó bemutatja, hogyan aktivizálhatja az ifjúságsegítő a passzív, telefonba merülő csoportot öt konkrét, könnyen alkalmazható módszer segítségével.</span><span data-lang="en">The video demonstrates how youth workers can activate a passive, phone-absorbed group using five specific, easy-to-apply methods.</span><span data-lang="ro">Videoclipul arată cum poate un lucrător de tineret să activeze un grup pasiv, absorbit de telefon, folosind cinci metode concrete și ușor de aplicat.</span></p>
 </div>
-  </div>
+  </section>
 
-  <!-- ÖNREFLEXIÓ -->
-  <div class="content-section" id="onreflexio">
+  <!-- 7. DIGITÁLIS BIZTONSÁG -->
+  <section class="content-section" id="sec-safety">
     <div class="section-header">
-      <div class="section-icon" style="background:#e3f2fd;">🔍</div>
+      <div class="section-icon" style="background:#fce4ec;">🔒</div>
       <div>
-        <h2><span data-lang="hu">Önreflexió és Gyakorlat</span><span data-lang="en">Self-reflection and Practice</span><span data-lang="ro">Auto-reflecție și Exercițiu</span></h2>
-        <div class="section-sub"><span data-lang="hu">Értékeld saját hallgatási és kérdezési készségeidet</span><span data-lang="en">Evaluate your own listening and questioning skills</span><span data-lang="ro">Evaluează-ți abilitățile de ascultare și de adresare a întrebărilor</span></div>
+        <h2><span data-lang="hu">Digitális Biztonság és Adatvédelem</span><span data-lang="en">Digital Security and Data Protection</span><span data-lang="ro">Securitate digitală și protecția datelor</span></h2>
+        <div class="section-sub"><span data-lang="hu">Online biztonság és személyes adatok védelme</span><span data-lang="en">Online safety and personal data protection</span><span data-lang="ro">Siguranța online și protecția datelor personale</span></div>
       </div>
     </div>
+
+    <div class="two-col">
+      <div class="feature-card" style="border-color:#c62828;">
+        <h3><span data-lang="hu">🛡️ Adatvédelem</span><span data-lang="en">🛡️ Data protection</span><span data-lang="ro">🛡️ Protecția datelor</span> <span class="highlight-badge">Fontos</span></h3>
+        <ul>
+          <li><span data-lang="hu">Erős jelszavak használata</span><span data-lang="en">Using strong passwords</span><span data-lang="ro">Folosirea parolelor puternice</span></li>
+          <li><span data-lang="hu">Kétfaktoros hitelesítés bekapcsolása</span><span data-lang="en">Enabling two-factor authentication</span><span data-lang="ro">Activarea autentificării în doi pași</span></li>
+          <li><span data-lang="hu">Magánélet beállítások rendszeres ellenőrzése</span><span data-lang="en">Regularly checking privacy settings</span><span data-lang="ro">Verificarea regulată a setărilor de confidențialitate</span></li>
+          <li><span data-lang="hu">Jelszavak rendszeres frissítése</span><span data-lang="en">Regular password updates</span><span data-lang="ro">Actualizarea periodică a parolelor</span></li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#e65100;">
+        <h3><span data-lang="hu">📰 Fake news felismerése</span><span data-lang="en">📰 Recognizing fake news</span><span data-lang="ro">📰 Recunoașterea știrilor false</span> <span class="highlight-badge">Fontos</span></h3>
+        <ul>
+          <li><span data-lang="hu">Források ellenőrzése</span><span data-lang="en">Checking sources</span><span data-lang="ro">Verificarea surselor</span></li>
+          <li><span data-lang="hu">Kritikus gondolkodás fejlesztése</span><span data-lang="en">Developing critical thinking</span><span data-lang="ro">Dezvoltarea gândirii critice</span></li>
+          <li><span data-lang="hu">Megosztás előtt ellenőrzés</span><span data-lang="en">Verifying before sharing</span><span data-lang="ro">Verificarea înainte de a distribui</span></li>
+          <li><span data-lang="hu">Több forrás összehasonlítása</span><span data-lang="en">Comparing multiple sources</span><span data-lang="ro">Compararea mai multor surse</span></li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#6a1b9a;">
+        <h3><span data-lang="hu">👣 Digitális lábnyom</span><span data-lang="en">👣 Digital footprint</span><span data-lang="ro">👣 Amprenta digitală</span></h3>
+        <ul>
+          <li><span data-lang="hu">Gondold át, mit osztasz meg</span><span data-lang="en">Think about what you share</span><span data-lang="ro">Gândește-te ce partajezi</span></li>
+          <li><span data-lang="hu">Töröld a régi, nem kívánatos tartalmakat</span><span data-lang="en">Delete old, unwanted content</span><span data-lang="ro">Șterge conținutul vechi și nedorit</span></li>
+          <li><span data-lang="hu">Építsd tudatosan az online imázsodat</span><span data-lang="en">Build your online image consciously</span><span data-lang="ro">Construiește-ți conștient imaginea online</span></li>
+          <li><span data-lang="hu">Süti- és nyomkövetés-beállítások kezelése</span><span data-lang="en">Managing cookie and tracking settings</span><span data-lang="ro">Gestionarea setărilor pentru cookie-uri și urmărire</span></li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#1565c0;">
+        <h3><span data-lang="hu">🚫 Cyberbullying elleni védelem</span><span data-lang="en">🚫 Protection against cyberbullying</span><span data-lang="ro">🚫 Protecție împotriva cyberbullying-ului</span> <span class="highlight-badge">Fontos</span></h3>
+        <ul>
+          <li><span data-lang="hu">Jelentsd a zaklatást</span><span data-lang="en">Report harassment</span><span data-lang="ro">Raportează hărțuirea</span></li>
+          <li><span data-lang="hu">Blokkolj és távolítsd el a negatív kapcsolatokat</span><span data-lang="en">Block and remove negative contacts</span><span data-lang="ro">Blochează și elimină contactele negative</span></li>
+          <li><span data-lang="hu">Kérj segítséget, ha szükséges</span><span data-lang="en">Ask for help if needed</span><span data-lang="ro">Cere ajutor dacă este nevoie</span></li>
+          <li><span data-lang="hu">Ne válaszolj a provokációkra</span><span data-lang="en">Don't respond to provocations</span><span data-lang="ro">Nu răspunde provocărilor</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="image-block icon-block">
+      <img src="images/icon_cyberbullying.png" alt="Cyberbullying ikon" />
+      <div class="image-caption"><span data-lang="hu">A cyberbullying felismerése és kezelése – fontos téma fiatalok körében</span><span data-lang="en">Recognizing and handling cyberbullying – an important topic among young people</span><span data-lang="ro">Recunoașterea și gestionarea cyberbullying-ului – un subiect important în rândul tinerilor</span></div>
+    </div>
+  </section>
+
+  <!-- 8. POZITÍV DIGITÁLIS KÖZÖSSÉGEK -->
+  <section class="content-section" id="sec-community">
+    <div class="section-header">
+      <div class="section-icon" style="background:#e8f5e9;">🤝</div>
+      <div>
+        <h2><span data-lang="hu">Pozitív Digitális Közösségek</span><span data-lang="en">Positive Digital Communities</span><span data-lang="ro">Comunități Digitale Pozitive</span></h2>
+        <div class="section-sub"><span data-lang="hu">Egészséges online kapcsolatok építése</span><span data-lang="en">Building Healthy Online Relationships</span><span data-lang="ro">Construirea unor relații online sănătoase</span></div>
+      </div>
+    </div>
+
+    <div class="intro-box">
+      <span data-lang="hu">A pozitív digitális közösségek kialakítása</span><span data-lang="en">Creating Positive Digital Communities</span><span data-lang="ro">Crearea comunităților digitale pozitive</span> <strong><span data-lang="hu">tudatos döntéseket és aktív részvételt</span><span data-lang="en">conscious decisions and active participation</span><span data-lang="ro">decizii conștiente și participare activă</span></strong> <span data-lang="hu">igényel. Az online tér is lehet támogató, inspiráló és értékteremtő – ha tudatosan alakítjuk.</span><span data-lang="en">is required. The online space can also be supportive, inspiring, and value-creating – if we shape it consciously.</span><span data-lang="ro">este necesar. Spațiul online poate fi de asemenea un mediu de susținere, inspirație și creare de valoare – dacă îl modelăm conștient.</span>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-card" style="border-color:#43a047;">
+        <h3>💚 Autentikus kapcsolatok</h3>
+        <ul>
+          <li><span data-lang="hu">Légy őszinte és valódi online is</span><span data-lang="en">Be honest and authentic online too</span><span data-lang="ro">Fii sincer și autentic și online</span> <span class="highlight-badge">Fontos</span></li>
+          <li><span data-lang="hu">Kerüld a túlzott önreklámozást</span><span data-lang="en">Avoid excessive self-promotion</span><span data-lang="ro">Evită autopromovarea excesivă</span></li>
+          <li><span data-lang="hu">Mutasd meg az igazi személyiségedet</span><span data-lang="en">Show your true personality</span><span data-lang="ro">Arată-ți adevărata personalitate</span></li>
+          <li><span data-lang="hu">Vállald a sebezhetőséget megfelelő mértékben</span><span data-lang="en">Embrace vulnerability to an appropriate extent</span><span data-lang="ro">Asumă-ți vulnerabilitatea în măsura potrivită</span></li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#2196F3;">
+        <h3><span data-lang="hu">💬 Építő kommunikáció</span><span data-lang="en">💬 Constructive Communication</span><span data-lang="ro">💬 Comunicare constructivă</span></h3>
+        <ul>
+          <li><span data-lang="hu">Pozitív kommentek írása</span><span data-lang="en">Writing positive comments</span><span data-lang="ro">Scrierea comentariilor pozitive</span></li>
+          <li><span data-lang="hu">Mások támogatása és bíztatása</span><span data-lang="en">Supporting and encouraging others</span><span data-lang="ro">Sprijinirea și încurajarea celorlalți</span></li>
+          <li><span data-lang="hu">Konstruktív visszajelzések adása</span><span data-lang="en">Giving constructive feedback</span><span data-lang="ro">Oferirea de feedback constructiv</span></li>
+          <li><span data-lang="hu">Aktív hallgatás és empátia</span><span data-lang="en">Active listening and empathy</span><span data-lang="ro">Ascultare activă și empatie</span> <span class="highlight-badge">Fontos</span></li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#f57c00;">
+        <h3><span data-lang="hu">📢 Értékes tartalom megosztása</span><span data-lang="en">📢 Sharing Valuable Content</span><span data-lang="ro">📢 Distribuirea de conținut valoros</span></h3>
+        <ul>
+          <li><span data-lang="hu">Ossz meg hasznos információkat</span><span data-lang="en">Share useful information</span><span data-lang="ro">Distribuie informații utile</span></li>
+          <li><span data-lang="hu">Inspirálj másokat</span><span data-lang="en">Inspire others</span><span data-lang="ro">Inspiră-i pe ceilalți</span> <span class="highlight-badge">Fontos</span></li>
+          <li><span data-lang="hu">Kerüld a negatív vagy káros tartalmakat</span><span data-lang="en">Avoid negative or harmful content</span><span data-lang="ro">Evită conținutul negativ sau dăunător</span></li>
+          <li><span data-lang="hu">Ellenőrizd a forrásokat megosztás előtt</span><span data-lang="en">Check sources before sharing</span><span data-lang="ro">Verifică sursele înainte de a distribui</span></li>
+        </ul>
+      </div>
+      <div class="feature-card" style="border-color:#7b1fa2;">
+        <h3><span data-lang="hu">🎯 Célzott közösségek</span><span data-lang="en">🎯 Targeted Communities</span><span data-lang="ro">🎯 Comunități țintite</span></h3>
+        <ul>
+          <li><span data-lang="hu">Csatlakozz a hobbijaidhoz kapcsolódó csoportokhoz</span><span data-lang="en">Join groups related to your hobbies</span><span data-lang="ro">Alătură-te grupurilor legate de hobby-urile tale</span></li>
+          <li><span data-lang="hu">Keress szakmai networking lehetőségeket</span><span data-lang="en">Look for professional networking opportunities</span><span data-lang="ro">Caută oportunități de networking profesional</span></li>
+          <li><span data-lang="hu">Építs kapcsolatokat hasonló értékrendű emberekkel</span><span data-lang="en">Build connections with like-minded people</span><span data-lang="ro">Construiește relații cu oameni cu valori similare</span> <span class="highlight-badge">Fontos</span></li>
+          <li><span data-lang="hu">Vegyél részt aktívan a közösség életében</span><span data-lang="en">Participate actively in community life</span><span data-lang="ro">Participă activ la viața comunității</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. ÖNREFLEXIÓ ÉS MONITORING – INTERAKTÍV -->
+  <section class="content-section" id="sec-reflection">
+    <div class="section-header">
+      <div class="section-icon" style="background:#f3e5f5;">🪞</div>
+      <div>
+        <h2><span data-lang="hu">Önreflexió és Monitoring</span><span data-lang="en">Self-reflection and Monitoring</span><span data-lang="ro">Auto-reflecție și Monitorizare</span></h2>
+        <div class="section-sub"><span data-lang="hu">Saját digitális szokások nyomon követése</span><span data-lang="en">Tracking your own digital habits</span><span data-lang="ro">Urmărirea propriilor obiceiuri digitale</span></div>
+      </div>
+    </div>
+
+    <div class="intro-box">
+      <span data-lang="hu">A digitális eszközhasználat tudatosításának első lépése a</span><span data-lang="en">The first step to raising awareness about digital device use is</span><span data-lang="ro">Primul pas în conștientizarea utilizării instrumentelor digitale este</span> <strong><span data-lang="hu">pontos mérés</span><span data-lang="en">accurate measurement</span><span data-lang="ro">măsurarea exactă</span></strong>. Ismerd meg, mennyi időt töltesz különböző alkalmazásokban és platformokon – ez az önismeret alapja.
+    </div>
+
+    <!-- INTERAKTÍV ÖNÉRTÉKELŐ KÉRDÉSEK -->
     <div class="reflection-section">
-      <h3><span data-lang="hu">👂 Aktív Hallgatás Önértékelése</span><span data-lang="en">👂 Active Listening Self-Assessment</span><span data-lang="ro">👂 Autoevaluare a Ascultării Active</span></h3>
+      <h3><span data-lang="hu">🧩 Önértékelő kérdések – Digitális szokásaim</span><span data-lang="en">🧩 Self-assessment Questions – My Digital Habits</span><span data-lang="ro">🧩 Întrebări de autoevaluare – Obiceiurile mele digitale</span></h3>
+      <p class="reflection-intro"><span data-lang="hu">Töltsd ki az alábbi kérdőívet, hogy képet kapj jelenlegi digitális szokásaidról. A válaszok csak a te böngésződben maradnak – nem kerülnek sehova.</span><span data-lang="en">Fill out the questionnaire below to get an overview of your current digital habits. The answers stay only in your browser – they are not sent anywhere.</span><span data-lang="ro">Completează chestionarul de mai jos pentru a-ți face o imagine asupra obiceiurilor tale digitale actuale. Răspunsurile rămân doar în browserul tău – nu sunt trimise nicăieri.</span></p>
 
-      <div class="reflection-question">
-        <label><span data-lang="hu">1. Mennyire tudod félretenni saját gondolataidat, amikor másokat hallgatsz?</span><span data-lang="en">1. How well can you set aside your own thoughts when listening to others?</span><span data-lang="ro">1. Cât de bine poți să-ți pui deoparte propriile gânduri atunci când asculți pe alții?</span></label>
+      <div class="question-block">
+        <label><span class="q-num">1</span> <span data-lang="hu">Naponta átlagosan mennyi időt töltesz közösségi médiával?</span><span data-lang="en">On average, how much time do you spend on social media daily?</span><span data-lang="ro">Cât timp petreci în medie zilnic pe rețelele sociale?</span></label>
         <div class="scale-options">
-          <input type="radio" name="q1" id="q1_1" value="1"><label for="q1_1"><span data-lang="hu">1 – Nehéz</span><span data-lang="en">1 – Difficult</span><span data-lang="ro">1 – Dificil</span></label>
-          <input type="radio" name="q1" id="q1_2" value="2"><label for="q1_2">2</label>
-          <input type="radio" name="q1" id="q1_3" value="3"><label for="q1_3"><span data-lang="hu">3 – Közepes</span><span data-lang="en">3 – Moderate</span><span data-lang="ro">3 – Mediu</span></label>
-          <input type="radio" name="q1" id="q1_4" value="4"><label for="q1_4">4</label>
-          <input type="radio" name="q1" id="q1_5" value="5"><label for="q1_5"><span data-lang="hu">5 – Könnyű</span><span data-lang="en">5 – Easy</span><span data-lang="ro">5 – Ușor</span></label>
+          <input type="radio" name="q1" id="q1a" value="1"><label for="q1a"><span data-lang="hu">Kevesebb mint 1 óra</span><span data-lang="en">Less than 1 hour</span><span data-lang="ro">Mai puțin de 1 oră</span></label>
+          <input type="radio" name="q1" id="q1b" value="2"><label for="q1b"><span data-lang="hu">1–2 óra</span><span data-lang="en">1–2 hours</span><span data-lang="ro">1–2 ore</span></label>
+          <input type="radio" name="q1" id="q1c" value="3"><label for="q1c"><span data-lang="hu">2–4 óra</span><span data-lang="en">2–4 hours</span><span data-lang="ro">2–4 ore</span></label>
+          <input type="radio" name="q1" id="q1d" value="4"><label for="q1d"><span data-lang="hu">Több mint 4 óra</span><span data-lang="en">More than 4 hours</span><span data-lang="ro">Peste 4 ore</span></label>
         </div>
       </div>
 
-      <div class="reflection-question">
-        <label><span data-lang="hu">2. Melyik hallgatási akadályt tapasztalod leggyakrabban saját magadnál?</span><span data-lang="en">2. Which listening barrier do you most often experience in yourself?</span><span data-lang="ro">2. Care este cel mai frecvent obstacol în ascultare pe care îl experimentezi la tine?</span></label>
+      <div class="question-block">
+        <label><span class="q-num">2</span> <span data-lang="hu">Milyen érzéssel teszed le a telefont egy hosszabb görgetés után?</span><span data-lang="en">How do you feel after putting down your phone following a long scroll?</span><span data-lang="ro">Cum te simți după ce lași telefonul după o perioadă lungă de scroll?</span></label>
         <div class="scale-options">
-          <input type="radio" name="q2" id="q2_a" value="a"><label for="q2_a"><span data-lang="hu">Belső párbeszéd</span><span data-lang="en">Internal dialogue</span><span data-lang="ro">Dialog interior</span></label>
-          <input type="radio" name="q2" id="q2_b" value="b"><label for="q2_b"><span data-lang="hu">Előítéletek</span><span data-lang="en">Prejudices</span><span data-lang="ro">Prejudecăți</span></label>
-          <input type="radio" name="q2" id="q2_c" value="c"><label for="q2_c"><span data-lang="hu">Türelmetlenség</span><span data-lang="en">Impatience</span><span data-lang="ro">Nerăbdare</span></label>
-          <input type="radio" name="q2" id="q2_d" value="d"><label for="q2_d"><span data-lang="hu">Figyelemelterelők</span><span data-lang="en">Distractions</span><span data-lang="ro">Distrageri</span></label>
-          <input type="radio" name="q2" id="q2_e" value="e"><label for="q2_e"><span data-lang="hu">Énközpontúság</span><span data-lang="en">Egocentrism</span><span data-lang="ro">Egocentrism</span></label>
+          <input type="radio" name="q2" id="q2a" value="1"><label for="q2a"><span data-lang="hu">Feltöltve, inspirálva</span><span data-lang="en">Refreshed, inspired</span><span data-lang="ro">Încărcat, inspirat</span></label>
+          <input type="radio" name="q2" id="q2b" value="2"><label for="q2b">Semleges</label>
+          <input type="radio" name="q2" id="q2c" value="3"><label for="q2c"><span data-lang="hu">Kissé fáradtan</span><span data-lang="en">A bit tired</span><span data-lang="ro">Puțin obosit</span></label>
+          <input type="radio" name="q2" id="q2d" value="4"><label for="q2d"><span data-lang="hu">Kiürülve, szorongva</span><span data-lang="en">Empty, anxious</span><span data-lang="ro">Gol, anxios</span></label>
         </div>
       </div>
 
-      <div class="reflection-question">
-        <label><span data-lang="hu">3. Írj le egy erőteljes kérdést, amelyet egy fiatal segítésénél alkalmaznál:</span><span data-lang="en">3. Write down a powerful question you would use when helping a young person:</span><span data-lang="ro">3. Scrie o întrebare puternică pe care ai folosi-o pentru a ajuta un tânăr:</span></label>
-        <textarea class="reflection-textarea" placeholder="Pl.: 'Mi lenne számodra a legjobb kimenetel ebben a helyzetben?'"></textarea>
+      <div class="question-block">
+        <label><span class="q-num">3</span> <span data-lang="hu">Milyen offline tevékenységeket végzel rendszeresen? (Több is választható)</span><span data-lang="en">Which offline activities do you regularly engage in? (Multiple answers possible)</span><span data-lang="ro">Ce activități offline faci regulat? (Poți alege mai multe)</span></label>
+        <div class="checkbox-group">
+          <label class="checkbox-item"><input type="checkbox" name="q3" value="sport"><span><span data-lang="hu">Sport, mozgás</span><span data-lang="en">Sports, exercise</span><span data-lang="ro">Sport, mișcare</span></span></label>
+          <label class="checkbox-item"><input type="checkbox" name="q3" value="olvasas"><span><span data-lang="hu">Olvasás (könyv)</span><span data-lang="en">Reading (books)</span><span data-lang="ro">Citit (carte)</span></span></label>
+          <label class="checkbox-item"><input type="checkbox" name="q3" value="kreativ"><span><span data-lang="hu">Kreatív alkotás</span><span data-lang="en">Creative activities</span><span data-lang="ro">Creație creativă</span></span></label>
+          <label class="checkbox-item"><input type="checkbox" name="q3" value="tarsas"><span><span data-lang="hu">Személyes találkozók</span><span data-lang="en">Personal meetings</span><span data-lang="ro">Întâlniri personale</span></span></label>
+          <label class="checkbox-item"><input type="checkbox" name="q3" value="termeszet"><span><span data-lang="hu">Természetjárás</span><span data-lang="en">Hiking, nature walks</span><span data-lang="ro">Drumeții în natură</span></span></label>
+          <label class="checkbox-item"><input type="checkbox" name="q3" value="meditacio"><span><span data-lang="hu">Meditáció, jóga</span><span data-lang="en">Meditation, yoga</span><span data-lang="ro">Meditație, yoga</span></span></label>
+          <label class="checkbox-item"><input type="checkbox" name="q3" value="semmi"><span><span data-lang="hu">Általában semmi</span><span data-lang="en">Usually nothing</span><span data-lang="ro">De obicei nimic</span></span></label>
+        </div>
       </div>
 
-      <div class="reflection-question">
-        <label><span data-lang="hu">4. Milyen konkrét helyzetben tervezed alkalmazni az aktív hallgatás technikáit?</span><span data-lang="en">4. In what specific situation do you plan to apply active listening techniques?</span><span data-lang="ro">4. În ce situație concretă plănuiești să aplici tehnicile de ascultare activă?</span></label>
-        <textarea class="reflection-textarea" placeholder="Írj egy konkrét helyzetet..."></textarea>
+      <div class="question-block">
+        <label><span class="q-num">4</span> <span data-lang="hu">Mi az, amin a legtöbbet szeretnél változtatni digitális szokásaidban?</span><span data-lang="en">What would you most like to change about your digital habits?</span><span data-lang="ro">Ce ai vrea să schimbi cel mai mult în obiceiurile tale digitale?</span></label>
+        <textarea class="text-answer" name="q4" placeholder="Írd le gondolataidat... (pl. kevesebb TikTok, több alvás, reggeli telefon nélkül)"></textarea>
       </div>
 
-      <button class="reflection-btn" onclick="showResult()"><span data-lang="hu">Visszajelzés kérése</span><span data-lang="en">Requesting feedback</span><span data-lang="ro">Cerere de feedback</span></button>
-      <div class="reflection-result" id="reflResult">
-        <strong><span data-lang="hu">🌟 Kiváló önreflexió!</span><span data-lang="en">🌟 Excellent self-reflection!</span><span data-lang="ro">🌟 Auto-reflecție excelentă!</span></strong><br>
-        <span data-lang="hu">Az aktív hallgatás és a hatékony kérdezés a coaching legfontosabb készségei. Javasolt következő lépés: válassz ki egy hallgatási akadályt, amelyen dolgozni szeretnél, és tudatosan figyelj rá a következő héten. Folytasd a tanulást a 3. modullal:</span><span data-lang="en">Active listening and effective questioning are the most important coaching skills. Suggested next step: choose one listening barrier you want to work on and consciously pay attention to it over the next week. Continue learning with Module 3:</span><span data-lang="ro">Ascultarea activă și adresarea eficientă a întrebărilor sunt cele mai importante abilități în coaching. Pasul următor recomandat: alege un obstacol în ascultare la care vrei să lucrezi și fii conștient de el în săptămâna următoare. Continuă să înveți cu modulul 3:</span> <em><span data-lang="hu">Célkitűzés és Motiváció Támogatása</span><span data-lang="en">Supporting Goal Setting and Motivation</span><span data-lang="ro">Stabilirea Obiectivelor și Sprijinirea Motivației</span></em>.
+      <div class="question-block">
+        <label><span class="q-num">5</span> <span data-lang="hu">Mennyire érzed magad kontrollban a digitális eszközhasználatod felett? (1 = egyáltalán nem, 5 = teljesen)</span><span data-lang="en">How much control do you feel you have over your digital device use? (1 = not at all, 5 = completely)</span><span data-lang="ro">Cât de mult simți că ai control asupra utilizării dispozitivelor digitale? (1 = deloc, 5 = complet)</span></label>
+        <div class="scale-options">
+          <input type="radio" name="q5" id="q5a" value="1"><label for="q5a">1</label>
+          <input type="radio" name="q5" id="q5b" value="2"><label for="q5b">2</label>
+          <input type="radio" name="q5" id="q5c" value="3"><label for="q5c">3</label>
+          <input type="radio" name="q5" id="q5d" value="4"><label for="q5d">4</label>
+          <input type="radio" name="q5" id="q5e" value="5"><label for="q5e">5</label>
+        </div>
+      </div>
+
+      <button class="submit-reflection" onclick="showReflectionResult()"><span data-lang="hu">Visszajelzés kérése ›</span><span data-lang="en">Request feedback ›</span><span data-lang="ro">Solicitare feedback ›</span></button>
+
+      <div class="reflection-result" id="reflectionResult">
+        <h4><span data-lang="hu">🌟 Köszönöm a válaszaidat!</span><span data-lang="en">🌟 Thank you for your answers!</span><span data-lang="ro">🌟 Mulțumesc pentru răspunsurile tale!</span></h4>
+        <p><span data-lang="hu">Az önreflexió első lépése a tudatosság. Nézd meg a válaszaidat, és gondold végig: melyik az a</span><span data-lang="en">The first step of self-reflection is awareness. Look at your answers and think: what is one</span><span data-lang="ro">Primul pas al auto-reflecției este conștientizarea. Uită-te peste răspunsurile tale și gândește-te: care este</span> <strong><span data-lang="hu">egy dolog</span><span data-lang="en">thing</span><span data-lang="ro">un lucru</span></strong><span data-lang="hu">, amin a legkönnyebben tudnál változtatni a következő héten? Kezdj kicsiben – egy kis változás is nagy különbséget hozhat!</span><span data-lang="en">that you could most easily change in the next week? Start small – even a little change can make a big difference!</span><span data-lang="ro">la care ai putea să faci cea mai ușoară schimbare în săptămâna următoare? Începe cu pași mici – o mică schimbare poate face o mare diferență!</span></p>
       </div>
     </div>
-  </div>
 
+    <!-- DIGITÁLIS NAPLÓ -->
+    <div class="diary-section">
+      <h4><span data-lang="hu">📓 Digitális Napló – Heti nyomon követés</span><span data-lang="en">📓 Digital Diary – Weekly Tracking</span><span data-lang="ro">📓 Jurnal Digital – Monitorizare săptămânală</span></h4>
+      <p style="font-size:0.88rem;color:#666;margin-bottom:1rem;"><span data-lang="hu">Kövesd nyomon a napi képernyőidődet és az offline tevékenységeidet. A beírt adatok csak a te böngésződben maradnak.</span><span data-lang="en">Track your daily screen time and offline activities. The data you enter stays only in your browser.</span><span data-lang="ro">Urmărește-ți timpul zilnic petrecut în fața ecranului și activitățile offline. Datele introduse rămân doar în browserul tău.</span></p>
+
+      <div class="diary-row" id="diaryRows">
+        <div class="diary-field"><label>Nap</label><select><option><span data-lang="hu">Hétfő</span><span data-lang="en">Monday</span><span data-lang="ro">Luni</span></option><option>Kedd</option><option>Szerda</option><option><span data-lang="hu">Csütörtök</span><span data-lang="en">Thursday</span><span data-lang="ro">Joi</span></option><option><span data-lang="hu">Péntek</span><span data-lang="en">Friday</span><span data-lang="ro">Vineri</span></option><option>Szombat</option><option><span data-lang="hu">Vasárnap</span><span data-lang="en">Sunday</span><span data-lang="ro">Duminică</span></option></select></div>
+        <div class="diary-field"><label><span data-lang="hu">Képernyőidő (óra)</span><span data-lang="en">Screen time (hours)</span><span data-lang="ro">Timp ecran (ore)</span></label><input type="number" min="0" max="24" step="0.5" placeholder="pl. 3.5" /></div>
+        <div class="diary-field"><label><span data-lang="hu">Offline tevékenység</span><span data-lang="en">Offline activity</span><span data-lang="ro">Activitate offline</span></label><input type="text" placeholder="pl. séta, olvasás" /></div>
+      </div>
+
+      <button class="add-diary-btn" onclick="addDiaryRow()"><span data-lang="hu">+ Új nap hozzáadása</span><span data-lang="en">+ Add new day</span><span data-lang="ro">+ Adaugă o zi nouă</span></button>
+    </div>
+
+    <div class="callout tip">
+      <div class="callout-icon">📱</div>
+      <div class="callout-text">
+        <strong><span data-lang="hu">Beépített eszközök</span><span data-lang="en">Built-in tools</span><span data-lang="ro">Instrumente integrate</span></strong>
+        <span data-lang="hu">Használd a telefonod képernyőidő funkcióját (iOS: Képernyőidő / Android: Digital Wellbeing), vagy telepíts digitális jóllét alkalmazásokat, amelyek részletesebb adatokat szolgáltatnak.</span><span data-lang="en">Use your phone’s screen time feature (iOS: Screen Time / Android: Digital Wellbeing), or install digital wellbeing apps that provide more detailed data.</span><span data-lang="ro">Folosește funcția de timp de ecran a telefonului tău (iOS: Timp ecran / Android: Digital Wellbeing) sau instalează aplicații de bunăstare digitală care oferă date mai detaliate.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. ÖSSZEFOGLALÁS -->
+  <section class="content-section" id="sec-summary">
+    <div class="section-header">
+      <div class="section-icon" style="background:#e8f5e9;">🎯</div>
+      <div>
+        <h2><span data-lang="hu">Összefoglalás és Következő Lépések</span><span data-lang="en">Summary and Next Steps</span><span data-lang="ro">Rezumat și Pașii Următori</span></h2>
+        <div class="section-sub"><span data-lang="hu">Az eszköztár fő üzenetei és az akcióterv</span><span data-lang="en">Key messages of the toolbox and the action plan</span><span data-lang="ro">Mesajele cheie ale trusei de instrumente și planul de acțiune</span></div>
+      </div>
+    </div>
+
+    <div class="intro-box">
+      <span data-lang="hu">A digitális jóllét egy</span><span data-lang="en">Digital wellbeing is a</span><span data-lang="ro">Bunăstarea digitală este o</span> <strong><span data-lang="hu">folyamatos utazás, nem pedig végcél</span><span data-lang="en">continuous journey, not a final destination</span><span data-lang="ro">călătorie continuă, nu o destinație finală</span></strong>. Az alábbi kulcselemek segítenek az egészséges digitális életmód kialakításában.
+    </div>
+
+    <div class="principles-grid">
+      <div class="principle-card" style="border-color:#4B2D8B;">
+        <div class="p-icon">👁️</div>
+        <h4><span data-lang="hu">Tudatosság</span><span data-lang="en">Awareness</span><span data-lang="ro">Conștientizare</span></h4>
+        <p><span data-lang="hu">Ismerd fel a digitális eszközök hatását az életedre</span><span data-lang="en">Recognize the impact of digital tools on your life</span><span data-lang="ro">Recunoaște impactul dispozitivelor digitale asupra vieții tale</span></p>
+      </div>
+      <div class="principle-card" style="border-color:#2196F3;">
+        <div class="p-icon">⚖️</div>
+        <h4><span data-lang="hu">Egyensúly</span><span data-lang="en">Balance</span><span data-lang="ro">Echilibru</span></h4>
+        <p><span data-lang="hu">Találd meg a megfelelő arányt az online és offline élet között</span><span data-lang="en">Find the right ratio between online and offline life</span><span data-lang="ro">Găsește proporția potrivită între viața online și cea offline</span></p>
+      </div>
+      <div class="principle-card" style="border-color:#43a047;">
+        <div class="p-icon">🎯</div>
+        <h4><span data-lang="hu">Szándékosság</span><span data-lang="en">Intentionality</span><span data-lang="ro">Intenționalitate</span></h4>
+        <p><span data-lang="hu">Használd a technológiát céltudatosan, ne automatikusan</span><span data-lang="en">Use technology purposefully, not automatically</span><span data-lang="ro">Folosește tehnologia cu un scop, nu automat</span></p>
+      </div>
+      <div class="principle-card" style="border-color:#E8622A;">
+        <div class="p-icon">🕹️</div>
+        <h4>Kontroll</h4>
+        <p><span data-lang="hu">Te irányítsd az eszközeidet, ne fordítva</span><span data-lang="en">You control your devices, not the other way around</span><span data-lang="ro">Tu controlezi dispozitivele, nu invers</span></p>
+      </div>
+    </div>
+
+    <div class="next-steps">
+      <h3><span data-lang="hu">🚀 Következő lépések – Akcióterv</span><span data-lang="en">🚀 Next steps – Action plan</span><span data-lang="ro">🚀 Pașii următori – Plan de acțiune</span></h3>
+      <div class="next-step-item">
+        <div class="ns-icon">1</div>
+        <div class="ns-text"><strong><span data-lang="hu">Mérés</span><span data-lang="en">Measurement</span><span data-lang="ro">Măsurare</span></strong><span><span data-lang="hu">Kövesd nyomon a jelenlegi digitális szokásaidat egy héten át</span><span data-lang="en">Track your current digital habits for one week</span><span data-lang="ro">Urmărește-ți obiceiurile digitale actuale timp de o săptămână</span></span></div>
+      </div>
+      <div class="next-step-item">
+        <div class="ns-icon">2</div>
+        <div class="ns-text"><strong><span data-lang="hu">Tervezés</span><span data-lang="en">Planning</span><span data-lang="ro">Planificare</span></strong><span><span data-lang="hu">Készíts személyre szabott digitális jóllét tervet</span><span data-lang="en">Create a personalized digital wellbeing plan</span><span data-lang="ro">Creează un plan personalizat de bunăstare digitală</span></span></div>
+      </div>
+      <div class="next-step-item">
+        <div class="ns-icon">3</div>
+        <div class="ns-text"><strong><span data-lang="hu">Kísérletezés</span><span data-lang="en">Experimentation</span><span data-lang="ro">Experimentare</span></strong><span><span data-lang="hu">Próbálj ki különböző technikákat és módszereket</span><span data-lang="en">Try out different techniques and methods</span><span data-lang="ro">Încearcă diferite tehnici și metode</span></span></div>
+      </div>
+      <div class="next-step-item">
+        <div class="ns-icon">4</div>
+        <div class="ns-text"><strong><span data-lang="hu">Értékelés</span><span data-lang="en">Evaluation</span><span data-lang="ro">Evaluare</span></strong><span><span data-lang="hu">Rendszeresen vizsgáld felül az eredményeket</span><span data-lang="en">Regularly review the results</span><span data-lang="ro">Revizuiește regulat rezultatele</span></span></div>
+      </div>
+      <div class="next-step-item">
+        <div class="ns-icon">5</div>
+        <div class="ns-text"><strong><span data-lang="hu">Folyamatos fejlődés</span><span data-lang="en">Continuous improvement</span><span data-lang="ro">Dezvoltare continuă</span></strong><span><span data-lang="hu">Alkalmazkodj a változó körülményekhez, maradj naprakész</span><span data-lang="en">Adapt to changing circumstances, stay up to date</span><span data-lang="ro">Adaptează-te la condițiile în schimbare, rămâi la curent</span></span></div>
+      </div>
+    </div>
+
+    <span id="video-3"></span>
+      <div class="video-section-hu">
+<div class="video-container">
+        <iframe
+        width="100%"
+        height="400"
+        src="https://www.youtube.com/embed/D5k5Sxb4w6E?modestbranding=1"
+        title="Digitális jóllét és egészséges online egyensúly"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <p class="video-caption"><span data-lang="hu">A videó összefoglalja a digitális jóllét alapfogalmait, és áttekintést nyújt az egészséges online-offline egyensúly megteremtésének eszközeiről ifjúságsegítők és fiatalok számára.</span><span data-lang="en">The video summarizes the basic concepts of digital wellbeing and provides an overview of tools for creating a healthy online-offline balance for youth workers and young people.</span><span data-lang="ro">Videoclipul rezumă conceptele de bază ale bunăstării digitale și oferă o privire de ansamblu asupra instrumentelor pentru crearea unui echilibru sănătos online-offline, destinat lucrătorilor de tineret și tinerilor.</span></p>
 </div>
+  </section>
 
+</div><!-- end main-content -->
+
+<!-- ===== DOWNLOAD FOOTER ===== -->
 <div class="download-footer">
   <div class="download-footer-inner">
-    <h3><span data-lang="hu">📄 Modul letöltése PDF formátumban</span><span data-lang="en">📄 Download module in PDF format</span><span data-lang="ro">📄 Descarcă modulul în format PDF</span></h3>
-    <p><span data-lang="hu">Töltsd le az Aktív Hallgatás és Kérdezési Technikák modult PDF formátumban.</span><span data-lang="en">Download the Active Listening and Questioning Techniques module in PDF format.</span><span data-lang="ro">Descarcă modulul Ascultare Activă și Tehnici de Întrebare în format PDF.</span></p>
+    <h3><span data-lang="hu">📄 Fejezet letöltése PDF formátumban</span><span data-lang="en">📄 Download chapter as PDF</span><span data-lang="ro">📄 Descarcă capitolul în format PDF</span></h3>
+    <p><span data-lang="hu">Töltsd le az 1. fejezet teljes tartalmát PDF formátumban – elérhető magyar, angol és román nyelven.</span><span data-lang="en">Download the full content of Chapter 1 as a PDF – available in Hungarian, English, and Romanian.</span><span data-lang="ro">Descarcă conținutul complet al capitolului 1 în format PDF – disponibil în maghiară, engleză și română.</span></p>
     <div class="download-btns">
-      <a href="coach2_hu.pdf" class="dl-btn" download>
+      <a href="chapter1_hu.pdf" class="dl-btn hu" download>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
         🇭🇺 Magyar PDF
       </a>
-      <a href="https://drive.google.com/file/d/1B0pDQmzH7t2cQpLp7xVXGSxL7XrVGzo-/view" target="_blank" class="dl-btn">
+      <a href="https://drive.google.com/file/d/1GZEgg02oUdT-YKS6DSga3KF5__zZ9Gzh/view" target="_blank" class="dl-btn en">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
         🇬🇧 English PDF
       </a>
-      <a href="https://drive.google.com/file/d/1TPSeYzIzaEw6Xbu_64HVCeSd3AKhnPtq/view" target="_blank" class="dl-btn">
+      <a href="https://drive.google.com/file/d/18EFl-11NUxpKrG-3TH_hu9H4p2vdg2qY/view" target="_blank" class="dl-btn ro">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
         🇷🇴 PDF Română
       </a>
@@ -593,18 +1552,33 @@
   </div>
 </div>
 
+<!-- ===== EU FOOTER ===== -->
 <script>
-function showResult() {
-  const r = document.getElementById('reflResult');
-  r.style.display = 'block';
-  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-}
+  function showReflectionResult() {
+    const result = document.getElementById('reflectionResult');
+    result.classList.add('visible');
+    result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function addDiaryRow() {
+    const container = document.getElementById('diaryRows').parentElement;
+    const newRow = document.createElement('div');
+    newRow.className = 'diary-row';
+    newRow.innerHTML = `
+      <div class="diary-field"><label>Nap</label><select><option>Hétfő</option><option>Kedd</option><option>Szerda</option><option>Csütörtök</option><option>Péntek</option><option>Szombat</option><option>Vasárnap</option></select></div>
+      <div class="diary-field"><label>Képernyőidő (óra)</label><input type="number" min="0" max="24" step="0.5" placeholder="pl. 3.5" /></div>
+      <div class="diary-field"><label>Offline tevékenység</label><input type="text" placeholder="pl. séta, olvasás" /></div>
+    `;
+    const addBtn = container.querySelector('.add-diary-btn');
+    container.insertBefore(newRow, addBtn);
+  }
 </script>
 
+
 <div class="chapter-nav">
-  <a href="../coaching1/index.html">← <span data-lang="hu"><span data-lang="hu">Coaching 1</span><span data-lang="en">Coaching 1</span><span data-lang="ro">Coaching 1</span></span><span data-lang="en"><span data-lang="hu">Coaching 1</span><span data-lang="en">Coaching 1</span><span data-lang="ro">Coaching 1</span></span><span data-lang="ro"><span data-lang="hu">Coaching 1</span><span data-lang="en">Coaching 1</span><span data-lang="ro">Coaching 1</span></span></a>
+  <span></span>
   <a href="../index.html" class="nav-home"><span data-lang="hu"><span data-lang="hu">🏠 Főoldal</span><span data-lang="en">🏠 Home</span><span data-lang="ro">🏠 Pagina principală</span></span><span data-lang="en">🏠 Home</span><span data-lang="ro">🏠 Acasă</span></a>
-  <a href="../coaching3/index.html"><span data-lang="hu"><span data-lang="hu">Coaching 3</span><span data-lang="en">Coaching 3</span><span data-lang="ro">Coaching 3</span></span><span data-lang="en"><span data-lang="hu">Coaching 3</span><span data-lang="en">Coaching 3</span><span data-lang="ro">Coaching 3</span></span><span data-lang="ro"><span data-lang="hu">Coaching 3</span><span data-lang="en">Coaching 3</span><span data-lang="ro">Coaching 3</span></span> →</a>
+  <a href="../chapter2/index.html"><span data-lang="hu"><span data-lang="hu">2. fejezet</span><span data-lang="en">Chapter 2</span><span data-lang="ro">Capitolul 2</span></span><span data-lang="en">Chapter 2</span><span data-lang="ro">Capitolul 2</span> →</a>
 </div>
 
 <script>
@@ -627,7 +1601,7 @@ function showResult() {
 </script>
 <footer class="eu-footer">
   <div class="eu-footer-inner">
-    <img src="../eu-funded-logo.jpg" alt="Funded by the European Union" class="eu-footer-logo" />
+    <img src="../eu-funded-logo.jpg" alt="Funded by the European Union" class="eu-footer-logo"  style="max-width:160px;height:auto;"/>
     <div class="eu-footer-text">
       <span data-lang="hu">Az Európai Unió finanszírozásával. Az itt szereplő információk és állítások a szerző(k) álláspontját képviselik, és nem feltétlenül tükrözik az Európai Unió vagy a Tempus Közalapítvány hivatalos véleményét. Sem az Európai Unió, sem a támogatást nyújtó hatóság nem vonható felelősségre miattuk.</span><span data-lang="en">Funded by the European Union. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or Tempus Public Foundation. Neither the European Union nor the granting authority can be held responsible for them.</span><span data-lang="ro">Finanțat de Uniunea Europeană. Opiniile și punctele de vedere exprimate aparțin exclusiv autorului (autorilor) și nu reflectă neapărat cele ale Uniunii Europene sau ale Fundației Publice Tempus. Nici Uniunea Europeană, nici autoritatea finanțatoare nu pot fi considerate responsabile pentru acestea.</span>
       <br><small>Projekt azonosító / Project ID: 2024-3-HU01-KA210-YOU-000290582</small>
